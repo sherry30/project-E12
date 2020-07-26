@@ -1,0 +1,29 @@
+HexMap(Instance):
+	list of HexCompoenet(attached on hex gameObjects)
+		contains Hex and all its operations(getDistance between 2 hex)
+	Generaitng initial map
+
+HexOperations(UnderHexMap Object)
+	methods like get neighbors and stuff
+	BuildCity
+	Spawna unit
+
+PlayerController
+	Remove a Building or remove a unit
+	kingdom
+		have allprefabs of cities, buildings and units andspells
+		cities to get cost from them
+	list of cities(you currently have)
+	and everything you currently own
+Production(under PlayerController object)
+	will get the signal from UI buttons and then fetchthe info from
+	 Kingdom and count production
+	once done, HexOperatiob willinstanciate
+	
+	
+
+
+GameState
+	occupied spaces(x and y)
+
+

@@ -1,0 +1,65 @@
+Game Objects:
+	Main Camera
+	Hex Map
+		Hex Tiles
+	Main View
+		UI layout
+	Event system
+	Gamestate
+	HUB(TechTree view)
+	Player Controller(also has production script)	
+	AI Controller
+	HUB(belief tree)(pantheon)
+	HUB(Royal Exchange hub)
+	HUB(alchemy hub)
+	HUB(Forge hub)
+	HUB(diplomacy)
+	Vortex
+	AnimalCave
+-----------------------------------------------------------
+
+Classes:
+
+	Building
+		mana collector and all the other buildings
+	Kingdoms(abstract class)
+		all types of kingdoms
+
+
+	units
+		all types of units
+	
+	Energy
+	Hex
+	Items(abstract)
+	Player COntroller
+	AI Controller
+	TechTree
+	Spell(abstract)
+	animal
+	animalCave
+	City:Building
+	District:Building
+	techSkilL(ABSTRACT)	
+	Vortex	
+	Shadow
+	improvements(abstract)
+	cost
+	production
+	
+other:
+	Hub:
+		Royal Exchange hub
+		alchemy hub
+		Forge
+		Diplomacy
+		tech tree
+		Pantheon
+
+	tree view:
+		tech tree
+		belief tree
+desc:
+
+improvements and buildings are diffrent 
+

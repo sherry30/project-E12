@@ -1,0 +1,195 @@
+//production class will be notified once button on UI is clicked
+prodcution:
+	list of units
+	Queue of Building
+	Queue of improvements
+	CostAnalaysis()
+Build method is for setting occupied hexes in GameState and setting ID
+
+Building:
+	ID
+	name
+	description
+	max health
+	current health
+	cost
+	location(x and y Hex coordinate)
+	isBuilt(bool)
+	Build()
+	
+//might change city prefabs to just building prefabs
+//list of cities wont be used anywhere except 
+for getting price when button will be clicked on UI
+//signal will be sent to production class which will fetch the city and prefab
+for cost analysis and then put it in queue
+Kingdom(abstract): 
+	name
+	description
+	list of units
+	list of buildings
+	List of cities
+	list of prefabs of buildings
+	list of city prefabs
+	list of Spell
+	numBuildings, numCities
+	energy type
+	TechTree	
+
+	getIndexOfcity();(for production class so can fetch prefab gameObject)
+
+units:
+	name
+	description
+	max health
+	current health
+	damage
+	category
+	kingdom name(just the name)
+	prefab
+	list of Items
+	cost
+	
+Game State(Instance):
+	weather
+	number of turns
+	whose turn is it	
+	selected object
+	mouse over which object
+	list of occupied hexes(with buildings and structures)
+	list of Kingdoms
+
+//gonna change //every class: Building, units and cities and district and 
+//impr will have their own updatePosition system toavoid weird issues
+//Hex Operation class willcall all of these
+HexCOmponent:
+	Hex
+	City
+	Building
+	//list of units
+	updatePosition();()update position of this hex,building and
+ city everytime camera moves
+
+Hex:
+	x and y coordinate
+	//list of units
+	prefab
+	//list of animals	
+	//biome
+	Distance(Hex)
+	
+	
+
+HexMap(Instance):
+	BuildCIty(place,(x,y), cityIndex(in Kingdom class))(main function if you want to build a city)
+	length 
+	width
+
+HexOperations:
+	getNeighbors(int distance)
+	updatePosition()//wrapping
+	
+
+//Cities in your posession willbe accessed from here(with id)
+//also from hexes array in HexMap(with x and y coordinates )
+PlayerController(Instance):
+	Kingdom(which the player chose)
+	Approval
+	dictionary of Raw MAterial
+	yield of Raw Materials(dictionary)
+	dictionary of Resources
+	yirld of Resources(dictionary)
+	current state of techtree
+	population
+	population growing rate
+	dictionary Energy
+	yiled Energy(dictionary)
+	list cities
+	//list of improvements
+	era
+
+
+TechTree:
+	list of teckSkills
+
+Item(abstract):	
+	name
+	description
+	type(Armor,Weapon,Tome,Artifacts)		
+	cost
+
+	
+Spell(abstract):
+	name
+	description
+	type	
+	energy type
+	cost
+
+Animal:
+	Type(predator,prey)
+	race
+	max health
+	current health
+	species(migratory, stationary)
+	
+city(building):
+	name
+	kingdom name
+	boarders length
+	approval threshold
+	list of District
+	list of buildings
+	population
+	state(string)
+	production
+	
+District:(building) :
+	list of buildings(List)
+	limit of buildings (default =3)
+	population
+
+Crystal:
+	energy	
+
+TechSkill(abstract):
+	name 
+	description
+	grantSkill()(pure function)
+	is available
+
+Vortex:
+	Location(x,y)
+	boarder length
+	list of shadows
+
+Shadow:
+	max health
+	current health
+	damage
+	
+AnimalCave:
+	list of animals
+	location(x,y)
+	boarder length
+
+improvements:
+
+	name
+	description
+	cost
+
+cost:
+	dictionary of resources
+	dictionary of Raw Material
+	dictionary of Energy
+	
+Resource:
+	enum(gold,food,production)	
+Energy:
+	enum(Fire,Water,Dark,Light,Air)
+Raw_MAterial:
+	enum(stick,stone,fibre,hide,copper_ore,coal,iron_ore)
+
+
+
+all the prefabs will be instantiated from PlayerController.Instance.kingdom...

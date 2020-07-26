@@ -1,0 +1,75 @@
+Date : 2020-07-22 17:26:16
+Directory : /home/shwy/project-E12/Assets/Scrpts
+Total : 40 files,  2231 codes, 355 comments, 439 blanks, all 3025 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C#       |         40 |      2,231 |        355 |        439 |      3,025 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                   |         40 |      2,231 |        355 |        439 |      3,025 |
+| A pathfinding                                                       |          2 |         95 |         12 |         15 |        122 |
+| Biome                                                               |          1 |         85 |         17 |          7 |        109 |
+| UI                                                                  |          5 |        169 |         18 |         31 |        218 |
+| building                                                            |          4 |        121 |         12 |         32 |        165 |
+| controller                                                          |          5 |        366 |         85 |         80 |        531 |
+| hex                                                                 |          5 |        671 |        115 |        147 |        933 |
+| item                                                                |          1 |         22 |          2 |          7 |         31 |
+| kingdom                                                             |          7 |        123 |         14 |         23 |        160 |
+| other                                                               |          5 |        395 |         31 |         67 |        493 |
+| spell                                                               |          1 |         16 |          3 |          6 |         25 |
+| unit                                                                |          4 |        168 |         46 |         24 |        238 |
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                            | language | code       | comment    | blank      | total      |
++---------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /home/shwy/project-E12/Assets/Scrpts/A pathfinding/PathFinding.cs   | C#       |         81 |         12 |         11 |        104 |
+| /home/shwy/project-E12/Assets/Scrpts/A pathfinding/PathNode.cs      | C#       |         14 |          0 |          4 |         18 |
+| /home/shwy/project-E12/Assets/Scrpts/Biome/Biome.cs                 | C#       |         85 |         17 |          7 |        109 |
+| /home/shwy/project-E12/Assets/Scrpts/UI/BlockUI.cs                  | C#       |         10 |          0 |          2 |         12 |
+| /home/shwy/project-E12/Assets/Scrpts/UI/BuildingButton.cs           | C#       |         12 |          2 |          5 |         19 |
+| /home/shwy/project-E12/Assets/Scrpts/UI/UIController.cs             | C#       |         45 |          0 |          3 |         48 |
+| /home/shwy/project-E12/Assets/Scrpts/UI/UnitProductionList.cs       | C#       |         62 |          7 |         13 |         82 |
+| /home/shwy/project-E12/Assets/Scrpts/UI/makingButton.cs             | C#       |         40 |          9 |          8 |         57 |
+| /home/shwy/project-E12/Assets/Scrpts/building/Building.cs           | C#       |         46 |          6 |         11 |         63 |
+| /home/shwy/project-E12/Assets/Scrpts/building/City.cs               | C#       |         48 |          2 |         11 |         61 |
+| /home/shwy/project-E12/Assets/Scrpts/building/District.cs           | C#       |         15 |          2 |          5 |         22 |
+| /home/shwy/project-E12/Assets/Scrpts/building/Improvemet.cs         | C#       |         12 |          2 |          5 |         19 |
+| /home/shwy/project-E12/Assets/Scrpts/controller/AIController.cs     | C#       |         66 |          3 |         22 |         91 |
+| /home/shwy/project-E12/Assets/Scrpts/controller/CameraController.cs | C#       |         46 |          4 |         16 |         66 |
+| /home/shwy/project-E12/Assets/Scrpts/controller/MouseController.cs  | C#       |         99 |         14 |         22 |        135 |
+| /home/shwy/project-E12/Assets/Scrpts/controller/NPCController.cs    | C#       |         51 |         23 |          6 |         80 |
+| /home/shwy/project-E12/Assets/Scrpts/controller/PlayerController.cs | C#       |        104 |         41 |         14 |        159 |
+| /home/shwy/project-E12/Assets/Scrpts/hex/Hex.cs                     | C#       |         82 |         22 |         17 |        121 |
+| /home/shwy/project-E12/Assets/Scrpts/hex/HexComponent.cs            | C#       |        142 |         15 |         19 |        176 |
+| /home/shwy/project-E12/Assets/Scrpts/hex/HexMap.cs                  | C#       |        100 |         26 |         50 |        176 |
+| /home/shwy/project-E12/Assets/Scrpts/hex/HexMapGenerator.cs         | C#       |        167 |          9 |         19 |        195 |
+| /home/shwy/project-E12/Assets/Scrpts/hex/HexOperations.cs           | C#       |        180 |         43 |         42 |        265 |
+| /home/shwy/project-E12/Assets/Scrpts/item/Item.cs                   | C#       |         22 |          2 |          7 |         31 |
+| /home/shwy/project-E12/Assets/Scrpts/kingdom/AirKingdom.cs          | C#       |         13 |          1 |          2 |         16 |
+| /home/shwy/project-E12/Assets/Scrpts/kingdom/DarkKingdom.cs         | C#       |         12 |          1 |          2 |         15 |
+| /home/shwy/project-E12/Assets/Scrpts/kingdom/EarthKingdom.cs        | C#       |         13 |          1 |          2 |         16 |
+| /home/shwy/project-E12/Assets/Scrpts/kingdom/FireKingdom.cs         | C#       |         22 |          6 |          7 |         35 |
+| /home/shwy/project-E12/Assets/Scrpts/kingdom/Kingdom.cs             | C#       |         40 |          3 |          6 |         49 |
+| /home/shwy/project-E12/Assets/Scrpts/kingdom/LightKingdom.cs        | C#       |         11 |          1 |          2 |         14 |
+| /home/shwy/project-E12/Assets/Scrpts/kingdom/WaterKingdom.cs        | C#       |         12 |          1 |          2 |         15 |
+| /home/shwy/project-E12/Assets/Scrpts/other/Cost.cs                  | C#       |         94 |          1 |         13 |        108 |
+| /home/shwy/project-E12/Assets/Scrpts/other/GameState.cs             | C#       |         99 |          9 |         16 |        124 |
+| /home/shwy/project-E12/Assets/Scrpts/other/Player.cs                | C#       |         51 |          2 |         11 |         64 |
+| /home/shwy/project-E12/Assets/Scrpts/other/Task.cs                  | C#       |        120 |         15 |         24 |        159 |
+| /home/shwy/project-E12/Assets/Scrpts/other/UpdatePosition.cs        | C#       |         31 |          4 |          3 |         38 |
+| /home/shwy/project-E12/Assets/Scrpts/spell/Spell.cs                 | C#       |         16 |          3 |          6 |         25 |
+| /home/shwy/project-E12/Assets/Scrpts/unit/Camper.cs                 | C#       |         14 |          2 |          2 |         18 |
+| /home/shwy/project-E12/Assets/Scrpts/unit/Shadow.cs                 | C#       |         15 |          3 |          3 |         21 |
+| /home/shwy/project-E12/Assets/Scrpts/unit/Unit.cs                   | C#       |        111 |         10 |         16 |        137 |
+| /home/shwy/project-E12/Assets/Scrpts/unit/UnitMove.cs               | C#       |         28 |         31 |          3 |         62 |
+| Total                                                               |          |      2,231 |        355 |        439 |      3,025 |
++---------------------------------------------------------------------+----------+------------+------------+------------+------------+

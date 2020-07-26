@@ -1,0 +1,12 @@
+creating Land:
+
+//spawn hextiles with water material
+
+//choose random hextile
+
+//create chunks of land, move onto the next hextile not surrounded by land then build
+ another chunk. do this until itreaches chunksize
+
+//repeat
+
+

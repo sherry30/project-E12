@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 1435368440455045819}
   - component: {fileID: 1373114686451754182}
   m_Layer: 0
-  m_Name: Farm
+  m_Name: AnimalTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,9 +60,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ea16ae59295b27db0956573ed8ab21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Farm
+  Name: Animal Trap
   id: 0
-  description: 
+  description: if an animal or enemy unit walks over the tile this improvement is
+    on then they're trapped for the next 3 turns. Can be built outside of your territory.
   maxHealth: 0
   player: -1
   cost:
@@ -78,10 +79,10 @@ MonoBehaviour:
   location: {x: 0, y: 0}
   isBuilt: 0
   offset: {x: 0, y: 0, z: 0}
-  imp: 1
+  imp: 0
   turnsTOBuild: 2
-  mustBeInTerritory: 1
-  Source: need some tech to unlock
+  mustBeInTerritory: 0
+  Source: P1
 --- !u!114 &1435368440455045819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 4350957676948418419, guid: 2dcbede389116038e9f6f676c413d126,
         type: 3}
       propertyPath: m_Name
-      value: farm
+      value: animalTrap
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dcbede389116038e9f6f676c413d126, type: 3}

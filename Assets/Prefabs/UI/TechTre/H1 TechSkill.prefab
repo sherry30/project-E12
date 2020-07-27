@@ -88,5 +88,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   techCode: 5
-  preRequisites: []
+  preRequisites:
+  - {fileID: 6639113944461493242, guid: 440f843384777805c84e00382960ff5f, type: 3}
   unlocked: 0
+  Name: 
+  description: 

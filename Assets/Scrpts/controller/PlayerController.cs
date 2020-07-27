@@ -11,13 +11,16 @@ public class PlayerController : MonoBehaviour
 {
 
     public Energy selected;
+    [SerializeField]
     public Player player;
     //TODO current state of techtree
     public static PlayerController Instance {get; private set;}
     void Awake(){
-        player = new Player();
+        //player = new Player();
+        //Debug.Log(string.Format("productino {0}",player.Resources[Resource.production]));
         removeKingdoms();
         player.kingdom.setVariables();
+        player.setVariables();
         if(Instance==null){
             Instance =this;
             return;

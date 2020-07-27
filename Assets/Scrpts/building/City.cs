@@ -24,6 +24,7 @@ public class City : Building
     public bool camped=false;
     public void Campers(){
         if(typeOfCity==Type.camp){
+            GameState.Instance.deSelectObject();
             HexOperations.Instance.DestroyCity(this);
             GameObject obj = HexOperations.Instance.spawnUnit(location,unitStartIndex);
             
@@ -44,7 +45,7 @@ public class City : Building
         unitProduction = index;
         //check cost only for production now
         int var1 = unit.cost.getProduction();
-        int var2 = PlayerController.Instance.player.productionYield;
+        int var2 = PlayerController.Instance.player.Resources[Resource.production];
         int days = var1/var2;
         if(var1%var2!=0)
             days++;

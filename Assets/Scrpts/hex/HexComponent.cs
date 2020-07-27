@@ -13,7 +13,7 @@ public class HexComponent : MonoBehaviour
     public City city;
     public TextMesh text;
     public List<Unit> units = new List<Unit>();
-    public List<Unit> enemies = new List<Unit>();
+    //public List<Unit> enemies = new List<Unit>();
     private float radiusOfUnits=2.5f;
     public int production = 2;
     public Biome hexBiome;
@@ -42,8 +42,12 @@ public class HexComponent : MonoBehaviour
         if(units==null)
             units = new List<Unit>();
         units.Add(un);
-        changeUnitElevation(un);
+        un.setElevation(getElevation());
         setUnitOffsets();
+
+        //letting the building obn this hex know that it got a new Unit
+        if(building)
+            building.unitAddedToTheHex();
     }
     public void removeUnit(int id){
         for(int i=0;i<units.Count;i++){
@@ -53,34 +57,71 @@ public class HexComponent : MonoBehaviour
             }
         }
         setUnitOffsets();
+
+        //letting the building obn this hex know that it got a new Unit
+        if(building)
+            building.unitRemovedFromTheHex();
+        
     }
-    public void addEnemy(Unit un){
+    /*public void addEnemy(Unit un){
         if(enemies==null)
             enemies = new List<Unit>();
         //changeUnitElevation(un);
         enemies.Add(un);
         changeUnitElevation(un);
         setEnemiesOffsets();
-    }
-    public bool containEnemies(){
-        if(enemies!=null)
-            return enemies.Count>0;
+
+        //letting the building obn this hex know that it got a new Unit
+        if(building)
+            building.unitAddedToTheHex();
+    }*/
+
+    /*public void removeEnemy(int id){
+        for(int i=0;i<enemies.Count;i++){
+            if(enemies[i].id==id){
+                removeEnemyOffsets(i);
+                enemies.RemoveAt(i); 
+            }
+        }
+        
+        //letting the building obn this hex know that it got a new Unit
+        if(building)
+            building.unitRemovedFromTheHex();
+    }*/
+
+    public bool containEnemies(int player = -1){
+        for(int i=0;i<units.Count;i++){
+            if(units[i].player!=player){
+                return true;
+            }
+        }
         return false;
+    /*if(enemies!=null)
+            return enemies.Count>0;
+        return false;*/
+    }
+
+    public List<Unit> getEnemies(int player=-1){
+        List<Unit> enemies = new List<Unit>();
+        for(int i=0;i<units.Count;i++){
+            if(units[i].player!=player){
+                enemies.Add(units[i]);
+            }
+        }
+        return enemies;
+    }
+
+    //for retuning one enemy ata specific index
+    public Unit getEnemy(int index=0,int player=-1){
+        List<Unit> enemies = getEnemies(player);
+        return enemies[0];
     }
     public bool containUnits(){
         if(units!=null)
             return units.Count>0;
         return false;
     }
-    public void removeEnemy(int id){
-        for(int i=0;i<enemies.Count;i++){
-            if(enemies[i].id==id){
-                removeEnemyOffsets(i);
-                enemies.RemoveAt(i);
-                
-            }
-        }
-    }
+    
     //when there are no enemies,buildings, cities or units
     public bool isEmpty(){
         if(!containEnemies()){
@@ -112,7 +153,7 @@ public class HexComponent : MonoBehaviour
             
         }
     }
-    public void setEnemiesOffsets(){
+    /*public void setEnemiesOffsets(){
         if((enemies!=null && enemies.Count>1)|| (containStructure())){
             for(int i=0 ;i<enemies.Count;i++){
                 float angle = i*Mathf.PI*2f/enemies.Count;
@@ -125,26 +166,26 @@ public class HexComponent : MonoBehaviour
             }
             
         }
-    }
+    }*/
     //when the unit leaves
     public void removeUnitOffsets(int i){
         units[i].offset.x=0;
         units[i].offset.z=0;
-        units[i].offset.y-=elevation*Hex.hexHeight;
+        units[i].offset.y-=getElevation();
 
     }
-    public void removeEnemyOffsets(int i){
+    /*public void removeEnemyOffsets(int i){
         enemies[i].offset.x=0;
         enemies[i].offset.z=0;
         enemies[i].offset.y-=elevation*Hex.hexHeight;
 
-    }
+    }*/
 
     public void setBiomAndTerrain(biome b,terrain t ){
         hexBiome.setBiome(b);
         gameObject.GetComponentInChildren<MeshRenderer>().material = HexMapGenerator.Instance.mats[hexBiome.setTerrain(t)];
         elevation = hexBiome.setElevation();
-        Vector3 y = new Vector3(0,elevation*Hex.hexHeight*2,0);
+        Vector3 y = new Vector3(0,getElevation(),0);
         
         //setting offset in updatePosition component of the hex
         updatePos = GetComponent<UpdatePosition>();
@@ -169,12 +210,13 @@ public class HexComponent : MonoBehaviour
             return true;
         return false;
     }
-    private void changeUnitElevation(Unit unit){
-        unit.offset.y+=elevation*Hex.hexHeight;
+    public float getElevation(){
+        return elevation*Hex.hexHeight*2;
+        //unit.setupdate
     }
 
-    public void BuildImprovement(Improvement imp){
-        improvement = imp;
+    public void BuildBuilding(Building imp){
+       building = imp;
         setUnitOffsets();
     }
 

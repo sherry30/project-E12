@@ -107,7 +107,7 @@ public class MouseController : MonoBehaviour
                     //if it contains enemies
                     if(dest.containEnemies()){
                         Debug.Log("This Hex contans enemies");
-                        enemy = dest.enemies[0];
+                        enemy = dest.getEnemy();
                         travelPath.RemoveAt(travelPath.Count-1);
                         if(travelPath!=null && travelPath.Count>0)
                             dest = travelPath[travelPath.Count-1];

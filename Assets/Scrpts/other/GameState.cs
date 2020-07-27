@@ -106,18 +106,31 @@ public class GameState : MonoBehaviour
 
     
     public void onEndTurn(){
-        currentTurn++;
+        //incrementing turn only if its the last player turn ended in turn order
+        if(currentPlayerTurn==turnOrder[turnOrder.Length-1])
+            currentTurn++;
+        
+        //settibng turn currentTurnPlayer
         turn= (turn+1)%turnOrder.Length;
         currentPlayerTurn = turnOrder[turn];
+
+        //executing onStartMethod of the current TurnPlayer an onEndTurn for Npc and AIs to instantly skip turn
         if(currentPlayerTurn==Turn.Player)
             onStartTurn();
-        else if(currentPlayerTurn == Turn.NPC)
+        else if(currentPlayerTurn == Turn.NPC){
             NPCController.Instance.StartTurn();
+            onEndTurn();
+        }
 
     }
     
     public bool checkPlayerTurn(){
         return currentPlayerTurn==Turn.Player;
+    }
+
+    public void deSelectObject(){
+        selectedObject = null;
+        UIController.Instance.deSelectObject();
     }
 
 }

@@ -11,12 +11,7 @@ public class FireKingdom : Kingdom
         base.Start();
         Name = "Burning Brood";
         type = Energy.Fire;
-       // buildings = new Building[numberOfBuildings];
-
-        /*cities = new City[cityPrefabs.Length];
-        units= new Unit[unitPrefabs.Length];
-        improvements = new Improvement[improvementPrefabs.Length];
-        setCities();*/
+       
         
     }
 }

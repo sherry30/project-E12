@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shadow : Unit
 {
-    new void Awake(){
+    protected override void Awake(){
         base.Awake();
         typeOfUnit = Type.Land;
         classOfUnit = Class.shadow;
@@ -12,6 +12,7 @@ public class Shadow : Unit
         id = currentID;
         currentID++;
         currentHealth=maxHealth;
+        player = -2;
         /*Vector3 temp = GetComponentInChildren<Collider>().bounds.size;
         offset = (temp.y/2f)+Hex.hexHeight;
         Debug.Log(string.Format("Unit Offset: {0}",offset));*/

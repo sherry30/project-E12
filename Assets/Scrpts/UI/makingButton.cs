@@ -57,8 +57,9 @@ public class makingButton : MonoBehaviour
     }
 
     void OnDisable(){
-        if(but!=null)
-            Destroy(but);
+        for(int i=0;i<transform.childCount;i++){
+            Destroy(transform.GetChild(i).gameObject);
+        }
     }
 
 

@@ -19,14 +19,13 @@ public class UnitMove : MonoBehaviour
     public IEnumerator onUnitMove(HexComponent oldHex, HexComponent newHex){
         oldPosition = oldHex.hex.positionFromCamera();
         newPosition = newHex.hex.positionFromCamera();
-        newPosition.y += unit.offset.y;
+        newPosition.y += newHex.getElevation();
         while(Vector3.Distance(this.transform.position,newPosition)>0.1f){
             if(Vector3.Distance(this.transform.position,newPosition)>thresholdForDist)
                 this.transform.position = newPosition;
             this.transform.position = Vector3.SmoothDamp(this.transform.position,newPosition,ref currentVelocity,smoothTime);
             yield return null;
         }
-        //yield return null;
     }
     /*void Update(){
         if(moving){

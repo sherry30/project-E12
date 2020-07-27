@@ -17,7 +17,8 @@ public class Unit : MonoBehaviour
         support,
         trader, 
         range,
-        shadow
+        shadow,
+        animal
 
     }
     public enum Type{
@@ -28,12 +29,13 @@ public class Unit : MonoBehaviour
     public string Name;
     public int attack;
     public int defense;
+    [HideInInspector]
     public int id;
     protected static int currentID=0;
     public string description;
     public int maxHealth;
     public int currentHealth;
-    private int damage=100;
+    public int damage=100;
     public Type typeOfUnit;
     public Class classOfUnit;
     protected Energy kingdom;
@@ -42,8 +44,7 @@ public class Unit : MonoBehaviour
     public Item[] items;
     public Vector2 location;
     public int movement=2;
-    [HideInInspector]
-    public int player=-1;//player index; -1 if player controller else AIController; is +1 of AIController index
+    public int player=-1;//player index; -1 if player controller else AIController; -2 for Shadows -3 for Animals
     public bool exhausted=false,moving=false;
     public delegate IEnumerator UnitMovedDelegate(HexComponent oldHex, HexComponent newHex);
     public event UnitMovedDelegate onUnitMove;
@@ -56,7 +57,7 @@ public class Unit : MonoBehaviour
     public string reasonForParalyzed = "None";
     [HideInInspector]
     public HealthBar healthBar;
-    protected void Awake(){
+    protected virtual void Awake(){
         currentHealth = maxHealth;
 
         healthBar = GetComponent<HealthBar>();
@@ -78,45 +79,78 @@ public class Unit : MonoBehaviour
         currentID++;
         GameState.onStartTurn+=StartTurn;
     }
-    protected IEnumerator moveUnitOneSpace(HexComponent newHex,bool enemy){
+
+    //called every loop in moveUnit
+    protected IEnumerator moveUnitOneSpace(HexComponent newHex){
         //remove unit in the old location
 
         HexComponent temp = HexMap.Instance.getHexComponent(location);
-        if(!enemy)
-            temp.removeUnit(this.id);
-        else
-            temp.removeEnemy(this.id);
-
-        Vector2 newLocation = new Vector2(newHex.hex.Q,newHex.hex.R);
-
-        //add unit in hexcomponent in new location
-        if(!enemy)
-            HexMap.Instance.getHexComponent(newLocation).addUnit(this);
-        else    
-            HexMap.Instance.getHexComponent(newLocation).addEnemy(this);
         
+        //removing units from the old location
+        //if(!isEnemy){
+        temp.removeUnit(this.id);
+        //}
+        /*else{
+            temp.removeEnemy(this.id);
+        } */ 
 
-        //change location in this class
-        location.x = newHex.hex.Q;
-        location.y = newHex.hex.R;
-        //setUpdatePosition();
+        
+        /*if(skipAnimation){
+            location = newHex.location;
+            setUpdatePosition();
+        }*/
         yield return StartCoroutine(onUnitMove(temp,newHex));
+
+        location = newHex.location;
+        setUpdatePosition();
+        //adding the unit in the hexCOmponent after the animation
+        //if(!isEnemy){
+        HexMap.Instance.getHexComponent(location).addUnit(this);
+        updatePos.updateLocationFromCamera();
+        //}
+        /*else{
+            HexMap.Instance.getHexComponent(newHex.location).addEnemy(this);
+        }*/
         
     }
-    public IEnumerator moveUnit(List<HexComponent> travelPath,bool enemy =false){
-        if(paralysed)
-            yield return null;
+    public IEnumerator moveUnit(List<HexComponent> travelPath){
+        if(paralysed){
+            travelPath.Clear();
+        }
         exhausted = true;
         moving = true;
         setUpdatePosition();
         //condition for if this unit is selected or not
         for(int i=0;i<travelPath.Count;i++){
-            yield return StartCoroutine(moveUnitOneSpace(travelPath[i],enemy));
+            yield return StartCoroutine(moveUnitOneSpace(travelPath[i]));
         }
         moving = false;
         setUpdatePosition();
-        updatePos.updateLocationFromCamera();//updating one last time after done moving
+        //updatePos.updateLocationFromCamera();//updating one last time after done moving
     }
+
+    //no animation
+    public void moveUnitFast(List<HexComponent> travelPath){
+        if(paralysed)
+            travelPath.Clear();
+        exhausted = true;
+        
+        if(travelPath.Count>0){
+            HexComponent temp = HexMap.Instance.getHexComponent(location);
+            temp.removeUnit(this.id);
+
+            //changing units location
+            location = travelPath[travelPath.Count-1].location;
+            setUpdatePosition();
+            HexMap.Instance.getHexComponent(location).addUnit(this);
+
+            //updating location 
+            updatePos.updateLocationFromCamera();
+        }
+
+    }
+
+
     //call this function whenever changing any of these 3 variables in this cript
     private void setUpdatePosition(){
         updatePos.location = this.location;
@@ -144,6 +178,10 @@ public class Unit : MonoBehaviour
         offset.x = 0;
         offset.z = 0;
         this.offset += off;
+        setUpdatePosition();
+    }
+    public void setElevation(float y){
+        offset.y+=y;
         setUpdatePosition();
     }
 

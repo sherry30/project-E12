@@ -15,24 +15,45 @@ public class Civilian : Unit
 
 
     public void startBuilding(int index){
-        //return if already in the middle of building
-        if(building || moving)
-            return;
-        
-        //return if the civillian is out of territory
+        Improvement imp=null; 
         if(player==-1){
-            if(!PlayerController.Instance.player.territory.Contains(HexMap.Instance.getHexComponent(location))){
-                Debug.Log("cant build here because out of territory");
+            imp = PlayerController.Instance.player.kingdom.improvements[index];
+
+            //return if this improvement isnot unlocked
+            if(!PlayerController.Instance.player.availableImprovements.Contains(imp.imp)){
+                Debug.Log(imp.Source);
                 return;
             }
         }
         else{
-            if(!AIController.Instance.AIPlayers[player].territory.Contains(HexMap.Instance.getHexComponent(location))){
-                Debug.Log("cant build here because out of territory");
+            imp =AIController.Instance.AIPlayers[player].kingdom.improvements[index];
+
+            //return if this improvement isnot unlocked
+            if(!AIController.Instance.AIPlayers[player].availableImprovements.Contains(imp.imp)){
+                Debug.Log(imp.Source);
                 return;
             }
         }
-
+         
+        //return if already in the middle of building or while moving
+        if(building || moving)
+            return;
+        
+        //return if the civillian is out of territory
+        if(!imp.mustBeInTerritory){
+            if(player==-1){
+                if(!PlayerController.Instance.player.territory.Contains(HexMap.Instance.getHexComponent(location))){
+                    Debug.Log("cant build here because out of territory");
+                    return;
+                }
+            }
+            else{
+                if(!AIController.Instance.AIPlayers[player].territory.Contains(HexMap.Instance.getHexComponent(location))){
+                    Debug.Log("cant build here because out of territory");
+                    return;
+                }
+            }
+        }
 
         if(player==-1)
             inProduction = PlayerController.Instance.player.kingdom.improvements[index];

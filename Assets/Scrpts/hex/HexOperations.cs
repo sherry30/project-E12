@@ -78,7 +78,7 @@ public class HexOperations : MonoBehaviour
         temp.player = -1;
 
         //updating in the hexComponent city
-        hexes[(int)location.x,(int)location.y].city = temp;
+        hexes[(int)location.x,(int)location.y].BuildBuilding(temp);
         //updating in the Player.Instance.cities
         PlayerController.Instance.player.BuildCity(temp,location);
         return obj;
@@ -187,30 +187,7 @@ public class HexOperations : MonoBehaviour
 
     }
 
-    public Shadow spawnShadow(GameObject shadowPrefab){
-        Vector2 location = new Vector2(Random.Range(0,mapWidth),Random.Range(0,mapHeight));
-            GameState.Instance.HexOccupiedCheck(ref location);
-            HexComponent hex = hexes[(int)location.x,(int)location.y];
-            Vector3 place = hex.hex.positionFromCamera();
-            GameObject obj = (GameObject)Instantiate(
-                shadowPrefab,
-                new Vector3(place.x,0,place.z),
-                Quaternion.identity,
-                NPCController.Instance.transform         
-            );
-            Shadow temp  = obj.GetComponent<Shadow>();
-            temp.spawnUnit(location);
-            //setting ya xis for shadows
-            Vector3 pos = obj.transform.position;
-            obj.transform.position = new Vector3(pos.x,pos.y+temp.offset.y,pos.z);
-            //subscribing for moving
-            temp.onUnitMove += obj.GetComponent<UnitMove>().onUnitMove;
-            //adding enemy to thw hexCompoenty
-            hexes[(int)location.x,(int)location.y].addEnemy(temp);
-            //TODO put these locations in Gamestate occupied locations  
-            GameState.Instance.setOccupiedHexes(location);
-            return temp;
-    }
+    
 
     public GameObject BuildAICity(Vector2 location,int cityIndex, int AIIndex){
         Vector3 place = hexes[(int)location.x,(int)location.y].hex.positionFromCamera();
@@ -269,7 +246,7 @@ public class HexOperations : MonoBehaviour
         //subscribing for moving
         temp.onUnitMove += obj.GetComponent<UnitMove>().onUnitMove;
         //updating in hexcomponent
-        hexes[(int)location.x,(int)location.y].addEnemy(temp);
+        hexes[(int)location.x,(int)location.y].addUnit(temp);
 
         return obj;
     }
@@ -290,11 +267,61 @@ public class HexOperations : MonoBehaviour
         temp.player = -1;
 
         //updating in the hexComponent city
-        hexes[(int)location.x,(int)location.y].BuildImprovement(temp);
+        hexes[(int)location.x,(int)location.y].BuildBuilding(temp);
         //updating in the Player.Instance.cities
         PlayerController.Instance.player.BuildImprovement(temp,location);
         return obj;
 
+    }
+
+    //spawning NPCs
+    public Shadow spawnShadow(GameObject shadowPrefab){
+        Vector2 location = new Vector2(Random.Range(0,mapWidth),Random.Range(0,mapHeight));
+            GameState.Instance.HexOccupiedCheck(ref location);
+            HexComponent hex = hexes[(int)location.x,(int)location.y];
+            Vector3 place = hex.hex.positionFromCamera();
+            GameObject obj = (GameObject)Instantiate(
+                shadowPrefab,
+                new Vector3(place.x,0,place.z),
+                Quaternion.identity,
+                NPCController.Instance.transform         
+            );
+            Shadow temp  = obj.GetComponent<Shadow>();
+            temp.spawnUnit(location);
+            //setting ya xis for shadows
+            Vector3 pos = obj.transform.position;
+            obj.transform.position = new Vector3(pos.x,pos.y+temp.offset.y,pos.z);
+            //subscribing for moving
+            temp.onUnitMove += obj.GetComponent<UnitMove>().onUnitMove;
+            //adding enemy to thw hexCompoenty
+            hexes[(int)location.x,(int)location.y].addUnit(temp);
+            //TODO put these locations in Gamestate occupied locations  
+            GameState.Instance.setOccupiedHexes(location);
+            return temp;
+    }
+    public Animal spawnAnimal(GameObject animalPrefab){
+        Vector2 location = new Vector2(Random.Range(0,mapWidth),Random.Range(0,mapHeight));
+            GameState.Instance.HexOccupiedCheck(ref location);
+            HexComponent hex = hexes[(int)location.x,(int)location.y];
+            Vector3 place = hex.hex.positionFromCamera();
+            GameObject obj = (GameObject)Instantiate(
+                animalPrefab,
+                new Vector3(place.x,0,place.z),
+                Quaternion.identity,
+                NPCController.Instance.transform         
+            );
+            Animal temp  = obj.GetComponent<Animal>();
+            temp.spawnUnit(location);
+            //setting ya xis for shadows
+            Vector3 pos = obj.transform.position;
+            obj.transform.position = new Vector3(pos.x,pos.y+temp.offset.y,pos.z);
+            //subscribing for moving
+            temp.onUnitMove += obj.GetComponent<UnitMove>().onUnitMove;
+            //adding enemy to thw hexCompoenty
+            hexes[(int)location.x,(int)location.y].addUnit(temp);
+            //TODO put these locations in Gamestate occupied locations  
+            GameState.Instance.setOccupiedHexes(location);
+            return temp;
     }
 }
 

@@ -63,7 +63,15 @@ public abstract class Kingdom : MonoBehaviour
     private void setTechTree(){
         for(int i=0;i<TechObjects.Length;i++){
             TechSkill tempSkill = TechObjects[i].GetComponent<TechSkill>();
+            tempSkill.unlocked = false;
             techTree.techSkills.Add(tempSkill.techCode,tempSkill);
         }
     }
+    /*protected virtual void setTechTreePreRequisites(){
+        //basic techTree: only in FIreKingdom for now
+        //can be overwritten for other kingdoms
+        foreach(KeyValuePair<TechCode,TechSkill> entry  in techTree.techSkills){
+            if(entry.)
+        }
+    }*/
 }

@@ -3,27 +3,36 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Player 
 {
     public Kingdom kingdom;
     public int approval;
-    public Dictionary<Raw_Material,int> rawMaterials;
-    public Dictionary<Raw_Material,int> rawMaterialYield;
-    public Dictionary<Resource,int> resources;
-    public Dictionary<Resource,int> resourcesYield;
-    public Dictionary<Energy,int> energy;
-    public Dictionary<Energy,int> energyYield;
+    [SerializeField]
+    public DictionaryRes Resources;
+    [SerializeField]
+    public DictionaryRaw RawMaterials;
+    [SerializeField]
+    public DictionaryEnergy Energies;
+    public DictionaryRes resourcesYield;
+    public DictionaryRaw RawMaterialYield;
+
+    public DictionaryEnergy energyYield;
     
-    private int population{get;set;}
+    public int population;
     public float populationGrowing;
     public List<City> cities;
     public List<Unit> units;
     public List<Improvement> improvements;
-    public int productionYield;
+    public List<improvement> availableImprovements;
+    //public int productionYield;
     public List<HexComponent> territory;
 
 
-
+    public void setVariables(){
+        //availableImprovements = new List<bool>();
+        
+    }
     public Era era=Era.StoneAge;
     public void BuildCity(City cit,Vector2 location){
         cit.Build(location);

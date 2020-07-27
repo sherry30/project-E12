@@ -59,5 +59,10 @@ public class UIController : MonoBehaviour
         currentlyOpened = curr;
         healthBar = GameState.Instance.selectedObject.GetComponent<HealthBar>();
     }
+    
+    public void deSelectObject(){
+        currentlyOpened = null;
+        healthBar = null;
+    }
 
 }

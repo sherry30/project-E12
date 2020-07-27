@@ -7,6 +7,7 @@ public class Building : MonoBehaviour
 {
     public static int currentID=0;
     public string Name;
+    [HideInInspector]
     public int id;
     public string description;
 
@@ -35,7 +36,7 @@ public class Building : MonoBehaviour
 
 
     //protected abstract void setCost();
-    public void Build(Vector2 coordinate){
+    public virtual void Build(Vector2 coordinate){
         //setting location on this class
         location = coordinate;
         offset.y += HexMap.Instance.getHexComponent(location).elevation * Hex.hexHeight*2;
@@ -61,4 +62,12 @@ public class Building : MonoBehaviour
     protected virtual void StartTurn(){
         Debug.Log("New turn started");
     }
+    public virtual void unitAddedToTheHex(){
+
+    }
+
+    public virtual void unitRemovedFromTheHex(){
+
+    }
+
 }

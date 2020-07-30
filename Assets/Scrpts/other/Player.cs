@@ -6,18 +6,21 @@ using UnityEngine;
 [System.Serializable]
 public class Player 
 {
+    public int player = -1;
     public Kingdom kingdom;
     public int approval;
     [SerializeField]
-    public DictionaryRes Resources;
+    public DictionaryResInt Resources;
     [SerializeField]
-    public DictionaryRaw RawMaterials;
+    public DictionaryRawInt RawMaterials;
     [SerializeField]
-    public DictionaryEnergy Energies;
-    public DictionaryRes resourcesYield;
-    public DictionaryRaw RawMaterialYield;
+    public DictionaryEnergyInt Energies;
+    public DictionaryOtherResInt OtherResources;
+    public DictionaryResInt resourcesYield;
+    public DictionaryRawInt RawMaterialYield;
 
-    public DictionaryEnergy energyYield;
+    public DictionaryEnergyInt energyYield;
+    public DictionaryOtherResInt OtherResourcesYield;
     
     public int population;
     public float populationGrowing;

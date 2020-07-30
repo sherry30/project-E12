@@ -23,6 +23,11 @@ public enum Raw_Material{
         Dark
 
     }
+    public enum OtherResource{
+        Science,
+        alchemy,
+        crystal
+    }
 
     public enum Resource{
         gold,
@@ -31,21 +36,25 @@ public enum Raw_Material{
     }
     //for making dictionary
 [System.Serializable]
-public class DictionaryRes: SerializableDictionary<Resource,int>{}  
+public class DictionaryResInt: SerializableDictionary<Resource,int>{}  
 [System.Serializable]
-public class DictionaryRaw: SerializableDictionary<Raw_Material,int>{}  
+public class DictionaryRawInt: SerializableDictionary<Raw_Material,int>{}  
 [System.Serializable]
-public class DictionaryEnergy: SerializableDictionary<Energy,int>{}  
+public class DictionaryEnergyInt: SerializableDictionary<Energy,int>{}  
+[System.Serializable]
+public class DictionaryOtherResInt:SerializableDictionary<OtherResource,int>{}  
 [System.Serializable]
 public class Cost 
 {
 
     [SerializeField]
-    private DictionaryRes costResource;
+    private DictionaryResInt costResource;
     [SerializeField]
-    private DictionaryRaw costRaw;
+    private DictionaryRawInt costRaw;
     [SerializeField]
-    private DictionaryEnergy costEnergy;
+    private DictionaryEnergyInt costEnergy;
+    [SerializeField]
+    private DictionaryOtherResInt costOtherRes;
     Cost(Dictionary<Resource,int> res,
      Dictionary<Raw_Material,int> raw,
      Dictionary<Energy,int> ener)
@@ -103,5 +112,141 @@ public class Cost
         return costResource[Resource.production];
     }
 
+    public bool checkCost(int player = -1){
+        //checking if energy cost is met
+        if(player==-1){
+        Player tempPlayer = PlayerController.Instance.player;
+        Dictionary<Resource,int> res = tempPlayer.Resources;
+        Dictionary<Raw_Material,int> raw = tempPlayer.RawMaterials;
+        Dictionary<Energy,int> energy = tempPlayer.Energies;
+        Dictionary<OtherResource,int> otherRes = tempPlayer.OtherResources;
+        //checking if energy cost is met
+            if(costEnergy!=null){
+                foreach(KeyValuePair<Energy, int> entry in costEnergy){
+                    if(energy[entry.Key]<costEnergy[entry.Key]){
+                        return false;
+                    }
+                    else{
+                        tempPlayer.Energies[entry.Key]-=costEnergy[entry.Key];
+                    }
+                }
+            }
+            //checking if Resource cost is met
+            if(costResource!=null){
+                foreach(KeyValuePair<Resource, int> entry in costResource){
+                    if(res[entry.Key]<costResource[entry.Key]){
+                        return false;
+                    }
+                    else{
+                        tempPlayer.Resources[entry.Key]-=costResource[entry.Key];
+                    }
+                }
+            }
+            //checking if Raw material cost is met
+            if(costRaw!=null){
+                foreach(KeyValuePair<Raw_Material, int> entry in costRaw){
+                    if(raw[entry.Key]<costRaw[entry.Key]){
+                        return false;
+                    }
+                    else{
+                        tempPlayer.RawMaterials[entry.Key]-=costRaw[entry.Key];
+                    }
+                }
+            }
+            //checking if otherResource cost is met
+            if(costOtherRes!=null){
+                foreach(KeyValuePair<OtherResource, int> entry in costOtherRes){
+                    if(otherRes[entry.Key]<costOtherRes[entry.Key]){
+                        return false;
+                    }
+                    else{
+                        tempPlayer.OtherResources[entry.Key]-=costOtherRes[entry.Key];
+                    }
+                }
+            }   
+        }
+
+        //if it is AIPlayer
+        else{
+            Player tempPlayer = AIController.Instance.AIPlayers[player];
+            Dictionary<Resource,int> res = tempPlayer.Resources;
+            Dictionary<Raw_Material,int> raw = tempPlayer.RawMaterials;
+            Dictionary<Energy,int> energy = tempPlayer.Energies;
+            Dictionary<OtherResource,int> otherRes = tempPlayer.OtherResources;
+
+            if(costEnergy!=null){
+                foreach(KeyValuePair<Energy, int> entry in costEnergy){
+                    if(energy[entry.Key]<costEnergy[entry.Key]){
+                        return false;
+                    }
+                    else{
+                        tempPlayer.Energies[entry.Key]-=costEnergy[entry.Key];
+                    }
+                }
+            }
+            //checking if Resource cost is met
+            if(costResource!=null){
+                foreach(KeyValuePair<Resource, int> entry in costResource){
+                    if(res[entry.Key]<costResource[entry.Key]){
+                        return false;
+                    }
+                    else{
+                        tempPlayer.Resources[entry.Key]-=costResource[entry.Key];
+                    }
+                }
+            }
+            //checking if Raw material cost is met
+            if(costRaw!=null){
+                foreach(KeyValuePair<Raw_Material, int> entry in costRaw){
+                    if(raw[entry.Key]<costRaw[entry.Key]){
+                        return false;
+                    }
+                    else{
+                        tempPlayer.RawMaterials[entry.Key]-=costRaw[entry.Key];
+                    }
+                }
+            }
+            //checking if oherResource cost is met
+            if(costOtherRes!=null){
+                foreach(KeyValuePair<OtherResource, int> entry in costOtherRes){
+                    if(otherRes[entry.Key]<costOtherRes[entry.Key]){
+                        return false;
+                    }
+                    else{
+                        tempPlayer.OtherResources[entry.Key]-=costOtherRes[entry.Key];
+                    }
+                }
+            }
+        }
+        return true;
+
+    }
+
+    public void printCost(){
+        //checking if energy cost is met
+            if(costEnergy!=null){
+                foreach(KeyValuePair<Energy, int> entry in costEnergy){
+                    Debug.Log(string.Format("require {0} {1} Energy",costEnergy[entry.Key],entry.Key));
+                }
+            }
+            //checking if energy cost is met
+            if(costResource!=null){
+                foreach(KeyValuePair<Resource, int> entry in costResource){
+                    Debug.Log(string.Format("require {0} {1}",costResource[entry.Key],entry.Key));
+                }
+            }
+            //checking if Raw material cost is met
+            if(costRaw!=null){
+                foreach(KeyValuePair<Raw_Material, int> entry in costRaw){
+                    Debug.Log(string.Format("require {0} {1}",costRaw[entry.Key],entry.Key));
+                }
+            }
+            //checking if energy cost is met
+            if(costOtherRes!=null){
+                foreach(KeyValuePair<OtherResource, int> entry in costOtherRes){
+                    Debug.Log(string.Format("require {0} {1}",costOtherRes[entry.Key],entry.Key));
+                }
+            }   
+        }
     
 }

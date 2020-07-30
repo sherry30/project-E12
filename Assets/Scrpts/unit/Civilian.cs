@@ -15,11 +15,17 @@ public class Civilian : Unit
 
 
     public void startBuilding(int index){
+
+        //return if already in the middle of building or while moving
+        if(building || moving)
+            return;
+
         Improvement imp=null; 
+
+        //return if this improvement is not unlocked
         if(player==-1){
             imp = PlayerController.Instance.player.kingdom.improvements[index];
 
-            //return if this improvement isnot unlocked
             if(!PlayerController.Instance.player.availableImprovements.Contains(imp.imp)){
                 Debug.Log(imp.Source);
                 return;
@@ -28,16 +34,12 @@ public class Civilian : Unit
         else{
             imp =AIController.Instance.AIPlayers[player].kingdom.improvements[index];
 
-            //return if this improvement isnot unlocked
             if(!AIController.Instance.AIPlayers[player].availableImprovements.Contains(imp.imp)){
                 Debug.Log(imp.Source);
                 return;
             }
         }
          
-        //return if already in the middle of building or while moving
-        if(building || moving)
-            return;
         
         //return if the civillian is out of territory
         if(!imp.mustBeInTerritory){
@@ -64,6 +66,7 @@ public class Civilian : Unit
         improvementIndex = index;
         paralysed = true;
         reasonForParalyzed = string.Format("building {0}",inProduction.name);
+        Debug.Log(string.Format("building {0}",inProduction.name));
     }
     protected override void StartTurn(){
         base.StartTurn();

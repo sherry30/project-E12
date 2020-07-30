@@ -93,3 +93,16 @@ MonoBehaviour:
   unlocked: 0
   Name: 
   description: 
+  cost:
+    costResource:
+      m_keys: 
+      m_values: 
+    costRaw:
+      m_keys: 
+      m_values: 
+    costEnergy:
+      m_keys: 
+      m_values: 
+    costOtherRes:
+      m_keys: 00000000
+      m_values: 23000000

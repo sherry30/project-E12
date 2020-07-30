@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomPropertyDrawer(typeof(DictionaryTech))]
-[CustomPropertyDrawer(typeof(DictionaryRaw))]
-[CustomPropertyDrawer(typeof(DictionaryEnergy))]
-[CustomPropertyDrawer(typeof(DictionaryRes))]
+[CustomPropertyDrawer(typeof(DictionaryTechCodeTechSkill))]
+[CustomPropertyDrawer(typeof(DictionaryRawInt))]
+[CustomPropertyDrawer(typeof(DictionaryEnergyInt))]
+[CustomPropertyDrawer(typeof(DictionaryResInt))]
+[CustomPropertyDrawer(typeof(DictionaryOtherResInt))]
 [CustomPropertyDrawer(typeof(StringStringDictionary))]
 [CustomPropertyDrawer(typeof(ObjectColorDictionary))]
 [CustomPropertyDrawer(typeof(StringColorArrayDictionary))]

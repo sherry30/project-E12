@@ -31,20 +31,30 @@ public class TechSkill : MonoBehaviour{
     public bool unlocked = false;
     public string Name;
     public string description;
+    public Cost cost;
     public void setPreRequisite(List<TechSkill> pre){
         preRequisites = pre;
         unlocked=false;
     }
     public virtual void UnlockSkill(int player = -1){
+        //check if preRequisitesare met or not
         if(!checkPreRequisite()){
             Debug.Log("Not all preRequisites aquired yet");
             return;
         }
 
+        //check if it is already unlocked or not
         if(unlocked){
             Debug.Log("Already Unlocked");
             return;
         }
+        //check if have enough science to pay
+        if(!cost.checkCost(player)){
+            Debug.Log("Not enough Scienece to research this tech");
+            cost.printCost();
+            return;
+        }
+        
 
         Debug.Log(string.Format("{0} is unlocked",techCode));
         unlocked=true;

@@ -11,12 +11,12 @@ public class P1TechSkill : TechSkill
     }
     public override void UnlockSkill(int player = -1){
         base.UnlockSkill(player);
-        bool avail = checkPreRequisite();
-        if(!avail)
-            return;
-        if(player==-1)
-            PlayerController.Instance.player.availableImprovements.Add(improvement.animal_Trap);
-        return;
+        if(unlocked){
+            if(player==-1)
+                PlayerController.Instance.player.availableImprovements.Add(improvement.animal_Trap);
+            else
+                AIController.Instance.AIPlayers[player].availableImprovements.Add(improvement.animal_Trap);
+        }
 
     }
 }

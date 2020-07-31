@@ -1,55 +1,83 @@
 # Details
 
-Date : 2020-07-22 17:26:16
+Date : 2020-07-30 18:00:57
 
 Directory /home/shwy/project-E12/Assets/Scrpts
 
-Total : 40 files,  2231 codes, 355 comments, 439 blanks, all 3025 lines
+Total : 68 files,  2999 codes, 471 comments, 574 blanks, all 4044 lines
 
 [summary](results.md)
 
 ## Files
 | filename | language | code | comment | blank | total |
 | :--- | :--- | ---: | ---: | ---: | ---: |
-| [Assets/Scrpts/A pathfinding/PathFinding.cs](/Assets/Scrpts/A pathfinding/PathFinding.cs) | C# | 81 | 12 | 11 | 104 |
+| [Assets/Scrpts/A pathfinding/PathFinding.cs](/Assets/Scrpts/A pathfinding/PathFinding.cs) | C# | 85 | 12 | 11 | 108 |
 | [Assets/Scrpts/A pathfinding/PathNode.cs](/Assets/Scrpts/A pathfinding/PathNode.cs) | C# | 14 | 0 | 4 | 18 |
 | [Assets/Scrpts/Biome/Biome.cs](/Assets/Scrpts/Biome/Biome.cs) | C# | 85 | 17 | 7 | 109 |
+| [Assets/Scrpts/Trees/A1TechSkill.cs](/Assets/Scrpts/Trees/A1TechSkill.cs) | C# | 8 | 0 | 2 | 10 |
+| [Assets/Scrpts/Trees/A2TechSkill.cs](/Assets/Scrpts/Trees/A2TechSkill.cs) | C# | 9 | 0 | 2 | 11 |
+| [Assets/Scrpts/Trees/E1TechSkill.cs](/Assets/Scrpts/Trees/E1TechSkill.cs) | C# | 8 | 0 | 3 | 11 |
+| [Assets/Scrpts/Trees/F1TechSkill.cs](/Assets/Scrpts/Trees/F1TechSkill.cs) | C# | 9 | 0 | 2 | 11 |
+| [Assets/Scrpts/Trees/F2TechSkill.cs](/Assets/Scrpts/Trees/F2TechSkill.cs) | C# | 9 | 0 | 2 | 11 |
+| [Assets/Scrpts/Trees/F3TechSkill.cs](/Assets/Scrpts/Trees/F3TechSkill.cs) | C# | 9 | 0 | 2 | 11 |
+| [Assets/Scrpts/Trees/H1TechSkill.cs](/Assets/Scrpts/Trees/H1TechSkill.cs) | C# | 9 | 0 | 2 | 11 |
+| [Assets/Scrpts/Trees/K1TechSkill.cs](/Assets/Scrpts/Trees/K1TechSkill.cs) | C# | 9 | 0 | 2 | 11 |
+| [Assets/Scrpts/Trees/K2TechSkill.cs](/Assets/Scrpts/Trees/K2TechSkill.cs) | C# | 9 | 0 | 2 | 11 |
+| [Assets/Scrpts/Trees/K3TechSkill.cs](/Assets/Scrpts/Trees/K3TechSkill.cs) | C# | 9 | 0 | 2 | 11 |
+| [Assets/Scrpts/Trees/M1TechSkill.cs](/Assets/Scrpts/Trees/M1TechSkill.cs) | C# | 9 | 0 | 2 | 11 |
+| [Assets/Scrpts/Trees/M2TechSkill.cs](/Assets/Scrpts/Trees/M2TechSkill.cs) | C# | 9 | 0 | 2 | 11 |
+| [Assets/Scrpts/Trees/M3TechSkill.cs](/Assets/Scrpts/Trees/M3TechSkill.cs) | C# | 9 | 0 | 2 | 11 |
+| [Assets/Scrpts/Trees/P1TechSkill.cs](/Assets/Scrpts/Trees/P1TechSkill.cs) | C# | 20 | 0 | 3 | 23 |
+| [Assets/Scrpts/Trees/P2TechSkill.cs](/Assets/Scrpts/Trees/P2TechSkill.cs) | C# | 8 | 0 | 2 | 10 |
+| [Assets/Scrpts/Trees/P3TechSkill.cs](/Assets/Scrpts/Trees/P3TechSkill.cs) | C# | 8 | 0 | 2 | 10 |
+| [Assets/Scrpts/Trees/P4TechSkill.cs](/Assets/Scrpts/Trees/P4TechSkill.cs) | C# | 8 | 0 | 2 | 10 |
+| [Assets/Scrpts/Trees/P5TechSkill.cs](/Assets/Scrpts/Trees/P5TechSkill.cs) | C# | 8 | 0 | 2 | 10 |
+| [Assets/Scrpts/Trees/R1TechSkill.cs](/Assets/Scrpts/Trees/R1TechSkill.cs) | C# | 9 | 0 | 2 | 11 |
+| [Assets/Scrpts/Trees/R2TechSkill.cs](/Assets/Scrpts/Trees/R2TechSkill.cs) | C# | 9 | 0 | 2 | 11 |
+| [Assets/Scrpts/Trees/TechSkill.cs](/Assets/Scrpts/Trees/TechSkill.cs) | C# | 64 | 3 | 7 | 74 |
+| [Assets/Scrpts/Trees/TechTree.cs](/Assets/Scrpts/Trees/TechTree.cs) | C# | 10 | 0 | 4 | 14 |
 | [Assets/Scrpts/UI/BlockUI.cs](/Assets/Scrpts/UI/BlockUI.cs) | C# | 10 | 0 | 2 | 12 |
-| [Assets/Scrpts/UI/BuildingButton.cs](/Assets/Scrpts/UI/BuildingButton.cs) | C# | 12 | 2 | 5 | 19 |
-| [Assets/Scrpts/UI/UIController.cs](/Assets/Scrpts/UI/UIController.cs) | C# | 45 | 0 | 3 | 48 |
+| [Assets/Scrpts/UI/BuildingButton.cs](/Assets/Scrpts/UI/BuildingButton.cs) | C# | 6 | 0 | 3 | 9 |
+| [Assets/Scrpts/UI/HealthBar.cs](/Assets/Scrpts/UI/HealthBar.cs) | C# | 40 | 1 | 7 | 48 |
+| [Assets/Scrpts/UI/PopulationUpdate.cs](/Assets/Scrpts/UI/PopulationUpdate.cs) | C# | 16 | 0 | 2 | 18 |
+| [Assets/Scrpts/UI/ProductionUpdate.cs](/Assets/Scrpts/UI/ProductionUpdate.cs) | C# | 16 | 0 | 2 | 18 |
+| [Assets/Scrpts/UI/UIController.cs](/Assets/Scrpts/UI/UIController.cs) | C# | 62 | 2 | 5 | 69 |
 | [Assets/Scrpts/UI/UnitProductionList.cs](/Assets/Scrpts/UI/UnitProductionList.cs) | C# | 62 | 7 | 13 | 82 |
-| [Assets/Scrpts/UI/makingButton.cs](/Assets/Scrpts/UI/makingButton.cs) | C# | 40 | 9 | 8 | 57 |
-| [Assets/Scrpts/building/Building.cs](/Assets/Scrpts/building/Building.cs) | C# | 46 | 6 | 11 | 63 |
-| [Assets/Scrpts/building/City.cs](/Assets/Scrpts/building/City.cs) | C# | 48 | 2 | 11 | 61 |
+| [Assets/Scrpts/UI/makingButton.cs](/Assets/Scrpts/UI/makingButton.cs) | C# | 53 | 4 | 10 | 67 |
+| [Assets/Scrpts/building/AnimalTrap.cs](/Assets/Scrpts/building/AnimalTrap.cs) | C# | 36 | 4 | 7 | 47 |
+| [Assets/Scrpts/building/Building.cs](/Assets/Scrpts/building/Building.cs) | C# | 53 | 6 | 15 | 74 |
+| [Assets/Scrpts/building/City.cs](/Assets/Scrpts/building/City.cs) | C# | 49 | 2 | 11 | 62 |
 | [Assets/Scrpts/building/District.cs](/Assets/Scrpts/building/District.cs) | C# | 15 | 2 | 5 | 22 |
-| [Assets/Scrpts/building/Improvemet.cs](/Assets/Scrpts/building/Improvemet.cs) | C# | 12 | 2 | 5 | 19 |
+| [Assets/Scrpts/building/Improvement.cs](/Assets/Scrpts/building/Improvement.cs) | C# | 14 | 10 | 2 | 26 |
 | [Assets/Scrpts/controller/AIController.cs](/Assets/Scrpts/controller/AIController.cs) | C# | 66 | 3 | 22 | 91 |
 | [Assets/Scrpts/controller/CameraController.cs](/Assets/Scrpts/controller/CameraController.cs) | C# | 46 | 4 | 16 | 66 |
-| [Assets/Scrpts/controller/MouseController.cs](/Assets/Scrpts/controller/MouseController.cs) | C# | 99 | 14 | 22 | 135 |
-| [Assets/Scrpts/controller/NPCController.cs](/Assets/Scrpts/controller/NPCController.cs) | C# | 51 | 23 | 6 | 80 |
-| [Assets/Scrpts/controller/PlayerController.cs](/Assets/Scrpts/controller/PlayerController.cs) | C# | 104 | 41 | 14 | 159 |
+| [Assets/Scrpts/controller/MouseController.cs](/Assets/Scrpts/controller/MouseController.cs) | C# | 106 | 17 | 25 | 148 |
+| [Assets/Scrpts/controller/NPCController.cs](/Assets/Scrpts/controller/NPCController.cs) | C# | 96 | 6 | 9 | 111 |
+| [Assets/Scrpts/controller/PlayerController.cs](/Assets/Scrpts/controller/PlayerController.cs) | C# | 106 | 43 | 14 | 163 |
 | [Assets/Scrpts/hex/Hex.cs](/Assets/Scrpts/hex/Hex.cs) | C# | 82 | 22 | 17 | 121 |
-| [Assets/Scrpts/hex/HexComponent.cs](/Assets/Scrpts/hex/HexComponent.cs) | C# | 142 | 15 | 19 | 176 |
-| [Assets/Scrpts/hex/HexMap.cs](/Assets/Scrpts/hex/HexMap.cs) | C# | 100 | 26 | 50 | 176 |
+| [Assets/Scrpts/hex/HexComponent.cs](/Assets/Scrpts/hex/HexComponent.cs) | C# | 134 | 65 | 25 | 224 |
+| [Assets/Scrpts/hex/HexMap.cs](/Assets/Scrpts/hex/HexMap.cs) | C# | 102 | 27 | 51 | 180 |
 | [Assets/Scrpts/hex/HexMapGenerator.cs](/Assets/Scrpts/hex/HexMapGenerator.cs) | C# | 167 | 9 | 19 | 195 |
-| [Assets/Scrpts/hex/HexOperations.cs](/Assets/Scrpts/hex/HexOperations.cs) | C# | 180 | 43 | 42 | 265 |
+| [Assets/Scrpts/hex/HexOperations.cs](/Assets/Scrpts/hex/HexOperations.cs) | C# | 219 | 56 | 53 | 328 |
 | [Assets/Scrpts/item/Item.cs](/Assets/Scrpts/item/Item.cs) | C# | 22 | 2 | 7 | 31 |
-| [Assets/Scrpts/kingdom/AirKingdom.cs](/Assets/Scrpts/kingdom/AirKingdom.cs) | C# | 13 | 1 | 2 | 16 |
-| [Assets/Scrpts/kingdom/DarkKingdom.cs](/Assets/Scrpts/kingdom/DarkKingdom.cs) | C# | 12 | 1 | 2 | 15 |
-| [Assets/Scrpts/kingdom/EarthKingdom.cs](/Assets/Scrpts/kingdom/EarthKingdom.cs) | C# | 13 | 1 | 2 | 16 |
-| [Assets/Scrpts/kingdom/FireKingdom.cs](/Assets/Scrpts/kingdom/FireKingdom.cs) | C# | 22 | 6 | 7 | 35 |
-| [Assets/Scrpts/kingdom/Kingdom.cs](/Assets/Scrpts/kingdom/Kingdom.cs) | C# | 40 | 3 | 6 | 49 |
-| [Assets/Scrpts/kingdom/LightKingdom.cs](/Assets/Scrpts/kingdom/LightKingdom.cs) | C# | 11 | 1 | 2 | 14 |
-| [Assets/Scrpts/kingdom/WaterKingdom.cs](/Assets/Scrpts/kingdom/WaterKingdom.cs) | C# | 12 | 1 | 2 | 15 |
-| [Assets/Scrpts/other/Cost.cs](/Assets/Scrpts/other/Cost.cs) | C# | 94 | 1 | 13 | 108 |
-| [Assets/Scrpts/other/GameState.cs](/Assets/Scrpts/other/GameState.cs) | C# | 99 | 9 | 16 | 124 |
-| [Assets/Scrpts/other/Player.cs](/Assets/Scrpts/other/Player.cs) | C# | 51 | 2 | 11 | 64 |
+| [Assets/Scrpts/kingdom/AirKingdom.cs](/Assets/Scrpts/kingdom/AirKingdom.cs) | C# | 11 | 5 | 2 | 18 |
+| [Assets/Scrpts/kingdom/DarkKingdom.cs](/Assets/Scrpts/kingdom/DarkKingdom.cs) | C# | 11 | 1 | 2 | 14 |
+| [Assets/Scrpts/kingdom/EarthKingdom.cs](/Assets/Scrpts/kingdom/EarthKingdom.cs) | C# | 11 | 4 | 2 | 17 |
+| [Assets/Scrpts/kingdom/FireKingdom.cs](/Assets/Scrpts/kingdom/FireKingdom.cs) | C# | 12 | 1 | 5 | 18 |
+| [Assets/Scrpts/kingdom/Kingdom.cs](/Assets/Scrpts/kingdom/Kingdom.cs) | C# | 58 | 10 | 10 | 78 |
+| [Assets/Scrpts/kingdom/LightKingdom.cs](/Assets/Scrpts/kingdom/LightKingdom.cs) | C# | 10 | 4 | 2 | 16 |
+| [Assets/Scrpts/kingdom/WaterKingdom.cs](/Assets/Scrpts/kingdom/WaterKingdom.cs) | C# | 11 | 4 | 2 | 17 |
+| [Assets/Scrpts/other/Cost.cs](/Assets/Scrpts/other/Cost.cs) | C# | 222 | 14 | 17 | 253 |
+| [Assets/Scrpts/other/GameState.cs](/Assets/Scrpts/other/GameState.cs) | C# | 106 | 12 | 19 | 137 |
+| [Assets/Scrpts/other/Player.cs](/Assets/Scrpts/other/Player.cs) | C# | 74 | 4 | 13 | 91 |
 | [Assets/Scrpts/other/Task.cs](/Assets/Scrpts/other/Task.cs) | C# | 120 | 15 | 24 | 159 |
 | [Assets/Scrpts/other/UpdatePosition.cs](/Assets/Scrpts/other/UpdatePosition.cs) | C# | 31 | 4 | 3 | 38 |
 | [Assets/Scrpts/spell/Spell.cs](/Assets/Scrpts/spell/Spell.cs) | C# | 16 | 3 | 6 | 25 |
+| [Assets/Scrpts/unit/Animal.cs](/Assets/Scrpts/unit/Animal.cs) | C# | 16 | 0 | 3 | 19 |
 | [Assets/Scrpts/unit/Camper.cs](/Assets/Scrpts/unit/Camper.cs) | C# | 14 | 2 | 2 | 18 |
-| [Assets/Scrpts/unit/Shadow.cs](/Assets/Scrpts/unit/Shadow.cs) | C# | 15 | 3 | 3 | 21 |
-| [Assets/Scrpts/unit/Unit.cs](/Assets/Scrpts/unit/Unit.cs) | C# | 111 | 10 | 16 | 137 |
-| [Assets/Scrpts/unit/UnitMove.cs](/Assets/Scrpts/unit/UnitMove.cs) | C# | 28 | 31 | 3 | 62 |
+| [Assets/Scrpts/unit/Civilian.cs](/Assets/Scrpts/unit/Civilian.cs) | C# | 70 | 4 | 14 | 88 |
+| [Assets/Scrpts/unit/Shadow.cs](/Assets/Scrpts/unit/Shadow.cs) | C# | 16 | 3 | 3 | 22 |
+| [Assets/Scrpts/unit/Unit.cs](/Assets/Scrpts/unit/Unit.cs) | C# | 138 | 27 | 24 | 189 |
+| [Assets/Scrpts/unit/UnitMove.cs](/Assets/Scrpts/unit/UnitMove.cs) | C# | 31 | 30 | 4 | 65 |
 
 [summary](results.md)

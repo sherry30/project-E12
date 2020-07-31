@@ -113,61 +113,81 @@ public class Cost
     }
 
     public bool checkCost(int player = -1){
+        Player tempPlayer = PlayerController.Instance.player;
         //checking if energy cost is met
         if(player==-1){
-        Player tempPlayer = PlayerController.Instance.player;
+            tempPlayer = PlayerController.Instance.player;
+
+        }
+        else{
+            tempPlayer = AIController.Instance.AIPlayers[player];
+        }
         Dictionary<Resource,int> res = tempPlayer.Resources;
         Dictionary<Raw_Material,int> raw = tempPlayer.RawMaterials;
         Dictionary<Energy,int> energy = tempPlayer.Energies;
         Dictionary<OtherResource,int> otherRes = tempPlayer.OtherResources;
         //checking if energy cost is met
-            if(costEnergy!=null){
-                foreach(KeyValuePair<Energy, int> entry in costEnergy){
-                    if(energy[entry.Key]<costEnergy[entry.Key]){
-                        return false;
-                    }
-                    else{
-                        tempPlayer.Energies[entry.Key]-=costEnergy[entry.Key];
-                    }
+        if(costEnergy!=null){
+            foreach(KeyValuePair<Energy, int> entry in costEnergy){
+                if(energy[entry.Key]<costEnergy[entry.Key]){
+                    return false;
                 }
             }
-            //checking if Resource cost is met
-            if(costResource!=null){
-                foreach(KeyValuePair<Resource, int> entry in costResource){
-                    if(res[entry.Key]<costResource[entry.Key]){
-                        return false;
-                    }
-                    else{
-                        tempPlayer.Resources[entry.Key]-=costResource[entry.Key];
-                    }
+        }
+        //checking if Resource cost is met
+        if(costResource!=null){
+            foreach(KeyValuePair<Resource, int> entry in costResource){
+                if(res[entry.Key]<costResource[entry.Key]){
+                    return false;
                 }
             }
-            //checking if Raw material cost is met
-            if(costRaw!=null){
-                foreach(KeyValuePair<Raw_Material, int> entry in costRaw){
-                    if(raw[entry.Key]<costRaw[entry.Key]){
-                        return false;
-                    }
-                    else{
-                        tempPlayer.RawMaterials[entry.Key]-=costRaw[entry.Key];
-                    }
+        }
+        //checking if Raw material cost is met
+        if(costRaw!=null){
+            foreach(KeyValuePair<Raw_Material, int> entry in costRaw){
+                if(raw[entry.Key]<costRaw[entry.Key]){
+                    return false;
                 }
             }
-            //checking if otherResource cost is met
-            if(costOtherRes!=null){
-                foreach(KeyValuePair<OtherResource, int> entry in costOtherRes){
-                    if(otherRes[entry.Key]<costOtherRes[entry.Key]){
-                        return false;
-                    }
-                    else{
-                        tempPlayer.OtherResources[entry.Key]-=costOtherRes[entry.Key];
-                    }
+        }
+        //checking if otherResource cost is met
+        if(costOtherRes!=null){
+            foreach(KeyValuePair<OtherResource, int> entry in costOtherRes){
+                if(otherRes[entry.Key]<costOtherRes[entry.Key]){
+                    return false;
                 }
-            }   
+            }
         }
 
+        //spending all the things
+        if(costEnergy!=null){
+            foreach(KeyValuePair<Energy, int> entry in costEnergy){
+                tempPlayer.Energies[entry.Key]-=costEnergy[entry.Key];
+            }
+        }
+        //checking if Resource cost is met
+        if(costResource!=null){
+            foreach(KeyValuePair<Resource, int> entry in costResource){
+                tempPlayer.Resources[entry.Key]-=costResource[entry.Key];
+            }
+        }
+        //checking if Raw material cost is met
+        if(costRaw!=null){
+            foreach(KeyValuePair<Raw_Material, int> entry in costRaw){
+                tempPlayer.RawMaterials[entry.Key]-=costRaw[entry.Key];
+            }
+        }
+        //checking if otherResource cost is met
+        if(costOtherRes!=null){
+            foreach(KeyValuePair<OtherResource, int> entry in costOtherRes){
+                    tempPlayer.OtherResources[entry.Key]-=costOtherRes[entry.Key];
+            }
+        }
+        return true;   
+    }
+
         //if it is AIPlayer
-        else{
+        /*else{
             Player tempPlayer = AIController.Instance.AIPlayers[player];
             Dictionary<Resource,int> res = tempPlayer.Resources;
             Dictionary<Raw_Material,int> raw = tempPlayer.RawMaterials;
@@ -218,9 +238,9 @@ public class Cost
                 }
             }
         }
-        return true;
+        return true;*/
 
-    }
+    //}
 
     public void printCost(){
         //checking if energy cost is met

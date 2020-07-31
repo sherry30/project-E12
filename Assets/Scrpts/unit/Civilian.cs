@@ -42,7 +42,7 @@ public class Civilian : Unit
          
         
         //return if the civillian is out of territory
-        if(!imp.mustBeInTerritory){
+        if(imp.mustBeInTerritory){
             if(player==-1){
                 if(!PlayerController.Instance.player.territory.Contains(HexMap.Instance.getHexComponent(location))){
                     Debug.Log("cant build here because out of territory");

@@ -1561,6 +1561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selected: 2
   player:
+    player: -1
     kingdom: {fileID: 0}
     approval: 0
     Resources:
@@ -1572,6 +1573,9 @@ MonoBehaviour:
     Energies:
       m_keys: 010000000200000003000000040000000500000006000000
       m_values: 000000000000000000000000000000000000000000000000
+    OtherResources:
+      m_keys: 000000000100000002000000
+      m_values: 1e0000000000000000000000
     resourcesYield:
       m_keys: 
       m_values: 
@@ -1579,6 +1583,9 @@ MonoBehaviour:
       m_keys: 
       m_values: 
     energyYield:
+      m_keys: 
+      m_values: 
+    OtherResourcesYield:
       m_keys: 
       m_values: 
     population: 2

@@ -90,6 +90,7 @@ MonoBehaviour:
   techCode: 3
   preRequisites:
   - {fileID: -2762262842989007810, guid: 8addab01e8d8ed8e19173c7f3471f47a, type: 3}
+  - {fileID: -853611804153732934, guid: edf54723c01ca2985b6fe34eb9b08f3c, type: 3}
   unlocked: 0
   Name: 
   description: 

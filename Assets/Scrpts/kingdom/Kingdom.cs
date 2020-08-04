@@ -13,6 +13,7 @@ public abstract class Kingdom : MonoBehaviour
     public Building[] buildings;
     public Spell[] spells;
     public City[] cities;
+    public Item[] items;
     public Improvement[] improvements;
     public Energy type;
     public Energy type2;
@@ -20,6 +21,7 @@ public abstract class Kingdom : MonoBehaviour
     public GameObject[] cityPrefabs;
     public GameObject[] unitPrefabs;
     public GameObject[] improvementPrefabs;
+    public GameObject[] itemPrefabs;
     public List<int> startingUnitIndexes;
     public GameObject[] TechObjects;
     //[HideInInspector]
@@ -33,6 +35,7 @@ public abstract class Kingdom : MonoBehaviour
         cities = new City[cityPrefabs.Length];
         units= new Unit[unitPrefabs.Length];
         improvements = new Improvement[improvementPrefabs.Length];
+        items = new Item[itemPrefabs.Length];
 
         
         for(int i=0;i<cities.Length;i++){
@@ -45,6 +48,9 @@ public abstract class Kingdom : MonoBehaviour
             improvements[i] = improvementPrefabs[i].GetComponent<Improvement>();
         }
 
+        for(int i=0;i<items.Length;i++){
+            items[i] = itemPrefabs[i].GetComponent<Item>();
+        }
         //setting up tech Tree from techObjects
         setTechTree();
     }

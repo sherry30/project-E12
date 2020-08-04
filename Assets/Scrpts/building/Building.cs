@@ -22,6 +22,9 @@ public class Building : MonoBehaviour
     public Cost cost;
 
     public Vector2 location;
+    public List<Item> itemInventory;
+    public int ItemInventoryLimit=6;
+
     [HideInInspector]
     public bool isBuilt=false;
     [HideInInspector]
@@ -68,6 +71,17 @@ public class Building : MonoBehaviour
 
     public virtual void unitRemovedFromTheHex(){
 
+    }
+    public void AddItem(Item item){
+        if(itemInventory.Count>=ItemInventoryLimit){
+            Debug.Log("Inventory full");
+            return;
+        }
+        if(itemInventory==null){
+            itemInventory= new List<Item>();
+        }
+        itemInventory.Add(item);
+        
     }
 
 }

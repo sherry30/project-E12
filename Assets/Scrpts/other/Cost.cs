@@ -137,6 +137,8 @@ public class Cost
         //checking if Resource cost is met
         if(costResource!=null){
             foreach(KeyValuePair<Resource, int> entry in costResource){
+                if(entry.Key==Resource.production)
+                    continue;
                 if(res[entry.Key]<costResource[entry.Key]){
                     return false;
                 }
@@ -153,6 +155,8 @@ public class Cost
         //checking if otherResource cost is met
         if(costOtherRes!=null){
             foreach(KeyValuePair<OtherResource, int> entry in costOtherRes){
+                if(entry.Key==OtherResource.Science)
+                    continue;
                 if(otherRes[entry.Key]<costOtherRes[entry.Key]){
                     return false;
                 }
@@ -168,6 +172,9 @@ public class Cost
         //checking if Resource cost is met
         if(costResource!=null){
             foreach(KeyValuePair<Resource, int> entry in costResource){
+                //not subtract produxctiobn
+                if(entry.Key==Resource.production)
+                    continue;
                 tempPlayer.Resources[entry.Key]-=costResource[entry.Key];
             }
         }
@@ -180,13 +187,53 @@ public class Cost
         //checking if otherResource cost is met
         if(costOtherRes!=null){
             foreach(KeyValuePair<OtherResource, int> entry in costOtherRes){
-                    tempPlayer.OtherResources[entry.Key]-=costOtherRes[entry.Key];
+                if(entry.Key==OtherResource.Science)
+                    continue;
+                tempPlayer.OtherResources[entry.Key]-=costOtherRes[entry.Key];
             }
         }
         return true;   
     }
 
-        //if it is AIPlayer
+    public int spendProduction(int player =-1){
+        Player tempPlayer = PlayerController.Instance.player;
+
+        if(player!=-1)
+            tempPlayer = AIController.Instance.AIPlayers[player];
+        Dictionary<Resource,int> res = tempPlayer.Resources;
+        int var1 = costResource[Resource.production];
+        int var2 = res[Resource.production];
+        int days = var1/var2;
+        //int case have 0 sproduction
+        if(var2==0)
+            return var1;
+        if(var1%var2!=0)
+            days++;
+        if(days==0)
+            days=1;
+        return days;
+        
+    }
+    public int spendScience(int player =-1){
+        Player tempPlayer = PlayerController.Instance.player;
+
+        if(player!=-1)
+            tempPlayer = AIController.Instance.AIPlayers[player];
+        Dictionary<OtherResource,int> otherRes = tempPlayer.OtherResources;
+        int var1 = costOtherRes[OtherResource.Science];
+        int var2 = otherRes[OtherResource.Science];
+        //int case have 0 sciencwe
+        if(var2==0)
+            return var1;
+        int days = var1/var2;
+        if(var1%var2!=0)
+            days++;
+        if(days==0)
+            days=1;
+        return days;
+        
+    }
+            //if it is AIPlayer
         /*else{
             Player tempPlayer = AIController.Instance.AIPlayers[player];
             Dictionary<Resource,int> res = tempPlayer.Resources;

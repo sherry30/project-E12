@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4118322018534020178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7046459402407583608}
+  - component: {fileID: 5989428504676876228}
+  m_Layer: 9
+  m_Name: StoneSpear
+  m_TagString: Unit
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7046459402407583608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4118322018534020178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4695302972738653439}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5989428504676876228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4118322018534020178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788f0d925ce76b3dc8e0a664aa069fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Stone SPear
+  description: sdsdf
+  type: 1
+  cost:
+    costResource:
+      m_keys: 
+      m_values: 
+    costRaw:
+      m_keys: 0000000001000000
+      m_values: 0100000001000000
+    costEnergy:
+      m_keys: 
+      m_values: 
+    costOtherRes:
+      m_keys: 
+      m_values: 
+  equiped: 0
+  daysToBeProduced: 2
+--- !u!1001 &3241260601171259418
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7046459402407583608}
+    m_Modifications:
+    - target: {fileID: 6595818168628973302, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
+        type: 3}
+      propertyPath: m_Name
+      value: tempSpearModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3e399e79bdfc85eff88c60f51abfe7f3, type: 3}
+--- !u!4 &4695302972738653439 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3241260601171259418}
+  m_PrefabAsset: {fileID: 0}

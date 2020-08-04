@@ -32,11 +32,23 @@ public class TechSkill : MonoBehaviour{
     public string Name;
     public string description;
     public Cost cost;
+    public int daysTillUnlock=-1;
+    public int player = -1;
     public void setPreRequisite(List<TechSkill> pre){
         preRequisites = pre;
         unlocked=false;
     }
     public virtual void UnlockSkill(int player = -1){
+        this.player = player;
+        if(unlocked){
+            Debug.Log(string.Format("{0} is unlocked",techCode));        
+            return;
+        }
+
+        
+        
+
+
         //check if preRequisitesare met or not
         if(!checkPreRequisite()){
             Debug.Log("Not all preRequisites aquired yet");
@@ -44,8 +56,8 @@ public class TechSkill : MonoBehaviour{
         }
 
         //check if it is already unlocked or not
-        if(unlocked){
-            Debug.Log("Already Unlocked");
+        if(unlocked || daysTillUnlock!=-1){
+            Debug.Log("Already Unlocked or in research");
             return;
         }
         //check if have enough science to pay
@@ -55,9 +67,10 @@ public class TechSkill : MonoBehaviour{
             return;
         }
         
-
-        Debug.Log(string.Format("{0} is unlocked",techCode));
-        unlocked=true;
+        daysTillUnlock=cost.spendScience(player);
+        if(player==-1)
+            GameState.onStartTurn+=StartTurn;
+        Debug.Log(string.Format("days till research {0}",daysTillUnlock));
     }
     protected bool checkPreRequisite(){
         if(preRequisites ==null)
@@ -68,6 +81,20 @@ public class TechSkill : MonoBehaviour{
             }
         }
         return true;
+    }
+    public virtual void StartTurn(){
+        if(daysTillUnlock!=-1){
+            daysTillUnlock--;
+            if(daysTillUnlock==0){
+                //unsubscribing to this metyhod whenever player turns start
+                if(player==-1)
+                    GameState.onStartTurn-=StartTurn;
+
+                unlocked=true;
+                daysTillUnlock=-1;
+                UnlockSkill(player);
+            }
+        }
     }
 
 }

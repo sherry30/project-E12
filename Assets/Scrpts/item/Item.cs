@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item : MonoBehaviour
+public class Item : MonoBehaviour
 {
     public enum Type{
         Armour,
@@ -15,16 +15,7 @@ public abstract class Item : MonoBehaviour
     public string description;
     public Type type;
     public Cost cost;
+    public bool equiped=false;
+    public int daysToBeProduced=2;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

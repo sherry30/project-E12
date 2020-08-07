@@ -41,7 +41,8 @@ public class Unit : MonoBehaviour
     protected Energy kingdom;
     [SerializeField]
     public Cost cost;
-    public Item[] items;
+    public List<Item> items;
+    public int itemLimit=3;
     public Vector2 location;
     public int movement=2;
     public int player=-1;//player index; -1 if player controller else AIController; -2 for Shadows -3 for Animals
@@ -106,7 +107,6 @@ public class Unit : MonoBehaviour
         //adding the unit in the hexCOmponent after the animation
         //if(!isEnemy){
         HexMap.Instance.getHexComponent(location).addUnit(this);
-        updatePos.updateLocationFromCamera();
         //}
         /*else{
             HexMap.Instance.getHexComponent(newHex.location).addEnemy(this);
@@ -126,6 +126,7 @@ public class Unit : MonoBehaviour
         }
         moving = false;
         setUpdatePosition();
+        updatePos.updateLocationFromCamera();
         //updatePos.updateLocationFromCamera();//updating one last time after done moving
     }
 
@@ -183,6 +184,13 @@ public class Unit : MonoBehaviour
     public void setElevation(float y){
         offset.y+=y;
         setUpdatePosition();
+    }
+    public void equipItem(Item item){
+        if(items.Count>=itemLimit){
+            Debug.Log("ItemLimit reached on this unit");
+            return;
+        }
+        items.Add(item);
     }
 
 }

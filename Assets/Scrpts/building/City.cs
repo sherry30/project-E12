@@ -11,8 +11,10 @@ public class City : Building
         capital
     }
     public int boarderLength;
+    public bool capital=true;
     public int approvalThreshold;
     public int population;
+    public int maxPopulation=4;
     public Type typeOfCity;
     public List<Building> buildings;
 
@@ -22,7 +24,7 @@ public class City : Building
     public int unitProduction=-1;//unit being produced rn
     public int daysTillProduced=-1;//number of days unitl the unit in productionis produced
     public int itemProduction=-1;//item being produced rn
-    private List<District> districts{get;set;}//for now
+    public List<District> districts;//for now
     public bool camped=false;
     public void Campers(){
         if(typeOfCity==Type.camp){
@@ -69,7 +71,7 @@ public class City : Building
             daysTillProduced= AIController.Instance.AIPlayers[player].kingdom.items[index].daysToBeProduced;
         
     }
-    
+
     private Unit getUnit(int index){
         Unit unit = null;
         if(player==-1)
@@ -88,6 +90,14 @@ public class City : Building
             item = AIController.Instance.AIPlayers[player].kingdom.items[index];
         
         return item;
+    }
+    public void upgradeToVillage(){
+        if(typeOfCity==Type.camp){
+            typeOfCity = Type.village;
+            boarderLength=2;
+            maxPopulation=10;
+
+        }
     }
     
 

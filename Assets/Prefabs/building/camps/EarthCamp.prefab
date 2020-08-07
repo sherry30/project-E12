@@ -62,18 +62,29 @@ MonoBehaviour:
     costEnergy:
       m_keys: 
       m_values: 
+    costOtherRes:
+      m_keys: 
+      m_values: 
   location: {x: 0, y: 0}
+  itemInventory: []
+  ItemInventoryLimit: 6
   isBuilt: 0
   offset: {x: 0, y: 0, z: 0}
   boarderLength: 3
+  capital: 1
   approvalThreshold: -10
   population: 3
+  maxPopulation: 4
   typeOfCity: 0
   buildings: []
-  unitStartIndex: 1
-  numOfUnits: 4
+  unitStartIndex: 0
+  numOfUnits: 5
+  itemStartIndex: 0
+  numOfItems: 0
   unitProduction: -1
   daysTillProduced: -1
+  itemProduction: -1
+  districts: []
   camped: 0
 --- !u!114 &7341344548456130459
 MonoBehaviour:

@@ -11,7 +11,7 @@ public class Camper : MonoBehaviour
         //destroying unit and creating camp
         GameObject obj = HexOperations.Instance.BuildCity(loc,0);
         obj.GetComponent<City>().camped = true;
-        //return;
+        GameState.Instance.deSelectObject();
         HexOperations.Instance.DestroyUnit(unit);
     }
 }

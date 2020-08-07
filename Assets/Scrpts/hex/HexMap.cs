@@ -51,6 +51,9 @@ public class HexMap : MonoBehaviour
 
         //setup camera once at the start
         CameraController.onCameraMove();
+
+        //setupminicamComp at the start
+        minimapCamCont.FixPos();
         
     }
 

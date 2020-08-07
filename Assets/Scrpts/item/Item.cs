@@ -17,5 +17,8 @@ public class Item : MonoBehaviour
     public Cost cost;
     public bool equiped=false;
     public int daysToBeProduced=2;
+    public void equip(){
+        equiped = true;
+    }
 
 }

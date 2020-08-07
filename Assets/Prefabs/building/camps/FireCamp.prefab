@@ -71,17 +71,20 @@ MonoBehaviour:
   isBuilt: 0
   offset: {x: 0, y: 0, z: 0}
   boarderLength: 3
+  capital: 1
   approvalThreshold: -10
   population: 3
+  maxPopulation: 4
   typeOfCity: 0
   buildings: []
-  unitStartIndex: 1
-  numOfUnits: 4
+  unitStartIndex: 0
+  numOfUnits: 5
   itemStartIndex: 0
   numOfItems: 1
   unitProduction: -1
   daysTillProduced: -1
   itemProduction: -1
+  districts: []
   camped: 0
 --- !u!114 &3706403764918985536
 MonoBehaviour:

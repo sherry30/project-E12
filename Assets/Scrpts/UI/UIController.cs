@@ -52,6 +52,7 @@ public class UIController : MonoBehaviour
     }
     private void hideUI(){
         currentlyOpened.SetActive(false);
+        currentlyOpened=null;
         //healthBar = current.GetComponent<HealthBar>();
         healthBar.hideHealth();
     }
@@ -61,7 +62,7 @@ public class UIController : MonoBehaviour
     }
     
     public void deSelectObject(){
-        currentlyOpened = null;
+        hideUI();
         healthBar = null;
     }
 

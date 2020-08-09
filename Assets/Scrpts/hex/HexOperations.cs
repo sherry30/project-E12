@@ -85,6 +85,52 @@ public class HexOperations : MonoBehaviour
 
     }
 
+    public GameObject BuildImprovement(Vector2 location,int improvementIndex){
+        Vector3 place = hexes[(int)location.x,(int)location.y].hex.positionFromCamera();
+        GameObject obj = (GameObject)Instantiate(
+            PlayerController.Instance.player.kingdom.improvementPrefabs[improvementIndex],
+            new Vector3(place.x,place.y,place.z),
+            Quaternion.identity         
+        );
+        Improvement temp = obj.GetComponent<Improvement>();
+        //setting its possiton right on y axis
+        Vector3 pos = obj.transform.position;
+        obj.transform.position = new Vector3(pos.x,pos.y+temp.offset.y,pos.z);
+        
+        //letting unit know which player it belongs to
+        temp.player = -1;
+
+        //updating in the hexComponent city
+        hexes[(int)location.x,(int)location.y].BuildBuilding(temp);
+        //updating in the Player.Instance.cities
+        PlayerController.Instance.player.BuildImprovement(temp,location);
+        return obj;
+
+    }
+    public GameObject BuildDistrict(Vector2 location,int disIndex){
+        Vector3 place = hexes[(int)location.x,(int)location.y].hex.positionFromCamera();
+        GameObject obj = (GameObject)Instantiate(
+            PlayerController.Instance.player.kingdom.districtPrefabs[disIndex],
+            new Vector3(place.x,place.y,place.z),
+            Quaternion.identity         
+        );
+        District temp = obj.GetComponent<District>();
+
+        //setting its possiton right on y axis
+        Vector3 pos = obj.transform.position;
+        obj.transform.position = new Vector3(pos.x,pos.y+temp.offset.y,pos.z);
+        
+        //letting unit know which player it belongs to
+        temp.player = -1;
+
+        //updating in the hexComponent city
+        hexes[(int)location.x,(int)location.y].BuildBuilding(temp);
+        //updating in the Player.Instance.cities
+        PlayerController.Instance.player.BuildDistrict(temp,location);
+        return obj;
+
+    }
+
     public void DestroyCity(City city){
         UpdatePosition temp = city.gameObject.GetComponent<UpdatePosition>();
         CameraController.onCameraMove-=temp.updateLocationFromCamera;
@@ -250,29 +296,30 @@ public class HexOperations : MonoBehaviour
 
         return obj;
     }
-
-    public GameObject BuildImprovement(Vector2 location,int improvementIndex){
+    public GameObject BuildAIDistrict(Vector2 location,int disIndex, int player=0){
         Vector3 place = hexes[(int)location.x,(int)location.y].hex.positionFromCamera();
         GameObject obj = (GameObject)Instantiate(
-            PlayerController.Instance.player.kingdom.improvementPrefabs[improvementIndex],
+            AIController.Instance.AIPlayers[player].kingdom.districtPrefabs[disIndex],
             new Vector3(place.x,place.y,place.z),
             Quaternion.identity         
         );
-        Improvement temp = obj.GetComponent<Improvement>();
+        District temp = obj.GetComponent<District>();
+
         //setting its possiton right on y axis
         Vector3 pos = obj.transform.position;
         obj.transform.position = new Vector3(pos.x,pos.y+temp.offset.y,pos.z);
         
         //letting unit know which player it belongs to
-        temp.player = -1;
+        temp.player = player;
 
         //updating in the hexComponent city
         hexes[(int)location.x,(int)location.y].BuildBuilding(temp);
         //updating in the Player.Instance.cities
-        PlayerController.Instance.player.BuildImprovement(temp,location);
+        AIController.Instance.AIPlayers[player].BuildDistrict(temp,location);
         return obj;
 
     }
+
 
     //spawning NPCs
     public Shadow spawnShadow(GameObject shadowPrefab){

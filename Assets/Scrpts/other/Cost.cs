@@ -26,7 +26,8 @@ public enum Raw_Material{
     public enum OtherResource{
         Science,
         alchemy,
-        crystal
+        crystal,
+        approval
     }
 
     public enum Resource{

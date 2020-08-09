@@ -7,8 +7,6 @@ public class City : Building
     public enum Type{
         camp,
         village,
-        city,
-        capital
     }
     public int boarderLength;
     public bool capital=true;
@@ -24,7 +22,8 @@ public class City : Building
     public int unitProduction=-1;//unit being produced rn
     public int daysTillProduced=-1;//number of days unitl the unit in productionis produced
     public int itemProduction=-1;//item being produced rn
-    public List<District> districts;//for now
+    public List<District> districts;
+    public District thisDistrict;///for now
     public bool camped=false;
     public void Campers(){
         if(typeOfCity==Type.camp){

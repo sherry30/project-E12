@@ -61,8 +61,8 @@ MonoBehaviour:
   classOfUnit: 0
   cost:
     costResource:
-      m_keys: 
-      m_values: 
+      m_keys: 01000000
+      m_values: 09000000
     costRaw:
       m_keys: 
       m_values: 

@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public enum BuildingType{
+    improvement,
+    city,
+    district,
+    building
+}
 public class Building : MonoBehaviour
 {
+    public BuildingType buildingType;
     public static int currentID=0;
     public string Name;
     [HideInInspector]
@@ -51,6 +58,23 @@ public class Building : MonoBehaviour
         id = currentID;
         currentID++;
         GameState.onStartTurn+=StartTurn;
+
+        //setting up district
+        if(buildingType==BuildingType.city){
+            City cit = GetComponent<City>();
+            District dis= GetComponent<District>();
+            dis.Build(location);
+            dis.buildingType = BuildingType.district;
+            dis.player = player;
+            if(cit.typeOfCity==City.Type.camp){    
+                dis.setCamp();
+            }
+            else if(cit.typeOfCity==City.Type.village){
+                dis.setVillage();
+            }
+            //add town later as well
+            cit.thisDistrict = dis;
+        }
     }
     public void Demolish(){
         GameState.Instance.occupiedHexes.Remove(location);

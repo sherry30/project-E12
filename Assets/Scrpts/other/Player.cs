@@ -8,7 +8,6 @@ public class Player
 {
     public int player = -1;
     public Kingdom kingdom;
-    public int approval;
     [SerializeField]
     public DictionaryResInt Resources;
     [SerializeField]
@@ -27,6 +26,7 @@ public class Player
     public List<City> cities;
     public List<Unit> units;
     public List<Improvement> improvements;
+    public List<District> districts;
     public List<improvement> availableImprovements;
     //public int productionYield;
     public List<HexComponent> territory;
@@ -49,6 +49,12 @@ public class Player
         if(improvements==null)
             improvements = new List<Improvement>();
         improvements.Add(imp);
+    }
+    public void BuildDistrict(District dis,Vector2 location){
+        dis.Build(location);
+        if(districts==null)
+            districts = new List<District>();
+        districts.Add(dis);
     }
     public void SpawnUnit(Unit unit,Vector2 location){
         unit.spawnUnit(location);

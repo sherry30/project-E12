@@ -9,6 +9,7 @@ public class minimapCamCont : MonoBehaviour
     void Awake(){
         if(Instance==null){
             Instance =this;
+            CameraController.onCameraMove+=FixPos;
             return;
         }
         else{
@@ -24,5 +25,6 @@ public class minimapCamCont : MonoBehaviour
     }*/
     public static void FixPos(){
         Instance.transform.position = new Vector3(Instance.transform.position.x, Instance.transform.position.y, constantPos);
+        
     }
 }

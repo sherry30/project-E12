@@ -22,6 +22,7 @@ public abstract class Kingdom : MonoBehaviour
     public GameObject[] unitPrefabs;
     public GameObject[] improvementPrefabs;
     public GameObject[] itemPrefabs;
+    public GameObject[] districtPrefabs;
     public List<int> startingUnitIndexes;
     public GameObject[] TechObjects;
     //[HideInInspector]

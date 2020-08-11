@@ -97,6 +97,7 @@ MonoBehaviour:
   description: Civiviv
   maxHealth: 100
   currentHealth: 0
+  damage: 100
   typeOfUnit: 0
   classOfUnit: 3
   cost:
@@ -109,7 +110,11 @@ MonoBehaviour:
     costEnergy:
       m_keys: 
       m_values: 
+    costOtherRes:
+      m_keys: 
+      m_values: 
   items: []
+  itemLimit: 3
   location: {x: 0, y: 0}
   movement: 2
   player: 0
@@ -119,6 +124,8 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   paralysed: 0
   reasonForParalyzed: None
+  healthBar: {fileID: 0}
+  icon: {fileID: -300791231007646692, guid: 6cf4afaff9702b99d84cd927bedc9f09, type: 3}
   inProduction: {fileID: 0}
   improvementIndex: -1
   building: 0
@@ -136,9 +143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   currentHealth: 0
-  unit: {fileID: -6352885361380008899}
-  healthBarUI: {fileID: 5348658773279794589}
-  image: {fileID: 2655432142518843002}
 --- !u!1001 &3431627475764313553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -258,30 +262,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a82e76d439460b5daa2e2da6926a0691, type: 3}
---- !u!1 &5348658773279794589 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7324497662315108428, guid: a82e76d439460b5daa2e2da6926a0691,
-    type: 3}
-  m_PrefabInstance: {fileID: 3431627475764313553}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7961291143427516350 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
     type: 3}
   m_PrefabInstance: {fileID: 3431627475764313553}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2655432142518843002 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 812453842617338795, guid: a82e76d439460b5daa2e2da6926a0691,
-    type: 3}
-  m_PrefabInstance: {fileID: 3431627475764313553}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8622888674011442550
 PrefabInstance:
   m_ObjectHideFlags: 0

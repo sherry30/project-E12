@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Unit : MonoBehaviour
 {
@@ -41,7 +43,7 @@ public class Unit : MonoBehaviour
     protected Energy kingdom;
     [SerializeField]
     public Cost cost;
-    public List<Item> items;
+    public List<GameObject> items;
     public int itemLimit=3;
     public Vector2 location;
     public int movement=2;
@@ -58,6 +60,7 @@ public class Unit : MonoBehaviour
     public string reasonForParalyzed = "None";
     [HideInInspector]
     public HealthBar healthBar;
+    public Sprite icon;
     protected virtual void Awake(){
         currentHealth = maxHealth;
 
@@ -72,6 +75,7 @@ public class Unit : MonoBehaviour
 
 
     }
+
     public void spawnUnit(Vector2 location){
         this.location = location;
         //offset.y += HexMap.Instance.getHexComponent(location).elevation;
@@ -185,11 +189,16 @@ public class Unit : MonoBehaviour
         offset.y+=y;
         setUpdatePosition();
     }
-    public void equipItem(Item item){
+    public void equipItem(GameObject item){
         if(items.Count>=itemLimit){
             Debug.Log("ItemLimit reached on this unit");
             return;
         }
+        DragDrop dr = item.GetComponent<DragDrop>();
+        dr.enabled=false;
+        item.GetComponent<Item>().equip();
+
+
         items.Add(item);
     }
 

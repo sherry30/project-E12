@@ -29,7 +29,7 @@ public class Building : MonoBehaviour
     public Cost cost;
 
     public Vector2 location;
-    public List<Item> itemInventory;
+    public List<GameObject> itemInventory;
     public int ItemInventoryLimit=6;
 
     [HideInInspector]
@@ -96,16 +96,42 @@ public class Building : MonoBehaviour
     public virtual void unitRemovedFromTheHex(){
 
     }
-    public void AddItem(Item item){
+    public void AddItem(GameObject item){
         if(itemInventory.Count>=ItemInventoryLimit){
             Debug.Log("Inventory full");
             return;
         }
         if(itemInventory==null){
-            itemInventory= new List<Item>();
-        }
-        itemInventory.Add(item);
+            itemInventory= new List<GameObject>();
+        } 
+        GameObject obj = Instantiate(item,Vector3.zero,Quaternion.identity) as GameObject;
+        //obj.SetActive(false);
+        obj.GetComponent<Item>().building = this.GetComponent<Building>();
+        obj.GetComponent<DragDrop>().enabled=true;
+        itemInventory.Add(obj);
         
+    }
+    public void removeItem(GameObject item){
+        if(itemInventory==null){
+            return;
+        }
+        for(int i=0;i<itemInventory.Count;i++){
+            Item temp = itemInventory[i].GetComponent<Item>();
+            if(temp.Name==item.GetComponent<Item>().Name){
+                itemInventory.RemoveAt(i);
+                return;
+            }
+        }
+    }
+    public GameObject getItem(Item item){
+        for(int i=0;i<itemInventory.Count;i++){
+            Item temp = itemInventory[i].GetComponent<Item>();
+            if(temp.Name==item.Name){
+                
+                return itemInventory[i];
+            }
+        }
+        return null;
     }
 
 }

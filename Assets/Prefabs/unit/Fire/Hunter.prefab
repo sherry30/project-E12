@@ -49,13 +49,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdce47ae54b0500928891325366b0c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Hunter
   attack: 15
   defense: 10
   id: 0
   description: camper unit
   maxHealth: 100
   currentHealth: 0
+  damage: 100
   typeOfUnit: 0
   classOfUnit: 6
   cost:
@@ -68,7 +69,11 @@ MonoBehaviour:
     costEnergy:
       m_keys: 
       m_values: 
+    costOtherRes:
+      m_keys: 
+      m_values: 
   items: []
+  itemLimit: 3
   location: {x: 0, y: 0}
   movement: 2
   player: 0
@@ -79,6 +84,7 @@ MonoBehaviour:
   paralysed: 0
   reasonForParalyzed: None
   healthBar: {fileID: 0}
+  icon: {fileID: -300791231007646692, guid: 6cf4afaff9702b99d84cd927bedc9f09, type: 3}
 --- !u!114 &6291194152751794476
 MonoBehaviour:
   m_ObjectHideFlags: 0

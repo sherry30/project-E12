@@ -85,7 +85,7 @@ public class HexOperations : MonoBehaviour
 
     }
 
-    public GameObject BuildImprovement(Vector2 location,int improvementIndex){
+    public GameObject BuildImprovement(Vector2 location,int improvementIndex,City city){
         Vector3 place = hexes[(int)location.x,(int)location.y].hex.positionFromCamera();
         GameObject obj = (GameObject)Instantiate(
             PlayerController.Instance.player.kingdom.improvementPrefabs[improvementIndex],
@@ -93,6 +93,8 @@ public class HexOperations : MonoBehaviour
             Quaternion.identity         
         );
         Improvement temp = obj.GetComponent<Improvement>();
+
+        temp.city = city;
         //setting its possiton right on y axis
         Vector3 pos = obj.transform.position;
         obj.transform.position = new Vector3(pos.x,pos.y+temp.offset.y,pos.z);
@@ -107,7 +109,7 @@ public class HexOperations : MonoBehaviour
         return obj;
 
     }
-    public GameObject BuildDistrict(Vector2 location,int disIndex){
+    public GameObject BuildDistrict(Vector2 location,int disIndex,City city){
         Vector3 place = hexes[(int)location.x,(int)location.y].hex.positionFromCamera();
         GameObject obj = (GameObject)Instantiate(
             PlayerController.Instance.player.kingdom.districtPrefabs[disIndex],
@@ -115,6 +117,7 @@ public class HexOperations : MonoBehaviour
             Quaternion.identity         
         );
         District temp = obj.GetComponent<District>();
+        temp.city = city;
 
         //setting its possiton right on y axis
         Vector3 pos = obj.transform.position;
@@ -171,7 +174,8 @@ public class HexOperations : MonoBehaviour
         }
     }*/
     //for getting all in range ofvariable distance
-    public HexComponent[] getNeighbors(HexComponent hex, int distance){
+    public HexComponent[] getNeighbors(Vector2 location, int distance){
+        HexComponent hex = hexes[(int)location.x,(int)location.y];
         int q = hex.hex.Q;
         int r =hex.hex.R;
         int size = 0;

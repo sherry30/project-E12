@@ -8,6 +8,7 @@ public class AIController : MonoBehaviour
     public List<Player> AIPlayers;
     public List<Energy> energies;
     public static AIController Instance;
+    
     void Awake(){
         removeKingdoms();
         if(Instance==null){
@@ -83,8 +84,5 @@ public class AIController : MonoBehaviour
 
 
         //destroying other kingdoms
-       
-
-
     }
 }

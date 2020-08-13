@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7046459402407583608}
   - component: {fileID: 2669212747527939894}
-  - component: {fileID: 4472914509712256050}
   - component: {fileID: 4441144594928679156}
   - component: {fileID: 3485648729086954003}
   - component: {fileID: 5034170221946384135}
@@ -84,18 +83,6 @@ MonoBehaviour:
   reasonForParalyzed: None
   healthBar: {fileID: 0}
   icon: {fileID: -300791231007646692, guid: 6cf4afaff9702b99d84cd927bedc9f09, type: 3}
---- !u!114 &4472914509712256050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4118322018534020178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32673df2141fe69a7a73784771ed32a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4441144594928679156
 MonoBehaviour:
   m_ObjectHideFlags: 0

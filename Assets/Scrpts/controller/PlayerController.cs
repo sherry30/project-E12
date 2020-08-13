@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
         removeKingdoms();
         player.kingdom.setVariables();
         player.setVariables();
+        //GameState.onStartTurn+=StartTurn;
         if(Instance==null){
             Instance =this;
             return;
@@ -118,6 +119,40 @@ public class PlayerController : MonoBehaviour
             
         }
     }
+
+    public void StartTurn(){
+        player.StartTurn();
+    }
+    /*public void getYield(){
+        DictionaryEnergyInt energyYield = player.energyYield;
+        DictionaryResInt resourcesYield = player.resourcesYield;
+        DictionaryRawInt RawMaterialYield = player.RawMaterialYield;
+        DictionaryOtherResInt OtherResourcesYield = player.OtherResourcesYield;
+
+        if(energyYield!=null){
+            foreach(KeyValuePair<Energy, int> entry in energyYield){
+                player.Energies[entry.Key]+=energyYield[entry.Key];
+            }
+        }
+        //checking if Resource cost is met
+        if(resourcesYield!=null){
+            foreach(KeyValuePair<Resource, int> entry in resourcesYield){
+                player.Resources[entry.Key]+=resourcesYield[entry.Key];
+            }
+        }
+        //checking if Raw material cost is met
+        if(RawMaterialYield!=null){
+            foreach(KeyValuePair<Raw_Material, int> entry in RawMaterialYield){
+                player.RawMaterials[entry.Key]+=RawMaterialYield[entry.Key];
+            }
+        }
+        //checking if otherResource cost is met
+        if(OtherResourcesYield!=null){
+            foreach(KeyValuePair<OtherResource, int> entry in OtherResourcesYield){
+                player.OtherResources[entry.Key]+=OtherResourcesYield[entry.Key];
+            }
+        }
+    }*/
 
     
     /*public void BuildCity(City cit,Vector2 location){

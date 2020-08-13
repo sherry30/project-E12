@@ -27,7 +27,7 @@ public class AnimalTrap : Improvement
             trappedUnit.reasonForParalyzed = "trapped by an Animal Trap";
         }
     }
-    protected override void StartTurn(){
+    public override void StartTurn(){
         base.StartTurn();
 
         //ifa unit istrapped

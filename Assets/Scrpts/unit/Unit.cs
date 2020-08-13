@@ -82,7 +82,7 @@ public class Unit : MonoBehaviour
         setUpdatePosition();
         id = currentID;
         currentID++;
-        GameState.onStartTurn+=StartTurn;
+        //GameState.onStartTurn+=StartTurn;
     }
 
     //called every loop in moveUnit
@@ -162,7 +162,7 @@ public class Unit : MonoBehaviour
         updatePos.moving = this.moving;
         updatePos.offset = this.offset;
     }  
-    protected virtual void StartTurn(){
+    public virtual void StartTurn(){
         exhausted = false;
     }
     //TODO: add dealing damage functionality for building(city,improvament etc) as well

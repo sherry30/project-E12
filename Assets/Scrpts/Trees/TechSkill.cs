@@ -69,9 +69,12 @@ public class TechSkill : MonoBehaviour{
         
         daysTillUnlock=cost.spendScience(player);
         if(player==-1)
-            GameState.onStartTurn+=StartTurn;
+            PlayerController.Instance.player.onStartTurn+=StartTurn;
+        else
+            AIController.Instance.AIPlayers[player].onStartTurn+=StartTurn;
         Debug.Log(string.Format("days till research {0}",daysTillUnlock));
     }
+    
     protected bool checkPreRequisite(){
         if(preRequisites ==null)
             return true;
@@ -88,7 +91,9 @@ public class TechSkill : MonoBehaviour{
             if(daysTillUnlock==0){
                 //unsubscribing to this metyhod whenever player turns start
                 if(player==-1)
-                    GameState.onStartTurn-=StartTurn;
+                    PlayerController.Instance.player.onStartTurn-=StartTurn;
+                else
+                    AIController.Instance.AIPlayers[player].onStartTurn-=StartTurn;
 
                 unlocked=true;
                 daysTillUnlock=-1;

@@ -84,10 +84,23 @@ MonoBehaviour:
   ItemInventoryLimit: 6
   isBuilt: 0
   offset: {x: 0, y: 0, z: 0}
+  resourcesYield:
+    m_keys: 
+    m_values: 
+  RawMaterialYield:
+    m_keys: 
+    m_values: 
+  energyYield:
+    m_keys: 
+    m_values: 
+  OtherResourcesYield:
+    m_keys: 
+    m_values: 
+  city: {fileID: 0}
   imp: 1
   turnsTOBuild: 2
   mustBeInTerritory: 1
-  Source: need some tech to unlock
+  Source: F3
 --- !u!114 &1435368440455045819
 MonoBehaviour:
   m_ObjectHideFlags: 0

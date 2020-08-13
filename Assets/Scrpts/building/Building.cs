@@ -37,6 +37,12 @@ public class Building : MonoBehaviour
     [HideInInspector]
     //offset is just for y axis unlinke in units because buildings dontneed adjusting with repect to other objects in the hex
     public Vector3 offset;
+    public DictionaryResInt resourcesYield;
+    public DictionaryRawInt RawMaterialYield;
+
+    public DictionaryEnergyInt energyYield;
+    public DictionaryOtherResInt OtherResourcesYield;
+    public City city;
 
     void Awake(){
         Vector3 temp = GetComponentInChildren<Collider>().bounds.size;
@@ -47,6 +53,7 @@ public class Building : MonoBehaviour
 
     //protected abstract void setCost();
     public virtual void Build(Vector2 coordinate){
+
         //setting location on this class
         location = coordinate;
         offset.y += HexMap.Instance.getHexComponent(location).elevation * Hex.hexHeight*2;
@@ -57,26 +64,8 @@ public class Building : MonoBehaviour
         //setting up id for this building or city
         id = currentID;
         currentID++;
-        GameState.onStartTurn+=StartTurn;
-
-        //setting up district
-        if(buildingType==BuildingType.city){
-            City cit = GetComponent<City>();
-            District dis= GetComponent<District>();
-            dis.Build(location);
-            dis.buildingType = BuildingType.district;
-            dis.player = player;
-            if(cit.typeOfCity==City.Type.camp){    
-                dis.setCamp();
-            }
-            else if(cit.typeOfCity==City.Type.village){
-                dis.setVillage();
-            }
-            //add town later as well
-            cit.thisDistrict = dis;
-        }
     }
-    public void Demolish(){
+    public virtual void Demolish(){
         GameState.Instance.occupiedHexes.Remove(location);
         isBuilt=false;
 
@@ -86,8 +75,8 @@ public class Building : MonoBehaviour
         temp.location = this.location;
         temp.offset = this.offset;
     }
-    protected virtual void StartTurn(){
-        Debug.Log("New turn started");
+    public virtual void StartTurn(){
+        //Debug.Log("New turn started");
     }
     public virtual void unitAddedToTheHex(){
 
@@ -133,5 +122,70 @@ public class Building : MonoBehaviour
         }
         return null;
     }
+    public virtual void setYield(){
+
+        /*Player tempPlayer = PlayerController.Instance.player;
+        //checking if energy cost is met
+        if(player!=-1){
+            tempPlayer = AIController.Instance.AIPlayers[player];
+        }
+
+        if(energyYield!=null){
+            foreach(KeyValuePair<Energy, int> entry in energyYield){
+                tempPlayer.energyYield[entry.Key]+=energyYield[entry.Key];
+            }
+        }
+        //checking if Resource cost is met
+        if(resourcesYield!=null){
+            foreach(KeyValuePair<Resource, int> entry in resourcesYield){
+                tempPlayer.resourcesYield[entry.Key]+=resourcesYield[entry.Key];
+            }
+        }
+        //checking if Raw material cost is met
+        if(RawMaterialYield!=null){
+            foreach(KeyValuePair<Raw_Material, int> entry in RawMaterialYield){
+                tempPlayer.RawMaterialYield[entry.Key]+=RawMaterialYield[entry.Key];
+            }
+        }
+        //checking if otherResource cost is met
+        if(OtherResourcesYield!=null){
+            foreach(KeyValuePair<OtherResource, int> entry in OtherResourcesYield){
+                tempPlayer.OtherResourcesYield[entry.Key]+=OtherResourcesYield[entry.Key];
+            }
+        }*/
+    }
+    
+    public virtual void removeYield(){
+        /*Player tempPlayer = PlayerController.Instance.player;
+        //checking if energy cost is met
+        if(player!=-1){
+            tempPlayer = AIController.Instance.AIPlayers[player];
+        }
+
+        if(energyYield!=null){
+            foreach(KeyValuePair<Energy, int> entry in energyYield){
+                tempPlayer.energyYield[entry.Key]-=energyYield[entry.Key];
+            }
+        }
+        //checking if Resource cost is met
+        if(resourcesYield!=null){
+            foreach(KeyValuePair<Resource, int> entry in resourcesYield){
+                tempPlayer.resourcesYield[entry.Key]-=resourcesYield[entry.Key];
+            }
+        }
+        //checking if Raw material cost is met
+        if(RawMaterialYield!=null){
+            foreach(KeyValuePair<Raw_Material, int> entry in RawMaterialYield){
+                tempPlayer.RawMaterialYield[entry.Key]-=RawMaterialYield[entry.Key];
+            }
+        }
+        //checking if otherResource cost is met
+        if(OtherResourcesYield!=null){
+            foreach(KeyValuePair<OtherResource, int> entry in OtherResourcesYield){
+                tempPlayer.OtherResourcesYield[entry.Key]-=OtherResourcesYield[entry.Key];
+            }
+        }*/
+    }
+
 
 }

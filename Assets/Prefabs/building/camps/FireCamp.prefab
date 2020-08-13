@@ -72,7 +72,21 @@ MonoBehaviour:
   ItemInventoryLimit: 6
   isBuilt: 0
   offset: {x: 0, y: 0, z: 0}
-  boarderLength: 3
+  resourcesYield:
+    m_keys: 000000000100000002000000
+    m_values: 000000000100000001000000
+  RawMaterialYield:
+    m_keys: 00000000010000000200000003000000040000000500000006000000
+    m_values: 00000000000000000000000000000000000000000000000000000000
+  energyYield:
+    m_keys: 010000000200000003000000040000000500000006000000
+    m_values: 000000000000000000000000000000000000000000000000
+  OtherResourcesYield:
+    m_keys: 00000000010000000200000003000000
+    m_values: 00000000000000000000000000000000
+  city: {fileID: 0}
+  boarderLength: 1
+  teritory: []
   capital: 1
   approvalThreshold: -10
   population: 3
@@ -125,9 +139,6 @@ MonoBehaviour:
   ItemInventoryLimit: 6
   isBuilt: 0
   offset: {x: 0, y: 0, z: 0}
-  limitOfBuildings: 3
-  type: 0
-  maxPopulation: 0
   resourcesYield:
     m_keys: 
     m_values: 
@@ -140,6 +151,10 @@ MonoBehaviour:
   OtherResourcesYield:
     m_keys: 
     m_values: 
+  city: {fileID: 0}
+  limitOfBuildings: 3
+  type: 0
+  maxPopulation: 0
 --- !u!114 &3706403764918985536
 MonoBehaviour:
   m_ObjectHideFlags: 0

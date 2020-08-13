@@ -73,7 +73,7 @@ public class HexMapGenerator : MonoBehaviour
 
             for(int j=0;j<chunkSize;j++){
                 currentHex = nextHex;
-                HexComponent[] neighbours = HexOperations.Instance.getNeighbors(HexMap.Instance.getHexComponent(currentHex),chunkiness);
+                HexComponent[] neighbours = HexOperations.Instance.getNeighbors(currentHex,chunkiness);
                 List<Vector2> unVisited = new List<Vector2>();
                 visited.Add(currentHex);
                 foreach(HexComponent n in neighbours){
@@ -137,7 +137,7 @@ public class HexMapGenerator : MonoBehaviour
         if(Random.value<mutateProbability){
             int time = 0;
             foreach(Vector2 loc in visited){
-                HexComponent[] nei = HexOperations.Instance.getNeighbors(HexMap.Instance.getHexComponent(loc),1);    
+                HexComponent[] nei = HexOperations.Instance.getNeighbors(loc,1);    
                 foreach(HexComponent n in nei){
                     Vector2 loc2 = new Vector2(n.hex.Q,n.hex.R);
                     if(visited.Contains(n.location))
@@ -179,7 +179,7 @@ public class HexMapGenerator : MonoBehaviour
         }
 
         foreach(HexComponent hex in coastTiles){
-            foreach(HexComponent neighbor in HexOperations.Instance.getNeighbors(hex,oceanSize)){
+            foreach(HexComponent neighbor in HexOperations.Instance.getNeighbors(hex.location,oceanSize)){
                 if(!neighbor.checkBiome(biome.water))
                     continue;
                 if(neighbor.checkTerrain(terrain.water_ocean) || neighbor.checkTerrain(terrain.water_coast))

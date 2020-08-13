@@ -2028,20 +2028,8 @@ MonoBehaviour:
       m_keys: 010000000200000003000000040000000500000006000000
       m_values: 000000000000000000000000000000000000000000000000
     OtherResources:
-      m_keys: 000000000100000002000000
-      m_values: 1e0000000000000000000000
-    resourcesYield:
-      m_keys: 
-      m_values: 
-    RawMaterialYield:
-      m_keys: 
-      m_values: 
-    energyYield:
-      m_keys: 
-      m_values: 
-    OtherResourcesYield:
-      m_keys: 
-      m_values: 
+      m_keys: 00000000010000000200000003000000
+      m_values: 1e000000000000000000000000000000
     population: 2
     populationGrowing: 2
     cities: []

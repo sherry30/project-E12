@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class City : Building
 {
@@ -9,7 +10,8 @@ public class City : Building
         village,
     }
     public int boarderLength;
-    public bool capital=true;
+    public List<HexComponent> teritory;
+    public bool capital=false;
     public int approvalThreshold;
     public int population;
     public int maxPopulation=4;
@@ -25,16 +27,40 @@ public class City : Building
     public List<District> districts;
     public District thisDistrict;///for now
     public bool camped=false;
+
+
+    public override void Build(Vector2 coordinate){
+        base.Build(coordinate);
+        city = this;
+        setTeritory();
+
+        //setting up district
+        District dis= GetComponent<District>();
+        dis.Build(location);
+        dis.buildingType = BuildingType.district;
+        dis.player = player;
+        dis.city = this;
+        if(typeOfCity==City.Type.camp){
+            capital=true;    
+            dis.setCamp();
+        }
+        else if(typeOfCity==City.Type.village){
+            dis.setVillage();
+        }
+        //add town later as well
+        thisDistrict = dis;
+    }
     public void Campers(){
         if(typeOfCity==Type.camp){
             GameState.Instance.deSelectObject();
             HexOperations.Instance.DestroyCity(this);
             GameObject obj = HexOperations.Instance.spawnUnit(location,0);
-            
         }
     }
-    protected override void StartTurn(){
+    public override void StartTurn(){
         camped = false;
+
+        //checking if unit or item is under production
         if(unitProduction!=-1 || itemProduction!=-1){
             daysTillProduced-=1;
             if(daysTillProduced==0){
@@ -110,10 +136,46 @@ public class City : Building
             typeOfCity = Type.village;
             boarderLength=2;
             maxPopulation=10;
+            setTeritory();
 
         }
     }
     
+    private void setTeritory(){
+        teritory = HexOperations.Instance.getNeighbors(location,boarderLength).ToList();
+    }
+    //to add all the yield at the strat of the turn
+    public void getYield(){
+
+        Player tempPlayer = PlayerController.Instance.player;
+        if(player!=-1){
+            tempPlayer = AIController.Instance.AIPlayers[player];
+        }
+
+        if(energyYield!=null){
+            foreach(KeyValuePair<Energy, int> entry in energyYield){
+                tempPlayer.Energies[entry.Key]+=energyYield[entry.Key];
+            }
+        }
+        //checking if Resource cost is met
+        if(resourcesYield!=null){
+            foreach(KeyValuePair<Resource, int> entry in resourcesYield){
+                tempPlayer.Resources[entry.Key]+=resourcesYield[entry.Key];
+            }
+        }
+        //checking if Raw material cost is met
+        if(RawMaterialYield!=null){
+            foreach(KeyValuePair<Raw_Material, int> entry in RawMaterialYield){
+                tempPlayer.RawMaterials[entry.Key]+=RawMaterialYield[entry.Key];
+            }
+        }
+        //checking if otherResource cost is met
+        if(OtherResourcesYield!=null){
+            foreach(KeyValuePair<OtherResource, int> entry in OtherResourcesYield){
+                tempPlayer.OtherResources[entry.Key]+=OtherResourcesYield[entry.Key];
+            }
+        }
+    }
 
 
 }

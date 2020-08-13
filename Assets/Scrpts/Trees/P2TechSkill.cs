@@ -6,4 +6,5 @@ public class P2TechSkill : TechSkill{
     void Awake(){
         techCode = TechCode.P2;
     }
+    
 }

@@ -131,8 +131,12 @@ public class City : Building
         
         return item;
     }
-    public void upgradeToVillage(){
+    public void upgradeToVillage(Player tempPlayer){
         if(typeOfCity==Type.camp){
+
+            //adding Farm
+            tempPlayer.availableImprovements.Add(improvement.Farm);
+            thisDistrict.setVillage();
             typeOfCity = Type.village;
             boarderLength=2;
             maxPopulation=10;
@@ -141,7 +145,7 @@ public class City : Building
         }
     }
     
-    private void setTeritory(){
+    private void setTeritory(){        
         teritory = HexOperations.Instance.getNeighbors(location,boarderLength).ToList();
     }
     //to add all the yield at the strat of the turn

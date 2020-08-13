@@ -52,6 +52,9 @@ public class TechSkill : MonoBehaviour{
         //check if preRequisitesare met or not
         if(!checkPreRequisite()){
             Debug.Log("Not all preRequisites aquired yet");
+            for(int i=0;i<preRequisites.Count;i++){
+                Debug.Log(preRequisites[i].techCode.ToString());
+            }
             return;
         }
 

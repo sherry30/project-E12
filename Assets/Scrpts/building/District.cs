@@ -19,7 +19,7 @@ public class District : Building
     List<Building> buildings;
     public int limitOfBuildings=3;
     public Type type;
-    public int maxPopulation;
+    //public int maxPopulation;
 
 
     
@@ -34,7 +34,7 @@ public class District : Building
         energyYield= new DictionaryEnergyInt();
         energyYield.Add(Energy.Fire,1);
 
-        maxPopulation = 7;
+        //maxPopulation = 7;
 
         //type
         type = Type.camp;
@@ -51,7 +51,7 @@ public class District : Building
         OtherResourcesYield = new DictionaryOtherResInt();
         OtherResourcesYield.Add(OtherResource.approval,2);
 
-        maxPopulation = 10;
+        //maxPopulation = 10;
 
         type = Type.chiefs_hut;
         setYield();

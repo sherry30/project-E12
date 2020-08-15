@@ -9,24 +9,34 @@ public abstract class Kingdom : MonoBehaviour
 {
     public string Name;
     public string description;
+
+    //its energies
+    public Energy type;
+    public Energy type2;
+
+    //all the stuff this kingdm has
     public Unit[] units;
     public Building[] buildings;
     public Spell[] spells;
     public City[] cities;
     public Item[] items;
     public Improvement[] improvements;
-    public Energy type;
-    public Energy type2;
+    public District[] districts;
+
+    //GameoBjects 
     public GameObject[] BuildingPrefabs;
     public GameObject[] cityPrefabs;
     public GameObject[] unitPrefabs;
     public GameObject[] improvementPrefabs;
     public GameObject[] itemPrefabs;
     public GameObject[] districtPrefabs;
-    public List<int> startingUnitIndexes;
     public GameObject[] TechObjects;
-    //[HideInInspector]
+    
+    [HideInInspector]
     public TechTree techTree;
+
+    //its starting uits
+    public List<int> startingUnitIndexes;
 
     public virtual void Start(){
         
@@ -37,6 +47,7 @@ public abstract class Kingdom : MonoBehaviour
         units= new Unit[unitPrefabs.Length];
         improvements = new Improvement[improvementPrefabs.Length];
         items = new Item[itemPrefabs.Length];
+        districts = new District[districtPrefabs.Length];
 
         
         for(int i=0;i<cities.Length;i++){
@@ -51,6 +62,9 @@ public abstract class Kingdom : MonoBehaviour
 
         for(int i=0;i<items.Length;i++){
             items[i] = itemPrefabs[i].GetComponent<Item>();
+        }
+        for(int i=0;i<districts.Length;i++){
+            districts[i] = districtPrefabs[i].GetComponent<District>();
         }
         //setting up tech Tree from techObjects
         setTechTree();

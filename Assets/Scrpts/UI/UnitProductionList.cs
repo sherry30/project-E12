@@ -13,7 +13,7 @@ public class UnitProductionList : MonoBehaviour
     List<int> unitInd = new List<int>();
     void Awake(){
         current = gameObject.transform.GetChild(currentIndex).GetChild(0);
-        available = gameObject.transform.GetChild(availableIndex).GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetChild(0);
+        available = gameObject.transform.GetChild(availableIndex).GetChild(0).GetChild(1).GetChild(0).GetChild(1).GetChild(0);
         //available = gameObject.transform.Find("UnitFrame");
     }
     void OnEnable(){
@@ -81,7 +81,7 @@ public class UnitProductionList : MonoBehaviour
     }
     private void Produce(int index,Unit unit,GameObject objj){
         //if a unit or an item is already being produced then return
-        if(city!=null && city.unitProduction==-1 && city.itemProduction==-1){
+        if(city!=null && city.unitProduction==-1 && city.itemProduction==-1 && city.districtProduction==-1){
             int days=1;
             if(unit.cost.checkCost())
                 days = unit.cost.spendProduction();

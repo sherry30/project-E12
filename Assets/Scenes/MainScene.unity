@@ -121,28 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &13095530 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 791713598561590585, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
-    type: 3}
-  m_PrefabInstance: {fileID: 454074107}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &13095534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13095530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c38183e31f1dc87d68359d38bccd1410, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemInfo: {fileID: 4831673720085208607, guid: 8624ba9eb49f32c70ac61466bca9025c,
-    type: 3}
-  currentIndex: 0
-  availableIndex: 1
 --- !u!1001 &454074107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -150,6 +128,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 74506477938857573, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 74506477938857573, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 74506477938857573, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 74506477938857573, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 74506477938857573, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 74506477938857573, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 513.4035
+      objectReference: {fileID: 0}
     - target: {fileID: 309226316769091915, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -273,7 +281,7 @@ PrefabInstance:
     - target: {fileID: 791713598095913469, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 125
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 791713598095913469, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -283,7 +291,7 @@ PrefabInstance:
     - target: {fileID: 791713598095913469, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 250
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 791713598095913469, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -348,7 +356,7 @@ PrefabInstance:
     - target: {fileID: 791713598201139659, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 125
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 791713598201139659, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -358,7 +366,7 @@ PrefabInstance:
     - target: {fileID: 791713598201139659, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 250
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 791713598201139659, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -390,6 +398,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 791713598298458682, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
     - target: {fileID: 791713598606910239, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -418,7 +431,7 @@ PrefabInstance:
     - target: {fileID: 791713598606910239, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 953.1289
+      value: 173.67368
       objectReference: {fileID: 0}
     - target: {fileID: 791713598752558866, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -488,7 +501,7 @@ PrefabInstance:
     - target: {fileID: 791713598871549847, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -513.4035
       objectReference: {fileID: 0}
     - target: {fileID: 791713598871549847, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -503,7 +516,7 @@ PrefabInstance:
     - target: {fileID: 791713598871549847, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 816.56445
+      value: 513.4035
       objectReference: {fileID: 0}
     - target: {fileID: 791713599111562694, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -518,7 +531,7 @@ PrefabInstance:
     - target: {fileID: 791713599111562694, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 380
+      value: 325
       objectReference: {fileID: 0}
     - target: {fileID: 791713599111562694, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -548,7 +561,7 @@ PrefabInstance:
     - target: {fileID: 791713599130614692, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 125
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 791713599130614692, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -558,7 +571,7 @@ PrefabInstance:
     - target: {fileID: 791713599130614692, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 250
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 791713599130614692, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -583,7 +596,7 @@ PrefabInstance:
     - target: {fileID: 791713599172632632, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1814.6934
+      value: -988.77893
       objectReference: {fileID: 0}
     - target: {fileID: 791713599172632632, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -593,7 +606,7 @@ PrefabInstance:
     - target: {fileID: 791713599172632632, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1633.1289
+      value: 1540.2104
       objectReference: {fileID: 0}
     - target: {fileID: 791713599451050127, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -698,7 +711,7 @@ PrefabInstance:
     - target: {fileID: 987202884240207215, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -524.92334
+      value: -297.5526
       objectReference: {fileID: 0}
     - target: {fileID: 987202884240207215, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -708,7 +721,37 @@ PrefabInstance:
     - target: {fileID: 987202884240207215, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 583.2822
+      value: 431.70175
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161358810303787220, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161358810303787220, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161358810303787220, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161358810303787220, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -322.5526
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161358810303787220, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161358810303787220, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 381.70175
       objectReference: {fileID: 0}
     - target: {fileID: 1362478105435046888, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -934,7 +977,7 @@ PrefabInstance:
     - target: {fileID: 2535559890644208542, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -116.64111
+      value: -65.850876
       objectReference: {fileID: 0}
     - target: {fileID: 2535559890644208542, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -944,7 +987,7 @@ PrefabInstance:
     - target: {fileID: 2535559890644208542, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 233.28223
+      value: 131.70175
       objectReference: {fileID: 0}
     - target: {fileID: 2538893501961825053, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -1017,6 +1060,36 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 3567503235201961646, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567503235201961646, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567503235201961646, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567503235201961646, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -65.850876
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567503235201961646, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567503235201961646, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 131.70175
+      objectReference: {fileID: 0}
     - target: {fileID: 3648862131783055752, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -1045,7 +1118,7 @@ PrefabInstance:
     - target: {fileID: 3648862131783055752, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -524.92334
+      value: -322.5526
       objectReference: {fileID: 0}
     - target: {fileID: 3648862131783055752, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -1055,7 +1128,7 @@ PrefabInstance:
     - target: {fileID: 3648862131783055752, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 583.2822
+      value: 381.70175
       objectReference: {fileID: 0}
     - target: {fileID: 3808874238649227386, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -1516,7 +1589,7 @@ PrefabInstance:
     - target: {fileID: 8536966308776230731, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -816.56445
+      value: -1026.807
       objectReference: {fileID: 0}
     - target: {fileID: 8536966308776230731, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -1536,7 +1609,7 @@ PrefabInstance:
     - target: {fileID: 8536966308776230731, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 816.56445
+      value: 513.4035
       objectReference: {fileID: 0}
     - target: {fileID: 8871745269032846551, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -1591,7 +1664,7 @@ PrefabInstance:
     - target: {fileID: 8932386681330534779, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -116.64111
+      value: -40.850876
       objectReference: {fileID: 0}
     - target: {fileID: 8932386681330534779, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -1601,7 +1674,7 @@ PrefabInstance:
     - target: {fileID: 8932386681330534779, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 233.28223
+      value: 81.70175
       objectReference: {fileID: 0}
     - target: {fileID: 9001131076674289533, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -1846,6 +1919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fdf92dac91d0291c87a9feadc05db7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 1095246724}
 --- !u!114 &825228303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2067,14 +2141,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Fire Kingdom
   description: fir baby
+  type: 2
+  type2: 0
   units: []
   buildings: []
   spells: []
   cities: []
   items: []
   improvements: []
-  type: 2
-  type2: 0
+  districts: []
   BuildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
@@ -2089,8 +2164,8 @@ MonoBehaviour:
   - {fileID: 2594391729097533843, guid: 9bd89cc2183675ffd87918d69689b7cd, type: 3}
   itemPrefabs:
   - {fileID: 8370244024163568008, guid: 14c6435c99bea3fdf97ad5b881a252b5, type: 3}
-  districtPrefabs: []
-  startingUnitIndexes: 0100000002000000
+  districtPrefabs:
+  - {fileID: 2594391729097533843, guid: 8c5fbf302d5d78296a17f87fc9a60b46, type: 3}
   TechObjects:
   - {fileID: 5226696029948225410, guid: edf54723c01ca2985b6fe34eb9b08f3c, type: 3}
   - {fileID: 5226696029948225410, guid: 8ed5bccd18c92959fa0051c4fe83f2fc, type: 3}
@@ -2116,6 +2191,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+  startingUnitIndexes: 0100000002000000
 --- !u!114 &1095246726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2130,14 +2206,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   description: 
+  type: 4
+  type2: 0
   units: []
   buildings: []
   spells: []
   cities: []
   items: []
   improvements: []
-  type: 4
-  type2: 0
+  districts: []
   BuildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
@@ -2145,7 +2222,6 @@ MonoBehaviour:
   improvementPrefabs: []
   itemPrefabs: []
   districtPrefabs: []
-  startingUnitIndexes: 
   TechObjects:
   - {fileID: 5226696029948225410, guid: edf54723c01ca2985b6fe34eb9b08f3c, type: 3}
   - {fileID: 5226696029948225410, guid: 8ed5bccd18c92959fa0051c4fe83f2fc, type: 3}
@@ -2171,6 +2247,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+  startingUnitIndexes: 
 --- !u!114 &1095246727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2185,14 +2262,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   description: 
+  type: 6
+  type2: 0
   units: []
   buildings: []
   spells: []
   cities: []
   items: []
   improvements: []
-  type: 6
-  type2: 0
+  districts: []
   BuildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
@@ -2200,7 +2278,6 @@ MonoBehaviour:
   improvementPrefabs: []
   itemPrefabs: []
   districtPrefabs: []
-  startingUnitIndexes: 
   TechObjects:
   - {fileID: 5226696029948225410, guid: edf54723c01ca2985b6fe34eb9b08f3c, type: 3}
   - {fileID: 5226696029948225410, guid: 8ed5bccd18c92959fa0051c4fe83f2fc, type: 3}
@@ -2226,6 +2303,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+  startingUnitIndexes: 
 --- !u!114 &1095246728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2240,14 +2318,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   description: 
+  type: 3
+  type2: 0
   units: []
   buildings: []
   spells: []
   cities: []
   items: []
   improvements: []
-  type: 3
-  type2: 0
+  districts: []
   BuildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
@@ -2255,7 +2334,6 @@ MonoBehaviour:
   improvementPrefabs: []
   itemPrefabs: []
   districtPrefabs: []
-  startingUnitIndexes: 
   TechObjects:
   - {fileID: 5226696029948225410, guid: edf54723c01ca2985b6fe34eb9b08f3c, type: 3}
   - {fileID: 5226696029948225410, guid: 8ed5bccd18c92959fa0051c4fe83f2fc, type: 3}
@@ -2281,6 +2359,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+  startingUnitIndexes: 
 --- !u!114 &1095246729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2295,14 +2374,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   description: 
+  type: 5
+  type2: 0
   units: []
   buildings: []
   spells: []
   cities: []
   items: []
   improvements: []
-  type: 5
-  type2: 0
+  districts: []
   BuildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
@@ -2310,7 +2390,6 @@ MonoBehaviour:
   improvementPrefabs: []
   itemPrefabs: []
   districtPrefabs: []
-  startingUnitIndexes: 
   TechObjects:
   - {fileID: 5226696029948225410, guid: edf54723c01ca2985b6fe34eb9b08f3c, type: 3}
   - {fileID: 5226696029948225410, guid: 8ed5bccd18c92959fa0051c4fe83f2fc, type: 3}
@@ -2336,6 +2415,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+  startingUnitIndexes: 
 --- !u!114 &1095246730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2350,14 +2430,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   description: 
+  type: 1
+  type2: 0
   units: []
   buildings: []
   spells: []
   cities: []
   items: []
   improvements: []
-  type: 1
-  type2: 0
+  districts: []
   BuildingPrefabs: []
   cityPrefabs:
   - {fileID: 8735488988798598274, guid: 54dd170d467ed98eaa69bdbec24aff18, type: 3}
@@ -2370,7 +2451,6 @@ MonoBehaviour:
   improvementPrefabs: []
   itemPrefabs: []
   districtPrefabs: []
-  startingUnitIndexes: 0100000002000000
   TechObjects:
   - {fileID: 5226696029948225410, guid: edf54723c01ca2985b6fe34eb9b08f3c, type: 3}
   - {fileID: 5226696029948225410, guid: 8ed5bccd18c92959fa0051c4fe83f2fc, type: 3}
@@ -2396,6 +2476,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+  startingUnitIndexes: 0100000002000000
 --- !u!1 &1208254200
 GameObject:
   m_ObjectHideFlags: 0
@@ -2606,14 +2687,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   description: 
+  type: 1
+  type2: 0
   units: []
   buildings: []
   spells: []
   cities: []
   items: []
   improvements: []
-  type: 1
-  type2: 0
+  districts: []
   BuildingPrefabs: []
   cityPrefabs:
   - {fileID: 8735488988798598274, guid: 54dd170d467ed98eaa69bdbec24aff18, type: 3}
@@ -2626,7 +2708,6 @@ MonoBehaviour:
   improvementPrefabs: []
   itemPrefabs: []
   districtPrefabs: []
-  startingUnitIndexes: 0100000002000000
   TechObjects:
   - {fileID: 5226696029948225410, guid: edf54723c01ca2985b6fe34eb9b08f3c, type: 3}
   - {fileID: 5226696029948225410, guid: 8ed5bccd18c92959fa0051c4fe83f2fc, type: 3}
@@ -2652,6 +2733,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+  startingUnitIndexes: 0100000002000000
 --- !u!114 &1643241017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2666,14 +2748,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   description: 
+  type: 4
+  type2: 0
   units: []
   buildings: []
   spells: []
   cities: []
   items: []
   improvements: []
-  type: 4
-  type2: 0
+  districts: []
   BuildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
@@ -2681,7 +2764,6 @@ MonoBehaviour:
   improvementPrefabs: []
   itemPrefabs: []
   districtPrefabs: []
-  startingUnitIndexes: 
   TechObjects:
   - {fileID: 5226696029948225410, guid: edf54723c01ca2985b6fe34eb9b08f3c, type: 3}
   - {fileID: 5226696029948225410, guid: 8ed5bccd18c92959fa0051c4fe83f2fc, type: 3}
@@ -2707,6 +2789,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+  startingUnitIndexes: 
 --- !u!114 &1643241018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2721,14 +2804,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   description: 
+  type: 6
+  type2: 0
   units: []
   buildings: []
   spells: []
   cities: []
   items: []
   improvements: []
-  type: 6
-  type2: 0
+  districts: []
   BuildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
@@ -2736,7 +2820,6 @@ MonoBehaviour:
   improvementPrefabs: []
   itemPrefabs: []
   districtPrefabs: []
-  startingUnitIndexes: 
   TechObjects:
   - {fileID: 5226696029948225410, guid: edf54723c01ca2985b6fe34eb9b08f3c, type: 3}
   - {fileID: 5226696029948225410, guid: 8ed5bccd18c92959fa0051c4fe83f2fc, type: 3}
@@ -2762,6 +2845,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+  startingUnitIndexes: 
 --- !u!114 &1643241019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2776,14 +2860,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   description: 
+  type: 3
+  type2: 0
   units: []
   buildings: []
   spells: []
   cities: []
   items: []
   improvements: []
-  type: 3
-  type2: 0
+  districts: []
   BuildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
@@ -2791,7 +2876,6 @@ MonoBehaviour:
   improvementPrefabs: []
   itemPrefabs: []
   districtPrefabs: []
-  startingUnitIndexes: 
   TechObjects:
   - {fileID: 5226696029948225410, guid: edf54723c01ca2985b6fe34eb9b08f3c, type: 3}
   - {fileID: 5226696029948225410, guid: 8ed5bccd18c92959fa0051c4fe83f2fc, type: 3}
@@ -2817,6 +2901,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+  startingUnitIndexes: 
 --- !u!114 &1643241020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2831,14 +2916,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Fire Kingdom
   description: fir baby
+  type: 2
+  type2: 0
   units: []
   buildings: []
   spells: []
   cities: []
   items: []
   improvements: []
-  type: 2
-  type2: 0
+  districts: []
   BuildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
@@ -2852,7 +2938,6 @@ MonoBehaviour:
   - {fileID: 2594391729097533843, guid: 9bd89cc2183675ffd87918d69689b7cd, type: 3}
   itemPrefabs: []
   districtPrefabs: []
-  startingUnitIndexes: 0100000002000000
   TechObjects:
   - {fileID: 5226696029948225410, guid: edf54723c01ca2985b6fe34eb9b08f3c, type: 3}
   - {fileID: 5226696029948225410, guid: 8ed5bccd18c92959fa0051c4fe83f2fc, type: 3}
@@ -2878,6 +2963,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+  startingUnitIndexes: 0100000002000000
 --- !u!114 &1643241021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2892,14 +2978,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   description: 
+  type: 5
+  type2: 0
   units: []
   buildings: []
   spells: []
   cities: []
   items: []
   improvements: []
-  type: 5
-  type2: 0
+  districts: []
   BuildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
@@ -2907,7 +2994,6 @@ MonoBehaviour:
   improvementPrefabs: []
   itemPrefabs: []
   districtPrefabs: []
-  startingUnitIndexes: 
   TechObjects:
   - {fileID: 5226696029948225410, guid: edf54723c01ca2985b6fe34eb9b08f3c, type: 3}
   - {fileID: 5226696029948225410, guid: 8ed5bccd18c92959fa0051c4fe83f2fc, type: 3}
@@ -2933,6 +3019,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+  startingUnitIndexes: 
 --- !u!114 &1643241022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3059,6 +3146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedObject: {fileID: 0}
   moving: 0
+  positionSelectingMode: 0
+  positionSelected: {fileID: 0}
 --- !u!4 &2004685434
 Transform:
   m_ObjectHideFlags: 0

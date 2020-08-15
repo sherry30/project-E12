@@ -9,8 +9,10 @@ public class HexOperations : MonoBehaviour
     private int mapWidth, mapHeight;
     private int[,] neighbours;
     public static HexOperations Instance {get;private set;}
+    public Transform playerController;
     void Awake(){
         neighbours = new int[,]{ {0,-1},{1,-1},{0,1},{1,0},{-1,1},{-1,0} };
+        playerController = transform.Find("PlayerController");
         //CameraController.onCameraMove+=UpdateHexPositions;
         if(Instance==null){
             Instance =this;
@@ -35,9 +37,9 @@ public class HexOperations : MonoBehaviour
         GameObject obj = (GameObject)Instantiate(
             PlayerController.Instance.player.kingdom.unitPrefabs[unitIndex],
             new Vector3(place.x,0,place.z),
-            Quaternion.identity   
+            Quaternion.identity,
+            playerController
         );
-        
         Unit temp = obj.GetComponent<Unit>();
 
         //updating in Player.Instance.units and calling unit.spawnUnit()
@@ -66,7 +68,8 @@ public class HexOperations : MonoBehaviour
         GameObject obj = (GameObject)Instantiate(
             PlayerController.Instance.player.kingdom.cityPrefabs[cityIndex],
             new Vector3(place.x,place.y,place.z),
-            Quaternion.identity         
+            Quaternion.identity,
+            playerController          
         );
         City temp = obj.GetComponent<City>();
 
@@ -90,7 +93,9 @@ public class HexOperations : MonoBehaviour
         GameObject obj = (GameObject)Instantiate(
             PlayerController.Instance.player.kingdom.improvementPrefabs[improvementIndex],
             new Vector3(place.x,place.y,place.z),
-            Quaternion.identity         
+            Quaternion.identity,
+            playerController
+
         );
         Improvement temp = obj.GetComponent<Improvement>();
 
@@ -114,7 +119,8 @@ public class HexOperations : MonoBehaviour
         GameObject obj = (GameObject)Instantiate(
             PlayerController.Instance.player.kingdom.districtPrefabs[disIndex],
             new Vector3(place.x,place.y,place.z),
-            Quaternion.identity         
+            Quaternion.identity,
+            playerController    
         );
         District temp = obj.GetComponent<District>();
         temp.city = city;

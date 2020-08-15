@@ -12,9 +12,10 @@ public enum BuildingType{
 public class Building : MonoBehaviour
 {
     public BuildingType buildingType;
-    public static int currentID=0;
-    public string Name;
     [HideInInspector]
+    public static int currentID=0;
+    public Sprite icon;
+    public string Name;
     public int id;
     public string description;
 
@@ -42,7 +43,9 @@ public class Building : MonoBehaviour
 
     public DictionaryEnergyInt energyYield;
     public DictionaryOtherResInt OtherResourcesYield;
-    public City city;
+    public City city;//city this building is under; mainly for districtsand improvements
+
+
 
     void Awake(){
         Vector3 temp = GetComponentInChildren<Collider>().bounds.size;
@@ -59,7 +62,8 @@ public class Building : MonoBehaviour
         offset.y += HexMap.Instance.getHexComponent(location).elevation * Hex.hexHeight*2;
         setUpdatePosition();
         //letting gamestate know this hex isoocupied
-        GameState.Instance.occupiedHexes.Add(coordinate);
+        if(!GameState.Instance.HexOccupiedCheck(coordinate))
+            GameState.Instance.occupiedHexes.Add(coordinate);
         isBuilt = true;
         //setting up id for this building or city
         id = currentID;

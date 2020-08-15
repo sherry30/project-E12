@@ -13,7 +13,7 @@ public class ItemProductionList : MonoBehaviour
     List<int> itemInd = new List<int>();
     void Awake(){
         current = gameObject.transform.GetChild(currentIndex).GetChild(0);
-        available = gameObject.transform.GetChild(availableIndex).GetChild(0).GetChild(1).GetChild(0).GetChild(1).GetChild(0);
+        available = gameObject.transform.GetChild(availableIndex).GetChild(0).GetChild(2).GetChild(0).GetChild(1).GetChild(0);
         //available = gameObject.transform.Find("UnitFrame");
     }
     void OnEnable(){
@@ -79,13 +79,15 @@ public class ItemProductionList : MonoBehaviour
     }
     private void Produce(int index,Item item,GameObject objj){
         //checking if nothing is being produced rn
-        if(city!=null && city.itemProduction==-1 && city.unitProduction==-1){
+        if(city!=null && city.itemProduction==-1 && city.unitProduction==-1 && city.districtProduction==-1){
+
+            //checkcost
             if(!item.cost.checkCost()){
                 Debug.Log("Not enough Resources");
                 item.cost.printCost();
                 return;
             }
-            city.ProduceItem(index);
+            city.ProduceItem(index,item.daysToBeProduced);
             GameObject obj = (GameObject) Instantiate(objj);
             obj.transform.SetParent(current, false);
             obj.transform.localScale = new Vector3(1, 1, 1);

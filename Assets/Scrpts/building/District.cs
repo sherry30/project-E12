@@ -16,9 +16,12 @@ public class District : Building
         shipyard,
         air_shipyard
     }
-    List<Building> buildings;
+    //List<Building> buildings;
+    public int buildingStartingIndex, numOfBuildings;
     public int limitOfBuildings=3;
     public Type type;
+    public int level;
+    public int daysToBeProduced=2;
     //public int maxPopulation;
 
 

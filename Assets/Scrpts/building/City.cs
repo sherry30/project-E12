@@ -16,14 +16,19 @@ public class City : Building
     public int population;
     public int maxPopulation=4;
     public Type typeOfCity;
-    public List<Building> buildings;
+    //the things it can produce, their indexes in kingdom
 
     public int unitStartIndex,numOfUnits;//indesx in PlayerController.Instance.kingdom.units //units this city can produce
     public int itemStartIndex,numOfItems;//indesx in PlayerController.Instance.kingdom.items //itemss this city can produce
+    public int districtStartIndex,numOfDistricts;//indesx in PlayerController.Instance.kingdom.items //itemss this city can produce
     
+    //what it is currently producing
     public int unitProduction=-1;//unit being produced rn
-    public int daysTillProduced=-1;//number of days unitl the unit in productionis produced
     public int itemProduction=-1;//item being produced rn
+    public int districtProduction=-1;//unit being produced rn
+    private Vector2 districtLocation;//where a districtwill be produced after its production
+
+    public int daysTillProduced=-1;//number of days unitl the unit in productionis produced
     public List<District> districts;
     public District thisDistrict;///for now
     public bool camped=false;
@@ -61,7 +66,7 @@ public class City : Building
         camped = false;
 
         //checking if unit or item is under production
-        if(unitProduction!=-1 || itemProduction!=-1){
+        if(unitProduction!=-1 || itemProduction!=-1 || districtProduction!=-1){
             daysTillProduced-=1;
             if(daysTillProduced==0){
                 //if the unit is done being produced
@@ -73,13 +78,13 @@ public class City : Building
                     unitProduction=-1;
                     daysTillProduced = -1;
                     if(GameState.Instance.selectedObject==this.gameObject){
-                        UIController.Instance.openUnitHub();
+                        UIController.Instance.openBuildingHub();
                     }
                 }
 
                 //if the item is done being produced
-                else{
-                    AddItem(getItem(itemProduction));
+                else if(itemProduction!=-1){
+                    AddItem(getPlayer().kingdom.itemPrefabs[itemProduction]);
 
                     //destroying the info object in the producing slot if this object is selected
                     
@@ -89,26 +94,43 @@ public class City : Building
                         UIController.Instance.openBuildingHub();
                     }
                 }
+                else if(districtProduction!=-1){
+                    //AddItem(getPlayer().kingdom.itemPrefabs[itemProduction]);
+                    districts.Add(getPlayer().kingdom.districts[districtProduction]);
+                    HexOperations.Instance.BuildDistrict(districtLocation,districtProduction,this);
+
+                    //destroying the info object in the producing slot if this object is selected
+                    
+                    districtProduction=-1;
+                    daysTillProduced = -1;
+                    districtLocation=Vector2.zero;
+                    if(GameState.Instance.selectedObject==this.gameObject){
+                        UIController.Instance.openBuildingHub();
+                    }
+                }
             }
         }
     }
     public void ProduceUnit(int index,int days){
         unitProduction = index;
-        //check cost only for production now
+        
         daysTillProduced = days;
         
     }
-    public void ProduceItem(int index){
+    public void ProduceItem(int index,int days){
         itemProduction = index;
-        //check cost only for production now
-        GameObject item = getItem(index);
-        Item it = item.GetComponent<Item>();
-        it.player = player;
-        daysTillProduced = it.daysToBeProduced;
-        /*if(player==-1)
-            daysTillProduced= PlayerController.Instance.player.kingdom.items[index].daysToBeProduced;
-        else
-            daysTillProduced= AIController.Instance.AIPlayers[player].kingdom.items[index].daysToBeProduced;*/
+
+
+        daysTillProduced = days;
+        
+    }
+    public void ProduceDistrict(int index,int days, Vector2 loc){
+        districtProduction = index;
+        districtLocation = loc;
+        daysTillProduced = days;
+
+        //this place is considered occupied even before it is built
+        GameState.Instance.occupiedHexes.Add(loc);
         
     }
 
@@ -122,14 +144,12 @@ public class City : Building
         return unit;
     }
 
-    private GameObject getItem(int index){
-        GameObject item = null;
-        if(player==-1)
-            item = PlayerController.Instance.player.kingdom.itemPrefabs[index];
-        else
-            item = AIController.Instance.AIPlayers[player].kingdom.itemPrefabs[index];
+    private Player getPlayer(){
+        Player tempPlayer = PlayerController.Instance.player;
+        if(player!=-1)
+            tempPlayer = AIController.Instance.AIPlayers[player];
         
-        return item;
+        return tempPlayer;
     }
     public void upgradeToVillage(Player tempPlayer){
         if(typeOfCity==Type.camp){

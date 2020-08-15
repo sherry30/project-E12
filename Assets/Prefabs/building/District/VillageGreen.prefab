@@ -1,6 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6837129746824707969
+--- !u!65 &5967232571071245571
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2153376436140641160}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.020000005, z: 0.0031234748}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2594391729097533843
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,122 +21,80 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2900712372930465215}
-  - component: {fileID: 1503564139364928691}
-  - component: {fileID: -7891849302198015970}
-  - component: {fileID: 3706403764918985536}
-  - component: {fileID: 2498441683750677430}
-  m_Layer: 8
-  m_Name: FireCamp
-  m_TagString: City
+  - component: {fileID: 1380497702396629754}
+  - component: {fileID: 1435368440455045819}
+  - component: {fileID: 1373114686451754182}
+  - component: {fileID: 207971752708405208}
+  m_Layer: 0
+  m_Name: VillageGreen
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2900712372930465215
+--- !u!4 &1380497702396629754
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6837129746824707969}
+  m_GameObject: {fileID: 2594391729097533843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8584884171734462493}
-  - {fileID: 1666801469616292335}
+  - {fileID: 3150564452215749019}
+  - {fileID: 5247516265740903476}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1503564139364928691
+--- !u!114 &1435368440455045819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6837129746824707969}
+  m_GameObject: {fileID: 2594391729097533843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a141218ef34653d69199e2937bf1e12, type: 3}
+  m_Script: {fileID: 11500000, guid: 114c61c52232bc9ee9926aea84557878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingType: 1
-  icon: {fileID: 0}
-  Name: Fire_Camp
-  id: 0
-  description: just a camp
-  maxHealth: 500
-  player: -1
-  cost:
-    costResource:
-      m_keys: 
-      m_values: 
-    costRaw:
-      m_keys: 
-      m_values: 
-    costEnergy:
-      m_keys: 
-      m_values: 
-    costOtherRes:
-      m_keys: 
-      m_values: 
   location: {x: 0, y: 0}
-  itemInventory: []
-  ItemInventoryLimit: 6
-  isBuilt: 0
   offset: {x: 0, y: 0, z: 0}
-  resourcesYield:
-    m_keys: 000000000100000002000000
-    m_values: 000000000100000001000000
-  RawMaterialYield:
-    m_keys: 00000000010000000200000003000000040000000500000006000000
-    m_values: 00000000000000000000000000000000000000000000000000000000
-  energyYield:
-    m_keys: 010000000200000003000000040000000500000006000000
-    m_values: 000000000000000000000000000000000000000000000000
-  OtherResourcesYield:
-    m_keys: 00000000010000000200000003000000
-    m_values: 00000000000000000000000000000000
-  city: {fileID: 0}
-  boarderLength: 1
-  teritory: []
-  capital: 1
-  approvalThreshold: -10
-  population: 3
-  maxPopulation: 4
-  typeOfCity: 0
-  unitStartIndex: 1
-  numOfUnits: 4
-  itemStartIndex: 0
-  numOfItems: 1
-  districtStartIndex: 0
-  numOfDistricts: 1
-  unitProduction: -1
-  itemProduction: -1
-  districtProduction: -1
-  daysTillProduced: -1
-  districts: []
-  thisDistrict: {fileID: 0}
-  camped: 0
---- !u!114 &-7891849302198015970
+  moving: 0
+--- !u!114 &1373114686451754182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6837129746824707969}
+  m_GameObject: {fileID: 2594391729097533843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867834862de2d5502bf95132d8d12703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
+--- !u!114 &207971752708405208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594391729097533843}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65d756b49c8e336ad83820fecfe11731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingType: 0
-  icon: {fileID: 0}
-  Name: 
+  buildingType: 2
+  icon: {fileID: -300791231007646692, guid: 6cf4afaff9702b99d84cd927bedc9f09, type: 3}
+  Name: Viallage Green
   id: 0
   description: 
-  maxHealth: 0
+  maxHealth: 100
   player: -1
   cost:
     costResource:
@@ -133,8 +104,8 @@ MonoBehaviour:
       m_keys: 
       m_values: 
     costEnergy:
-      m_keys: 
-      m_values: 
+      m_keys: 01000000
+      m_values: 05000000
     costOtherRes:
       m_keys: 
       m_values: 
@@ -159,44 +130,15 @@ MonoBehaviour:
   buildingStartingIndex: 0
   numOfBuildings: 0
   limitOfBuildings: 3
-  type: 0
-  level: 0
+  type: 2
+  level: 1
   daysToBeProduced: 2
---- !u!114 &3706403764918985536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6837129746824707969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 114c61c52232bc9ee9926aea84557878, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  location: {x: 0, y: 0}
-  offset: {x: 0, y: 0, z: 0}
-  moving: 0
---- !u!114 &2498441683750677430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6837129746824707969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 867834862de2d5502bf95132d8d12703, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
---- !u!1001 &6251572460312271744
+--- !u!1001 &662393227311136347
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2900712372930465215}
+    m_TransformParent: {fileID: 1380497702396629754}
     m_Modifications:
     - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
         type: 3}
@@ -310,84 +252,90 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a82e76d439460b5daa2e2da6926a0691, type: 3}
---- !u!224 &1666801469616292335 stripped
+--- !u!224 &5247516265740903476 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
     type: 3}
-  m_PrefabInstance: {fileID: 6251572460312271744}
+  m_PrefabInstance: {fileID: 662393227311136347}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &8984988688575938322
+--- !u!1001 &2415020673221584123
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2900712372930465215}
+    m_TransformParent: {fileID: 1380497702396629754}
     m_Modifications:
-    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
+    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
+    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
+    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
+    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
+    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
+    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
+    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
+    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
+    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
+    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
+    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4452350188294864156, guid: 42cbe1773e151c504ae5ea535675cb91,
+    - target: {fileID: 4350957676948418419, guid: 2dcbede389116038e9f6f676c413d126,
         type: 3}
       propertyPath: m_Name
-      value: wood_Rock_surround_
+      value: villageGreen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 42cbe1773e151c504ae5ea535675cb91, type: 3}
---- !u!4 &8584884171734462493 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
+  m_SourcePrefab: {fileID: 100100000, guid: 2dcbede389116038e9f6f676c413d126, type: 3}
+--- !u!1 &2153376436140641160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4350957676948418419, guid: 2dcbede389116038e9f6f676c413d126,
     type: 3}
-  m_PrefabInstance: {fileID: 8984988688575938322}
+  m_PrefabInstance: {fileID: 2415020673221584123}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3150564452215749019 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
+    type: 3}
+  m_PrefabInstance: {fileID: 2415020673221584123}
   m_PrefabAsset: {fileID: 0}

@@ -15,6 +15,9 @@ public class MouseController : MonoBehaviour
     
     public bool moving=false;
     private List<HexComponent> travelPath= new List<HexComponent>();//testing
+
+    public bool positionSelectingMode=false;//when selecting hex forbuilding districts and stuff
+    public GameObject positionSelected;
     void Awake(){
         pathFinder = new PathFinding();
         if(Instance==null){
@@ -27,6 +30,19 @@ public class MouseController : MonoBehaviour
     }
     void Start(){
         //moving = GameState.Instance.moving;
+    }
+
+    public IEnumerator positionSelectingModeOn(){
+        positionSelectingMode=true;
+        Debug.Log("position selecting mode is on");
+        GameObject startSelect=selectedObject;
+        while(positionSelectingMode){
+
+            yield return null;
+        }
+    }
+    public void clearPositionSelected(){
+        positionSelected=null;
     }
     
 
@@ -48,27 +64,52 @@ public class MouseController : MonoBehaviour
                 GameState.Instance.mouseOverObject=mouseOverObject.transform.parent.gameObject;
             }
         
-        
+        //deslecitng and closing hub if right mouse button is pressed
+        if(Input.GetMouseButtonDown(1) && GameState.Instance.checkPlayerTurn()){
+            GameState.Instance.deSelectObject();
+        }
+
         //if mouse isclicked,change selected object in GameState
         if(Input.GetMouseButtonDown(0) && GameState.Instance.checkPlayerTurn()){
             GameObject newSelectedObject=null;
+
+
+
+            //return if mouse is over UI or if a unit is moving
             if(EventSystem.current.IsPointerOverGameObject() || moving)
                 return;
+            
+
             if(Physics.Raycast(Camera.main.transform.position,hitPos,out theObject,Mathf.Infinity)){
                 
                 bool moveUnit = false;
                 newSelectedObject = theObject.transform.gameObject.transform.parent.gameObject;
+
+                //checking for position selecting mode
+                //if its true then buildwhatever is selcted on there
+                
+
                 //check if new selected object is a hex or not
                 if(selectedObject!=null && selectedObject.tag=="Unit" && (newSelectedObject.tag == "enemy" || newSelectedObject.tag=="Hex")){
                     unit= selectedObject.GetComponent<Unit>();
-                    if(!unit.exhausted && !unit.paralysed)
+                    if(!unit.exhausted && !unit.paralysed && !positionSelectingMode)
                         moveUnit = true;
                 }
-                //selectedObject = newSeletcedObject;
+
                 //upating selected object if the unit is not moving 
                 //if its moving then the selected objbject will remain the same as before(unit)
                 if(!moveUnit){
+
+                    //since moveUnit will always be false if we're in positionSelecting Mode; incase of buildings and districts
+                    if(positionSelectingMode){
+                        positionSelected=newSelectedObject;
+                        positionSelectingMode=false;
+                        Debug.Log("position selecting mode is off");
+                        return;
+                    }
                     //Close UI based on what object was cliskced
+
+
                     selectedObject = newSelectedObject;
                     GameState.Instance.selectedObject = newSelectedObject;
                     GameObject obj = selectedObject;//GameState.Instance.slectedObject;
@@ -82,6 +123,7 @@ public class MouseController : MonoBehaviour
                         UIController.Instance.CloseHub();
                     }
                 }
+
                 
                 
                 //testing A* pathfinde

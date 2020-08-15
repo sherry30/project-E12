@@ -81,8 +81,15 @@ public class UnitProductionList : MonoBehaviour
     }
     private void Produce(int index,Unit unit,GameObject objj){
         //if a unit or an item is already being produced then return
-        if(city!=null && city.unitProduction==-1 && city.itemProduction==-1 && city.districtProduction==-1){
+        if(city!=null && city.unitProduction==-1 && city.itemProduction==-1 && city.districtProduction==-1 && !city.positionSelectingMode){
             int days=1;
+            //check if this unit is unlocked by this player first
+            if(!getPlayer().availableUnits.Contains(unit.classOfUnit)){
+                Debug.Log("This unit is not unlocked yet");
+                Debug.Log(unit.source);
+                return;
+            }
+
             if(unit.cost.checkCost())
                 days = unit.cost.spendProduction();
             else{
@@ -101,5 +108,12 @@ public class UnitProductionList : MonoBehaviour
             unitDesc.Find("UnitClass").GetComponent<Text>().text = unit.classOfUnit.ToString();*/
         }
 
+    }
+    private Player getPlayer(int player = -1){
+        Player tempPlayer = PlayerController.Instance.player;
+        if(player!=-1)
+            tempPlayer = AIController.Instance.AIPlayers[player];
+        
+        return tempPlayer;
     }
 }

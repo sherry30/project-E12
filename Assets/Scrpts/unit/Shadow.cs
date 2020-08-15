@@ -8,7 +8,7 @@ public class Shadow : Unit
         base.Awake();
         typeOfUnit = Type.Land;
         classOfUnit = Class.shadow;
-        Name = "Shadow";
+        Name = "Barbarian shadow";
         id = currentID;
         currentID++;
         currentHealth=maxHealth;

@@ -14,12 +14,8 @@ public class Player
     public DictionaryRawInt RawMaterials;
     [SerializeField]
     public DictionaryEnergyInt Energies;
+    [SerializeField]
     public DictionaryOtherResInt OtherResources;
-    /*public DictionaryResInt resourcesYield;
-    public DictionaryRawInt RawMaterialYield;
-
-    public DictionaryEnergyInt energyYield;
-    public DictionaryOtherResInt OtherResourcesYield;*/
     
     public int population;
     public float populationGrowing;
@@ -27,14 +23,19 @@ public class Player
     public List<Unit> units;
     public List<Improvement> improvements;
     public List<District> districts;
+
+    //available stuff
     public List<improvement> availableImprovements;
-    //public int productionYield;
+    public List<Unit.Class> availableUnits;
+
     public List<HexComponent> territory;
     public delegate void startOfTurn();
     public event startOfTurn onStartTurn;
 
 
     public void setVariables(){
+        availableImprovements = kingdom.initialAvailableImprovments;
+        availableUnits = kingdom.initialAvailableUnits;
     }
     public Era era=Era.StoneAge;
     public void BuildCity(City cit,Vector2 location){

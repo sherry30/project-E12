@@ -81,8 +81,9 @@ public class DistrictProductionList : MonoBehaviour
     }
     private void Produce(int index,District dis,GameObject objj){
         //if a unit or an item is already being produced then return
-        if(city!=null && city.unitProduction==-1 && city.itemProduction==-1 && city.districtProduction==-1){
+        if(city!=null && city.unitProduction==-1 && city.itemProduction==-1 && city.districtProduction==-1 && !city.positionSelectingMode){
 
+            city.positionSelectingMode=true;
             //selectwhere it will be built first
             StartCoroutine(positionCheckSeq(index, dis,objj));
             
@@ -104,6 +105,7 @@ public class DistrictProductionList : MonoBehaviour
         //start position selecting mode
         //couroutine ends when a new object is selected
         yield return StartCoroutine(MouseController.Instance.positionSelectingModeOn());
+        city.positionSelectingMode=false;
 
         GameObject sel = MouseController.Instance.positionSelected;
         HexComponent hex= sel.GetComponent<HexComponent>();
@@ -115,6 +117,10 @@ public class DistrictProductionList : MonoBehaviour
         else{
             if(GameState.Instance.HexOccupiedCheck(hex.location)){
                 Debug.Log("This Hex is occupied");
+                yield break;
+            }
+            else if(!city.teritory.Contains(hex)){
+                Debug.Log("This Hex is out od this cities teritotry");
                 yield break;
             }
         }

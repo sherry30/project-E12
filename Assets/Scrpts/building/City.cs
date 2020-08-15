@@ -27,6 +27,8 @@ public class City : Building
     public int itemProduction=-1;//item being produced rn
     public int districtProduction=-1;//unit being produced rn
     private Vector2 districtLocation;//where a districtwill be produced after its production
+    [HideInInspector]
+    public bool positionSelectingMode=false;
 
     public int daysTillProduced=-1;//number of days unitl the unit in productionis produced
     public List<District> districts;
@@ -156,6 +158,8 @@ public class City : Building
 
             //adding Farm
             tempPlayer.availableImprovements.Add(improvement.Farm);
+            //adding settler
+            tempPlayer.availableUnits.Add(Unit.Class.settler);
             thisDistrict.setVillage();
             typeOfCity = Type.village;
             boarderLength=2;

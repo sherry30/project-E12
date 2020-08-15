@@ -38,6 +38,10 @@ public abstract class Kingdom : MonoBehaviour
     //its starting uits
     public List<int> startingUnitIndexes;
 
+    //things available at the start
+    public List<improvement> initialAvailableImprovments;
+    public List<Unit.Class> initialAvailableUnits;
+
     public virtual void Start(){
         
     }

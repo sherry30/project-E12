@@ -79,7 +79,7 @@ public class ItemProductionList : MonoBehaviour
     }
     private void Produce(int index,Item item,GameObject objj){
         //checking if nothing is being produced rn
-        if(city!=null && city.itemProduction==-1 && city.unitProduction==-1 && city.districtProduction==-1){
+        if(city!=null && city.itemProduction==-1 && city.unitProduction==-1 && city.districtProduction==-1 && !city.positionSelectingMode){
 
             //checkcost
             if(!item.cost.checkCost()){

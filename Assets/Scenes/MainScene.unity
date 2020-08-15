@@ -711,7 +711,7 @@ PrefabInstance:
     - target: {fileID: 987202884240207215, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -297.5526
+      value: -302.5526
       objectReference: {fileID: 0}
     - target: {fileID: 987202884240207215, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -721,7 +721,7 @@ PrefabInstance:
     - target: {fileID: 987202884240207215, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 431.70175
+      value: 421.70175
       objectReference: {fileID: 0}
     - target: {fileID: 1161358810303787220, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -741,7 +741,7 @@ PrefabInstance:
     - target: {fileID: 1161358810303787220, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -322.5526
+      value: -327.5526
       objectReference: {fileID: 0}
     - target: {fileID: 1161358810303787220, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -751,7 +751,7 @@ PrefabInstance:
     - target: {fileID: 1161358810303787220, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 381.70175
+      value: 371.70175
       objectReference: {fileID: 0}
     - target: {fileID: 1362478105435046888, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -977,7 +977,7 @@ PrefabInstance:
     - target: {fileID: 2535559890644208542, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -65.850876
+      value: -70.850876
       objectReference: {fileID: 0}
     - target: {fileID: 2535559890644208542, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -987,7 +987,7 @@ PrefabInstance:
     - target: {fileID: 2535559890644208542, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 131.70175
+      value: 141.70175
       objectReference: {fileID: 0}
     - target: {fileID: 2538893501961825053, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -1078,7 +1078,7 @@ PrefabInstance:
     - target: {fileID: 3567503235201961646, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -65.850876
+      value: -70.850876
       objectReference: {fileID: 0}
     - target: {fileID: 3567503235201961646, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -1088,7 +1088,7 @@ PrefabInstance:
     - target: {fileID: 3567503235201961646, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 131.70175
+      value: 141.70175
       objectReference: {fileID: 0}
     - target: {fileID: 3648862131783055752, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -1118,7 +1118,7 @@ PrefabInstance:
     - target: {fileID: 3648862131783055752, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -322.5526
+      value: -327.5526
       objectReference: {fileID: 0}
     - target: {fileID: 3648862131783055752, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -1128,7 +1128,7 @@ PrefabInstance:
     - target: {fileID: 3648862131783055752, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 381.70175
+      value: 371.70175
       objectReference: {fileID: 0}
     - target: {fileID: 3808874238649227386, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -1664,7 +1664,7 @@ PrefabInstance:
     - target: {fileID: 8932386681330534779, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -40.850876
+      value: -45.850876
       objectReference: {fileID: 0}
     - target: {fileID: 8932386681330534779, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -1674,7 +1674,7 @@ PrefabInstance:
     - target: {fileID: 8932386681330534779, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 81.70175
+      value: 91.70175
       objectReference: {fileID: 0}
     - target: {fileID: 9001131076674289533, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -2100,7 +2100,7 @@ MonoBehaviour:
       m_values: 02000000020000000000000000000000000000000000000000000000
     Energies:
       m_keys: 010000000200000003000000040000000500000006000000
-      m_values: 000000000000000000000000000000000000000000000000
+      m_values: 190000000000000000000000000000000000000000000000
     OtherResources:
       m_keys: 00000000010000000200000003000000
       m_values: 1e000000000000000000000000000000
@@ -2111,6 +2111,7 @@ MonoBehaviour:
     improvements: []
     districts: []
     availableImprovements: 
+    availableUnits: 
     territory: []
     era: 0
 --- !u!4 &1095246724
@@ -2153,12 +2154,14 @@ MonoBehaviour:
   BuildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
+  - {fileID: 6837129746824707969, guid: 51050dd0a5e3a0e73a74db1397bbebf6, type: 3}
   unitPrefabs:
   - {fileID: 1380075732619078355, guid: 3bfdca39d9be997e9b9c7285862714d4, type: 3}
   - {fileID: 2039808676546142990, guid: dbca713862ee39494ad89bb6d7ae36a2, type: 3}
   - {fileID: 5799241855719453004, guid: 653e3048afb9b2161b0e2b403d4b899a, type: 3}
-  - {fileID: 4914686996205313233, guid: c765cfb7d76bb78019e7c0fa232f88da, type: 3}
+  - {fileID: 4118322018534020178, guid: e3785c27a92d153f5917d348e5634c82, type: 3}
   - {fileID: 4118322018534020178, guid: 29dabee038c4dbc23a2848e4532367ba, type: 3}
+  - {fileID: 4914686996205313233, guid: c765cfb7d76bb78019e7c0fa232f88da, type: 3}
   improvementPrefabs:
   - {fileID: 2594391729097533843, guid: 9602c845c223440e39346db352487050, type: 3}
   - {fileID: 2594391729097533843, guid: 9bd89cc2183675ffd87918d69689b7cd, type: 3}
@@ -2192,6 +2195,8 @@ MonoBehaviour:
       m_keys: 
       m_values: []
   startingUnitIndexes: 0100000002000000
+  initialAvailableImprovments: 
+  initialAvailableUnits: 0500000006000000070000000300000008000000
 --- !u!114 &1095246726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2248,6 +2253,8 @@ MonoBehaviour:
       m_keys: 
       m_values: []
   startingUnitIndexes: 
+  initialAvailableImprovments: 
+  initialAvailableUnits: 
 --- !u!114 &1095246727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2304,6 +2311,8 @@ MonoBehaviour:
       m_keys: 
       m_values: []
   startingUnitIndexes: 
+  initialAvailableImprovments: 
+  initialAvailableUnits: 
 --- !u!114 &1095246728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2360,6 +2369,8 @@ MonoBehaviour:
       m_keys: 
       m_values: []
   startingUnitIndexes: 
+  initialAvailableImprovments: 
+  initialAvailableUnits: 
 --- !u!114 &1095246729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2416,6 +2427,8 @@ MonoBehaviour:
       m_keys: 
       m_values: []
   startingUnitIndexes: 
+  initialAvailableImprovments: 
+  initialAvailableUnits: 
 --- !u!114 &1095246730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2477,6 +2490,8 @@ MonoBehaviour:
       m_keys: 
       m_values: []
   startingUnitIndexes: 0100000002000000
+  initialAvailableImprovments: 
+  initialAvailableUnits: 
 --- !u!1 &1208254200
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,6 +2749,8 @@ MonoBehaviour:
       m_keys: 
       m_values: []
   startingUnitIndexes: 0100000002000000
+  initialAvailableImprovments: 
+  initialAvailableUnits: 
 --- !u!114 &1643241017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2790,6 +2807,8 @@ MonoBehaviour:
       m_keys: 
       m_values: []
   startingUnitIndexes: 
+  initialAvailableImprovments: 
+  initialAvailableUnits: 
 --- !u!114 &1643241018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2846,6 +2865,8 @@ MonoBehaviour:
       m_keys: 
       m_values: []
   startingUnitIndexes: 
+  initialAvailableImprovments: 
+  initialAvailableUnits: 
 --- !u!114 &1643241019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2902,6 +2923,8 @@ MonoBehaviour:
       m_keys: 
       m_values: []
   startingUnitIndexes: 
+  initialAvailableImprovments: 
+  initialAvailableUnits: 
 --- !u!114 &1643241020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2964,6 +2987,8 @@ MonoBehaviour:
       m_keys: 
       m_values: []
   startingUnitIndexes: 0100000002000000
+  initialAvailableImprovments: 
+  initialAvailableUnits: 
 --- !u!114 &1643241021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3020,6 +3045,8 @@ MonoBehaviour:
       m_keys: 
       m_values: []
   startingUnitIndexes: 
+  initialAvailableImprovments: 
+  initialAvailableUnits: 
 --- !u!114 &1643241022
 MonoBehaviour:
   m_ObjectHideFlags: 0

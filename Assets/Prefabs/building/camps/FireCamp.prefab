@@ -94,7 +94,7 @@ MonoBehaviour:
   maxPopulation: 4
   typeOfCity: 0
   unitStartIndex: 1
-  numOfUnits: 4
+  numOfUnits: 5
   itemStartIndex: 0
   numOfItems: 1
   districtStartIndex: 0

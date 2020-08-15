@@ -40,7 +40,7 @@ public class makingButton : MonoBehaviour
             }
 
             //if the selected unit is a worker or a civilian
-            if(tempUnit.classOfUnit== Unit.Class.civilian || tempUnit.classOfUnit== Unit.Class.worker){
+            else if(tempUnit.classOfUnit== Unit.Class.civilian || tempUnit.classOfUnit== Unit.Class.worker){
                 Civilian civ = temp.GetComponent<Civilian>();
                 Improvement[] imp = PlayerController.Instance.player.kingdom.improvements;
                 for(int i=0;i<imp.Length;i++){
@@ -52,6 +52,16 @@ public class makingButton : MonoBehaviour
                     Button tempButton = but.GetComponent<Button>();
                     tempButton.onClick.AddListener(delegate{civ.startBuilding(copy);});//() => civ.startBuilding(copy)); //camper unit function
                 } 
+            }
+
+            //if the selected unit is a settler
+            else if(tempUnit.classOfUnit== Unit.Class.settler){
+                Settler set = temp.GetComponent<Settler>();
+                but = (GameObject) Instantiate(buttonPrefab);
+                but.transform.SetParent(transform, false);
+                but.GetComponentInChildren<Text>().text="Settler";
+                Button tempButton = but.GetComponent<Button>();
+                tempButton.onClick.AddListener(delegate{set.Settle(1);});//() => civ.startBuilding(copy)); //camper unit function 
             }
         }
     }

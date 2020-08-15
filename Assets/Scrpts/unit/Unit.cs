@@ -4,6 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+/*public enum unit{
+    Fire_settler,
+    Fire_scout,
+    Fire_camper,
+    Fire_hunter,
+    Fire_gatherer,
+    Fire_civillian,
+    barbarian_shadow
+}*/
+
 public class Unit : MonoBehaviour
 {
     public enum Class{
@@ -12,7 +22,10 @@ public class Unit : MonoBehaviour
         worker,
         civilian,
         warrior,
+        hunter,
+        gatherer,
         scout,
+        settler,
         knight,
         cavalry,
         tank,
@@ -37,7 +50,7 @@ public class Unit : MonoBehaviour
     public string description;
     public int maxHealth;
     public int currentHealth;
-    public int damage=100;
+    //public int damage=100;
     public Type typeOfUnit;
     public Class classOfUnit;
     protected Energy kingdom;
@@ -61,6 +74,7 @@ public class Unit : MonoBehaviour
     [HideInInspector]
     public HealthBar healthBar;
     public Sprite icon;
+    public string source;
     protected virtual void Awake(){
         currentHealth = maxHealth;
 
@@ -168,7 +182,7 @@ public class Unit : MonoBehaviour
     //TODO: add dealing damage functionality for building(city,improvament etc) as well
     public void dealDamage(Unit enemy){
         if(enemy!=null){
-            int totalDamage = this.damage-enemy.defense;
+            int totalDamage = this.attack-enemy.defense;
             enemy.takeDamage(totalDamage);
             Debug.Log(string.Format("Damage dealt: {0}",totalDamage));
         }

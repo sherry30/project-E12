@@ -90,3 +90,24 @@ MonoBehaviour:
   techCode: 7
   preRequisites: []
   unlocked: 0
+  Name: 
+  description: 
+  cost:
+    resources:
+      m_keys: 
+      m_values: []
+    RawMaterials:
+      m_keys: 
+      m_values: []
+    Energies:
+      m_keys: 
+      m_values: []
+    OtherResources:
+      m_keys: 00000000
+      m_values:
+      - 40
+    Crystals:
+      m_keys: 
+      m_values: []
+  daysTillUnlock: -1
+  player: -1

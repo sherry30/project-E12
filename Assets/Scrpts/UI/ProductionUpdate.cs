@@ -12,6 +12,6 @@ public class ProductionUpdate : MonoBehaviour
     }
     void Update()
     {
-        productionText.text = string.Format("Production: {0}" ,player.Resources[Resource.production]);
+        productionText.text = string.Format("Production: {0}" ,player.resources.resources[Resource.production]);
     }
 }

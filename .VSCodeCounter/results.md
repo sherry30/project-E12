@@ -1,33 +1,34 @@
 # Summary
 
-Date : 2020-08-12 00:08:42
+Date : 2020-08-17 13:04:01
 
 Directory /home/shwy/project-E12/Assets/Scrpts
 
-Total : 72 files,  3468 codes, 598 comments, 668 blanks, all 4734 lines
+Total : 76 files,  3810 codes, 789 comments, 759 blanks, all 5358 lines
 
 [details](details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| C# | 72 | 3,468 | 598 | 668 | 4,734 |
+| C# | 76 | 3,810 | 789 | 759 | 5,358 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 72 | 3,468 | 598 | 668 | 4,734 |
+| . | 76 | 3,810 | 789 | 759 | 5,358 |
 | A pathfinding | 2 | 99 | 12 | 15 | 126 |
 | Biome | 1 | 85 | 17 | 7 | 109 |
-| Trees | 22 | 295 | 4 | 59 | 358 |
-| UI | 12 | 475 | 58 | 97 | 630 |
-| building | 5 | 324 | 42 | 60 | 426 |
-| controller | 5 | 420 | 73 | 86 | 579 |
-| hex | 5 | 735 | 188 | 175 | 1,098 |
+| Crystal | 1 | 12 | 2 | 5 | 19 |
+| Trees | 22 | 296 | 5 | 61 | 362 |
+| UI | 14 | 609 | 80 | 133 | 822 |
+| building | 5 | 408 | 112 | 79 | 599 |
+| controller | 5 | 445 | 108 | 101 | 654 |
+| hex | 5 | 743 | 189 | 176 | 1,108 |
 | item | 1 | 24 | 0 | 4 | 28 |
-| kingdom | 7 | 131 | 29 | 25 | 185 |
-| other | 5 | 565 | 106 | 81 | 752 |
+| kingdom | 7 | 139 | 33 | 31 | 203 |
+| other | 5 | 623 | 141 | 83 | 847 |
 | spell | 1 | 16 | 3 | 6 | 25 |
-| unit | 6 | 299 | 66 | 53 | 418 |
+| unit | 7 | 311 | 87 | 58 | 456 |
 
 [details](details.md)

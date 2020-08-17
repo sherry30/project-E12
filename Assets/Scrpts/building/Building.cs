@@ -38,11 +38,12 @@ public class Building : MonoBehaviour
     [HideInInspector]
     //offset is just for y axis unlinke in units because buildings dontneed adjusting with repect to other objects in the hex
     public Vector3 offset;
-    public DictionaryResInt resourcesYield;
-    public DictionaryRawInt RawMaterialYield;
+    /*public DictionaryResFloat resourcesYield;
+    public DictionaryRawFloat RawMaterialYield;
 
-    public DictionaryEnergyInt energyYield;
-    public DictionaryOtherResInt OtherResourcesYield;
+    public DictionaryEnergyFloat energyYield;
+    public DictionaryOtherResFloat OtherResourcesYield;*/
+    public Resources resourcesYield;
     public City city;//city this building is under; mainly for districtsand improvements
 
 
@@ -51,6 +52,8 @@ public class Building : MonoBehaviour
         Vector3 temp = GetComponentInChildren<Collider>().bounds.size;
         offset = new Vector3(0, (temp.y/2f)+Hex.hexHeight-GetComponentInChildren<Renderer>().bounds.center.y,0);
         setUpdatePosition();
+        //resourcesYield = new Resources();
+        //resourcesYield.Initialize();
     }
 
 

@@ -22,6 +22,7 @@ public class District : Building
     public Type type;
     public int level;
     public int daysToBeProduced=2;
+    public string source;
     //public int maxPopulation;
 
 
@@ -31,11 +32,14 @@ public class District : Building
     public void setCamp(){
         city = GetComponent<City>();
         //setting up yields
-        resourcesYield = new DictionaryResInt();
-        resourcesYield.Add(Resource.production,2);
-        resourcesYield.Add(Resource.food,2);
-        energyYield= new DictionaryEnergyInt();
-        energyYield.Add(Energy.Fire,1);
+        resourcesYield = new Resources();
+        resourcesYield.resources= new DictionaryResFloat();
+        resourcesYield.resources.Add(Resource.production,2);
+        resourcesYield.resources.Add(Resource.food,2);
+        resourcesYield.Energies= new DictionaryEnergyFloat();
+        resourcesYield.Energies.Add(Energy.Fire,1);
+        resourcesYield.OtherResources = new DictionaryOtherResFloat();
+        resourcesYield.OtherResources.Add(OtherResource.alchemy,0.5f);
 
         //maxPopulation = 7;
 
@@ -45,14 +49,16 @@ public class District : Building
     }
     public void setVillage(){
         removeYield();
+        resourcesYield = new Resources();
         //setting up yields
-        resourcesYield = new DictionaryResInt();
-        resourcesYield.Add(Resource.production,2);
-        resourcesYield.Add(Resource.food,2);
-        energyYield= new DictionaryEnergyInt();
-        energyYield.Add(Energy.Fire,1);
-        OtherResourcesYield = new DictionaryOtherResInt();
-        OtherResourcesYield.Add(OtherResource.approval,2);
+        resourcesYield.resources = new DictionaryResFloat();
+        resourcesYield.resources.Add(Resource.production,2);
+        resourcesYield.resources.Add(Resource.food,2);
+        resourcesYield.Energies= new DictionaryEnergyFloat();
+        resourcesYield.Energies.Add(Energy.Fire,1);
+        resourcesYield.OtherResources = new DictionaryOtherResFloat();
+        resourcesYield.OtherResources.Add(OtherResource.approval,2);
+        resourcesYield.OtherResources.Add(OtherResource.alchemy,1);
 
         //maxPopulation = 10;
 
@@ -61,54 +67,66 @@ public class District : Building
     }
 
     public override void setYield(){
-        if(energyYield!=null){
-            foreach(KeyValuePair<Energy, int> entry in energyYield){
-                city.energyYield[entry.Key]+=energyYield[entry.Key];
+        if(resourcesYield.Energies!=null){
+            foreach(KeyValuePair<Energy, float> entry in resourcesYield.Energies){
+                city.resourcesYield.Energies[entry.Key]+=resourcesYield.Energies[entry.Key];
             }
         }
         //checking if Resource cost is met
-        if(resourcesYield!=null){
-            foreach(KeyValuePair<Resource, int> entry in resourcesYield){
-                city.resourcesYield[entry.Key]+=resourcesYield[entry.Key];
+        if(resourcesYield.resources!=null){
+            foreach(KeyValuePair<Resource, float> entry in resourcesYield.resources){
+                city.resourcesYield.resources[entry.Key]+=resourcesYield.resources[entry.Key];
             }
         }
         //checking if Raw material cost is met
-        if(RawMaterialYield!=null){
-            foreach(KeyValuePair<Raw_Material, int> entry in RawMaterialYield){
-                city.RawMaterialYield[entry.Key]+=RawMaterialYield[entry.Key];
+        if(resourcesYield.RawMaterials!=null){
+            foreach(KeyValuePair<Raw_Material,float> entry in resourcesYield.RawMaterials){
+                city.resourcesYield.RawMaterials[entry.Key]+=resourcesYield.RawMaterials[entry.Key];
             }
         }
         //checking if otherResource cost is met
-        if(OtherResourcesYield!=null){
-            foreach(KeyValuePair<OtherResource, int> entry in OtherResourcesYield){
-                city.OtherResourcesYield[entry.Key]+=OtherResourcesYield[entry.Key];
+        if(resourcesYield.OtherResources!=null){
+            foreach(KeyValuePair<OtherResource,float> entry in resourcesYield.OtherResources){
+                city.resourcesYield.OtherResources[entry.Key]+=resourcesYield.OtherResources[entry.Key];
+            }
+        }
+        //checking if otherResource cost is met
+        if(resourcesYield.Crystals!=null){
+            foreach(KeyValuePair<crystal,float> entry in resourcesYield.Crystals){
+                city.resourcesYield.Crystals[entry.Key]+=resourcesYield.Crystals[entry.Key];
             }
         }
     }
     public override void removeYield(){
         //checking if energy cost is me
 
-        if(energyYield!=null){
-            foreach(KeyValuePair<Energy, int> entry in energyYield){
-                city.energyYield[entry.Key]-=energyYield[entry.Key];
+        if(resourcesYield.Energies!=null){
+            foreach(KeyValuePair<Energy, float> entry in resourcesYield.Energies){
+                city.resourcesYield.Energies[entry.Key]-=resourcesYield.Energies[entry.Key];
             }
         }
         //checking if Resource cost is met
-        if(resourcesYield!=null){
-            foreach(KeyValuePair<Resource, int> entry in resourcesYield){
-                city.resourcesYield[entry.Key]-=resourcesYield[entry.Key];
+        if(resourcesYield.resources!=null){
+            foreach(KeyValuePair<Resource, float> entry in resourcesYield.resources){
+                city.resourcesYield.resources[entry.Key]-=resourcesYield.resources[entry.Key];
             }
         }
         //checking if Raw material cost is met
-        if(RawMaterialYield!=null){
-            foreach(KeyValuePair<Raw_Material, int> entry in RawMaterialYield){
-                city.RawMaterialYield[entry.Key]-=RawMaterialYield[entry.Key];
+        if(resourcesYield.RawMaterials!=null){
+            foreach(KeyValuePair<Raw_Material,float> entry in resourcesYield.RawMaterials){
+                city.resourcesYield.RawMaterials[entry.Key]-=resourcesYield.RawMaterials[entry.Key];
             }
         }
         //checking if otherResource cost is met
-        if(OtherResourcesYield!=null){
-            foreach(KeyValuePair<OtherResource, int> entry in OtherResourcesYield){
-                city.OtherResourcesYield[entry.Key]-=OtherResourcesYield[entry.Key];
+        if(resourcesYield.OtherResources!=null){
+            foreach(KeyValuePair<OtherResource,float> entry in resourcesYield.OtherResources){
+                city.resourcesYield.OtherResources[entry.Key]-=resourcesYield.OtherResources[entry.Key];
+            }
+        }
+        //checking if otherResource cost is met
+        if(resourcesYield.Crystals!=null){
+            foreach(KeyValuePair<crystal,float> entry in resourcesYield.Crystals){
+                city.resourcesYield.Crystals[entry.Key]-=resourcesYield.Crystals[entry.Key];
             }
         }
     }

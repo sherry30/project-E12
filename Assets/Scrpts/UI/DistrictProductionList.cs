@@ -94,6 +94,13 @@ public class DistrictProductionList : MonoBehaviour
 
     private IEnumerator positionCheckSeq(int index,District dis,GameObject objj){
 
+        //check if itsunlocked for thsi player
+        if(!getPlayer().availableDistricts.Contains(dis.type)){
+            Debug.Log("This district is not unlocked yet");
+            Debug.Log(dis.source);
+            yield break;
+        }
+
         //checking cost
         if(!dis.cost.onlyCheckCost())
         {
@@ -133,5 +140,12 @@ public class DistrictProductionList : MonoBehaviour
         obj.transform.localScale = new Vector3(1, 1, 1);
         Transform unitDesc = obj.transform.GetChild(0).GetChild(1);
 
+    }
+    private Player getPlayer(int player = -1){
+        Player tempPlayer = PlayerController.Instance.player;
+        if(player!=-1)
+            tempPlayer = AIController.Instance.AIPlayers[player];
+        
+        return tempPlayer;
     }
 }

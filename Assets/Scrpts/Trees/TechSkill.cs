@@ -34,6 +34,10 @@ public class TechSkill : MonoBehaviour{
     public Cost cost;
     public int daysTillUnlock=-1;
     public int player = -1;
+    public TechTree techTree;
+    void Awake(){
+        unlocked = false;
+    }
     public void setPreRequisite(List<TechSkill> pre){
         preRequisites = pre;
         unlocked=false;
@@ -41,13 +45,9 @@ public class TechSkill : MonoBehaviour{
     public virtual void UnlockSkill(int player = -1){
         this.player = player;
         if(unlocked){
-            Debug.Log(string.Format("{0} is unlocked",techCode));        
+            Debug.Log(string.Format("{0} is unlocked",techCode));
             return;
         }
-
-        
-        
-
 
         //check if preRequisitesare met or not
         if(!checkPreRequisite()){
@@ -59,8 +59,8 @@ public class TechSkill : MonoBehaviour{
         }
 
         //check if it is already unlocked or not
-        if(unlocked || daysTillUnlock!=-1){
-            Debug.Log("Already Unlocked or in research");
+        if(techTree.underResearch){
+            Debug.Log("Under Research");
             return;
         }
         //check if have enough science to pay
@@ -69,7 +69,7 @@ public class TechSkill : MonoBehaviour{
             cost.printCost();
             return;
         }
-        
+        techTree.underResearch=true;
         daysTillUnlock=cost.spendScience(player);
         if(player==-1)
             PlayerController.Instance.player.onStartTurn+=StartTurn;
@@ -100,6 +100,7 @@ public class TechSkill : MonoBehaviour{
 
                 unlocked=true;
                 daysTillUnlock=-1;
+                techTree.underResearch=false;
                 UnlockSkill(player);
             }
         }

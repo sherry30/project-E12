@@ -8,6 +8,7 @@ public class DictionaryTechCodeTechSkill: SerializableDictionary<TechCode,TechSk
 public class TechTree
 {  
     public DictionaryTechCodeTechSkill techSkills;
+    public bool underResearch=false;
     public void StartTurn(){
         foreach(KeyValuePair<TechCode,TechSkill> entry in techSkills){
             entry.Value.StartTurn();

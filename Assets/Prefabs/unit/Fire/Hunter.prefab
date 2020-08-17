@@ -55,22 +55,25 @@ MonoBehaviour:
   description: camper unit
   maxHealth: 100
   currentHealth: 0
-  damage: 100
   typeOfUnit: 0
   classOfUnit: 5
   cost:
-    costResource:
+    resources:
       m_keys: 01000000
-      m_values: 0f000000
-    costRaw:
+      m_values:
+      - 15
+    RawMaterials:
       m_keys: 
-      m_values: 
-    costEnergy:
+      m_values: []
+    Energies:
       m_keys: 
-      m_values: 
-    costOtherRes:
+      m_values: []
+    OtherResources:
       m_keys: 
-      m_values: 
+      m_values: []
+    Crystals:
+      m_keys: 
+      m_values: []
   items: []
   itemLimit: 3
   location: {x: 0, y: 0}

@@ -1130,6 +1130,26 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 371.70175
       objectReference: {fileID: 0}
+    - target: {fileID: 3748370489282843705, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748370489282843705, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748370489282843705, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748370489282843705, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3808874238649227386, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1525,6 +1545,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7369684550784373052, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7369684550784373052, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7369684550784373052, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7369684550784373052, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7399355770204381277, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -2092,18 +2132,22 @@ MonoBehaviour:
   player:
     player: -1
     kingdom: {fileID: 0}
-    Resources:
-      m_keys: 010000000000000002000000
-      m_values: 050000000500000005000000
-    RawMaterials:
-      m_keys: 00000000010000000200000003000000040000000500000006000000
-      m_values: 02000000020000000000000000000000000000000000000000000000
-    Energies:
-      m_keys: 010000000200000003000000040000000500000006000000
-      m_values: 190000000000000000000000000000000000000000000000
-    OtherResources:
-      m_keys: 00000000010000000200000003000000
-      m_values: 1e000000000000000000000000000000
+    resources:
+      resources:
+        m_keys: 
+        m_values: []
+      RawMaterials:
+        m_keys: 
+        m_values: []
+      Energies:
+        m_keys: 
+        m_values: []
+      OtherResources:
+        m_keys: 
+        m_values: []
+      Crystals:
+        m_keys: 
+        m_values: []
     population: 2
     populationGrowing: 2
     cities: []
@@ -2112,6 +2156,7 @@ MonoBehaviour:
     districts: []
     availableImprovements: 
     availableUnits: 
+    availableDistricts: 
     territory: []
     era: 0
 --- !u!4 &1095246724
@@ -2196,7 +2241,7 @@ MonoBehaviour:
       m_values: []
   startingUnitIndexes: 0100000002000000
   initialAvailableImprovments: 
-  initialAvailableUnits: 0500000006000000070000000300000008000000
+  initialAvailableUnits: 05000000060000000700000003000000
 --- !u!114 &1095246726
 MonoBehaviour:
   m_ObjectHideFlags: 0

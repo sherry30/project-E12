@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomPropertyDrawer(typeof(DictionaryTechCodeTechSkill))]
-[CustomPropertyDrawer(typeof(DictionaryRawInt))]
-[CustomPropertyDrawer(typeof(DictionaryEnergyInt))]
-[CustomPropertyDrawer(typeof(DictionaryResInt))]
-[CustomPropertyDrawer(typeof(DictionaryOtherResInt))]
+[CustomPropertyDrawer(typeof(DictionaryRawFloat))]
+[CustomPropertyDrawer(typeof(DictionaryCrystalFloat))]
+[CustomPropertyDrawer(typeof(DictionaryEnergyFloat))]
+[CustomPropertyDrawer(typeof(DictionaryResFloat))]
+[CustomPropertyDrawer(typeof(DictionaryOtherResFloat))]
 [CustomPropertyDrawer(typeof(StringStringDictionary))]
 [CustomPropertyDrawer(typeof(ObjectColorDictionary))]
 [CustomPropertyDrawer(typeof(StringColorArrayDictionary))]

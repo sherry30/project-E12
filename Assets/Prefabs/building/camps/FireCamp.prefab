@@ -58,16 +58,16 @@ MonoBehaviour:
   cost:
     costResource:
       m_keys: 
-      m_values: 
+      m_values: []
     costRaw:
       m_keys: 
-      m_values: 
+      m_values: []
     costEnergy:
       m_keys: 
-      m_values: 
+      m_values: []
     costOtherRes:
       m_keys: 
-      m_values: 
+      m_values: []
   location: {x: 0, y: 0}
   itemInventory: []
   ItemInventoryLimit: 6
@@ -75,16 +75,30 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   resourcesYield:
     m_keys: 000000000100000002000000
-    m_values: 000000000100000001000000
+    m_values:
+    - 0
+    - 1
+    - 2
   RawMaterialYield:
-    m_keys: 00000000010000000200000003000000040000000500000006000000
-    m_values: 00000000000000000000000000000000000000000000000000000000
+    m_keys: 00000000
+    m_values:
+    - 0
   energyYield:
     m_keys: 010000000200000003000000040000000500000006000000
-    m_values: 000000000000000000000000000000000000000000000000
+    m_values:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
   OtherResourcesYield:
     m_keys: 00000000010000000200000003000000
-    m_values: 00000000000000000000000000000000
+    m_values:
+    - 0
+    - 0
+    - 0
+    - 0
   city: {fileID: 0}
   boarderLength: 1
   teritory: []
@@ -102,6 +116,7 @@ MonoBehaviour:
   unitProduction: -1
   itemProduction: -1
   districtProduction: -1
+  positionSelectingMode: 0
   daysTillProduced: -1
   districts: []
   thisDistrict: {fileID: 0}
@@ -128,16 +143,16 @@ MonoBehaviour:
   cost:
     costResource:
       m_keys: 
-      m_values: 
+      m_values: []
     costRaw:
       m_keys: 
-      m_values: 
+      m_values: []
     costEnergy:
       m_keys: 
-      m_values: 
+      m_values: []
     costOtherRes:
       m_keys: 
-      m_values: 
+      m_values: []
   location: {x: 0, y: 0}
   itemInventory: []
   ItemInventoryLimit: 6
@@ -145,16 +160,16 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   resourcesYield:
     m_keys: 
-    m_values: 
+    m_values: []
   RawMaterialYield:
     m_keys: 
-    m_values: 
+    m_values: []
   energyYield:
     m_keys: 
-    m_values: 
+    m_values: []
   OtherResourcesYield:
     m_keys: 
-    m_values: 
+    m_values: []
   city: {fileID: 0}
   buildingStartingIndex: 0
   numOfBuildings: 0
@@ -162,6 +177,7 @@ MonoBehaviour:
   type: 0
   level: 0
   daysToBeProduced: 2
+  source: 
 --- !u!114 &3706403764918985536
 MonoBehaviour:
   m_ObjectHideFlags: 0

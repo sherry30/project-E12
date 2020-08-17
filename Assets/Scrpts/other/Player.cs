@@ -8,14 +8,16 @@ public class Player
 {
     public int player = -1;
     public Kingdom kingdom;
+    /*[SerializeField]
+    public DictionaryResFloat Resources;
     [SerializeField]
-    public DictionaryResInt Resources;
+    public DictionaryRawFloat RawMaterials;
     [SerializeField]
-    public DictionaryRawInt RawMaterials;
+    public DictionaryEnergyFloat Energies;
     [SerializeField]
-    public DictionaryEnergyInt Energies;
+    public DictionaryOtherResFloat OtherResources;*/
     [SerializeField]
-    public DictionaryOtherResInt OtherResources;
+    public Resources resources;
     
     public int population;
     public float populationGrowing;
@@ -27,6 +29,7 @@ public class Player
     //available stuff
     public List<improvement> availableImprovements;
     public List<Unit.Class> availableUnits;
+    public List<District.Type> availableDistricts;
 
     public List<HexComponent> territory;
     public delegate void startOfTurn();
@@ -36,6 +39,10 @@ public class Player
     public void setVariables(){
         availableImprovements = kingdom.initialAvailableImprovments;
         availableUnits = kingdom.initialAvailableUnits;
+        resources = new Resources();
+        resources.Initialize();
+        resources.resources[Resource.production]=3;
+        resources.OtherResources[OtherResource.Science]=30;
     }
     public Era era=Era.StoneAge;
     public void BuildCity(City cit,Vector2 location){
@@ -49,16 +56,16 @@ public class Player
 
     public void BuildImprovement(Improvement imp,Vector2 location){
         imp.Build(location);
-        if(improvements==null)
+        /*if(improvements==null)
             improvements = new List<Improvement>();
-        improvements.Add(imp);
+        improvements.Add(imp);*/
         onStartTurn+=imp.StartTurn;
     }
     public void BuildDistrict(District dis,Vector2 location){
         dis.Build(location);
-        if(districts==null)
+        /*if(districts==null)
             districts = new List<District>();
-        districts.Add(dis);
+        districts.Add(dis);*/
         onStartTurn+=dis.StartTurn;
     }
     public void SpawnUnit(Unit unit,Vector2 location){
@@ -78,7 +85,6 @@ public class Player
                 cities.RemoveAt(i);
                 return;
             }
-
         }
 
     }

@@ -1446,6 +1446,46 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5434657344890327649, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434657344890327649, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434657344890327649, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434657344890327649, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532380526576012217, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532380526576012217, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532380526576012217, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532380526576012217, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6511321487309963876, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -1575,6 +1615,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648416772343521456, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8180846076916511415, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -2239,6 +2284,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+    underResearch: 0
   startingUnitIndexes: 0100000002000000
   initialAvailableImprovments: 
   initialAvailableUnits: 05000000060000000700000003000000
@@ -2297,6 +2343,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+    underResearch: 0
   startingUnitIndexes: 
   initialAvailableImprovments: 
   initialAvailableUnits: 
@@ -2355,6 +2402,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+    underResearch: 0
   startingUnitIndexes: 
   initialAvailableImprovments: 
   initialAvailableUnits: 
@@ -2413,6 +2461,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+    underResearch: 0
   startingUnitIndexes: 
   initialAvailableImprovments: 
   initialAvailableUnits: 
@@ -2471,6 +2520,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+    underResearch: 0
   startingUnitIndexes: 
   initialAvailableImprovments: 
   initialAvailableUnits: 
@@ -2534,6 +2584,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+    underResearch: 0
   startingUnitIndexes: 0100000002000000
   initialAvailableImprovments: 
   initialAvailableUnits: 
@@ -2793,6 +2844,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+    underResearch: 0
   startingUnitIndexes: 0100000002000000
   initialAvailableImprovments: 
   initialAvailableUnits: 
@@ -2851,6 +2903,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+    underResearch: 0
   startingUnitIndexes: 
   initialAvailableImprovments: 
   initialAvailableUnits: 
@@ -2909,6 +2962,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+    underResearch: 0
   startingUnitIndexes: 
   initialAvailableImprovments: 
   initialAvailableUnits: 
@@ -2967,6 +3021,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+    underResearch: 0
   startingUnitIndexes: 
   initialAvailableImprovments: 
   initialAvailableUnits: 
@@ -3031,6 +3086,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+    underResearch: 0
   startingUnitIndexes: 0100000002000000
   initialAvailableImprovments: 
   initialAvailableUnits: 
@@ -3089,6 +3145,7 @@ MonoBehaviour:
     techSkills:
       m_keys: 
       m_values: []
+    underResearch: 0
   startingUnitIndexes: 
   initialAvailableImprovments: 
   initialAvailableUnits: 

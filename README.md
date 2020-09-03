@@ -1,2 +1,2 @@
 # project-E12
-first 4X strategy game
+first 4X strategy game.

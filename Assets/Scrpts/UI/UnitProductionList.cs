@@ -99,9 +99,9 @@ public class UnitProductionList : MonoBehaviour
             }
             city.ProduceUnit(index,days);
             GameObject obj = (GameObject) Instantiate(objj);
-            obj.transform.SetParent(current, false);
+            obj.transform.SetParent(current,false);
             obj.transform.localScale = new Vector3(1, 1, 1);
-            Transform unitDesc = obj.transform.GetChild(0).GetChild(1);
+            //Transform unitDesc = obj.transform.GetChild(0).GetChild(1);
 
             //changing text on the UI
             /*unitDesc.Find("UnitName").GetComponent<Text>().text = unit.Name;

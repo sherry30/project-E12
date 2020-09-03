@@ -56,49 +56,84 @@ MonoBehaviour:
   maxHealth: 500
   player: -1
   cost:
-    costResource:
-      m_keys: 
-      m_values: []
-    costRaw:
-      m_keys: 
-      m_values: []
-    costEnergy:
-      m_keys: 
-      m_values: []
-    costOtherRes:
-      m_keys: 
-      m_values: []
+    resources:
+      m_keys: 000000000100000002000000
+      m_values:
+      - 0
+      - 0
+      - 0
+    RawMaterials:
+      m_keys: 00000000010000000200000003000000040000000500000006000000
+      m_values:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    Energies:
+      m_keys: 00000000010000000200000003000000040000000500000006000000
+      m_values:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    OtherResources:
+      m_keys: 000000000100000002000000
+      m_values:
+      - 0
+      - 0
+      - 0
+    Crystals:
+      m_keys: 00000000
+      m_values:
+      - 0
   location: {x: 0, y: 0}
   itemInventory: []
   ItemInventoryLimit: 6
   isBuilt: 0
   offset: {x: 0, y: 0, z: 0}
   resourcesYield:
-    m_keys: 000000000100000002000000
-    m_values:
-    - 0
-    - 1
-    - 2
-  RawMaterialYield:
-    m_keys: 00000000
-    m_values:
-    - 0
-  energyYield:
-    m_keys: 010000000200000003000000040000000500000006000000
-    m_values:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-  OtherResourcesYield:
-    m_keys: 00000000010000000200000003000000
-    m_values:
-    - 0
-    - 0
-    - 0
-    - 0
+    resources:
+      m_keys: 000000000100000002000000
+      m_values:
+      - 0
+      - 0
+      - 0
+    RawMaterials:
+      m_keys: 00000000010000000200000003000000040000000500000006000000
+      m_values:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    Energies:
+      m_keys: 00000000010000000200000003000000040000000500000006000000
+      m_values:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    OtherResources:
+      m_keys: 000000000100000002000000
+      m_values:
+      - 0
+      - 0
+      - 0
+    Crystals:
+      m_keys: 00000000
+      m_values:
+      - 0
   city: {fileID: 0}
   boarderLength: 1
   teritory: []
@@ -141,38 +176,87 @@ MonoBehaviour:
   maxHealth: 0
   player: -1
   cost:
-    costResource:
-      m_keys: 
-      m_values: []
-    costRaw:
-      m_keys: 
-      m_values: []
-    costEnergy:
-      m_keys: 
-      m_values: []
-    costOtherRes:
-      m_keys: 
-      m_values: []
+    resources:
+      m_keys: 000000000100000002000000
+      m_values:
+      - 0
+      - 0
+      - 0
+    RawMaterials:
+      m_keys: 00000000010000000200000003000000040000000500000006000000
+      m_values:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    Energies:
+      m_keys: 00000000010000000200000003000000040000000500000006000000
+      m_values:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    OtherResources:
+      m_keys: 000000000100000002000000
+      m_values:
+      - 0
+      - 0
+      - 0
+    Crystals:
+      m_keys: 00000000
+      m_values:
+      - 0
   location: {x: 0, y: 0}
   itemInventory: []
   ItemInventoryLimit: 6
   isBuilt: 0
   offset: {x: 0, y: 0, z: 0}
   resourcesYield:
-    m_keys: 
-    m_values: []
-  RawMaterialYield:
-    m_keys: 
-    m_values: []
-  energyYield:
-    m_keys: 
-    m_values: []
-  OtherResourcesYield:
-    m_keys: 
-    m_values: []
+    resources:
+      m_keys: 000000000100000002000000
+      m_values:
+      - 0
+      - 0
+      - 0
+    RawMaterials:
+      m_keys: 00000000010000000200000003000000040000000500000006000000
+      m_values:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    Energies:
+      m_keys: 00000000010000000200000003000000040000000500000006000000
+      m_values:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    OtherResources:
+      m_keys: 000000000100000002000000
+      m_values:
+      - 0
+      - 0
+      - 0
+    Crystals:
+      m_keys: 00000000
+      m_values:
+      - 0
   city: {fileID: 0}
   buildingStartingIndex: 0
-  numOfBuildings: 0
+  numOfBuildings: 1
   limitOfBuildings: 3
   type: 0
   level: 0

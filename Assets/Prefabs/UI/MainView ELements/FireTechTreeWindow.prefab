@@ -122,11 +122,11 @@ MonoBehaviour:
       - m_Target: {fileID: -4402167215068494045, guid: 153973af8f51ea6c38b7d3ceade13641,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -253,11 +253,11 @@ MonoBehaviour:
       - m_Target: {fileID: -2762262842989007810, guid: 8addab01e8d8ed8e19173c7f3471f47a,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -462,11 +462,11 @@ MonoBehaviour:
       - m_Target: {fileID: 8509101625100618255, guid: cd6a86d6d84b3d54c8577b87b137ad15,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -593,11 +593,11 @@ MonoBehaviour:
       - m_Target: {fileID: 4223363868795663430, guid: 3580fb46769ba54a8a335bd5f6258dae,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -724,11 +724,11 @@ MonoBehaviour:
       - m_Target: {fileID: 5184453273169662881, guid: 2e5884ba615b3ff57a2528333e695fc6,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1011,11 +1011,11 @@ MonoBehaviour:
       - m_Target: {fileID: -2390820307159914229, guid: ea77eedf63635b1feaf2614479fcdb3a,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1142,11 +1142,11 @@ MonoBehaviour:
       - m_Target: {fileID: -853611804153732934, guid: edf54723c01ca2985b6fe34eb9b08f3c,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1273,11 +1273,11 @@ MonoBehaviour:
       - m_Target: {fileID: -8321406386228476194, guid: 1d2e67026bf8e144aab576c42a4a67fc,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1404,11 +1404,11 @@ MonoBehaviour:
       - m_Target: {fileID: 6639113944461493242, guid: 440f843384777805c84e00382960ff5f,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1691,11 +1691,11 @@ MonoBehaviour:
       - m_Target: {fileID: 4725475179711686894, guid: 33fee60e23c624d9daae4910d6670f3b,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1822,11 +1822,11 @@ MonoBehaviour:
       - m_Target: {fileID: 4130161420082946737, guid: 0be7b6bc97e2b3c0d9248e3a6d0e7281,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2265,11 +2265,11 @@ MonoBehaviour:
       - m_Target: {fileID: 789838555968760633, guid: 1875b1898104452a2a9b9d6ce6fbe211,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2396,11 +2396,11 @@ MonoBehaviour:
       - m_Target: {fileID: 3416544521353388966, guid: c1909006550a001ebaca30cae61f9da9,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2527,11 +2527,11 @@ MonoBehaviour:
       - m_Target: {fileID: -7264131016766222791, guid: 64e0e6be238a10b86b4611a87de0fd26,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2658,11 +2658,11 @@ MonoBehaviour:
       - m_Target: {fileID: 2103484601271262647, guid: db4d97cb9d7696db081e774ab41593ab,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2789,11 +2789,11 @@ MonoBehaviour:
       - m_Target: {fileID: 5699297760636183405, guid: 30492f972e98626d0a50a9b0856240f7,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3076,11 +3076,11 @@ MonoBehaviour:
       - m_Target: {fileID: 7079804866228471914, guid: 8ed5bccd18c92959fa0051c4fe83f2fc,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3207,11 +3207,11 @@ MonoBehaviour:
       - m_Target: {fileID: -4388895320101144929, guid: b05320377727ad1a0a5a069343b1e451,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3978,11 +3978,11 @@ MonoBehaviour:
       - m_Target: {fileID: 599106752592501684, guid: ffe88b0a95d5529708e2c0158a85295a,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4187,11 +4187,11 @@ MonoBehaviour:
       - m_Target: {fileID: 4018615500901269556, guid: f564c2b3b15e051c4bb5f402b77f7bb0,
           type: 3}
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

@@ -83,7 +83,7 @@ public class DistrictProductionList : MonoBehaviour
         //if a unit or an item is already being produced then return
         if(city!=null && city.unitProduction==-1 && city.itemProduction==-1 && city.districtProduction==-1 && !city.positionSelectingMode){
 
-            city.positionSelectingMode=true;
+            
             //selectwhere it will be built first
             StartCoroutine(positionCheckSeq(index, dis,objj));
             
@@ -111,6 +111,7 @@ public class DistrictProductionList : MonoBehaviour
 
         //start position selecting mode
         //couroutine ends when a new object is selected
+        city.positionSelectingMode=true;
         yield return StartCoroutine(MouseController.Instance.positionSelectingModeOn());
         city.positionSelectingMode=false;
 

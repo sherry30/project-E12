@@ -24,7 +24,7 @@ public abstract class Kingdom : MonoBehaviour
     public District[] districts;
 
     //GameoBjects 
-    public GameObject[] BuildingPrefabs;
+    public GameObject[] buildingPrefabs;
     public GameObject[] cityPrefabs;
     public GameObject[] unitPrefabs;
     public GameObject[] improvementPrefabs;
@@ -52,6 +52,7 @@ public abstract class Kingdom : MonoBehaviour
         improvements = new Improvement[improvementPrefabs.Length];
         items = new Item[itemPrefabs.Length];
         districts = new District[districtPrefabs.Length];
+        buildings = new Building[buildingPrefabs.Length];
 
         
         for(int i=0;i<cities.Length;i++){
@@ -70,6 +71,9 @@ public abstract class Kingdom : MonoBehaviour
         for(int i=0;i<districts.Length;i++){
             districts[i] = districtPrefabs[i].GetComponent<District>();
         }
+        for(int i=0;i<buildings.Length;i++){
+            buildings[i] = buildingPrefabs[i].GetComponent<Building>();
+        }
         //setting up tech Tree from techObjects
         setTechTree();
     }
@@ -80,10 +84,10 @@ public abstract class Kingdom : MonoBehaviour
     public GameObject getPrefabOfBuilding(Building build){
         for(int i=0 ; i<buildings.Length;i++){
             if(buildings[i]==build)
-                return BuildingPrefabs[i];
+                return buildingPrefabs[i];
         }
         Debug.LogError("Didint find building");
-        return BuildingPrefabs[0];
+        return buildingPrefabs[0];
     }
     private void setTechTree(){
         for(int i=0;i<TechObjects.Length;i++){

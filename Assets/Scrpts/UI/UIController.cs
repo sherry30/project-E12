@@ -7,7 +7,7 @@ public class UIController : MonoBehaviour
     public GameObject currentlyOpened = null;
     public static UIController  Instance{get;private set;}
     private HealthBar healthBar;
-    public int unitInv,buildingInv;
+    public int unitInv,buildingInv,districtInv;
     void Awake(){   
         if(Instance==null){
             Instance =this;
@@ -26,6 +26,17 @@ public class UIController : MonoBehaviour
             return; 
         }
         objectChanged(gameObject.transform.GetChild(0).transform.GetChild(buildingInv).gameObject);
+        displayUI();
+    }
+    public void openDistrictHub(){
+        if(currentlyOpened!=null)
+            hideUI();   
+        else if(currentlyOpened==gameObject.transform.GetChild(0).transform.GetChild(districtInv).gameObject){
+            hideUI();   
+            displayUI();   
+            return; 
+        }
+        objectChanged(gameObject.transform.GetChild(0).transform.GetChild(districtInv).gameObject);
         displayUI();
     }
 

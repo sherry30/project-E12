@@ -25,9 +25,9 @@ GameObject:
   - component: {fileID: 1435368440455045819}
   - component: {fileID: 1373114686451754182}
   - component: {fileID: 7390927368879974936}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AlchemyLab
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,9 +98,9 @@ MonoBehaviour:
   player: -1
   cost:
     resources:
-      m_keys: 00000000
+      m_keys: 01000000
       m_values:
-      - 0
+      - 15
     RawMaterials:
       m_keys: 
       m_values: []
@@ -142,6 +142,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1380497702396629754}
     m_Modifications:
+    - target: {fileID: 121424231395429906, guid: a82e76d439460b5daa2e2da6926a0691,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -252,6 +257,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBarUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7324497662315108428, guid: a82e76d439460b5daa2e2da6926a0691,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a82e76d439460b5daa2e2da6926a0691, type: 3}
 --- !u!224 &5247516265740903476 stripped
@@ -326,6 +336,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: villageGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4350957676948418419, guid: 2dcbede389116038e9f6f676c413d126,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dcbede389116038e9f6f676c413d126, type: 3}

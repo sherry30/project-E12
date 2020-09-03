@@ -18,17 +18,20 @@ public class District : Building
     }
     //List<Building> buildings;
     public int buildingStartingIndex, numOfBuildings;
+    public int buildingProduction=-1;
     public int limitOfBuildings=3;
     public Type type;
     public int level;
     public int daysToBeProduced=2;
     public string source;
+    public int daysTillProduced=-1;
+    public Vector2 buildingLocation;
+    [HideInInspector]
+    public bool positionSelectingMode=false;
+    public List<Building> buildings;
     //public int maxPopulation;
 
 
-    
-    public override void StartTurn(){
-    }
     public void setCamp(){
         city = GetComponent<City>();
         //setting up yields
@@ -129,5 +132,41 @@ public class District : Building
                 city.resourcesYield.Crystals[entry.Key]-=resourcesYield.Crystals[entry.Key];
             }
         }
+    }
+
+    public void ProduceBuilding(int index,int days, Vector2 loc){
+        buildingProduction = index;
+        buildingLocation = loc;
+        daysTillProduced = days;
+
+        //this place is considered occupied even before it is built
+        GameState.Instance.occupiedHexes.Add(loc);
+        
+    }
+    public override void StartTurn(){
+        if(daysTillProduced!=-1)
+            daysTillProduced--;
+            
+        if(buildingProduction!=-1 && daysTillProduced==0){
+            //AddItem(getPlayer().kingdom.itemPrefabs[itemProduction]);
+            buildings.Add(getPlayer().kingdom.districts[buildingProduction]);
+            HexOperations.Instance.BuildBuilding(buildingLocation,buildingProduction);
+
+            //destroying the info object in the producing slot if this object is selected
+            
+            buildingProduction=-1;
+            daysTillProduced = -1;
+            buildingLocation=Vector2.zero;
+            if(GameState.Instance.selectedObject==this.gameObject){
+                UIController.Instance.openBuildingHub();
+            }
+        }
+    }
+    private Player getPlayer(){
+        Player tempPlayer = PlayerController.Instance.player;
+        if(player!=-1)
+            tempPlayer = AIController.Instance.AIPlayers[player];
+        
+        return tempPlayer;
     }
 }

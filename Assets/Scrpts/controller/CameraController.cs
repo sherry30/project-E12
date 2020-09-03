@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //return if mouse is over UI or if a unit is moving
+        if(EventSystem.current.IsPointerOverGameObject())
+            return;
         //move camera with mouse
         Vector3 pos= transform.position;
         bool changed = false;

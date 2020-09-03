@@ -25,9 +25,9 @@ GameObject:
   - component: {fileID: 1435368440455045819}
   - component: {fileID: 1373114686451754182}
   - component: {fileID: 207971752708405208}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VillageGreen
-  m_TagString: Untagged
+  m_TagString: District
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,42 +97,55 @@ MonoBehaviour:
   maxHealth: 100
   player: -1
   cost:
-    costResource:
+    resources:
       m_keys: 
-      m_values: 
-    costRaw:
+      m_values: []
+    RawMaterials:
       m_keys: 
-      m_values: 
-    costEnergy:
-      m_keys: 01000000
-      m_values: 05000000
-    costOtherRes:
+      m_values: []
+    Energies:
       m_keys: 
-      m_values: 
+      m_values: []
+    OtherResources:
+      m_keys: 
+      m_values: []
+    Crystals:
+      m_keys: 
+      m_values: []
   location: {x: 0, y: 0}
   itemInventory: []
   ItemInventoryLimit: 6
   isBuilt: 0
   offset: {x: 0, y: 0, z: 0}
   resourcesYield:
-    m_keys: 
-    m_values: 
-  RawMaterialYield:
-    m_keys: 
-    m_values: 
-  energyYield:
-    m_keys: 
-    m_values: 
-  OtherResourcesYield:
-    m_keys: 
-    m_values: 
+    resources:
+      m_keys: 
+      m_values: []
+    RawMaterials:
+      m_keys: 
+      m_values: []
+    Energies:
+      m_keys: 
+      m_values: []
+    OtherResources:
+      m_keys: 
+      m_values: []
+    Crystals:
+      m_keys: 
+      m_values: []
   city: {fileID: 0}
   buildingStartingIndex: 0
-  numOfBuildings: 0
+  numOfBuildings: 1
+  buildingProduction: -1
   limitOfBuildings: 3
   type: 2
   level: 1
   daysToBeProduced: 2
+  source: Village
+  daysTillProduced: -1
+  buildingLocation: {x: 0, y: 0}
+  positionSelectingMode: 0
+  buildings: []
 --- !u!1001 &662393227311136347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -140,6 +153,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1380497702396629754}
     m_Modifications:
+    - target: {fileID: 121424231395429906, guid: a82e76d439460b5daa2e2da6926a0691,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -250,6 +268,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBarUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7324497662315108428, guid: a82e76d439460b5daa2e2da6926a0691,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a82e76d439460b5daa2e2da6926a0691, type: 3}
 --- !u!224 &5247516265740903476 stripped
@@ -324,6 +347,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: villageGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4350957676948418419, guid: 2dcbede389116038e9f6f676c413d126,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dcbede389116038e9f6f676c413d126, type: 3}

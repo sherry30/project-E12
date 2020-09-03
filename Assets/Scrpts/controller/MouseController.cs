@@ -119,6 +119,9 @@ public class MouseController : MonoBehaviour
                     else if(obj.CompareTag("City")){
                         UIController.Instance.openBuildingHub();
                     }
+                    else if(obj.CompareTag("District")){
+                        UIController.Instance.openDistrictHub();
+                    }
                     else{
                         UIController.Instance.CloseHub();
                     }

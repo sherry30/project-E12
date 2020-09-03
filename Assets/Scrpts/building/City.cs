@@ -62,6 +62,7 @@ public class City : Building
         }
         //add town later as well
         thisDistrict = dis;
+        upgradeToVillage(getPlayer());
     }
     public void Campers(){
         if(typeOfCity==Type.camp){
@@ -166,6 +167,8 @@ public class City : Building
             tempPlayer.availableImprovements.Add(improvement.Farm);
             //adding settler
             tempPlayer.availableUnits.Add(Unit.Class.settler);
+            //adding district village green
+            tempPlayer.availableDistricts.Add(District.Type.village_green);
             thisDistrict.setVillage();
             typeOfCity = Type.village;
             boarderLength=2;

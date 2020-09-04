@@ -17,7 +17,7 @@ public class minimapCamCont : MonoBehaviour
         }
     }
 
-    public static float constantPos = -59f;
+    public static float constantPos = -57f;
     /*void Update()
     {
         

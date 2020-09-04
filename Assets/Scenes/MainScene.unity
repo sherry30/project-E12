@@ -3387,7 +3387,7 @@ MonoBehaviour:
   items: []
   improvements: []
   districts: []
-  BuildingPrefabs:
+  buildingPrefabs:
   - {fileID: 2594391729097533843, guid: e7a4ca1aa630238da9d1fdeb7b4a543f, type: 3}
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
@@ -3458,7 +3458,7 @@ MonoBehaviour:
   items: []
   improvements: []
   districts: []
-  BuildingPrefabs: []
+  buildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
   unitPrefabs: []
@@ -3517,7 +3517,7 @@ MonoBehaviour:
   items: []
   improvements: []
   districts: []
-  BuildingPrefabs: []
+  buildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
   unitPrefabs: []
@@ -3576,7 +3576,7 @@ MonoBehaviour:
   items: []
   improvements: []
   districts: []
-  BuildingPrefabs: []
+  buildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
   unitPrefabs: []
@@ -3635,7 +3635,7 @@ MonoBehaviour:
   items: []
   improvements: []
   districts: []
-  BuildingPrefabs: []
+  buildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
   unitPrefabs: []
@@ -3694,7 +3694,7 @@ MonoBehaviour:
   items: []
   improvements: []
   districts: []
-  BuildingPrefabs: []
+  buildingPrefabs: []
   cityPrefabs:
   - {fileID: 8735488988798598274, guid: 54dd170d467ed98eaa69bdbec24aff18, type: 3}
   unitPrefabs:
@@ -3942,7 +3942,7 @@ MonoBehaviour:
   items: []
   improvements: []
   districts: []
-  BuildingPrefabs: []
+  buildingPrefabs: []
   cityPrefabs:
   - {fileID: 8735488988798598274, guid: 54dd170d467ed98eaa69bdbec24aff18, type: 3}
   unitPrefabs:
@@ -4006,7 +4006,7 @@ MonoBehaviour:
   items: []
   improvements: []
   districts: []
-  BuildingPrefabs: []
+  buildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
   unitPrefabs: []
@@ -4065,7 +4065,7 @@ MonoBehaviour:
   items: []
   improvements: []
   districts: []
-  BuildingPrefabs: []
+  buildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
   unitPrefabs: []
@@ -4124,7 +4124,7 @@ MonoBehaviour:
   items: []
   improvements: []
   districts: []
-  BuildingPrefabs: []
+  buildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
   unitPrefabs: []
@@ -4183,7 +4183,7 @@ MonoBehaviour:
   items: []
   improvements: []
   districts: []
-  BuildingPrefabs: []
+  buildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
   unitPrefabs:
@@ -4248,7 +4248,7 @@ MonoBehaviour:
   items: []
   improvements: []
   districts: []
-  BuildingPrefabs: []
+  buildingPrefabs: []
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
   unitPrefabs: []

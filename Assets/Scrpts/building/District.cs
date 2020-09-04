@@ -158,7 +158,7 @@ public class District : Building
             daysTillProduced = -1;
             buildingLocation=Vector2.zero;
             if(GameState.Instance.selectedObject==this.gameObject){
-                UIController.Instance.openBuildingHub();
+                UIController.Instance.openDistrictHub();
             }
         }
     }

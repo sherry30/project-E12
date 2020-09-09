@@ -150,7 +150,10 @@ public class District : Building
         if(buildingProduction!=-1 && daysTillProduced==0){
             //AddItem(getPlayer().kingdom.itemPrefabs[itemProduction]);
             buildings.Add(getPlayer().kingdom.districts[buildingProduction]);
-            HexOperations.Instance.BuildBuilding(buildingLocation,buildingProduction);
+            GameObject buil = HexOperations.Instance.BuildBuilding(buildingLocation,buildingProduction,city);
+            //setting the yield of this building
+            buil.GetComponent<Building>().setYield();
+
 
             //destroying the info object in the producing slot if this object is selected
             

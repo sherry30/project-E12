@@ -15,7 +15,7 @@ public class Hex
     }
     //x
     public int Q;
-    public static float hexHeight=1f;
+    public static float hexHeight=2f;
     //y
     public  int R;
     public  int S;

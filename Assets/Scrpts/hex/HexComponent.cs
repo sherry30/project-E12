@@ -183,7 +183,8 @@ public class HexComponent : MonoBehaviour
 
     public void setBiomAndTerrain(biome b,terrain t ){
         hexBiome.setBiome(b);
-        gameObject.GetComponentInChildren<MeshRenderer>().material = HexMapGenerator.Instance.mats[hexBiome.setTerrain(t)];
+        ListWrapperMaterial temp = HexMapGenerator.Instance.mats[hexBiome.setTerrain(t)];
+        gameObject.GetComponentInChildren<MeshRenderer>().material = temp.variations[Random.Range(0,temp.variations.Count)];
         elevation = hexBiome.setElevation();
         Vector3 y = new Vector3(0,getElevation(),0);
         

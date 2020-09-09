@@ -50,7 +50,7 @@ public class Building : MonoBehaviour
 
     void Awake(){
         Vector3 temp = GetComponentInChildren<Collider>().bounds.size;
-        offset = new Vector3(0, (temp.y/2f)+Hex.hexHeight-GetComponentInChildren<Renderer>().bounds.center.y,0);
+        offset = new Vector3(0, (temp.y/2f)+Hex.hexHeight-GetComponentInChildren<Renderer>().bounds.center.y+0.5f,0);
         setUpdatePosition();
         //resourcesYield = new Resources();
         //resourcesYield.Initialize();
@@ -130,68 +130,69 @@ public class Building : MonoBehaviour
         return null;
     }
     public virtual void setYield(){
-
-        /*Player tempPlayer = PlayerController.Instance.player;
-        //checking if energy cost is met
-        if(player!=-1){
-            tempPlayer = AIController.Instance.AIPlayers[player];
-        }
-
-        if(energyYield!=null){
-            foreach(KeyValuePair<Energy, int> entry in energyYield){
-                tempPlayer.energyYield[entry.Key]+=energyYield[entry.Key];
+        if(resourcesYield.Energies!=null){
+            foreach(KeyValuePair<Energy, float> entry in resourcesYield.Energies){
+                city.resourcesYield.Energies[entry.Key]+=resourcesYield.Energies[entry.Key];
             }
         }
         //checking if Resource cost is met
-        if(resourcesYield!=null){
-            foreach(KeyValuePair<Resource, int> entry in resourcesYield){
-                tempPlayer.resourcesYield[entry.Key]+=resourcesYield[entry.Key];
+        if(resourcesYield.resources!=null){
+            foreach(KeyValuePair<Resource, float> entry in resourcesYield.resources){
+                city.resourcesYield.resources[entry.Key]+=resourcesYield.resources[entry.Key];
             }
         }
         //checking if Raw material cost is met
-        if(RawMaterialYield!=null){
-            foreach(KeyValuePair<Raw_Material, int> entry in RawMaterialYield){
-                tempPlayer.RawMaterialYield[entry.Key]+=RawMaterialYield[entry.Key];
+        if(resourcesYield.RawMaterials!=null){
+            foreach(KeyValuePair<Raw_Material,float> entry in resourcesYield.RawMaterials){
+                city.resourcesYield.RawMaterials[entry.Key]+=resourcesYield.RawMaterials[entry.Key];
             }
         }
         //checking if otherResource cost is met
-        if(OtherResourcesYield!=null){
-            foreach(KeyValuePair<OtherResource, int> entry in OtherResourcesYield){
-                tempPlayer.OtherResourcesYield[entry.Key]+=OtherResourcesYield[entry.Key];
+        if(resourcesYield.OtherResources!=null){
+            foreach(KeyValuePair<OtherResource,float> entry in resourcesYield.OtherResources){
+                city.resourcesYield.OtherResources[entry.Key]+=resourcesYield.OtherResources[entry.Key];
             }
-        }*/
+        }
+        //checking if otherResource cost is met
+        if(resourcesYield.Crystals!=null){
+            foreach(KeyValuePair<crystal,float> entry in resourcesYield.Crystals){
+                city.resourcesYield.Crystals[entry.Key]+=resourcesYield.Crystals[entry.Key];
+            }
+        }
     }
     
     public virtual void removeYield(){
-        /*Player tempPlayer = PlayerController.Instance.player;
-        //checking if energy cost is met
-        if(player!=-1){
-            tempPlayer = AIController.Instance.AIPlayers[player];
-        }
+        //checking if energy cost is me
 
-        if(energyYield!=null){
-            foreach(KeyValuePair<Energy, int> entry in energyYield){
-                tempPlayer.energyYield[entry.Key]-=energyYield[entry.Key];
+        if(resourcesYield.Energies!=null){
+            foreach(KeyValuePair<Energy, float> entry in resourcesYield.Energies){
+                city.resourcesYield.Energies[entry.Key]-=resourcesYield.Energies[entry.Key];
             }
         }
         //checking if Resource cost is met
-        if(resourcesYield!=null){
-            foreach(KeyValuePair<Resource, int> entry in resourcesYield){
-                tempPlayer.resourcesYield[entry.Key]-=resourcesYield[entry.Key];
+        if(resourcesYield.resources!=null){
+            foreach(KeyValuePair<Resource, float> entry in resourcesYield.resources){
+                city.resourcesYield.resources[entry.Key]-=resourcesYield.resources[entry.Key];
             }
         }
         //checking if Raw material cost is met
-        if(RawMaterialYield!=null){
-            foreach(KeyValuePair<Raw_Material, int> entry in RawMaterialYield){
-                tempPlayer.RawMaterialYield[entry.Key]-=RawMaterialYield[entry.Key];
+        if(resourcesYield.RawMaterials!=null){
+            foreach(KeyValuePair<Raw_Material,float> entry in resourcesYield.RawMaterials){
+                city.resourcesYield.RawMaterials[entry.Key]-=resourcesYield.RawMaterials[entry.Key];
             }
         }
         //checking if otherResource cost is met
-        if(OtherResourcesYield!=null){
-            foreach(KeyValuePair<OtherResource, int> entry in OtherResourcesYield){
-                tempPlayer.OtherResourcesYield[entry.Key]-=OtherResourcesYield[entry.Key];
+        if(resourcesYield.OtherResources!=null){
+            foreach(KeyValuePair<OtherResource,float> entry in resourcesYield.OtherResources){
+                city.resourcesYield.OtherResources[entry.Key]-=resourcesYield.OtherResources[entry.Key];
             }
-        }*/
+        }
+        //checking if otherResource cost is met
+        if(resourcesYield.Crystals!=null){
+            foreach(KeyValuePair<crystal,float> entry in resourcesYield.Crystals){
+                city.resourcesYield.Crystals[entry.Key]-=resourcesYield.Crystals[entry.Key];
+            }
+        }
     }
 
 

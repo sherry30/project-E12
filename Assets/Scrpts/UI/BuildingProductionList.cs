@@ -82,9 +82,8 @@ public class BuildingProductionList : MonoBehaviour
     }
     private void Produce(int index,Building bil,GameObject objj){
         //if a unit or an item is already being produced then return
-        if(district!=null && district.buildingProduction==-1){
+        if(district!=null && district.buildingProduction==-1 && !district.positionSelectingMode){
 
-            
             //selectwhere it will be built first
             StartCoroutine(positionCheckSeq(index, bil,objj));
             

@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
+ public class ListWrapperMaterial
+ {
+      public List<Material> variations;
+ }
 public class HexMapGenerator : MonoBehaviour
 {
 
@@ -24,7 +28,7 @@ public class HexMapGenerator : MonoBehaviour
     public int chunkiness;
     //[Range(0,0.5)]
     public float mutateProbability=0.2f;
-    public Material[] mats;
+    public List<ListWrapperMaterial> mats;
     private List<HexComponent> LandTiles;
 
     public List<HexComponent> createLand(int mapHeight, int mapWidth,HexComponent[,] hexes){        

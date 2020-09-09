@@ -62,10 +62,13 @@ public class UIController : MonoBehaviour
         healthBar.displayHealth();
     }
     private void hideUI(){
+        if(currentlyOpened==null)
+            return;
         currentlyOpened.SetActive(false);
         currentlyOpened=null;
         //healthBar = current.GetComponent<HealthBar>();
         healthBar.hideHealth();
+        healthBar = null;
     }
     private void objectChanged(GameObject curr){
         currentlyOpened = curr;

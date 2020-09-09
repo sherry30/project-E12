@@ -26,9 +26,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
 
-        //return if mouse is over UI or if a unit is moving
-        if(EventSystem.current.IsPointerOverGameObject())
-            return;
+        
         //move camera with mouse
         Vector3 pos= transform.position;
         bool changed = false;
@@ -53,9 +51,11 @@ public class CameraController : MonoBehaviour
             pos.x-=PanSpeed *  Time.deltaTime;
             changed = true;
         };
-
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        pos.y -= scroll* 100f * scrollSpeed *Time.deltaTime;
+    //return if mouse is over UI or if a unit is moving
+        if(!EventSystem.current.IsPointerOverGameObject()){
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            pos.y -= scroll* 100f * scrollSpeed *Time.deltaTime;
+        }
 
 
         //updating everything

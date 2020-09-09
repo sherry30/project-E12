@@ -87,7 +87,7 @@ public class HexOperations : MonoBehaviour
         return obj;
 
     }
-    public GameObject BuildBuilding(Vector2 location,int buildingIndex){
+    public GameObject BuildBuilding(Vector2 location,int buildingIndex, City city){
         Vector3 place = hexes[(int)location.x,(int)location.y].hex.positionFromCamera();
         GameObject obj = (GameObject)Instantiate(
             PlayerController.Instance.player.kingdom.buildingPrefabs[buildingIndex],
@@ -96,6 +96,8 @@ public class HexOperations : MonoBehaviour
             playerController          
         );
         Building temp = obj.GetComponent<Building>();
+        //setting up cityfor this building
+        temp.city = city;
 
         //setting its possiton right on y axis
         Vector3 pos = obj.transform.position;

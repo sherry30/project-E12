@@ -2113,7 +2113,7 @@ PrefabInstance:
     - target: {fileID: 3761166578330699105, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10.000122
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 3761166578497772131, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -2418,7 +2418,7 @@ PrefabInstance:
     - target: {fileID: 4386385800584600282, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10.000122
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 4416023193380042527, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
@@ -4476,11 +4476,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseOverObject: {fileID: 0}
   PanSpeed: 8
-  BoarderThickness: 15
+  BoarderThickness: 30
   layermask:
     serializedVersion: 2
     m_Bits: 256
-  scrollSpeed: 20
+  scrollSpeed: 25
   adjusted: 0
 --- !u!4 &991531372 stripped
 Transform:

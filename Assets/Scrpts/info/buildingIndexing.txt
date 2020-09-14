@@ -1,2 +1,2 @@
 Fire:
-	0 Camp
+	0 AlchemyLab

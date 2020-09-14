@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 7554586387521144870}
   - component: {fileID: 7281425257971566767}
   m_Layer: 5
-  m_Name: AlchemyHubWindow
+  m_Name: FireTechTreeWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

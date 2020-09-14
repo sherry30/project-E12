@@ -68,6 +68,13 @@ public class Player
         districts.Add(dis);*/
         onStartTurn+=dis.StartTurn;
     }
+    public void BuildBuilding(Building bil,Vector2 location){
+        bil.Build(location);
+        /*if(districts==null)
+            districts = new List<District>();
+        districts.Add(dis);*/
+        onStartTurn+=bil.StartTurn;
+    }
     public void SpawnUnit(Unit unit,Vector2 location){
         unit.spawnUnit(location);
         if(units==null)

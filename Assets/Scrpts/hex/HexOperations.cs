@@ -87,6 +87,32 @@ public class HexOperations : MonoBehaviour
         return obj;
 
     }
+    public GameObject BuildBuilding(Vector2 location,int buildingIndex, City city){
+        Vector3 place = hexes[(int)location.x,(int)location.y].hex.positionFromCamera();
+        GameObject obj = (GameObject)Instantiate(
+            PlayerController.Instance.player.kingdom.buildingPrefabs[buildingIndex],
+            new Vector3(place.x,place.y,place.z),
+            Quaternion.identity,
+            playerController          
+        );
+        Building temp = obj.GetComponent<Building>();
+        //setting up cityfor this building
+        temp.city = city;
+
+        //setting its possiton right on y axis
+        Vector3 pos = obj.transform.position;
+        obj.transform.position = new Vector3(pos.x,pos.y+temp.offset.y,pos.z);
+        
+        //letting unit know which player it belongs to
+        temp.player = -1;
+
+        //updating in the hexComponent city
+        hexes[(int)location.x,(int)location.y].BuildBuilding(temp);
+        //updating in the Player.Instance.cities
+        PlayerController.Instance.player.BuildBuilding(temp,location);
+        return obj;
+
+    }
 
     public GameObject BuildImprovement(Vector2 location,int improvementIndex,City city){
         Vector3 place = hexes[(int)location.x,(int)location.y].hex.positionFromCamera();

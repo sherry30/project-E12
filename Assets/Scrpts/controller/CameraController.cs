@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
         //move camera with mouse
         Vector3 pos= transform.position;
         bool changed = false;
@@ -48,9 +51,11 @@ public class CameraController : MonoBehaviour
             pos.x-=PanSpeed *  Time.deltaTime;
             changed = true;
         };
-
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        pos.y -= scroll* 100f * scrollSpeed *Time.deltaTime;
+    //return if mouse is over UI or if a unit is moving
+        if(!EventSystem.current.IsPointerOverGameObject()){
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            pos.y -= scroll* 100f * scrollSpeed *Time.deltaTime;
+        }
 
 
         //updating everything

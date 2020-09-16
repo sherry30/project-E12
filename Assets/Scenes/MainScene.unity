@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -4219,7 +4219,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 3.1415927
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4371,12 +4371,11 @@ MonoBehaviour:
   - variations:
     - {fileID: 2100000, guid: d2d28ace96a205f8193bd03a9b7e9a2e, type: 2}
   - variations:
-    - {fileID: 2100000, guid: f5d76e81c3a07f7eba54e8642b582f38, type: 2}
-    - {fileID: 2100000, guid: 74c49d20f0547ad27aebfbf9497221ec, type: 2}
-    - {fileID: 2100000, guid: 2914d3263f6ce0e3085cffc9a54f6dae, type: 2}
-    - {fileID: 2100000, guid: 7531325a8b676760a8a853103fa486f6, type: 2}
-    - {fileID: 2100000, guid: d7a721a8e57bca6afbbc6813317cf5b3, type: 2}
-    - {fileID: 2100000, guid: 05129c9e0254c3ff4a5f30185a772969, type: 2}
+    - {fileID: 2100000, guid: 17def312bf1329303b9f35a60748c970, type: 2}
+    - {fileID: 2100000, guid: 4a108c22741fafbf389ec34f3ad0626b, type: 2}
+    - {fileID: 2100000, guid: 825c635d5ebb33122a4a1177263eb1f8, type: 2}
+    - {fileID: 2100000, guid: 59f5bfc865ce48eb9a9998b9ea0eb229, type: 2}
+    - {fileID: 2100000, guid: 95c615fd74759fcf3b13e41476918d62, type: 2}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Direction{
+    NW,
+    NE,
+    E,
+    SE,
+    SW,
+    W
+}
+
 public class HexComponent : MonoBehaviour
 {
 
@@ -20,10 +29,19 @@ public class HexComponent : MonoBehaviour
     public Vector2 location;
     public int elevation=1;
     public UpdatePosition updatePos;
+    private Dictionary<Direction,Transform> mountainSides;
+    private Transform mountainTop;
 
 
-    //public HexComponent[] neighbors;
-    // Start is called before the first frame update
+    void Update(){
+        Vector3 y = new Vector3(0,getElevation(),0);
+        
+        //setting offset in updatePosition component of the hex
+        updatePos = GetComponent<UpdatePosition>();
+        updatePos.offset = y;
+    }
+
+
     void Awake(){
         //AudioSettings default biome
         hexBiome = GetComponent<Biome>();
@@ -32,6 +50,18 @@ public class HexComponent : MonoBehaviour
         //getting updatePosition
         updatePos = GetComponent<UpdatePosition>();
         updatePos.location = location;
+
+        //setting mountain sides additional geomtery
+        mountainSides = new Dictionary<Direction, Transform>();
+        mountainSides.Add(Direction.NW,transform.Find("mountain_top_side_NW"));
+        mountainSides.Add(Direction.NE,transform.Find("mountain_top_side_NE"));
+        mountainSides.Add(Direction.E,transform.Find("mountain_top_side_E"));
+        mountainSides.Add(Direction.SE,transform.Find("mountain_top_side_SE"));
+        mountainSides.Add(Direction.SW,transform.Find("mountain_top_side_SW"));
+        mountainSides.Add(Direction.W,transform.Find("mountain_top_side_W"));
+
+        mountainTop = transform.Find("mountain_top");
+
     }
 
     /*public void updatePosition(){
@@ -219,6 +249,15 @@ public class HexComponent : MonoBehaviour
     public void BuildBuilding(Building imp){
        building = imp;
         setUnitOffsets();
+    }
+
+    //setting additional geometry for mountain
+    public void setMountain(List<Direction> dir, bool top=false){
+        if(top)
+            mountainTop.gameObject.SetActive(true);
+        for(int i=0;i<dir.Count;i++){
+            mountainSides[dir[i]].gameObject.SetActive(true);
+        }
     }
 
 }

@@ -11,7 +11,7 @@ public class HexOperations : MonoBehaviour
     public static HexOperations Instance {get;private set;}
     public Transform playerController;
     void Awake(){
-        neighbours = new int[,]{ {0,-1},{1,-1},{0,1},{1,0},{-1,1},{-1,0} };
+        neighbours = new int[,]{ {0,-1},{1,-1},{1,0},{0,1},{-1,1},{-1,0} };
         //playerController = transform.Find("PlayerController");
         //CameraController.onCameraMove+=UpdateHexPositions;
         if(Instance==null){

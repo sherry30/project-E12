@@ -5,6 +5,7 @@ using UnityEngine;
 
 
 public enum biome {
+    mountain,
     water,
     polar,
     tundra
@@ -24,7 +25,10 @@ public enum terrain{
     tundra_permafrost,
     tundra_prairie,
     tundra_snow,
-    tundra_marsh
+    tundra_marsh,
+    //mountain
+    mountain,
+    cliff
 }
 
 public class Biome : MonoBehaviour
@@ -71,6 +75,9 @@ public class Biome : MonoBehaviour
                 return 8;
             case terrain.tundra_marsh:
                 return 9;
+            //for now mountain
+            case terrain.mountain:
+                return 4;
         }
         return 0;
         //return mats[terrainAvailable.IndexOf(t)];
@@ -101,6 +108,10 @@ public class Biome : MonoBehaviour
                 return 0;
             case terrain.tundra_marsh:
                 return 0;
+            case terrain.mountain:
+                return 6;
+            case terrain.cliff:
+                return 5;
         }
         return 0;
     }

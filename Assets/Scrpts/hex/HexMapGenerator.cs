@@ -13,6 +13,13 @@ public class HexMapGenerator : MonoBehaviour
     void Awake(){
         if(Instance==null){
             Instance =this;
+            directions = new Dictionary<int, Direction>();
+            directions.Add(0,Direction.NW);
+            directions.Add(1,Direction.NE);
+            directions.Add(2,Direction.E);
+            directions.Add(3,Direction.SE);
+            directions.Add(4,Direction.SW);
+            directions.Add(5,Direction.W);            
             return;
         }
         else{
@@ -30,6 +37,7 @@ public class HexMapGenerator : MonoBehaviour
     public float mutateProbability=0.2f;
     public List<ListWrapperMaterial> mats;
     private List<HexComponent> LandTiles;
+    private Dictionary<int,Direction> directions;
 
     public List<HexComponent> createLand(int mapHeight, int mapWidth,HexComponent[,] hexes){        
         int size = mapHeight*mapWidth;
@@ -104,6 +112,9 @@ public class HexMapGenerator : MonoBehaviour
                 }
             }
         }
+
+        HexComponent hex = hexes[Random.Range(0,mapWidth),Random.Range(0,mapWidth)];
+        raiseMountain(hex,1);
         return LandTiles;
     }
     private void raiseTerrain(HexComponent[] hexes){
@@ -117,6 +128,43 @@ public class HexMapGenerator : MonoBehaviour
 
             hex.setBiomAndTerrain(biome.polar,terrain.polar_rocky_coast);
         }
+    }
+
+    private void raiseMountain(HexComponent hex, int size){
+        
+        HexComponent[] hexes = HexOperations.Instance.getNeighbors(hex.location,size);
+        for(int i=0;i<hexes.Length;i++){
+            bool top= false;
+            if(hex.hex.Distance(hexes[i].hex)>1){
+                hexes[i].setBiomAndTerrain(biome.mountain,terrain.cliff);    
+            }
+            else if(hex== hexes[i]){
+                hexes[i].setBiomAndTerrain(biome.mountain,terrain.mountain);
+                top = true;
+            }
+            else{
+                if(Random.Range(0,100)<60)
+                    hexes[i].setBiomAndTerrain(biome.mountain,terrain.mountain);
+                else
+                    hexes[i].setBiomAndTerrain(biome.mountain,terrain.cliff);    
+            }
+
+            //fixing additional geometry
+            HexComponent[] nei = HexOperations.Instance.getClosestNeighbours(hexes[i].location);
+            List<Direction> dir = new List<Direction>();
+            for(int j=0;j<6;j++){
+
+                if(hexes[i].elevation-nei[j].elevation==1){
+                    dir.Add(directions[j]);
+                }
+            }
+            Debug.Log(string.Format("hex: {0},   dir: {1}",hexes[i].location, dir.Count));
+            hexes[i].setMountain(dir,top);
+            
+        }
+
+
+
     }
     private void raiseTerrain(HexComponent n){
         //adding in landtiles to send back to hex map

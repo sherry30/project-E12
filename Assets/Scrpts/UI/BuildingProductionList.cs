@@ -10,6 +10,7 @@ public class BuildingProductionList : MonoBehaviour
     private Transform available;
     private Transform current;
     public int currentIndex=0,availableIndex=1;
+    public City city;
     List<int> buildingInd = new List<int>();
     void Awake(){
         current = gameObject.transform.GetChild(currentIndex).GetChild(0);
@@ -18,6 +19,7 @@ public class BuildingProductionList : MonoBehaviour
     }
     void OnEnable(){
         district =  GameState.Instance.selectedObject.GetComponent<District>();
+        city = GameState.Instance.selectedObject.GetComponent<City>();
 
         //checking if selected building is acityornot
         if(district==null)
@@ -104,7 +106,7 @@ public class BuildingProductionList : MonoBehaviour
         }*/
 
         //checking cost
-        if(!bil.cost.onlyCheckCost())
+        if(!bil.cost.onlyCheckCost(-1, city))
         {
             Debug.Log("Not enough Resources");
             bil.cost.printCost();
@@ -136,8 +138,8 @@ public class BuildingProductionList : MonoBehaviour
         }
         MouseController.Instance.clearPositionSelected();
 
-        bil.cost.checkCost();
-        int days = bil.cost.spendProduction();
+        bil.cost.checkCost(-1, city);
+        int days = bil.cost.spendProduction(city);
         district.ProduceBuilding(index,days,hex.location);
         GameObject obj = (GameObject) Instantiate(objj);
         obj.transform.SetParent(current, false);

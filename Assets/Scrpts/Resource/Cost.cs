@@ -25,15 +25,13 @@ public enum Raw_Material{
     }
     public enum OtherResource{
         Science,
-        alchemy,
-        approval
+        alchemy
     }
 
     public enum Resource{
-        gold,
-        production,
-        food
+        gold
     }
+    
     //for making dictionary
 [System.Serializable]
 public class DictionaryResFloat: SerializableDictionary<Resource,float>{}  
@@ -48,6 +46,9 @@ public class DictionaryCrystalFloat:SerializableDictionary<crystal,float>{}
 [System.Serializable]
 public class Cost :Resources
 {
+
+
+    
 
     /*[SerializeField]
     private DictionaryResFloat costResource;
@@ -113,10 +114,10 @@ public class Cost :Resources
     public float getProduction(){
         if(resources==null)
             Debug.Log("This unit does not have a cost");
-        return resources[Resource.production];
+        return cityResources[cityResource.production];
     }
 
-    public bool checkCost(int player = -1){
+    public bool checkCost(int player = -1, City city = null){
         Player tempPlayer = PlayerController.Instance.player;
         //checking if energy cost is met
         if(player==-1){
@@ -131,6 +132,21 @@ public class Cost :Resources
         Dictionary<Energy,float> energy = tempPlayer.resources.Energies;
         Dictionary<OtherResource,float> otherRes = tempPlayer.resources.OtherResources;
         Dictionary<crystal,float> cryst = tempPlayer.resources.Crystals;
+        Dictionary<cityResource,float> citRes = null;
+        if(city!=null){
+            citRes = city.cityResources;
+        }
+
+        //checking if food cost is met
+        if(cityResources!=null){
+            foreach(KeyValuePair<cityResource, float> entry in cityResources){
+                if(entry.Key == cityResource.production)
+                    continue;
+                if(citRes[entry.Key]<cityResources[entry.Key]){
+                    return false;
+                }
+            }
+        }
         //checking if energy cost is met
         if(Energies!=null){
             foreach(KeyValuePair<Energy, float> entry in Energies){
@@ -142,8 +158,6 @@ public class Cost :Resources
         //checking if Resource cost is met
         if(resources!=null){
             foreach(KeyValuePair<Resource, float> entry in resources){
-                if(entry.Key==Resource.production)
-                    continue;
                 if(res[entry.Key]<resources[entry.Key]){
                     return false;
                 }
@@ -176,17 +190,24 @@ public class Cost :Resources
         }
 
         //spending all the things
+
+        //spwnding food cost
+        if(cityResources!=null){
+            foreach(KeyValuePair<cityResource, float> entry in cityResources){
+                if(entry.Key == cityResource.production)
+                    continue;
+                citRes[entry.Key] -=cityResources[entry.Key];
+            }
+        }
         if(Energies!=null){
             foreach(KeyValuePair<Energy, float> entry in Energies){
                 tempPlayer.resources.Energies[entry.Key]-=Energies[entry.Key];
             }
         }
+
         //checking if Resource cost is met
         if(resources!=null){
             foreach(KeyValuePair<Resource, float> entry in resources){
-                //not subtract produxctiobn
-                if(entry.Key==Resource.production)
-                    continue;
                 tempPlayer.resources.resources[entry.Key]-=resources[entry.Key];
             }
         }
@@ -212,7 +233,7 @@ public class Cost :Resources
         return true;   
     }
 
-    public bool onlyCheckCost(int player = -1){
+    public bool onlyCheckCost(int player = -1, City city =null){
         Player tempPlayer = PlayerController.Instance.player;
         //checking if energy cost is met
         if(player==-1){
@@ -227,6 +248,22 @@ public class Cost :Resources
         Dictionary<Energy,float> energy = tempPlayer.resources.Energies;
         Dictionary<OtherResource,float> otherRes = tempPlayer.resources.OtherResources;
         Dictionary<crystal,float> cryst = tempPlayer.resources.Crystals;
+        Dictionary<cityResource,float> citRes = null;
+        if(city!=null){
+            citRes = city.cityResources;
+        }
+
+        //checking if food cost is met
+        if(cityResources!=null){
+            foreach(KeyValuePair<cityResource, float> entry in cityResources){
+                if(entry.Key == cityResource.production)
+                    continue;
+                if(citRes[entry.Key]<cityResources[entry.Key]){
+                    return false;
+                }
+            }
+        }
+        
         //checking if energy cost is met
         if(Energies!=null){
             foreach(KeyValuePair<Energy, float> entry in Energies){
@@ -238,8 +275,6 @@ public class Cost :Resources
         //checking if Resource cost is met
         if(resources!=null){
             foreach(KeyValuePair<Resource,float> entry in resources){
-                if(entry.Key==Resource.production)
-                    continue;
                 if(res[entry.Key]<resources[entry.Key]){
                     return false;
                 }
@@ -273,20 +308,20 @@ public class Cost :Resources
         return true;
     }
 
-    public int spendProduction(int player =-1){
+    public int spendProduction(City city, int player =-1){
         Player tempPlayer = PlayerController.Instance.player;
 
         if(player!=-1)
             tempPlayer = AIController.Instance.AIPlayers[player];
-        Dictionary<Resource,float> res = tempPlayer.resources.resources;
-        float var1 = resources[Resource.production];
-        float var2 = res[Resource.production];
+        Dictionary<cityResource,float> cit = city.cityResources;
+        float var1 = cityResources[cityResource.production];
+        float var2 = cit[cityResource.production];
         float days = var1/var2;
 
         //subtracting
-        res[Resource.production]-=resources[Resource.production];
-        if(res[Resource.production]<0)
-            res[Resource.production]=0;
+        cit[cityResource.production]-=cityResources[cityResource.production];
+        if(cit[cityResource.production]<0)
+            cit[cityResource.production]=0;
 
         //int case have 0 sproduction
         if(var2==0)

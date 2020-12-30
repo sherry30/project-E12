@@ -232,7 +232,7 @@ public class HexOperations : MonoBehaviour
                                 return temp;
                             }
 
-                            temp[t] = hexes[mod(q+x,mapWidth),mod(r+z,mapHeight)];
+                            temp[t] = hexes[mod(q+x,mapWidth),modY(r+z,mapHeight)];
                             t++;
                             if(t>=size){
                                 return temp;
@@ -250,8 +250,16 @@ public class HexOperations : MonoBehaviour
     }
     
     private int mod(int x, int m) {
-    int r = x%m;
-    return r<0 ? r+m : r;
+        int r = x%m;
+        return r<0 ? r+m : r;
+    }
+    private int modY(int x, int m){
+        int r = x%m;
+        if(x>=m)
+            return m-1;
+        else if(x==0)
+            return 0;
+        return r<0 ? r+m : r;
     }
         
     

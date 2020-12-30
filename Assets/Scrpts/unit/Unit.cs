@@ -75,6 +75,8 @@ public class Unit : MonoBehaviour
     public HealthBar healthBar;
     public Sprite icon;
     public string source;
+
+    public City city;
     protected virtual void Awake(){
         currentHealth = maxHealth;
 

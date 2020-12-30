@@ -11,7 +11,13 @@ public class UpdatePosition : MonoBehaviour
     public Vector2 location;
     public Vector3 offset;
     public bool moving = false; 
-    public  void  updateLocationFromCamera(){
+    
+    public  virtual void  updateLocationFromCamera(){
+        /*if(count<counter){
+            count++;
+            return;
+        }
+        count=0;*/
         if(!moving)
             this.transform.position = positionfromCamera(Camera.main.transform.position,HexMap.Instance.mapWidth,HexMap.Instance.mapHeight);
         //newPosition

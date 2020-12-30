@@ -102,7 +102,7 @@ public class DistrictProductionList : MonoBehaviour
         }
 
         //checking cost
-        if(!dis.cost.onlyCheckCost())
+        if(!dis.cost.onlyCheckCost(-1, city))
         {
             Debug.Log("Not enough Resources");
             dis.cost.printCost();
@@ -134,7 +134,7 @@ public class DistrictProductionList : MonoBehaviour
         }
         MouseController.Instance.clearPositionSelected();
 
-        dis.cost.checkCost();
+        dis.cost.checkCost(-1, city);
         city.ProduceDistrict(index,dis.daysToBeProduced,hex.location);
         GameObject obj = (GameObject) Instantiate(objj);
         obj.transform.SetParent(current, false);

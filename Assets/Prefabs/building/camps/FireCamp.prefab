@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2900712372930465215}
   - component: {fileID: 1503564139364928691}
-  - component: {fileID: -7891849302198015970}
+  - component: {fileID: 7504150617086127983}
   - component: {fileID: 3706403764918985536}
   - component: {fileID: 2498441683750677430}
   m_Layer: 8
@@ -57,10 +57,8 @@ MonoBehaviour:
   player: -1
   cost:
     resources:
-      m_keys: 000000000100000002000000
+      m_keys: 00000000
       m_values:
-      - 0
-      - 0
       - 0
     RawMaterials:
       m_keys: 00000000010000000200000003000000040000000500000006000000
@@ -83,15 +81,17 @@ MonoBehaviour:
       - 0
       - 0
     OtherResources:
-      m_keys: 000000000100000002000000
+      m_keys: 0000000001000000
       m_values:
-      - 0
       - 0
       - 0
     Crystals:
       m_keys: 00000000
       m_values:
       - 0
+    cityResources:
+      m_keys: 
+      m_values: []
   location: {x: 0, y: 0}
   itemInventory: []
   ItemInventoryLimit: 6
@@ -99,10 +99,8 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   resourcesYield:
     resources:
-      m_keys: 000000000100000002000000
+      m_keys: 00000000
       m_values:
-      - 0
-      - 0
       - 0
     RawMaterials:
       m_keys: 00000000010000000200000003000000040000000500000006000000
@@ -125,16 +123,21 @@ MonoBehaviour:
       - 0
       - 0
     OtherResources:
-      m_keys: 000000000100000002000000
+      m_keys: 0000000001000000
       m_values:
-      - 0
       - 0
       - 0
     Crystals:
       m_keys: 00000000
       m_values:
       - 0
+    cityResources:
+      m_keys: 
+      m_values: []
   city: {fileID: 0}
+  cityResources:
+    m_keys: 
+    m_values: []
   boarderLength: 1
   teritory: []
   capital: 1
@@ -156,7 +159,7 @@ MonoBehaviour:
   districts: []
   thisDistrict: {fileID: 0}
   camped: 0
---- !u!114 &-7891849302198015970
+--- !u!114 &7504150617086127983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,10 +168,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6837129746824707969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65d756b49c8e336ad83820fecfe11731, type: 3}
+  m_Script: {fileID: 11500000, guid: a831e585d7ccc466fbe57844bf44e4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingType: 0
+  buildingType: 2
   icon: {fileID: 0}
   Name: 
   id: 0
@@ -177,41 +180,23 @@ MonoBehaviour:
   player: -1
   cost:
     resources:
-      m_keys: 000000000100000002000000
-      m_values:
-      - 0
-      - 0
-      - 0
+      m_keys: 
+      m_values: []
     RawMaterials:
-      m_keys: 00000000010000000200000003000000040000000500000006000000
-      m_values:
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
+      m_keys: 
+      m_values: []
     Energies:
-      m_keys: 00000000010000000200000003000000040000000500000006000000
-      m_values:
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
+      m_keys: 
+      m_values: []
     OtherResources:
-      m_keys: 000000000100000002000000
-      m_values:
-      - 0
-      - 0
-      - 0
+      m_keys: 
+      m_values: []
     Crystals:
-      m_keys: 00000000
-      m_values:
-      - 0
+      m_keys: 
+      m_values: []
+    cityResources:
+      m_keys: 
+      m_values: []
   location: {x: 0, y: 0}
   itemInventory: []
   ItemInventoryLimit: 6
@@ -219,49 +204,75 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   resourcesYield:
     resources:
-      m_keys: 000000000100000002000000
-      m_values:
-      - 0
-      - 0
-      - 0
+      m_keys: 
+      m_values: []
     RawMaterials:
-      m_keys: 00000000010000000200000003000000040000000500000006000000
-      m_values:
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
+      m_keys: 
+      m_values: []
     Energies:
-      m_keys: 00000000010000000200000003000000040000000500000006000000
-      m_values:
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
+      m_keys: 
+      m_values: []
     OtherResources:
-      m_keys: 000000000100000002000000
-      m_values:
-      - 0
-      - 0
-      - 0
+      m_keys: 
+      m_values: []
     Crystals:
-      m_keys: 00000000
-      m_values:
-      - 0
+      m_keys: 
+      m_values: []
+    cityResources:
+      m_keys: 
+      m_values: []
   city: {fileID: 0}
   buildingStartingIndex: 0
-  numOfBuildings: 1
+  numOfBuildings: 0
+  buildingProduction: -1
   limitOfBuildings: 3
   type: 0
   level: 0
   daysToBeProduced: 2
   source: 
+  daysTillProduced: -1
+  buildingLocation: {x: 0, y: 0}
+  positionSelectingMode: 0
+  buildings: []
+  campResources:
+    resources:
+      m_keys: 
+      m_values: []
+    RawMaterials:
+      m_keys: 
+      m_values: []
+    Energies:
+      m_keys: 
+      m_values: []
+    OtherResources:
+      m_keys: 
+      m_values: []
+    Crystals:
+      m_keys: 
+      m_values: []
+    cityResources:
+      m_keys: 
+      m_values: []
+  villageResources:
+    resources:
+      m_keys: 
+      m_values: []
+    RawMaterials:
+      m_keys: 
+      m_values: []
+    Energies:
+      m_keys: 
+      m_values: []
+    OtherResources:
+      m_keys: 
+      m_values: []
+    Crystals:
+      m_keys: 
+      m_values: []
+    cityResources:
+      m_keys: 01000000
+      m_values:
+      - 3
 --- !u!114 &3706403764918985536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +311,51 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
         type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -312,6 +368,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
         type: 3}
@@ -330,13 +391,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 1
+      propertyPath: m_AnchoredPosition.y
+      value: 2.33
       objectReference: {fileID: 0}
     - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
         type: 3}
@@ -352,56 +413,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 2.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7324497662315108428, guid: a82e76d439460b5daa2e2da6926a0691,
         type: 3}
@@ -425,6 +436,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -440,6 +456,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -452,16 +473,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 833928102863408911, guid: 42cbe1773e151c504ae5ea535675cb91,
         type: 3}

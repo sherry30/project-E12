@@ -54,6 +54,9 @@ public class HexMap : MonoBehaviour
 
         //setupminicamComp at the start
         minimapCamCont.FixPos();
+
+        // var numTriangles = hexes[24,24].gameObject.transform.GetChild(0).gameObject.GetComponent<MeshFilter>().mesh.triangles.Length/3;
+        //    Debug.Log(numTriangles);
         
     }
 
@@ -100,8 +103,8 @@ public class HexMap : MonoBehaviour
                 hexGoComp.setBiomAndTerrain(biome.water,terrain.water_deep_ocean);
 
                 //changing text on the hex to coordinates
-                hexGoComp.text = hexGoComp.GetComponentInChildren<TextMesh>();
-                hexGoComp.text.text = string.Format("{0},{1}",x,y);
+                //hexGoComp.text = hexGoComp.GetComponentInChildren<TextMesh>();
+                //hexGoComp.text.text = string.Format("{0},{1}",x,y);
 
                 //filling hexes array in this class
                 hexes[x,y] = hexGoComp;

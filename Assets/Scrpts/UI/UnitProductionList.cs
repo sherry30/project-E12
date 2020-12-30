@@ -90,8 +90,8 @@ public class UnitProductionList : MonoBehaviour
                 return;
             }
 
-            if(unit.cost.checkCost())
-                days = unit.cost.spendProduction();
+            if(unit.cost.checkCost(-1, city))
+                days = unit.cost.spendProduction(city);
             else{
                 Debug.Log("Not enough Resources");
                 unit.cost.printCost();

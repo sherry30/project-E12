@@ -16,11 +16,6 @@ public class CameraController : MonoBehaviour
     public  bool adjusted=false;
     public delegate void cameraMoveDelegate();
     public static cameraMoveDelegate onCameraMove;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        print(SystemInfo.graphicsDeviceName);
-    }
 
     // Update is called once per frame
     void Update()

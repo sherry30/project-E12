@@ -27,8 +27,10 @@ public enum terrain{
     tundra_snow,
     tundra_marsh,
     //mountain
+    mountain_top,
     mountain,
-    cliff
+    mountain_cliff,
+    mountain_4
 }
 
 public class Biome : MonoBehaviour
@@ -66,6 +68,7 @@ public class Biome : MonoBehaviour
             case terrain.polar_permafrost:
             case terrain.tundra_permafrost:
                 return 5;
+            //for now is supposed to be 6
             case terrain.polar_snow:
             case terrain.tundra_snow:
                 return 6;
@@ -76,8 +79,14 @@ public class Biome : MonoBehaviour
             case terrain.tundra_marsh:
                 return 9;
             //for now mountain
+            case terrain.mountain_top:
+                return 5;
             case terrain.mountain:
-                return 4;
+                return 5;
+            case terrain.mountain_cliff:
+                return 5;
+            case terrain.mountain_4:
+                return 5;
         }
         return 0;
         //return mats[terrainAvailable.IndexOf(t)];
@@ -108,10 +117,14 @@ public class Biome : MonoBehaviour
                 return 0;
             case terrain.tundra_marsh:
                 return 0;
-            case terrain.mountain:
+            case terrain.mountain_top:
                 return 6;
-            case terrain.cliff:
+            case terrain.mountain:
                 return 5;
+            case terrain.mountain_cliff:
+                return 4;
+            case terrain.mountain_4:
+                return 3;
         }
         return 0;
     }

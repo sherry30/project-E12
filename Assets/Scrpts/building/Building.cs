@@ -159,6 +159,12 @@ public class Building : MonoBehaviour
                 city.resourcesYield.Crystals[entry.Key]+=resourcesYield.Crystals[entry.Key];
             }
         }
+
+        if(resourcesYield.cityResources!=null){
+            foreach(KeyValuePair<cityResource,float> entry in resourcesYield.cityResources){
+                city.resourcesYield.cityResources[entry.Key]+=resourcesYield.cityResources[entry.Key];
+            }
+        }
     }
     
     public virtual void removeYield(){
@@ -191,6 +197,11 @@ public class Building : MonoBehaviour
         if(resourcesYield.Crystals!=null){
             foreach(KeyValuePair<crystal,float> entry in resourcesYield.Crystals){
                 city.resourcesYield.Crystals[entry.Key]-=resourcesYield.Crystals[entry.Key];
+            }
+        }
+        if(resourcesYield.cityResources!=null){
+            foreach(KeyValuePair<cityResource,float> entry in resourcesYield.cityResources){
+                city.resourcesYield.cityResources[entry.Key]-=resourcesYield.cityResources[entry.Key];
             }
         }
     }

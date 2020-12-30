@@ -30,7 +30,9 @@ public class HexComponent : MonoBehaviour
     public int elevation=1;
     public UpdatePosition updatePos;
     private Dictionary<Direction,Transform> mountainSides;
-    private Transform mountainTop;
+    private Dictionary<Direction,Transform> mountainMidSides;
+    private Dictionary<Direction,Transform> cliffSides;
+    //private Transform mountainTop;
 
 
     void Update(){
@@ -52,7 +54,11 @@ public class HexComponent : MonoBehaviour
         updatePos.location = location;
 
         //setting mountain sides additional geomtery
-        mountainSides = new Dictionary<Direction, Transform>();
+        //GeometryCleanup();
+        /*mountainSides = new Dictionary<Direction, Transform>();
+        mountainMidSides = new Dictionary<Direction, Transform>();
+        cliffSides = new Dictionary<Direction, Transform>();
+
         mountainSides.Add(Direction.NW,transform.Find("mountain_top_side_NW"));
         mountainSides.Add(Direction.NE,transform.Find("mountain_top_side_NE"));
         mountainSides.Add(Direction.E,transform.Find("mountain_top_side_E"));
@@ -60,7 +66,21 @@ public class HexComponent : MonoBehaviour
         mountainSides.Add(Direction.SW,transform.Find("mountain_top_side_SW"));
         mountainSides.Add(Direction.W,transform.Find("mountain_top_side_W"));
 
-        mountainTop = transform.Find("mountain_top");
+        mountainMidSides.Add(Direction.NW,transform.Find("mountain_mid_side_NW"));
+        mountainMidSides.Add(Direction.NE,transform.Find("mountain_mid_side_NE"));
+        mountainMidSides.Add(Direction.E,transform.Find("mountain_mid_side_E"));
+        mountainMidSides.Add(Direction.SE,transform.Find("mountain_mid_side_SE"));
+        mountainMidSides.Add(Direction.SW,transform.Find("mountain_mid_side_SW"));
+        mountainMidSides.Add(Direction.W,transform.Find("mountain_mid_side_W"));
+
+        cliffSides.Add(Direction.NW,transform.Find("cliff_NW"));
+        cliffSides.Add(Direction.NE,transform.Find("cliff_NE"));
+        cliffSides.Add(Direction.E,transform.Find("cliff_E"));
+        cliffSides.Add(Direction.SE,transform.Find("cliff_SE"));
+        cliffSides.Add(Direction.SW,transform.Find("cliff_SW"));
+        cliffSides.Add(Direction.W,transform.Find("cliff_W"));*/
+
+        //mountainTop = transform.Find("mountain_top");
 
     }
 
@@ -252,12 +272,41 @@ public class HexComponent : MonoBehaviour
     }
 
     //setting additional geometry for mountain
-    public void setMountain(List<Direction> dir, bool top=false){
-        if(top)
-            mountainTop.gameObject.SetActive(true);
+    /*public void setMountain(List<Direction> dir){
+
         for(int i=0;i<dir.Count;i++){
             mountainSides[dir[i]].gameObject.SetActive(true);
         }
     }
+
+    public void setCliff(List<Direction> dir){
+        for(int i=0;i<dir.Count;i++){
+            cliffSides[dir[i]].gameObject.SetActive(true);
+        }
+    }
+    public void setMidMountain(Direction dir){
+        mountainMidSides[dir].gameObject.SetActive(true);
+    }
+    public void GeometryCleanup(){
+        foreach(KeyValuePair<Direction, Transform> entry in mountainSides)
+        {
+            if(!entry.Value.gameObject.activeSelf){
+                Destroy(entry.Value.gameObject);
+            }
+        }
+
+        foreach(KeyValuePair<Direction, Transform> entry in mountainMidSides)
+        {
+            if(!entry.Value.gameObject.activeSelf){
+                Destroy(entry.Value.gameObject);
+            }
+        }
+        foreach(KeyValuePair<Direction, Transform> entry in cliffSides)
+        {
+            if(!entry.Value.gameObject.activeSelf){
+                Destroy(entry.Value.gameObject);
+            }
+        }
+    }*/
 
 }

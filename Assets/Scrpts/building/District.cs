@@ -14,7 +14,8 @@ public class District : Building
         Forge,
         market_place,
         shipyard,
-        air_shipyard
+        air_shipyard,
+        blazing_burrow
     }
     //List<Building> buildings;
     public int buildingStartingIndex, numOfBuildings;
@@ -29,43 +30,48 @@ public class District : Building
     [HideInInspector]
     public bool positionSelectingMode=false;
     public List<Building> buildings;
+    public Resources campResources;
+
+    public Resources villageResources;
     //public int maxPopulation;
 
 
     public void setCamp(){
         city = GetComponent<City>();
         //setting up yields
-        resourcesYield = new Resources();
+        /*resourcesYield = new Resources();
         resourcesYield.resources= new DictionaryResFloat();
         resourcesYield.resources.Add(Resource.production,2);
         resourcesYield.resources.Add(Resource.food,2);
         resourcesYield.Energies= new DictionaryEnergyFloat();
         resourcesYield.Energies.Add(Energy.Fire,1);
         resourcesYield.OtherResources = new DictionaryOtherResFloat();
-        resourcesYield.OtherResources.Add(OtherResource.alchemy,0.5f);
+        resourcesYield.OtherResources.Add(OtherResource.alchemy,0.5f);*/
 
         //maxPopulation = 7;
 
         //type
         type = Type.camp;
+        resourcesYield = campResources;
         setYield();
     }
     public void setVillage(){
         removeYield();
-        resourcesYield = new Resources();
+        //resourcesYield = new Resources();
         //setting up yields
-        resourcesYield.resources = new DictionaryResFloat();
+        /*resourcesYield.resources = new DictionaryResFloat();
         resourcesYield.resources.Add(Resource.production,2);
         resourcesYield.resources.Add(Resource.food,2);
         resourcesYield.Energies= new DictionaryEnergyFloat();
         resourcesYield.Energies.Add(Energy.Fire,1);
         resourcesYield.OtherResources = new DictionaryOtherResFloat();
         resourcesYield.OtherResources.Add(OtherResource.approval,2);
-        resourcesYield.OtherResources.Add(OtherResource.alchemy,1);
+        resourcesYield.OtherResources.Add(OtherResource.alchemy,1);*/
 
         //maxPopulation = 10;
 
         type = Type.chiefs_hut;
+        resourcesYield = villageResources;
         setYield();
     }
 
@@ -99,6 +105,12 @@ public class District : Building
                 city.resourcesYield.Crystals[entry.Key]+=resourcesYield.Crystals[entry.Key];
             }
         }
+
+        if(resourcesYield.cityResources!=null){
+            foreach(KeyValuePair<cityResource,float> entry in resourcesYield.cityResources){
+                city.resourcesYield.cityResources[entry.Key]+=resourcesYield.cityResources[entry.Key];
+            }
+        }
     }
     public override void removeYield(){
         //checking if energy cost is me
@@ -130,6 +142,11 @@ public class District : Building
         if(resourcesYield.Crystals!=null){
             foreach(KeyValuePair<crystal,float> entry in resourcesYield.Crystals){
                 city.resourcesYield.Crystals[entry.Key]-=resourcesYield.Crystals[entry.Key];
+            }
+        }
+        if(resourcesYield.cityResources!=null){
+            foreach(KeyValuePair<cityResource,float> entry in resourcesYield.cityResources){
+                city.resourcesYield.cityResources[entry.Key]-=resourcesYield.cityResources[entry.Key];
             }
         }
     }
@@ -172,4 +189,6 @@ public class District : Building
         
         return tempPlayer;
     }
+
+   
 }

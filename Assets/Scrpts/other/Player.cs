@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [System.Serializable]
 public class Player 
@@ -18,7 +19,6 @@ public class Player
     public DictionaryOtherResFloat OtherResources;*/
     [SerializeField]
     public Resources resources;
-    
     public int population;
     public float populationGrowing;
     public List<City> cities;
@@ -41,7 +41,9 @@ public class Player
         availableUnits = kingdom.initialAvailableUnits;
         resources = new Resources();
         resources.Initialize();
-        resources.resources[Resource.production]=3;
+
+        //for testing
+        //resources.resources[Resource.production]=3;
         resources.OtherResources[OtherResource.Science]=30;
     }
     public Era era=Era.StoneAge;
@@ -111,6 +113,8 @@ public class Player
     public void setTerritory(HexComponent[] ter){
         territory = ter.OfType<HexComponent>().ToList();
     }
+
+    //getting yields from all the cities
     public void getYield(){
         //adding allthe yields at the start of turn
         /*if(energyYield!=null){
@@ -136,13 +140,18 @@ public class Player
                 OtherResources[entry.Key]+=OtherResourcesYield[entry.Key];
             }
         }*/
+        
         for(int i=0;i<cities.Count;i++){
             cities[i].getYield();
         }
     }
 
+
+
     public void StartTurn(){
         getYield();
         onStartTurn();
+        //populationGrowth();
+        
     }
 }

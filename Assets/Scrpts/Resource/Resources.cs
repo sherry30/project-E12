@@ -6,7 +6,7 @@ using System;
 [System.Serializable]
 public class Resources
 {
-     [SerializeField]
+    [SerializeField]
     public  DictionaryResFloat resources;
     [SerializeField]
     public DictionaryRawFloat RawMaterials;
@@ -16,6 +16,9 @@ public class Resources
     public DictionaryOtherResFloat OtherResources;
     [SerializeField]
     public DictionaryCrystalFloat Crystals;
+    //for dealing with production, approval, and food costs
+    [SerializeField]
+    public DictionarycityResFloat cityResources;
     public Resources(){
     }
     public void Initialize(){
@@ -46,6 +49,11 @@ public class Resources
         foreach(crystal pieceType in Enum.GetValues(typeof(crystal)))
         {
             Crystals.Add(pieceType,0);
+        }
+        cityResources = new DictionarycityResFloat();
+        foreach(cityResource pieceType in Enum.GetValues(typeof(cityResource)))
+        {
+            cityResources.Add(pieceType,0);
         }
     }
 

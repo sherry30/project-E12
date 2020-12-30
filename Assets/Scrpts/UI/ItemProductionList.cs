@@ -82,7 +82,7 @@ public class ItemProductionList : MonoBehaviour
         if(city!=null && city.itemProduction==-1 && city.unitProduction==-1 && city.districtProduction==-1 && !city.positionSelectingMode){
 
             //checkcost
-            if(!item.cost.checkCost()){
+            if(!item.cost.checkCost(-1,city)){
                 Debug.Log("Not enough Resources");
                 item.cost.printCost();
                 return;

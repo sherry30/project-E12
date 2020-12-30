@@ -90,9 +90,9 @@ public class MouseController : MonoBehaviour
                 if(newSelectedObject.tag=="Hex"){
                     HexComponent temp = newSelectedObject.GetComponent<HexComponent>();
                     HexComponent[] temps =  HexOperations.Instance.getNeighbors(temp.location,1);
-                    for(int i=0;i<7;i++){
+                    /*for(int i=0;i<7;i++){
                         Debug.Log(string.Format("loc: {0} , {1}",temps[i].location[0],temps[i].location[1]));
-                    }
+                    }*/
                 }
 
                 //checking for position selecting mode

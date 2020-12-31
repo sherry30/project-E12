@@ -41,6 +41,7 @@ public abstract class Kingdom : MonoBehaviour
     //things available at the start
     public List<improvement> initialAvailableImprovments;
     public List<Unit.Class> initialAvailableUnits;
+    public List<District.Type> initialAvailableDistricts;
 
     public virtual void Start(){
         

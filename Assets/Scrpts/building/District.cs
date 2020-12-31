@@ -36,7 +36,8 @@ public class District : Building
     //public int maxPopulation;
 
 
-    public void setCamp(){
+    public virtual void setCamp(){
+        removeYield();
         city = GetComponent<City>();
         //setting up yields
         /*resourcesYield = new Resources();
@@ -188,6 +189,10 @@ public class District : Building
             tempPlayer = AIController.Instance.AIPlayers[player];
         
         return tempPlayer;
+    }
+
+    public virtual void populationChanged(){
+        
     }
 
    

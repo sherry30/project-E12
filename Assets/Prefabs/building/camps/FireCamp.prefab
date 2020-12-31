@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2900712372930465215}
-  - component: {fileID: 1503564139364928691}
+  - component: {fileID: -8086893287422293072}
   - component: {fileID: 7504150617086127983}
   - component: {fileID: 3706403764918985536}
   - component: {fileID: 2498441683750677430}
@@ -36,7 +36,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1503564139364928691
+--- !u!114 &-8086893287422293072
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,50 +45,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 6837129746824707969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a141218ef34653d69199e2937bf1e12, type: 3}
+  m_Script: {fileID: 11500000, guid: 1932e204a1432d0b4baef9c4a1538dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 1
   icon: {fileID: 0}
-  Name: Fire_Camp
+  Name: BurningBrood camp
   id: 0
-  description: just a camp
-  maxHealth: 500
+  description: 
+  maxHealth: 100
   player: -1
   cost:
     resources:
-      m_keys: 00000000
-      m_values:
-      - 0
+      m_keys: 
+      m_values: []
     RawMaterials:
-      m_keys: 00000000010000000200000003000000040000000500000006000000
-      m_values:
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
+      m_keys: 
+      m_values: []
     Energies:
-      m_keys: 00000000010000000200000003000000040000000500000006000000
-      m_values:
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
+      m_keys: 
+      m_values: []
     OtherResources:
-      m_keys: 0000000001000000
-      m_values:
-      - 0
-      - 0
+      m_keys: 
+      m_values: []
     Crystals:
-      m_keys: 00000000
-      m_values:
-      - 0
+      m_keys: 
+      m_values: []
     cityResources:
       m_keys: 
       m_values: []
@@ -99,38 +81,20 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   resourcesYield:
     resources:
-      m_keys: 00000000
-      m_values:
-      - 0
+      m_keys: 
+      m_values: []
     RawMaterials:
-      m_keys: 00000000010000000200000003000000040000000500000006000000
-      m_values:
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
+      m_keys: 
+      m_values: []
     Energies:
-      m_keys: 00000000010000000200000003000000040000000500000006000000
-      m_values:
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
+      m_keys: 
+      m_values: []
     OtherResources:
-      m_keys: 0000000001000000
-      m_values:
-      - 0
-      - 0
+      m_keys: 
+      m_values: []
     Crystals:
-      m_keys: 00000000
-      m_values:
-      - 0
+      m_keys: 
+      m_values: []
     cityResources:
       m_keys: 
       m_values: []
@@ -138,19 +102,21 @@ MonoBehaviour:
   cityResources:
     m_keys: 
     m_values: []
-  boarderLength: 1
+  boarderLength: 0
   teritory: []
   capital: 1
-  approvalThreshold: -10
-  population: 3
+  approvalThreshold: -3
+  population: 1
   maxPopulation: 4
+  populationGrowthHelp: 0
+  unitProductionHelp: 0
   typeOfCity: 0
   unitStartIndex: 1
-  numOfUnits: 5
+  numOfUnits: 4
   itemStartIndex: 0
   numOfItems: 1
   districtStartIndex: 0
-  numOfDistricts: 1
+  numOfDistricts: 2
   unitProduction: -1
   itemProduction: -1
   districtProduction: -1
@@ -251,8 +217,9 @@ MonoBehaviour:
       m_keys: 
       m_values: []
     cityResources:
-      m_keys: 
-      m_values: []
+      m_keys: 03000000
+      m_values:
+      - 3
   villageResources:
     resources:
       m_keys: 
@@ -261,8 +228,9 @@ MonoBehaviour:
       m_keys: 
       m_values: []
     Energies:
-      m_keys: 
-      m_values: []
+      m_keys: 01000000
+      m_values:
+      - 3
     OtherResources:
       m_keys: 
       m_values: []
@@ -270,9 +238,9 @@ MonoBehaviour:
       m_keys: 
       m_values: []
     cityResources:
-      m_keys: 01000000
+      m_keys: 03000000
       m_values:
-      - 3
+      - 5
 --- !u!114 &3706403764918985536
 MonoBehaviour:
   m_ObjectHideFlags: 0

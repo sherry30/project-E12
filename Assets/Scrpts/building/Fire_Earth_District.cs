@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Fire_Earth_District : District
 {
-    // Start is called before the first frame update
-    void Start()
+    //for adding 8% of the population as the fire energy 
+    public override void setCamp()
     {
+        removeYield();
+        city = GetComponent<City>();
+        
+        type = Type.camp;
+        resourcesYield = campResources;
+        //adding additional fire energy based on population of the city
+        int additionalEnergy = (int)((city.population/100f)*8);
+        resourcesYield.cityResources[cityResource.Fire]+=additionalEnergy;
+
+        setYield();
+
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public override void populationChanged(){
+        if(type==Type.camp)
+            setCamp();
     }
 }

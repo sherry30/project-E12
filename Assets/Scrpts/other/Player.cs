@@ -39,6 +39,7 @@ public class Player
     public void setVariables(){
         availableImprovements = kingdom.initialAvailableImprovments;
         availableUnits = kingdom.initialAvailableUnits;
+        availableDistricts = kingdom.initialAvailableDistricts;
         resources = new Resources();
         resources.Initialize();
 

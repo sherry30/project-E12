@@ -6,7 +6,7 @@ public class Hex
 {
     //Q +R +S = 0
     //S =-(Q+R)
-    public Hex(int q, int r,float radius = 4f){
+    public Hex(int q, int r,float radius = 8f){
         this.Q = q;
         this.R = r;
         this.S = -(q+r);
@@ -22,7 +22,7 @@ public class Hex
     public  float radius;
     static readonly float WIDTH_MULTIPLIER = Mathf.Sqrt(3)/2;
 
-    public void setQandR(int q, int r,float radius = 2f){
+    public void setQandR(int q, int r,float radius = 4f){
         this.Q = q;
         this.R = r;
         this.S = -(q+r);

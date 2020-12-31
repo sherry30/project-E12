@@ -8,11 +8,20 @@ using System;
 public enum cityResource{
     food,
     production,
-    approval
+    approval,
+    Fire
 }
 
+public enum FireEarthCityResource{
+    food,
+    production,
+    approval,
+    Fire
+}
 [System.Serializable]
 public class DictionarycityResFloat: SerializableDictionary<cityResource,float>{}  
+[System.Serializable]
+public class DictionaryFireEarthCityResFloat: SerializableDictionary<FireEarthCityResource,float>{} 
 public class City : Building
 {
     public enum Type{
@@ -25,8 +34,10 @@ public class City : Building
     
     [SerializeField]
     public  DictionarycityResFloat cityResources;
+    [HideInInspector]
 
     public int boarderLength;
+    [HideInInspector]
     public List<HexComponent> teritory;
     //public Resources ownResources;
 
@@ -34,17 +45,24 @@ public class City : Building
     public int approvalThreshold;
     public int population;
     public int maxPopulation=4;
+    //[HideInInspector]
+    public float populationGrowthHelp = 0;
+    //[HideInInspector]
+    public float unitProductionHelp = 0;
     public Type typeOfCity;
     //the things it can produce, their indexes in kingdom
 
     public int unitStartIndex,numOfUnits;//indesx in PlayerController.Instance.kingdom.units //units this city can produce
     public int itemStartIndex,numOfItems;//indesx in PlayerController.Instance.kingdom.items //itemss this city can produce
     public int districtStartIndex,numOfDistricts;//indesx in PlayerController.Instance.kingdom.items //itemss this city can produce
-    
+    [HideInInspector]
     //what it is currently producing
     public int unitProduction=-1;//unit being produced rn
+    [HideInInspector]
     public int itemProduction=-1;//item being produced rn
+    [HideInInspector]
     public int districtProduction=-1;//unit being produced rn
+    [HideInInspector]
     private Vector2 districtLocation;//where a districtwill be produced after its production
     [HideInInspector]
     public bool positionSelectingMode=false;
@@ -61,6 +79,7 @@ public class City : Building
         cityResources.Add(cityResource.food,0);
         cityResources.Add(cityResource.production,0);
         cityResources.Add(cityResource.approval,0);
+        cityResources.Add(cityResource.Fire,0);
         base.Build(coordinate);
         city = this;
         setTeritory();
@@ -146,6 +165,10 @@ public class City : Building
                 }
             }
         }
+
+        //after checking the production of unit, item or district, checking poopulation growth
+        populationGrowth();
+
     }
     public void ProduceUnit(int index,int days){
         unitProduction = index;
@@ -209,7 +232,7 @@ public class City : Building
         teritory = HexOperations.Instance.getNeighbors(location,boarderLength).ToList();
     }
     //to add all the yield at the strat of the turn
-    public void getYield(){
+    public virtual void getYield(){
 
         Player tempPlayer = PlayerController.Instance.player;
         if(player!=-1){
@@ -259,12 +282,19 @@ public class City : Building
     }
 
     //for growing population at the start of the turn
-    public void populationGrowth(){
+    public virtual void populationGrowth(){
         while(true){
             int result = (int)(10+5*(population+Math.Pow(population,1.5)));
-            if(cityResources[cityResource.food]>=result){
+            if(cityResources[cityResource.food]+cityResources[cityResource.food]*populationGrowthHelp>=result){
                 population++;
                 cityResources[cityResource.food]-=result;
+                if(cityResources[cityResource.food]<=0)
+                    cityResources[cityResource.food]=0;
+                //telling all districts that population changed
+                thisDistrict.populationChanged();
+                foreach(District d in districts){
+                    d.populationChanged();
+                }
             }
             else
                 break;

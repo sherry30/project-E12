@@ -314,7 +314,7 @@ public class Cost :Resources
         if(player!=-1)
             tempPlayer = AIController.Instance.AIPlayers[player];
         Dictionary<cityResource,float> cit = city.cityResources;
-        float var1 = cityResources[cityResource.production];
+        float var1 = cityResources[cityResource.production] + cityResources[cityResource.production]*city.unitProductionHelp;
         float var2 = cit[cityResource.production];
         float days = var1/var2;
 

@@ -30,7 +30,7 @@ public class Civilian : Unit
         }
         imp = tempPlayer.kingdom.improvements[index];
         //return if this improvement is not unlocked
-        if(!tempPlayer.availableImprovements.Contains(imp.imp)){
+        if(!city.availableImprovements.Contains(imp.imp)){
             Debug.Log(imp.Source);
             return;
         }

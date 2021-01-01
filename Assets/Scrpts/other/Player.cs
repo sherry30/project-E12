@@ -47,6 +47,28 @@ public class Player
         //resources.resources[Resource.production]=3;
         resources.OtherResources[OtherResource.Science]=30;
     }
+
+    public void unlockUnit(Unit.Class un){
+        availableUnits.Add(un);
+        foreach(City c in cities){
+            c.availableUnits.Add(un);
+        }
+    }
+
+    public void unlockImprovement(improvement im){
+        availableImprovements.Add(im);
+        foreach(City c in cities){
+            c.availableImprovements.Add(im);
+        }
+    }
+    public void unlockImprovement(District.Type di){
+        availableDistricts.Add(di);
+        foreach(City c in cities){
+            c.availableDistricts.Add(di);
+        }
+    }
+
+
     public Era era=Era.StoneAge;
     public void BuildCity(City cit,Vector2 location){
         cit.Build(location);
@@ -70,6 +92,7 @@ public class Player
             districts = new List<District>();
         districts.Add(dis);*/
         onStartTurn+=dis.StartTurn;
+        Debug.Log("Start turn set");
     }
     public void BuildBuilding(Building bil,Vector2 location){
         bil.Build(location);

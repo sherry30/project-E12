@@ -13,9 +13,9 @@ public class P1TechSkill : TechSkill
         base.UnlockSkill(player);
         if(unlocked){
             if(player==-1)
-                PlayerController.Instance.player.availableImprovements.Add(improvement.animal_Trap);
+                PlayerController.Instance.player.unlockImprovement(improvement.animal_Trap);
             else
-                AIController.Instance.AIPlayers[player].availableImprovements.Add(improvement.animal_Trap);
+                AIController.Instance.AIPlayers[player].unlockImprovement(improvement.animal_Trap);
         }
 
     }

@@ -95,7 +95,7 @@ public class DistrictProductionList : MonoBehaviour
     private IEnumerator positionCheckSeq(int index,District dis,GameObject objj){
 
         //check if itsunlocked for thsi player
-        if(!getPlayer().availableDistricts.Contains(dis.type)){
+        if(!city.availableDistricts.Contains(dis.type)){
             Debug.Log("This district is not unlocked yet");
             Debug.Log(dis.source);
             yield break;

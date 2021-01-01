@@ -106,7 +106,7 @@ MonoBehaviour:
   teritory: []
   capital: 1
   approvalThreshold: -3
-  population: 1
+  population: 3
   maxPopulation: 4
   populationGrowthHelp: 0
   unitProductionHelp: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
       m_keys: 03000000
       m_values:
       - 5
+  campFireBonus: 8
 --- !u!114 &3706403764918985536
 MonoBehaviour:
   m_ObjectHideFlags: 0

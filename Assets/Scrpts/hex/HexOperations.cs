@@ -158,9 +158,9 @@ public class HexOperations : MonoBehaviour
         //letting unit know which player it belongs to
         temp.player = -1;
 
-        //updating in the hexComponent city
+        //updating in the hexComponent building
         hexes[(int)location.x,(int)location.y].BuildBuilding(temp);
-        //updating in the Player.Instance.cities
+        //updating in the Player.Instance.district
         PlayerController.Instance.player.BuildDistrict(temp,location);
         return obj;
 

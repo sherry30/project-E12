@@ -72,6 +72,12 @@ public class City : Building
     public District thisDistrict;///for now
     public bool camped=false;
 
+    //available stuff in this city
+
+    public List<improvement> availableImprovements;
+    public List<Unit.Class> availableUnits;
+    public List<District.Type> availableDistricts;
+
 
     public override void Build(Vector2 coordinate){
         //setting its resources to 0
@@ -84,11 +90,14 @@ public class City : Building
         city = this;
         setTeritory();
 
-        //setting recources yield as 2 food and 1 production for now
+        //setting up available stuff in this city
+        availableImprovements =  getPlayer().availableImprovements;
+        availableDistricts = getPlayer().availableDistricts;
+        availableUnits = getPlayer().availableUnits;
+
+        //setting recources yield 
         resourcesYield = new Resources();
         resourcesYield.Initialize();
-        //resourcesYield.resources[Resource.food]=2;
-        //resourcesYield.resources[Resource.production]=1;
 
         //setting up district
         District dis= GetComponent<District>();
@@ -96,6 +105,9 @@ public class City : Building
         dis.buildingType = BuildingType.district;
         dis.player = player;
         dis.city = this;
+
+        //setting stratturn on this district
+        getPlayer().onStartTurn+=dis.StartTurn;
         if(typeOfCity==City.Type.camp){
             capital=true;    
             dis.setCamp();
@@ -105,8 +117,7 @@ public class City : Building
         }
         //add town later as well
         thisDistrict = dis;
-        upgradeToVillage(getPlayer());
-        //setYield();
+        //upgradeToVillage(getPlayer());
     }
     public void Campers(){
         if(typeOfCity==Type.camp){
@@ -214,11 +225,14 @@ public class City : Building
         if(typeOfCity==Type.camp){
 
             //adding Farm
-            tempPlayer.availableImprovements.Add(improvement.Farm);
+            availableImprovements.Add(improvement.Farm);
             //adding settler
-            tempPlayer.availableUnits.Add(Unit.Class.settler);
-            //adding district village green
-            tempPlayer.availableDistricts.Add(District.Type.village_green);
+            availableUnits.Add(Unit.Class.settler);
+
+            //adding all districts this city is capable of producing
+            for(int i=districtStartIndex;i<numOfDistricts;i++){
+                availableDistricts.Add(getPlayer().kingdom.districts[i].type);
+            }
             thisDistrict.setVillage();
             typeOfCity = Type.village;
             boarderLength=2;

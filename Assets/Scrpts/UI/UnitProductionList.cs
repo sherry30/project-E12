@@ -83,8 +83,8 @@ public class UnitProductionList : MonoBehaviour
         //if a unit or an item is already being produced then return
         if(city!=null && city.unitProduction==-1 && city.itemProduction==-1 && city.districtProduction==-1 && !city.positionSelectingMode){
             int days=1;
-            //check if this unit is unlocked by this player first
-            if(!getPlayer().availableUnits.Contains(unit.classOfUnit)){
+            //check if this unit is unlocked in this city
+            if(!city.availableUnits.Contains(unit.classOfUnit)){
                 Debug.Log("This unit is not unlocked yet");
                 Debug.Log(unit.source);
                 return;

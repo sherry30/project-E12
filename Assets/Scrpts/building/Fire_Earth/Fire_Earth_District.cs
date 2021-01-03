@@ -22,6 +22,11 @@ public class Fire_Earth_District : District
 
         
     }
+    public override void setVillage()
+    {
+        base.setVillage();
+        additionalEnergy = 0f;
+    }
     public override void populationChanged(){
         //if(type==Type.camp)
             //setCamp();
@@ -42,6 +47,7 @@ public class Fire_Earth_District : District
     public override void StartTurn()
     {
         base.StartTurn();
-        setAdditionalEnergy();
+        if(type == Type.camp)
+            setAdditionalEnergy();
     }
 }

@@ -45,10 +45,7 @@ public class City : Building
     public int approvalThreshold;
     public int population;
     public int maxPopulation=4;
-    //[HideInInspector]
-    public float populationGrowthHelp = 0;
-    //[HideInInspector]
-    public float unitProductionHelp = 0;
+    
     public Type typeOfCity;
     //the things it can produce, their indexes in kingdom
 
@@ -78,16 +75,24 @@ public class City : Building
     public List<Unit.Class> availableUnits;
     public List<District.Type> availableDistricts;
 
+    
+    //TODO: add extrapercentages to recourcesYield before getYield
+
 
     public override void Build(Vector2 coordinate){
         //setting its resources to 0
+        city = this;
         cityResources = new DictionarycityResFloat();
         cityResources.Add(cityResource.food,0);
         cityResources.Add(cityResource.production,0);
         cityResources.Add(cityResource.approval,0);
         cityResources.Add(cityResource.Fire,0);
+
         base.Build(coordinate);
-        city = this;
+
+        populationGrowthHelp=0f;
+        unitProductionHelp = 0f;
+        
         setTeritory();
 
         //setting up available stuff in this city
@@ -99,12 +104,16 @@ public class City : Building
         resourcesYield = new Resources();
         resourcesYield.Initialize();
 
+        percentageExtraResources = new Resources();
+        percentageExtraResources.Initialize();
+
         //setting up district
         District dis= GetComponent<District>();
+        dis.city = this;
         dis.Build(location);
         dis.buildingType = BuildingType.district;
         dis.player = player;
-        dis.city = this;
+        
 
         //setting stratturn on this district
         getPlayer().onStartTurn+=dis.StartTurn;
@@ -117,7 +126,7 @@ public class City : Building
         }
         //add town later as well
         thisDistrict = dis;
-        //upgradeToVillage(getPlayer());
+        upgradeToVillage(getPlayer());
     }
     public void Campers(){
         if(typeOfCity==Type.camp){
@@ -214,13 +223,7 @@ public class City : Building
         return unit;
     }
 
-    private Player getPlayer(){
-        Player tempPlayer = PlayerController.Instance.player;
-        if(player!=-1)
-            tempPlayer = AIController.Instance.AIPlayers[player];
-        
-        return tempPlayer;
-    }
+    
     public void upgradeToVillage(Player tempPlayer){
         if(typeOfCity==Type.camp){
 
@@ -255,37 +258,42 @@ public class City : Building
 
         if(resourcesYield.Energies!=null){
             foreach(KeyValuePair<Energy, float> entry in resourcesYield.Energies){
-                tempPlayer.resources.Energies[entry.Key]+=resourcesYield.Energies[entry.Key];
+                tempPlayer.resources.Energies[entry.Key]+=resourcesYield.Energies[entry.Key] + tempPlayer.resources.Energies[entry.Key]*percentageExtraResources.Energies[entry.Key];
             }
         }
         //checking if Resource cost is met
         if(resourcesYield.resources!=null){
             foreach(KeyValuePair<Resource, float> entry in resourcesYield.resources){
-                tempPlayer.resources.resources[entry.Key]+=resourcesYield.resources[entry.Key];
+                tempPlayer.resources.resources[entry.Key]+=resourcesYield.resources[entry.Key] + tempPlayer.resources.resources[entry.Key]*percentageExtraResources.resources[entry.Key];
             }
         }
         //checking if Raw material cost is met
         if(resourcesYield.RawMaterials!=null){
             foreach(KeyValuePair<Raw_Material, float> entry in resourcesYield.RawMaterials){
-                tempPlayer.resources.RawMaterials[entry.Key]+=resourcesYield.RawMaterials[entry.Key];
+                tempPlayer.resources.RawMaterials[entry.Key]+=resourcesYield.RawMaterials[entry.Key] + tempPlayer.resources.RawMaterials[entry.Key]*percentageExtraResources.RawMaterials[entry.Key];
             }
         }
         //checking if otherResource cost is met
         if(resourcesYield.OtherResources!=null){
             foreach(KeyValuePair<OtherResource, float> entry in resourcesYield.OtherResources){
-                tempPlayer.resources.OtherResources[entry.Key]+=resourcesYield.OtherResources[entry.Key];
+                tempPlayer.resources.OtherResources[entry.Key]+=resourcesYield.OtherResources[entry.Key] + tempPlayer.resources.OtherResources[entry.Key]*percentageExtraResources.OtherResources[entry.Key];
             }
         }
         //checking if Crystals cost is met
         if(resourcesYield.Crystals!=null){
             foreach(KeyValuePair<crystal, float> entry in resourcesYield.Crystals){
-                tempPlayer.resources.Crystals[entry.Key]+=resourcesYield.Crystals[entry.Key];
+                tempPlayer.resources.Crystals[entry.Key]+=resourcesYield.Crystals[entry.Key] + tempPlayer.resources.Crystals[entry.Key]* percentageExtraResources.Crystals[entry.Key];
             }
         }
 
         if(resourcesYield.cityResources!=null){
             foreach(KeyValuePair<cityResource, float> entry in resourcesYield.cityResources){
-                cityResources[entry.Key]+=resourcesYield.cityResources[entry.Key];
+                //approval will not be added every turn
+                if(entry.Key==cityResource.approval){
+                    cityResources[cityResource.approval] = entry.Value;
+                    continue;
+                }
+                cityResources[entry.Key]+=resourcesYield.cityResources[entry.Key] + cityResources[entry.Key]*percentageExtraResources.cityResources[entry.Key];
             }
         }
         /*if(OtherResourcesYield!=null){
@@ -315,70 +323,23 @@ public class City : Building
         }
     }
 
-   /* public override void setYield(){
-        if(ownResources.Energies!=null){
-            foreach(KeyValuePair<Energy, float> entry in ownResources.Energies){
-                city.resourcesYield.Energies[entry.Key]+=ownResources.Energies[entry.Key];
-            }
-        }
-        //checking if Resource cost is met
-        if(ownResources.resources!=null){
-            foreach(KeyValuePair<Resource, float> entry in ownResources.resources){
-                city.resourcesYield.resources[entry.Key]+=ownResources.resources[entry.Key];
-            }
-        }
-        //checking if Raw material cost is met
-        if(ownResources.RawMaterials!=null){
-            foreach(KeyValuePair<Raw_Material,float> entry in ownResources.RawMaterials){
-                city.resourcesYield.RawMaterials[entry.Key]+=ownResources.RawMaterials[entry.Key];
-            }
-        }
-        //checking if otherResource cost is met
-        if(ownResources.OtherResources!=null){
-            foreach(KeyValuePair<OtherResource,float> entry in ownResources.OtherResources){
-                city.resourcesYield.OtherResources[entry.Key]+=ownResources.OtherResources[entry.Key];
-            }
-        }
-        //checking if otherResource cost is met
-        if(ownResources.Crystals!=null){
-            foreach(KeyValuePair<crystal,float> entry in ownResources.Crystals){
-                city.resourcesYield.Crystals[entry.Key]+=ownResources.Crystals[entry.Key];
-            }
-        }
+    public override void setYield(){
+
     }
     public override void removeYield(){
-        //checking if energy cost is me
 
-        if(ownResources.Energies!=null){
-            foreach(KeyValuePair<Energy, float> entry in ownResources.Energies){
-                city.resourcesYield.Energies[entry.Key]-=ownResources.Energies[entry.Key];
-            }
-        }
-        //checking if Resource cost is met
-        if(ownResources.resources!=null){
-            foreach(KeyValuePair<Resource, float> entry in ownResources.resources){
-                city.resourcesYield.resources[entry.Key]-=ownResources.resources[entry.Key];
-            }
-        }
-        //checking if Raw material cost is met
-        if(ownResources.RawMaterials!=null){
-            foreach(KeyValuePair<Raw_Material,float> entry in ownResources.RawMaterials){
-                city.resourcesYield.RawMaterials[entry.Key]-=ownResources.RawMaterials[entry.Key];
-            }
-        }
-        //checking if otherResource cost is met
-        if(ownResources.OtherResources!=null){
-            foreach(KeyValuePair<OtherResource,float> entry in ownResources.OtherResources){
-                city.resourcesYield.OtherResources[entry.Key]-=ownResources.OtherResources[entry.Key];
-            }
-        }
-        //checking if otherResource cost is met
-        if(ownResources.Crystals!=null){
-            foreach(KeyValuePair<crystal,float> entry in ownResources.Crystals){
-                city.resourcesYield.Crystals[entry.Key]-=ownResources.Crystals[entry.Key];
-            }
-        }
+    }
+
+    public override void setPercentYield(){
+
+    }
+    /*public override void removeYield(){
+
     }*/
+
+    public void setAdditionalSciencePercent(float extra){
+
+    }
 
 
 }

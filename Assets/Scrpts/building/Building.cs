@@ -11,6 +11,7 @@ public enum BuildingType{
 }
 public class Building : MonoBehaviour
 {
+    
     public BuildingType buildingType;
     [HideInInspector]
     public static int currentID=0;
@@ -44,7 +45,13 @@ public class Building : MonoBehaviour
     public DictionaryEnergyFloat energyYield;
     public DictionaryOtherResFloat OtherResourcesYield;*/
     public Resources resourcesYield;
-    public City city;//city this building is under; mainly for districtsand improvements
+    public City city;//city this building is under; mainly for districtsand improvements adn units
+
+    //[HideInInspector]
+    public float populationGrowthHelp = 0;
+    //[HideInInspector]
+    public float unitProductionHelp = 0;
+    public Resources percentageExtraResources;
 
 
 
@@ -71,6 +78,11 @@ public class Building : MonoBehaviour
         //setting up id for this building or city
         id = currentID;
         currentID++;
+
+        setAdditionalHelp();
+
+        setYield();
+        setPercentYield();
     }
     public virtual void Demolish(){
         GameState.Instance.occupiedHexes.Remove(location);
@@ -206,5 +218,56 @@ public class Building : MonoBehaviour
         }
     }
 
+    //for setting help in % for unit production and population growth
+    public virtual void setAdditionalHelp(){
+        city.populationGrowthHelp+=populationGrowthHelp;
+        city.unitProductionHelp += unitProductionHelp;
+    }
+
+    public Player getPlayer(){
+        Player tempPlayer = PlayerController.Instance.player;
+        if(player!=-1)
+            tempPlayer = AIController.Instance.AIPlayers[player];
+        
+        return tempPlayer;
+    }
+
+
+    public virtual void setPercentYield(){
+        if(percentageExtraResources.Energies!=null){
+            foreach(KeyValuePair<Energy, float> entry in percentageExtraResources.Energies){
+                city.percentageExtraResources.Energies[entry.Key]+=percentageExtraResources.Energies[entry.Key];
+            }
+        }
+        //checking if Resource cost is met
+        if(percentageExtraResources.resources!=null){
+            foreach(KeyValuePair<Resource, float> entry in percentageExtraResources.resources){
+                city.percentageExtraResources.resources[entry.Key]+=percentageExtraResources.resources[entry.Key];
+            }
+        }
+        //checking if Raw material cost is met
+        if(percentageExtraResources.RawMaterials!=null){
+            foreach(KeyValuePair<Raw_Material,float> entry in percentageExtraResources.RawMaterials){
+                city.percentageExtraResources.RawMaterials[entry.Key]+=percentageExtraResources.RawMaterials[entry.Key];
+            }
+        }
+        //checking if otherResource cost is met
+        if(percentageExtraResources.OtherResources!=null){
+            foreach(KeyValuePair<OtherResource,float> entry in percentageExtraResources.OtherResources){
+                city.percentageExtraResources.OtherResources[entry.Key]+=percentageExtraResources.OtherResources[entry.Key];
+            }
+        }
+        //checking if otherResource cost is met
+        if(percentageExtraResources.Crystals!=null){
+            foreach(KeyValuePair<crystal,float> entry in percentageExtraResources.Crystals){
+                city.percentageExtraResources.Crystals[entry.Key]+=percentageExtraResources.Crystals[entry.Key];
+            }
+        }
+        if(percentageExtraResources.cityResources!=null){
+            foreach(KeyValuePair<cityResource,float> entry in percentageExtraResources.cityResources){
+                city.percentageExtraResources.cityResources[entry.Key]-=percentageExtraResources.cityResources[entry.Key];
+            }
+        }
+    }
 
 }

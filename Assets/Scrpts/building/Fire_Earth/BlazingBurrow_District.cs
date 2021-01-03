@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlazingBurrow_District : District
 {
-    public override void Build(Vector2 coordinate)
+    /*public override void Build(Vector2 coordinate)
     {
         base.Build(coordinate);
 
@@ -14,6 +14,6 @@ public class BlazingBurrow_District : District
 
         //adding 10% to production
         city.unitProductionHelp+= 0.10f;
-    }
+    }*/
 
 }

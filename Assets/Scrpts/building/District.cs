@@ -22,7 +22,7 @@ public class District : Building
     public int buildingProduction=-1;
     public int limitOfBuildings=3;
     public Type type;
-    public int level;
+    public int level=1;
     public int daysToBeProduced=2;
     public string source;
     public int daysTillProduced=-1;
@@ -33,7 +33,17 @@ public class District : Building
     public Resources campResources;
 
     public Resources villageResources;
+
+    public List<Building> availableBuildings; //buildings this district ca n produce
     //public int maxPopulation;
+
+    public override void Build(Vector2 coordinate)
+    {
+        base.Build(coordinate);
+
+        //setting this city's populationGrowthHelp and UnitproductionHelp
+        //adding 10% to population growth
+    }
 
 
     public virtual void setCamp(){
@@ -55,8 +65,9 @@ public class District : Building
         type = Type.camp;
         resourcesYield = campResources;
         setYield();
+        setAdditionalHelp();
     }
-    public void setVillage(){
+    public virtual void setVillage(){
         removeYield();
         //resourcesYield = new Resources();
         //setting up yields
@@ -182,13 +193,6 @@ public class District : Building
                 UIController.Instance.openDistrictHub();
             }
         }
-    }
-    private Player getPlayer(){
-        Player tempPlayer = PlayerController.Instance.player;
-        if(player!=-1)
-            tempPlayer = AIController.Instance.AIPlayers[player];
-        
-        return tempPlayer;
     }
 
     public virtual void populationChanged(){

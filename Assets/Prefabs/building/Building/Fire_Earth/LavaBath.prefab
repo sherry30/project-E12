@@ -24,10 +24,10 @@ GameObject:
   - component: {fileID: 1380497702396629754}
   - component: {fileID: 1435368440455045819}
   - component: {fileID: 1373114686451754182}
-  - component: {fileID: -1219549458906644458}
+  - component: {fileID: 7390927368879974936}
   m_Layer: 8
-  m_Name: Blazing Burrow
-  m_TagString: District
+  m_Name: LavaBath
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   currentHealth: 0
---- !u!114 &-1219549458906644458
+--- !u!114 &7390927368879974936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,12 +86,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2594391729097533843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b018aec4c6cdc8398201da32c73e471, type: 3}
+  m_Script: {fileID: 11500000, guid: 61fd40923e51a2bcd945fba2ef77d180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingType: 2
+  buildingType: 3
   icon: {fileID: -300791231007646692, guid: 6cf4afaff9702b99d84cd927bedc9f09, type: 3}
-  Name: Blazing Burrow
+  Name: Lava Bath
   id: 0
   description: 
   maxHealth: 100
@@ -113,8 +113,9 @@ MonoBehaviour:
       m_keys: 
       m_values: []
     cityResources:
-      m_keys: 
-      m_values: []
+      m_keys: 01000000
+      m_values:
+      - 15
   location: {x: 0, y: 0}
   itemInventory: []
   ItemInventoryLimit: 6
@@ -137,62 +138,13 @@ MonoBehaviour:
       m_keys: 
       m_values: []
     cityResources:
-      m_keys: 
-      m_values: []
+      m_keys: 0200000003000000
+      m_values:
+      - 1
+      - 1
   city: {fileID: 0}
-  populationGrowthHelp: 0.1
-  unitProductionHelp: 0.1
-  buildingStartingIndex: 0
-  numOfBuildings: 0
-  buildingProduction: -1
-  limitOfBuildings: 3
-  type: 10
-  level: 1
-  daysToBeProduced: 2
-  source: Village
-  daysTillProduced: -1
-  buildingLocation: {x: 0, y: 0}
-  positionSelectingMode: 0
-  buildings: []
-  campResources:
-    resources:
-      m_keys: 
-      m_values: []
-    RawMaterials:
-      m_keys: 
-      m_values: []
-    Energies:
-      m_keys: 
-      m_values: []
-    OtherResources:
-      m_keys: 
-      m_values: []
-    Crystals:
-      m_keys: 
-      m_values: []
-    cityResources:
-      m_keys: 
-      m_values: []
-  villageResources:
-    resources:
-      m_keys: 
-      m_values: []
-    RawMaterials:
-      m_keys: 
-      m_values: []
-    Energies:
-      m_keys: 
-      m_values: []
-    OtherResources:
-      m_keys: 
-      m_values: []
-    Crystals:
-      m_keys: 
-      m_values: []
-    cityResources:
-      m_keys: 
-      m_values: []
-  availableBuildings: []
+  populationGrowthHelp: 0
+  unitProductionHelp: 0
 --- !u!1001 &662393227311136347
 PrefabInstance:
   m_ObjectHideFlags: 0

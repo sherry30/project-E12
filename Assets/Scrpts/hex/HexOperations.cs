@@ -32,7 +32,8 @@ public class HexOperations : MonoBehaviour
         hexes = HexMap.Instance.hexes;
     }
     //only for player controller(the one playeing the game)
-    public GameObject spawnUnit(Vector2 location,int unitIndex){
+    public GameObject spawnUnit(City city,int unitIndex){
+        Vector2 location = city.location;
         Vector3 place = hexes[(int)location.x,(int)location.y].hex.positionFromCamera();
         GameObject obj = (GameObject)Instantiate(
             PlayerController.Instance.player.kingdom.unitPrefabs[unitIndex],
@@ -54,6 +55,11 @@ public class HexOperations : MonoBehaviour
 
         //subscribing for moving
         temp.onUnitMove += obj.GetComponent<UnitMove>().onUnitMove;
+
+        //setting city in here because this is for spawning own units
+        temp.city = city;
+
+
         //updating in hexcomponent
         hexes[(int)location.x,(int)location.y].addUnit(temp);
 

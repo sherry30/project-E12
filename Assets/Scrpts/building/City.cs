@@ -132,7 +132,7 @@ public class City : Building
         if(typeOfCity==Type.camp){
             GameState.Instance.deSelectObject();
             HexOperations.Instance.DestroyCity(this);
-            GameObject obj = HexOperations.Instance.spawnUnit(location,0);
+            GameObject obj = HexOperations.Instance.spawnUnit(city,0);
         }
     }
     public override void StartTurn(){
@@ -144,7 +144,7 @@ public class City : Building
             if(daysTillProduced==0){
                 //if the unit is done being produced
                 if(unitProduction!=-1){
-                    HexOperations.Instance.spawnUnit(location,unitProduction);
+                    HexOperations.Instance.spawnUnit(city,unitProduction);
 
                     //destroying the info object in the producing slot if this object is selected
                     
@@ -323,6 +323,8 @@ public class City : Building
         }
     }
 
+
+    //wont do anything for city
     public override void setYield(){
 
     }

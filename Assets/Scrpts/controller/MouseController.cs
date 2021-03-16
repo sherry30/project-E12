@@ -62,7 +62,7 @@ public class MouseController : MonoBehaviour
         if(Physics.Raycast(Camera.main.transform.position,hitPos,out theObject,Mathf.Infinity)){
                 mouseOverObject = theObject.transform.gameObject;
                 GameState.Instance.mouseOverObject=mouseOverObject.transform.parent.gameObject;
-            }
+        }
         
         //deslecitng and closing hub if right mouse button is pressed
         if(Input.GetMouseButtonDown(1) && GameState.Instance.checkPlayerTurn()){

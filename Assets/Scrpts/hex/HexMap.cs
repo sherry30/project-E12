@@ -165,7 +165,7 @@ public class HexMap : MonoBehaviour
         Kingdom king = PlayerController.Instance.player.kingdom;
         City camp = PlayerController.Instance.player.cities[0];
         for(int i=0;i<king.startingUnitIndexes.Count;i++){
-            HexOperations.Instance.spawnUnit(camp.location,king.startingUnitIndexes[i]);
+            HexOperations.Instance.spawnUnit(camp,king.startingUnitIndexes[i]);
         }
         //set territory of distance 1
         PlayerController.Instance.player.setTerritory(HexOperations.Instance.getClosestNeighbours(camp.location));

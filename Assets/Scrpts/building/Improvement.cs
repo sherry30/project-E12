@@ -12,6 +12,7 @@ public class Improvement : Building
     public int turnsTOBuild=2;
     public bool mustBeInTerritory=false;
     public string Source;
+    
     /*public int turnsLeft=-1;
     public void startConstruction(){
         turnsLeft = turnsTOBuild;

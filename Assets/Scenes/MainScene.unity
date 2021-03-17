@@ -1364,6 +1364,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2620910216998827695, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: cityList
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620910216998827695, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
+        type: 3}
+      propertyPath: itemSlot
+      value: 
+      objectReference: {fileID: 998632157483595764, guid: ff1f42d77ecc9f0ff8fdabdd4e171c1e,
+        type: 3}
     - target: {fileID: 2648097040063523342, guid: c58662a8e3cd512c6bbe98e9dcdf7340,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -4376,7 +4387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chunks: 4
-  chunkSize: 5
+  chunkSize: 3
   chunkiness: 2
   mutateProbability: 0.7
   mats:
@@ -4403,7 +4414,7 @@ MonoBehaviour:
     - {fileID: 2100000, guid: 825c635d5ebb33122a4a1177263eb1f8, type: 2}
     - {fileID: 2100000, guid: 4a108c22741fafbf389ec34f3ad0626b, type: 2}
     - {fileID: 2100000, guid: 17def312bf1329303b9f35a60748c970, type: 2}
-  noOfMountain: 2
+  noOfMountain: 3
   mountainGeomtery: {fileID: 968871811609272612, guid: 57059350132912acabdcb6baa68bb523,
     type: 3}
 --- !u!1 &963194225
@@ -4644,6 +4655,12 @@ MonoBehaviour:
   districts: []
   buildingPrefabs:
   - {fileID: 2594391729097533843, guid: e7a4ca1aa630238da9d1fdeb7b4a543f, type: 3}
+  - {fileID: 2594391729097533843, guid: 0d566e9c893b1c4778d0b658ddaf8b19, type: 3}
+  - {fileID: 2594391729097533843, guid: c740484c239594b5d8d9c60f244cde6a, type: 3}
+  - {fileID: 2594391729097533843, guid: 84141e57c4f924b36a75b397e429079e, type: 3}
+  - {fileID: 2594391729097533843, guid: 0bc909393a59a1946a54fb2c5b22cf6d, type: 3}
+  - {fileID: 2594391729097533843, guid: 51b817c18e4c700089dc2003632e8833, type: 3}
+  - {fileID: 2594391729097533843, guid: 22e04e6eaeca817ad9644278b99bb5fa, type: 3}
   cityPrefabs:
   - {fileID: 6837129746824707969, guid: f3e6ab0c0c688b281ad19897ff9f4722, type: 3}
   - {fileID: 6837129746824707969, guid: 51050dd0a5e3a0e73a74db1397bbebf6, type: 3}
@@ -4652,13 +4669,15 @@ MonoBehaviour:
   - {fileID: 2039808676546142990, guid: dbca713862ee39494ad89bb6d7ae36a2, type: 3}
   - {fileID: 5799241855719453004, guid: 653e3048afb9b2161b0e2b403d4b899a, type: 3}
   - {fileID: 4118322018534020178, guid: e3785c27a92d153f5917d348e5634c82, type: 3}
-  - {fileID: 4118322018534020178, guid: 29dabee038c4dbc23a2848e4532367ba, type: 3}
+  - {fileID: 4118322018534020178, guid: 08db40b8f1714254eb4e2d684666874c, type: 3}
   - {fileID: 4914686996205313233, guid: c765cfb7d76bb78019e7c0fa232f88da, type: 3}
+  - {fileID: 5799241855719453004, guid: 36f532565f5166243896e151ebbee0cb, type: 3}
   improvementPrefabs:
   - {fileID: 2594391729097533843, guid: 9602c845c223440e39346db352487050, type: 3}
   - {fileID: 2594391729097533843, guid: 9bd89cc2183675ffd87918d69689b7cd, type: 3}
   itemPrefabs:
-  - {fileID: 8370244024163568008, guid: 14c6435c99bea3fdf97ad5b881a252b5, type: 3}
+  - {fileID: 8370244024163568008, guid: 245ae8f9af12cdf41b9d58b466e8c54f, type: 3}
+  - {fileID: 8370244024163568008, guid: 1d88af2fd48df2046ac23b87178169ac, type: 3}
   districtPrefabs:
   - {fileID: 2594391729097533843, guid: 8c5fbf302d5d78296a17f87fc9a60b46, type: 3}
   - {fileID: 2594391729097533843, guid: d96ce18dba716e6ab956fddd918c0a1f, type: 3}
@@ -4691,7 +4710,7 @@ MonoBehaviour:
   startingUnitIndexes: 0100000002000000
   initialAvailableImprovments: 
   initialAvailableUnits: 05000000060000000700000003000000
-  initialAvailableDistricts: 020000000a000000
+  initialAvailableDistricts: 
 --- !u!114 &1095246726
 MonoBehaviour:
   m_ObjectHideFlags: 0

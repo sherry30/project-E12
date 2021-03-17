@@ -10,8 +10,9 @@ public class ProductionUpdate : MonoBehaviour
     void Start(){
         player = PlayerController.Instance.player;
     }
-    void Update()
+    void FixedUpdate()
     {
-        productionText.text = string.Format("Production: {0}" ,0);
+        //based on selected city
+        productionText.text = string.Format("Production: {0}" , player.cities[0].cityResources[cityResource.production]);
     }
 }

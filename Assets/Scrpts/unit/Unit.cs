@@ -76,6 +76,7 @@ public class Unit : MonoBehaviour
     public Sprite icon;
     public string source;
 
+    public Armour armour;
     public City city;
     protected virtual void Awake(){
         currentHealth = maxHealth;
@@ -192,7 +193,18 @@ public class Unit : MonoBehaviour
             Debug.Log("This is not a Unit");
     }
     public void takeDamage(int totalDamage){
-        currentHealth-=totalDamage;
+        if (armour != null)
+        {
+            float damage = totalDamage - armour.armour;
+            armour.armour -= totalDamage;
+            if (armour.armour < 0)
+            {
+                armour.armour = 0;
+                currentHealth -= (int)damage;
+            }
+        }
+        else
+            currentHealth-=totalDamage;
         healthBar.updateUI();
     }
     public void setOffset(Vector3 off){
@@ -212,10 +224,66 @@ public class Unit : MonoBehaviour
         }
         DragDrop dr = item.GetComponent<DragDrop>();
         dr.enabled=false;
-        item.GetComponent<Item>().equip();
+        Item temp = item.GetComponent<Item>();
+        temp.equip();
 
+        if (temp.type==Item.Type.Armour)
+        {
+            //getting in items list
+            int index = getItemIndex(temp);
+            if (armour != null)
+            {
+                //adding already attached armour back to the city
+                unEquipItem(armour);
+               
+            }
+            //adding the new armour
+            armour = item.GetComponent<Armour>();
+        }
 
         items.Add(item);
+    }
+
+    public void unEquipItem(Item item)
+    {
+
+        int  index = getItemIndex(item);
+
+        //adding unequipped armour back to city if it has space
+
+        if (!city.AddItem(items[index]))
+            return;
+        //removing from thsi unit
+        items.RemoveAt(index);
+
+
+    }
+    public int getItemIndex(Item item)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            Item temp = items[i].GetComponent<Item>();
+            if (temp.Name == item.Name)
+            {
+
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public GameObject getItem(Item item)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            Item temp = items[i].GetComponent<Item>();
+            if (temp.Name == item.Name)
+            {
+
+                return items[i];
+            }
+        }
+        return null;
     }
 
 }

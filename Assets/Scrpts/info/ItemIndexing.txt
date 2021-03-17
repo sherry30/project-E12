@@ -1,3 +1,6 @@
 Fire:
 
-0 Stone Spear
+	0 Granite
+	1 Andesite
+
+

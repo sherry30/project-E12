@@ -1,2 +1,8 @@
 Fire:
 	0 AlchemyLab
+	1 CompressionForge
+	2 Hatchery
+	3 LavaBath
+	4 MagmaMound
+	5 MantleeDen
+	6 VolcanicAnomaly

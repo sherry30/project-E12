@@ -126,7 +126,7 @@ public class City : Building
         }
         //add town later as well
         thisDistrict = dis;
-        upgradeToVillage(getPlayer());
+        //upgradeToVillage(getPlayer());
     }
     public void Campers(){
         if(typeOfCity==Type.camp){

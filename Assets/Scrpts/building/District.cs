@@ -178,7 +178,8 @@ public class District : Building
             
         if(buildingProduction!=-1 && daysTillProduced==0){
             //AddItem(getPlayer().kingdom.itemPrefabs[itemProduction]);
-            buildings.Add(getPlayer().kingdom.districts[buildingProduction]);
+
+            buildings.Add(getPlayer().kingdom.buildings[buildingProduction]);
             GameObject buil = HexOperations.Instance.BuildBuilding(buildingLocation,buildingProduction,city);
             //setting the yield of this building
             buil.GetComponent<Building>().setYield();

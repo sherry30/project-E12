@@ -19,12 +19,12 @@ public class BuildingProductionList : MonoBehaviour
     }
     void OnEnable(){
         district =  GameState.Instance.selectedObject.GetComponent<District>();
-        city = GameState.Instance.selectedObject.GetComponent<City>();
+        //city = GameState.Instance.selectedObject.GetComponent<City>();
 
         //checking if selected building is acityornot
         if(district==null)
             return;
-
+        city = district.city;
         int startIndex = district.buildingStartingIndex;
         if(buildingInd==null)
             buildingInd = new List<int>();//for producing

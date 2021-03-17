@@ -5,6 +5,8 @@ using UnityEngine;
 using System;
 
 [System.Serializable]
+
+//has current stuff
 public class Player 
 {
     public int player = -1;

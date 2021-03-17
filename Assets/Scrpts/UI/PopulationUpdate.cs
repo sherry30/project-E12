@@ -10,8 +10,8 @@ public class PopulationUpdate : MonoBehaviour
     void Start(){
         player = PlayerController.Instance.player;
     }
-    void Update()
+    void FixedUpdate()
     {
-        populationText.text = string.Format("Population: {0}",player.populationGrowing);
+        populationText.text = string.Format("Population: {0}",player.cities[0].population);
     }
 }

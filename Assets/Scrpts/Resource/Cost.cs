@@ -314,10 +314,11 @@ public class Cost :Resources
         if(player!=-1)
             tempPlayer = AIController.Instance.AIPlayers[player];
         Dictionary<cityResource,float> cit = city.cityResources;
-        float var1 = cityResources[cityResource.production] + cityResources[cityResource.production]*city.unitProductionHelp;
-        float var2 = cit[cityResource.production];
+        float var1 = cityResources[cityResource.production]; //cost
+        float var2 = cit[cityResource.production]  +(cit[cityResource.production]) * city.unitProductionHelp; //to spend from
         float days = var1/var2;
 
+        Debug.Log(string.Format("cost: {0},\n To spend from {1}", var1,var2));
         //subtracting
         cit[cityResource.production]-=cityResources[cityResource.production];
         if(cit[cityResource.production]<0)
@@ -330,6 +331,7 @@ public class Cost :Resources
             days++;
         if(days==0)
             days=1;
+        Debug.Log(string.Format("turns it will take {0}", days));
         return (int)days;
         
     }
@@ -355,6 +357,7 @@ public class Cost :Resources
             days++;
         if(days==0)
             days=1;
+        
         return (int)days;
         
     }

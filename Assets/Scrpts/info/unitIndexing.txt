@@ -4,3 +4,4 @@ Fire:
 	2 Hunter
 	3 Gatherer
 	4 Scout
+	5 Warrior

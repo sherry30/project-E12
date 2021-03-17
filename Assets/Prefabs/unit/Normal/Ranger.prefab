@@ -1,19 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &5967232571071245571
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2153376436140641160}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.020000005, z: 0.0031234748}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &2594391729097533843
+--- !u!1 &5799241855719453004
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21,81 +8,55 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1380497702396629754}
-  - component: {fileID: 1435368440455045819}
-  - component: {fileID: 1373114686451754182}
-  - component: {fileID: -1219549458906644458}
-  m_Layer: 8
-  m_Name: Blazing Burrow
-  m_TagString: District
+  - component: {fileID: 618751051237489254}
+  - component: {fileID: 5500796654540227112}
+  - component: {fileID: 6124383985050148330}
+  - component: {fileID: 6414164626624933645}
+  - component: {fileID: -125884278975657004}
+  m_Layer: 9
+  m_Name: Ranger
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1380497702396629754
+--- !u!4 &618751051237489254
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2594391729097533843}
+  m_GameObject: {fileID: 5799241855719453004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3150564452215749019}
-  - {fileID: 5247516265740903476}
+  - {fileID: 1569551081288339710}
+  - {fileID: 8874400183265150000}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1435368440455045819
+--- !u!114 &5500796654540227112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2594391729097533843}
+  m_GameObject: {fileID: 5799241855719453004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 114c61c52232bc9ee9926aea84557878, type: 3}
+  m_Script: {fileID: 11500000, guid: cdce47ae54b0500928891325366b0c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  location: {x: 0, y: 0}
-  offset: {x: 0, y: 0, z: 0}
-  moving: 0
---- !u!114 &1373114686451754182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2594391729097533843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 867834862de2d5502bf95132d8d12703, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
---- !u!114 &-1219549458906644458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2594391729097533843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b018aec4c6cdc8398201da32c73e471, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingType: 2
-  icon: {fileID: -300791231007646692, guid: 6cf4afaff9702b99d84cd927bedc9f09, type: 3}
-  Name: Blazing Burrow
+  Name: Rnger
+  attack: 15
+  defense: 10
   id: 0
-  description: 
+  description: camper unit
   maxHealth: 100
-  player: -1
+  currentHealth: 0
+  typeOfUnit: 0
+  classOfUnit: 14
   cost:
     resources:
       m_keys: 
@@ -113,117 +74,74 @@ MonoBehaviour:
       m_keys: 
       m_values: []
     cityResources:
-      m_keys: 
-      m_values: []
+      m_keys: 01000000
+      m_values:
+      - 15
+  items: []
+  itemLimit: 3
   location: {x: 0, y: 0}
-  itemInventory: []
-  ItemInventoryLimit: 6
-  isBuilt: 0
+  movement: 2
+  player: 0
+  exhausted: 0
+  moving: 0
+  updatePos: {fileID: 6414164626624933645}
   offset: {x: 0, y: 0, z: 0}
-  resourcesYield:
-    resources:
-      m_keys: 
-      m_values: []
-    RawMaterials:
-      m_keys: 
-      m_values: []
-    Energies:
-      m_keys: 
-      m_values: []
-    OtherResources:
-      m_keys: 
-      m_values: []
-    Crystals:
-      m_keys: 
-      m_values: []
-    cityResources:
-      m_keys: 
-      m_values: []
+  paralysed: 0
+  reasonForParalyzed: None
+  healthBar: {fileID: 0}
+  icon: {fileID: -300791231007646692, guid: 6cf4afaff9702b99d84cd927bedc9f09, type: 3}
+  source: 
   city: {fileID: 0}
-  populationGrowthHelp: 0.1
-  unitProductionHelp: 0.1
-  percentageExtraResources:
-    resources:
-      m_keys: 
-      m_values: []
-    RawMaterials:
-      m_keys: 
-      m_values: []
-    Energies:
-      m_keys: 
-      m_values: []
-    OtherResources:
-      m_keys: 
-      m_values: []
-    Crystals:
-      m_keys: 
-      m_values: []
-    cityResources:
-      m_keys: 
-      m_values: []
-  buildingStartingIndex: 1
-  numOfBuildings: 6
-  buildingProduction: -1
-  limitOfBuildings: 3
-  type: 10
-  level: 1
-  daysToBeProduced: 2
-  source: Village
-  daysTillProduced: -1
-  buildingLocation: {x: 0, y: 0}
-  positionSelectingMode: 0
-  buildings: []
-  campResources:
-    resources:
-      m_keys: 
-      m_values: []
-    RawMaterials:
-      m_keys: 
-      m_values: []
-    Energies:
-      m_keys: 
-      m_values: []
-    OtherResources:
-      m_keys: 
-      m_values: []
-    Crystals:
-      m_keys: 
-      m_values: []
-    cityResources:
-      m_keys: 
-      m_values: []
-  villageResources:
-    resources:
-      m_keys: 
-      m_values: []
-    RawMaterials:
-      m_keys: 
-      m_values: []
-    Energies:
-      m_keys: 
-      m_values: []
-    OtherResources:
-      m_keys: 
-      m_values: []
-    Crystals:
-      m_keys: 
-      m_values: []
-    cityResources:
-      m_keys: 
-      m_values: []
-  availableBuildings: []
---- !u!1001 &662393227311136347
+--- !u!114 &6124383985050148330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799241855719453004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07881c86eb97f274190d9c9782d4fb20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraMoving: 0
+  thresholdForDist: 50
+--- !u!114 &6414164626624933645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799241855719453004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114c61c52232bc9ee9926aea84557878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: {x: 0, y: 0}
+  offset: {x: 0, y: 0, z: 0}
+  moving: 0
+--- !u!114 &-125884278975657004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799241855719453004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867834862de2d5502bf95132d8d12703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
+--- !u!1001 &4236643626496384607
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1380497702396629754}
+    m_TransformParent: {fileID: 618751051237489254}
     m_Modifications:
-    - target: {fileID: 121424231395429906, guid: a82e76d439460b5daa2e2da6926a0691,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
         type: 3}
       propertyPath: m_Pivot.x
@@ -334,102 +252,86 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBarUI
       objectReference: {fileID: 0}
-    - target: {fileID: 7324497662315108428, guid: a82e76d439460b5daa2e2da6926a0691,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a82e76d439460b5daa2e2da6926a0691, type: 3}
---- !u!224 &5247516265740903476 stripped
+--- !u!224 &8874400183265150000 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4747822174286584431, guid: a82e76d439460b5daa2e2da6926a0691,
     type: 3}
-  m_PrefabInstance: {fileID: 662393227311136347}
+  m_PrefabInstance: {fileID: 4236643626496384607}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2415020673221584123
+--- !u!1001 &8654368248892091419
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1380497702396629754}
+    m_TransformParent: {fileID: 618751051237489254}
     m_Modifications:
-    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
+    - target: {fileID: 6595818168628973302, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
+        type: 3}
+      propertyPath: m_Name
+      value: tempSpearModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.50000006
       objectReference: {fileID: 0}
-    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.50000006
       objectReference: {fileID: 0}
-    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.49999994
       objectReference: {fileID: 0}
-    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.49999997
       objectReference: {fileID: 0}
-    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
+    - target: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4350957676948418419, guid: 2dcbede389116038e9f6f676c413d126,
-        type: 3}
-      propertyPath: m_Name
-      value: villageGreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350957676948418419, guid: 2dcbede389116038e9f6f676c413d126,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2dcbede389116038e9f6f676c413d126, type: 3}
---- !u!1 &2153376436140641160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4350957676948418419, guid: 2dcbede389116038e9f6f676c413d126,
-    type: 3}
-  m_PrefabInstance: {fileID: 2415020673221584123}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3150564452215749019 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 3e399e79bdfc85eff88c60f51abfe7f3, type: 3}
+--- !u!4 &1569551081288339710 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 737162264424095072, guid: 2dcbede389116038e9f6f676c413d126,
+  m_CorrespondingSourceObject: {fileID: 7913480358067469541, guid: 3e399e79bdfc85eff88c60f51abfe7f3,
     type: 3}
-  m_PrefabInstance: {fileID: 2415020673221584123}
+  m_PrefabInstance: {fileID: 8654368248892091419}
   m_PrefabAsset: {fileID: 0}

@@ -104,10 +104,10 @@ public class Building : MonoBehaviour
     public virtual void unitRemovedFromTheHex(){
 
     }
-    public void AddItem(GameObject item){
+    public bool AddItem(GameObject item){
         if(itemInventory.Count>=ItemInventoryLimit){
             Debug.Log("Inventory full");
-            return;
+            return false ;
         }
         if(itemInventory==null){
             itemInventory= new List<GameObject>();
@@ -117,6 +117,7 @@ public class Building : MonoBehaviour
         obj.GetComponent<Item>().building = this.GetComponent<Building>();
         obj.GetComponent<DragDrop>().enabled=true;
         itemInventory.Add(obj);
+        return true;
         
     }
     public void removeItem(GameObject item){

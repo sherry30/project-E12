@@ -60,6 +60,11 @@ public class City : Building
     [HideInInspector]
     public int districtProduction=-1;//unit being produced rn
     [HideInInspector]
+    public float productionConsumption=0;
+    [HideInInspector]
+    public float ProductionLeftAtEnd=0;
+
+    [HideInInspector]
     private Vector2 districtLocation;//where a districtwill be produced after its production
     [HideInInspector]
     public bool positionSelectingMode=false;
@@ -141,9 +146,16 @@ public class City : Building
         //checking if unit or item or District is under production
         if(unitProduction!=-1 || itemProduction!=-1 || districtProduction!=-1){
             daysTillProduced-=1;
+            cityResources[cityResource.production] -= productionConsumption;
+
+
             if(daysTillProduced==0){
+                productionConsumption = 0;
+                cityResources[cityResource.production] += ProductionLeftAtEnd;
+                ProductionLeftAtEnd = 0;
                 //if the unit is done being produced
-                if(unitProduction!=-1){
+                if (unitProduction!=-1){
+                    
                     HexOperations.Instance.spawnUnit(city,unitProduction);
 
                     //destroying the info object in the producing slot if this object is selected
@@ -171,6 +183,7 @@ public class City : Building
                 //if the District is done being produced
                 else if(districtProduction!=-1){
                     //AddItem(getPlayer().kingdom.itemPrefabs[itemProduction]);
+
                     districts.Add(getPlayer().kingdom.districts[districtProduction]);
                     HexOperations.Instance.BuildDistrict(districtLocation,districtProduction,this);
 
@@ -194,6 +207,8 @@ public class City : Building
         unitProduction = index;
         
         daysTillProduced = days;
+
+        productionConsumption = resourcesYield.cityResources[cityResource.production];
         
     }
     public void ProduceItem(int index,int days){
@@ -204,6 +219,7 @@ public class City : Building
         
     }
     public void ProduceDistrict(int index,int days, Vector2 loc){
+        productionConsumption = resourcesYield.cityResources[cityResource.production];
         districtProduction = index;
         districtLocation = loc;
         daysTillProduced = days;

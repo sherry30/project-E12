@@ -80,6 +80,7 @@ public class UnitProductionList : MonoBehaviour
         
     }
     private void Produce(int index,Unit unit,GameObject objj){
+
         //if a unit or an item is already being produced then return
         if(city!=null && city.unitProduction==-1 && city.itemProduction==-1 && city.districtProduction==-1 && !city.positionSelectingMode){
             int days=1;

@@ -117,6 +117,7 @@ public class Cost :Resources
         return cityResources[cityResource.production];
     }
 
+    //checking and spenging knowing theres no prioduction and science
     public bool checkCost(int player = -1, City city = null){
         Player tempPlayer = PlayerController.Instance.player;
         //checking if energy cost is met
@@ -314,24 +315,48 @@ public class Cost :Resources
         if(player!=-1)
             tempPlayer = AIController.Instance.AIPlayers[player];
         Dictionary<cityResource,float> cit = city.cityResources;
-        float var1 = cityResources[cityResource.production]; //cost
-        float var2 = cit[cityResource.production]  +(cit[cityResource.production]) * city.unitProductionHelp; //to spend from
+        float productionYield = city.resourcesYield.cityResources[cityResource.production];
+        float costAfterSubtractThisTurn = cityResources[cityResource.production] - city.cityResources[cityResource.production];
+
+
+        float var1 = costAfterSubtractThisTurn - cityResources[cityResource.production] * city.unitProductionHelp; //cost
+        float var2 = productionYield; //to spend from
         float days = var1/var2;
 
+        float LeftAtEnd = var1%var2;
+        city.ProductionLeftAtEnd = LeftAtEnd;
+        Debug.Log(string.Format("left At end: {0}", LeftAtEnd));
+
         Debug.Log(string.Format("cost: {0},\n To spend from {1}", var1,var2));
+
         //subtracting
-        cit[cityResource.production]-=cityResources[cityResource.production];
-        if(cit[cityResource.production]<0)
-            cit[cityResource.production]=0;
+        cit[cityResource.production] -= cityResources[cityResource.production];
+        if (cit[cityResource.production] < 0)
+            cit[cityResource.production] = 0;
 
         //int case have 0 sproduction
-        if(var2==0)
+        if (var2 == 0)
+        {
+            Debug.Log(string.Format("turns it will take {0}", (int)var1));
             return (int)var1;
+        }
         if(var1%var2!=0)
             days++;
         if(days==0)
             days=1;
-        Debug.Log(string.Format("turns it will take {0}", days));
+
+        //subtract number of days based on how much production you already have
+        /*if (cit[cityResource.production]> productionYield)
+        {
+
+            int subtractingDays = (int) (cit[cityResource.production] / productionYield);
+            Debug.Log(string.Format("subtracting days {0}", subtractingDays));
+            days -= subtractingDays;
+
+            
+
+        }*/
+        Debug.Log(string.Format("turns it will take {0}", (int)days));
         return (int)days;
         
     }

@@ -1,7 +1,10 @@
-Fire:
+Fire_Earth:
 	0 Camper
 	1 Civillian
 	2 Hunter
-	3 Gatherer
-	4 Scout
-	5 Warrior
+	3 Settler
+	4 Cragmeleon
+	5 Gatherer
+	6 Basaur
+	7 BroodMother
+	

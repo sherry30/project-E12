@@ -33,7 +33,7 @@ public class HexComponent : MonoBehaviour
     private Dictionary<Direction,Transform> mountainMidSides;
     private Dictionary<Direction,Transform> cliffSides;
     //private Transform mountainTop;
-
+    public Relic relic;
 
     void Update(){
         Vector3 y = new Vector3(0,getElevation(),0);
@@ -269,6 +269,11 @@ public class HexComponent : MonoBehaviour
     public void BuildBuilding(Building imp){
        building = imp;
         setUnitOffsets();
+    }
+
+    public void addRelic(Relic rel)
+    {
+        relic = rel;
     }
 
     //setting additional geometry for mountain

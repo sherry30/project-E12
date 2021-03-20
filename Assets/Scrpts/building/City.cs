@@ -101,9 +101,9 @@ public class City : Building
         setTeritory();
 
         //setting up available stuff in this city
-        availableImprovements =  getPlayer().availableImprovements;
-        availableDistricts = getPlayer().availableDistricts;
-        availableUnits = getPlayer().availableUnits;
+        availableImprovements = new List<improvement>(getPlayer().availableImprovements);
+        availableDistricts = new List<District.Type>(getPlayer().availableDistricts);
+        availableUnits = new List<Unit.Class>(getPlayer().availableUnits);
 
         //setting recources yield 
         resourcesYield = new Resources();
@@ -131,7 +131,7 @@ public class City : Building
         }
         //add town later as well
         thisDistrict = dis;
-        //upgradeToVillage(getPlayer());
+        upgradeToVillage(getPlayer());
     }
     public void Campers(){
         if(typeOfCity==Type.camp){
@@ -244,13 +244,14 @@ public class City : Building
         if(typeOfCity==Type.camp){
 
             //adding Farm
-            availableImprovements.Add(improvement.Farm);
+            tempPlayer.unlockImprovement(improvement.Farm);
             //adding settler
-            availableUnits.Add(Unit.Class.settler);
-
+            tempPlayer.unlockUnit(Unit.Class.settler);
+            //adding hero
+            tempPlayer.unlockUnit(Unit.Class.hero);
             //adding all districts this city is capable of producing
             for(int i=districtStartIndex;i<numOfDistricts;i++){
-                availableDistricts.Add(getPlayer().kingdom.districts[i].type);
+                tempPlayer.unlockDistrict((getPlayer().kingdom.districts[i].type));
             }
             thisDistrict.setVillage();
             typeOfCity = Type.village;

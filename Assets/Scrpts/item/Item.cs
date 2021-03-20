@@ -8,7 +8,8 @@ public class Item :MonoBehaviour
         Armour,
         Weapon,
         Tome,
-        Artifact
+        Artifact,
+        Relic
 
     }
     public string Name;

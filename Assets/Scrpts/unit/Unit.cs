@@ -43,7 +43,6 @@ public class Unit : MonoBehaviour
     }
     public string Name;
     public int attack;
-    public int defense;
     [HideInInspector]
     public int id;
     protected static int currentID=0;
@@ -185,14 +184,14 @@ public class Unit : MonoBehaviour
     //TODO: add dealing damage functionality for building(city,improvament etc) as well
     public void dealDamage(Unit enemy){
         if(enemy!=null){
-            int totalDamage = this.attack-enemy.defense;
+            int totalDamage = this.attack;
             enemy.takeDamage(totalDamage);
             Debug.Log(string.Format("Damage dealt: {0}",totalDamage));
         }
         else
             Debug.Log("This is not a Unit");
     }
-    public void takeDamage(int totalDamage){
+    public virtual void takeDamage(int totalDamage){
         if (armour != null)
         {
             float damage = totalDamage - armour.armour;
@@ -205,6 +204,12 @@ public class Unit : MonoBehaviour
         }
         else
             currentHealth-=totalDamage;
+
+        //TODO: chnage later, have to remove from lists, hex and city
+        if (currentHealth <= 0)
+        {
+            HexOperations.Instance.removeUnit(this);
+        }
         healthBar.updateUI();
     }
     public void setOffset(Vector3 off){
@@ -285,5 +290,12 @@ public class Unit : MonoBehaviour
         }
         return null;
     }
+    public Player getPlayer()
+    {
+        Player tempPlayer = PlayerController.Instance.player;
+        if (player != -1)
+            tempPlayer = AIController.Instance.AIPlayers[player];
 
+        return tempPlayer;
+    }
 }

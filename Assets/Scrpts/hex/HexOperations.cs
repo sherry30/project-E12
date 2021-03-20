@@ -66,6 +66,38 @@ public class HexOperations : MonoBehaviour
         return obj;
     }
 
+    //removing from playercontroller and hex component
+    public void removeUnit(Unit unit)
+    {
+        unit.getPlayer().RemoveUnit(unit.id);
+        hexes[(int)unit.location.x, (int)unit.location.y].removeUnit(unit.id);
+
+        //Destroying
+        Destroy(unit.gameObject);
+    }
+
+    // spawning relic when hero dies
+    public GameObject spawnRelic(Hero hero)
+    {
+        Vector2 location = hero.location;
+        Vector3 place = hexes[(int)location.x, (int)location.y].hex.positionFromCamera();
+        GameObject obj = (GameObject)Instantiate(
+            hero.relic, new Vector3(place.x, 0, place.z), Quaternion.identity, playerController);
+        
+
+        Relic relic = obj.GetComponent<Relic>();
+
+        relic.spawnRelic(hero);
+
+
+        //adding this to hexes
+        hexes[(int)location.x, (int)location.y].addRelic(relic);
+
+        return obj;
+
+
+    }
+
     //have to update city script in 2 places after instantiation
     //in PLayerController.Instance.cities
     //in hexes array in this calss

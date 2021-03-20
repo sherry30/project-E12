@@ -52,7 +52,9 @@ public class Player
 
     public void unlockUnit(Unit.Class un){
         availableUnits.Add(un);
+        //Debug.Log(string.Format("num of cities: {0}", cities.Count));
         foreach(City c in cities){
+            //Debug.Log("ran on " + c.Name);
             c.availableUnits.Add(un);
         }
     }
@@ -63,7 +65,7 @@ public class Player
             c.availableImprovements.Add(im);
         }
     }
-    public void unlockImprovement(District.Type di){
+    public void unlockDistrict(District.Type di){
         availableDistricts.Add(di);
         foreach(City c in cities){
             c.availableDistricts.Add(di);
@@ -73,12 +75,15 @@ public class Player
 
     public Era era=Era.StoneAge;
     public void BuildCity(City cit,Vector2 location){
-        cit.Build(location);
+        
         if(cities==null)
             cities = new List<City>();
         cities.Add(cit);
         onStartTurn+=cit.StartTurn;
-        
+        cit.Build(location);
+
+        //Debug.Log(string.Format("num of cities: {0}", cities.Count));
+
     }
 
     public void BuildImprovement(Improvement imp,Vector2 location){

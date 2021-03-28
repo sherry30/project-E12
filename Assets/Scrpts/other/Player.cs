@@ -25,6 +25,8 @@ public class Player
     public float populationGrowing;
     public List<City> cities;
     public List<Unit> units;
+    public List<Army> armies;
+    public List<Unit> singleUnits; //units not in armies
     public List<Improvement> improvements;
     public List<District> districts;
 
@@ -38,7 +40,10 @@ public class Player
     public event startOfTurn onStartTurn;
 
 
+    private int armyIDCounter = 0;
+
     public void setVariables(){
+        kingdom.setVariables();
         availableImprovements = kingdom.initialAvailableImprovments;
         availableUnits = kingdom.initialAvailableUnits;
         availableDistricts = kingdom.initialAvailableDistricts;
@@ -112,9 +117,49 @@ public class Player
         unit.spawnUnit(location);
         if(units==null)
             units = new List<Unit>();
+        if (singleUnits == null)
+            singleUnits = new List<Unit>();
         units.Add(unit);
+        singleUnits.Add(unit);
         onStartTurn+=unit.StartTurn;
     }
+
+    public void createArmy(List<Unit> armyUnits)
+    {
+        if (armies == null)
+            armies = new List<Army>();
+        Army army = new Army(armyIDCounter);
+        armyIDCounter++;
+        foreach (Unit u in armyUnits)
+        {
+            if (singleUnits.Contains(u))
+                singleUnits.Remove(u);
+            else
+            {
+                Debug.LogError("singleUnits does not contain unit(id): " + u.id);
+            }
+
+            army.addUnit(u);
+        }
+
+        onStartTurn += army.StartTurn;
+
+        //adding army to the hex component
+        HexMap.Instance.getHexComponent(armyUnits[0].location).addArmy(army);
+        armies.Add(army);
+    }
+
+    public void addUnitToArmy(Unit unit, Army army)
+    {
+        if (singleUnits.Contains(unit))
+            singleUnits.Remove(unit);
+        else
+            Debug.LogError("singleUnits does not contain unit(id): " + unit.id);
+
+        army.addUnit(unit);
+
+    }
+
     public void RemoveBuilding(int id){
         
         //destroying gameObject and removing from list

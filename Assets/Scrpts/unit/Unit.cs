@@ -43,7 +43,7 @@ public class Unit : MonoBehaviour
     }
     public string Name;
     public int attack;
-    [HideInInspector]
+    
     public int id;
     protected static int currentID=0;
     public string description;
@@ -77,6 +77,8 @@ public class Unit : MonoBehaviour
 
     public Armour armour;
     public City city;
+
+    public int armyID = -1;
     protected virtual void Awake(){
         currentHealth = maxHealth;
 
@@ -297,5 +299,17 @@ public class Unit : MonoBehaviour
             tempPlayer = AIController.Instance.AIPlayers[player];
 
         return tempPlayer;
+    }
+
+    public void joinArmy(int id)
+    {
+        armyID = id;
+    }
+
+    public bool isInArmy()
+    {
+        if (armyID == -1)
+            return false;
+        return true;
     }
 }

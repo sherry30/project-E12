@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
         //player = new Player();
         //Debug.Log(string.Format("productino {0}",player.Resources[Resource.production]));
         removeKingdoms();
-        player.kingdom.setVariables();
         player.setVariables();
         //GameState.onStartTurn+=StartTurn;
         if(Instance==null){

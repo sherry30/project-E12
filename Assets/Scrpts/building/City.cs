@@ -101,6 +101,7 @@ public class City : Building
         setTeritory();
 
         //setting up available stuff in this city
+
         availableImprovements = new List<improvement>(getPlayer().availableImprovements);
         availableDistricts = new List<District.Type>(getPlayer().availableDistricts);
         availableUnits = new List<Unit.Class>(getPlayer().availableUnits);

@@ -117,8 +117,6 @@ public class HexMap : MonoBehaviour
         
     }
 
-    
-
     private void PlaceCamp(){
         
         HexComponent campTile = LandTiles[UnityEngine.Random.Range(0,LandTiles.Count)];

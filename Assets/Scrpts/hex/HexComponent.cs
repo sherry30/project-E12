@@ -22,6 +22,7 @@ public class HexComponent : MonoBehaviour
     public City city;
     public TextMesh text;
     public List<Unit> units = new List<Unit>();
+    public Army army=null;
     //public List<Unit> enemies = new List<Unit>();
     private float radiusOfUnits=2.5f;
     public int production = 2;
@@ -53,6 +54,9 @@ public class HexComponent : MonoBehaviour
         updatePos = GetComponent<UpdatePosition>();
         updatePos.location = location;
 
+
+        //making army null
+        army = new Army(-1);
         //setting mountain sides additional geomtery
         //GeometryCleanup();
         /*mountainSides = new Dictionary<Direction, Transform>();
@@ -98,6 +102,25 @@ public class HexComponent : MonoBehaviour
         //letting the building obn this hex know that it got a new Unit
         if(building)
             building.unitAddedToTheHex();
+    }
+
+    public void addArmy(Army arm)
+    {
+        army = arm;
+    }
+
+    public bool hasArmy()
+    {
+        if (army.armyID == -1)
+            return false;
+        return true;
+    }
+
+    public void removeArmy()
+    {
+        if (!hasArmy())
+            Debug.LogError("This Hex does not contain an army");
+        army = new Army(-1);
     }
     public void removeUnit(int id){
         for(int i=0;i<units.Count;i++){

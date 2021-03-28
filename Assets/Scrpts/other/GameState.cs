@@ -23,7 +23,7 @@ public class GameState : MonoBehaviour
 
     public int turn=0;
     public Turn currentPlayerTurn;
-    private Turn[] turnOrder={Turn.Player,Turn.NPC};//current turn order
+    private Turn[] turnOrder={Turn.Player,Turn.AI};//current turn order
     public GameObject NextTurnButton;
     public bool moving=false;
     
@@ -122,6 +122,11 @@ public class GameState : MonoBehaviour
             PlayerController.Instance.StartTurn();
         else if(currentPlayerTurn == Turn.NPC){
             NPCController.Instance.StartTurn();
+            onEndTurn();
+        }
+        else if(currentPlayerTurn == Turn.AI)
+        {
+            AIController.Instance.StartTurn();
             onEndTurn();
         }
 

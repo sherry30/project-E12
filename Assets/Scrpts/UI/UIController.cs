@@ -7,7 +7,9 @@ public class UIController : MonoBehaviour
     public GameObject currentlyOpened = null;
     public static UIController  Instance{get;private set;}
     private HealthBar healthBar;
-    public int unitInv,buildingInv,districtInv;
+    public int unitInv,cityInv,districtInv, armyInv;
+    private bool armyOpen = false;
+    private Army armySelected;
     void Awake(){   
         if(Instance==null){
             Instance =this;
@@ -20,12 +22,12 @@ public class UIController : MonoBehaviour
     public void openBuildingHub(){
         if(currentlyOpened!=null)
             hideUI();   
-        else if(currentlyOpened==gameObject.transform.GetChild(0).transform.GetChild(buildingInv).gameObject){
+        else if(currentlyOpened==gameObject.transform.GetChild(0).transform.GetChild(cityInv).gameObject){
             hideUI();   
             displayUI();   
             return; 
         }
-        objectChanged(gameObject.transform.GetChild(0).transform.GetChild(buildingInv).gameObject);
+        objectChanged(gameObject.transform.GetChild(0).transform.GetChild(cityInv).gameObject);
         displayUI();
     }
     public void openDistrictHub(){
@@ -52,6 +54,29 @@ public class UIController : MonoBehaviour
         objectChanged(gameObject.transform.GetChild(0).transform.GetChild(unitInv).gameObject);
         displayUI();
     }
+
+    public void openArmyHub()
+    {
+
+        //hiding whatever is already open
+        if (currentlyOpened != null)
+        {
+            hideUI();
+        }
+
+        //in case of refresh
+        else if (currentlyOpened == gameObject.transform.GetChild(0).transform.GetChild(armyInv).gameObject)
+        {
+            hideUI();
+            displayUI();
+            return;
+        }
+        objectChanged(gameObject.transform.GetChild(0).transform.GetChild(armyInv).gameObject);
+        displayArmyUI();
+        armyOpen = true;
+    }
+
+
     public void CloseHub(){
         if(currentlyOpened!=null)
             hideUI();
@@ -61,6 +86,19 @@ public class UIController : MonoBehaviour
         //healthBar = current.GetComponent<HealthBar>();
         healthBar.displayHealth();
     }
+    private void displayArmyUI()
+    {
+        currentlyOpened.SetActive(true);
+        healthBar.displayHealth();
+
+        //displaying all healthbar in the army
+        Army a = GameState.Instance.selectedObject.GetComponent<Unit>().getArmy();
+        armySelected = a;
+        foreach(Unit u in a.units)
+        {
+            u.gameObject.GetComponent<HealthBar>().displayHealth();
+        }
+    }
     private void hideUI(){
         if(currentlyOpened==null)
             return;
@@ -68,7 +106,22 @@ public class UIController : MonoBehaviour
         currentlyOpened=null;
         //healthBar = current.GetComponent<HealthBar>();
         if(healthBar!=null){
-            healthBar.hideHealth();
+            
+
+            if (armyOpen)
+            {
+                armyOpen = false;
+                foreach(Unit u in armySelected.units) {
+                    u.gameObject.GetComponent<HealthBar>().hideHealth();
+                }
+                armySelected = null; 
+            }
+
+            else
+            {
+                healthBar.hideHealth();
+                
+            }
             healthBar = null;
         }
     }
@@ -76,10 +129,11 @@ public class UIController : MonoBehaviour
         currentlyOpened = curr;
         healthBar = GameState.Instance.selectedObject.GetComponent<HealthBar>();
     }
+
+    
     
     public void deSelectObject(){
         hideUI();
-        healthBar = null;
     }
 
 }

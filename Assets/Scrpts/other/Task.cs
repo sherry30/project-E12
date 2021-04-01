@@ -24,19 +24,29 @@ public class Task
 	/// Delegate for termination subscribers.  manual is true if and only if
 	/// the coroutine was stopped with an explicit call to Stop().
 	public delegate void FinishedHandler(bool manual);
-	
+
+	//custom ender
+	public delegate void FinishedHandlerInt(bool manual, int index);
+
+	public event FinishedHandlerInt FinishedInt;
+
 	/// Termination event.  Triggered when the coroutine completes execution.
 	public event FinishedHandler Finished;
+
+	
 
 	/// Creates a new Task object for the given coroutine.
 	///
 	/// If autoStart is true (default) the task is automatically started
 	/// upon construction.
-	public Task(IEnumerator c, bool autoStart = true)
+	public Task(IEnumerator c, bool autoStart = true, bool CustomInt=false)
 	{
 		task = TaskManager.CreateTask(c);
-		task.Finished += TaskFinished;
-		if(autoStart)
+		if (CustomInt == false)
+			task.Finished += TaskFinished;
+		else
+			task.FinishedInt += TaskFinishedInt;
+		if (autoStart)
 			Start();
 	}
 	
@@ -68,7 +78,14 @@ public class Task
 		if(handler != null)
 			handler(manual);
 	}
-	
+	void TaskFinishedInt(bool manual, int index)
+	{
+		FinishedHandlerInt handler = FinishedInt;
+		if (handler != null)
+			handler(manual,index);
+	}
+
+
 	TaskManager.TaskState task;
 }
 
@@ -90,6 +107,10 @@ class TaskManager : MonoBehaviour
 
 		public delegate void FinishedHandler(bool manual);
 		public event FinishedHandler Finished;
+
+		public delegate void FinishedHandlerInt(bool manual, int index);
+
+		public event FinishedHandlerInt FinishedInt;
 
 		IEnumerator coroutine;
 		bool running;

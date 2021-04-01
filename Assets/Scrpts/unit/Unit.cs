@@ -312,4 +312,14 @@ public class Unit : MonoBehaviour
             return false;
         return true;
     }
+
+    public Army getArmy()
+    {
+        foreach(Army a in getPlayer().armies)
+        {
+            if (a.armyID == armyID)
+                return a;
+        }
+        return null;
+    }
 }

@@ -93,13 +93,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Settler
   attack: 10
-  defense: 5
+  stats:
+    atk: 10
+    def: 5
+    agi: 1
+    spe: 0
+    res: 0
   id: 0
   description: 
   maxHealth: 100
   currentHealth: 0
   typeOfUnit: 0
   classOfUnit: 8
+  subClassOfUnit: 0
   cost:
     resources:
       m_keys: 
@@ -134,7 +140,9 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   icon: {fileID: -300791231007646692, guid: 6cf4afaff9702b99d84cd927bedc9f09, type: 3}
   source: F3
+  armour: {fileID: 0}
   city: {fileID: 0}
+  armyID: -1
 --- !u!1001 &3241260601171259418
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -93,12 +93,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Brood Mother
   attack: 50
+  stats:
+    atk: 50
+    def: 20
+    agi: 5
+    spe: 0
+    res: 20
   id: 0
   description: bleh
   maxHealth: 250
   currentHealth: 0
   typeOfUnit: 0
   classOfUnit: 1
+  subClassOfUnit: 0
   cost:
     resources:
       m_keys: 
@@ -137,6 +144,7 @@ MonoBehaviour:
   source: 
   armour: {fileID: 0}
   city: {fileID: 0}
+  armyID: -1
   relic: {fileID: 2594391729097533843, guid: 0882d1b3794af7543b50294a442989c2, type: 3}
 --- !u!1001 &4236643626496384607
 PrefabInstance:

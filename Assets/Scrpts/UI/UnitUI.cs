@@ -13,28 +13,13 @@ public class UnitUI : MonoBehaviour
 
         Unit unit = currentlySelected.GetComponent<Unit>();
 
-        if (unit.isInArmy())
-        {
-            Debug.Log("This unit is already in army");
-            return;
-        }
-
-        //gettin ghex comp
         HexComponent hexComp = HexMap.Instance.getHexComponent(unit.location);
-
-        if (hexComp.units.Count <= 1)
-        {
-            Debug.Log("this unit is alone in this hex");
-            return;
-        }
 
         if (hexComp.hasArmy())
         {
             joinArmyPanel.SetActive(true);
             return;
         }
-
-        
         //creating army in the player object
         PlayerController.Instance.player.createArmy(hexComp.units);
 

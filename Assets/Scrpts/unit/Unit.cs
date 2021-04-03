@@ -29,12 +29,22 @@ public class Unit : MonoBehaviour
         knight,
         cavalry,
         tank,
+        siege,
         support,
         trader, 
         range,
+        mage,
         shadow,
         animal
 
+    }
+
+    public enum subClass
+    {
+        None,
+        range_mage,
+        range_crossbowman,
+        range_longbowman,
     }
     public enum Type{
         Land,
@@ -42,8 +52,7 @@ public class Unit : MonoBehaviour
 
     }
     public string Name;
-    public int attack;
-    
+    public Stat stats;
     public int id;
     protected static int currentID=0;
     public string description;
@@ -52,6 +61,7 @@ public class Unit : MonoBehaviour
     //public int damage=100;
     public Type typeOfUnit;
     public Class classOfUnit;
+    public subClass subClassOfUnit;
     protected Energy kingdom;
     [SerializeField]
     public Cost cost;
@@ -77,6 +87,8 @@ public class Unit : MonoBehaviour
 
     public Armour armour;
     public City city;
+
+    private PathFinding pathFinder = new PathFinding();
 
     public int armyID = -1;
     protected virtual void Awake(){
@@ -173,6 +185,124 @@ public class Unit : MonoBehaviour
 
     }
 
+    //can add moving restriction here
+    public IEnumerator startUnitMove(GameObject newSelectedObject, bool fast = false)
+    {
+        
+
+        
+
+        bool attacking = false;
+        Unit enemy = null;
+        bool doneMoving = false ;
+        HexComponent source = HexMap.Instance.getHexComponent(location);
+        HexComponent dest  = newSelectedObject.GetComponent<HexComponent>(); 
+
+        /*if (newSelectedObject.tag == "Hex")
+            dest = newSelectedObject.GetComponent<HexComponent>();
+        else if (newSelectedObject.tag == "enemy")
+        {   //if selected is enemy
+            //Debug.Log("ran");
+            dest = HexMap.Instance.getHexComponent(newSelectedObject.GetComponent<Unit>().location);
+            //Debug.Log(string.Format("location: {0}",dest.location));
+        }*/
+
+        //restrictions
+        //if unit is exhausted
+
+        if (exhausted)
+        {
+            Debug.Log("This Unit is exhausted");
+            yield break;
+        }
+
+
+        //if unit is paralysed
+
+        if (paralysed)
+        {
+            Debug.Log("This unit is paralysed, reason: " + reasonForParalyzed);
+            yield break;
+        }
+
+        //if dest contains an army
+        if (dest.hasArmy())
+        {
+            if (dest.army.isCapacityFull())
+            {
+                if(classOfUnit != Unit.Class.civilian) { 
+                    Debug.Log("This hex has an army with full capacity");
+                    yield break;
+                }
+            }
+        }
+
+        //add more in case of playerclicks on cities and buildings and stuff
+        List<HexComponent> travelPath = new List<HexComponent>();
+        travelPath = pathFinder.shortesPath(source, dest);
+
+
+        //if it contains enemies
+        if(dest.containEnemies(player)){
+             Debug.Log("This Hex contans enemies");
+             enemy = dest.getEnemy(0, player);
+             travelPath.RemoveAt(travelPath.Count-1);
+            if (travelPath != null && travelPath.Count > 0)
+            {
+                dest = travelPath[travelPath.Count - 1];
+                attacking = true;
+            }
+
+            ///in case its right next to the player
+            else
+            {
+                InitiateFight(enemy);
+                travelPath.Clear();
+                moving = false;
+                yield break;
+            }
+            
+         }
+        //if nuit is too far
+        if (travelPath.Count > movement)
+        {
+            Debug.Log("Too far");
+            int tempINT = travelPath.Count;
+            for (int i = movement; i < tempINT; i++)
+            {
+                travelPath.RemoveAt(movement);
+            }
+        }
+
+
+        //if no animation
+        if (fast)
+        {
+            moveUnitFast(travelPath);
+            yield break;
+        }
+
+        //moving the unit
+        Task t = new Task(moveUnit(travelPath));
+        t.Finished += delegate (bool manual)
+        {
+            if (attacking)
+                InitiateFight(enemy);
+
+            travelPath.Clear();
+            moving = false;
+            doneMoving = true;
+            
+            
+        };
+
+        while (!doneMoving)
+        {
+
+            yield return null;
+        }
+        
+    }
 
     //call this function whenever changing any of these 3 variables in this cript
     private void setUpdatePosition(){
@@ -183,20 +313,30 @@ public class Unit : MonoBehaviour
     public virtual void StartTurn(){
         exhausted = false;
     }
-    //TODO: add dealing damage functionality for building(city,improvament etc) as well
-    public void dealDamage(Unit enemy){
-        if(enemy!=null){
-            int totalDamage = this.attack;
-            enemy.takeDamage(totalDamage);
-            Debug.Log(string.Format("Damage dealt: {0}",totalDamage));
+
+    public void InitiateFight(Unit enemy)
+    {
+
+        if (enemy == null){
+            Debug.Log("Enemy is null");
+            return;
+
         }
-        else
-            Debug.Log("This is not a Unit");
+        CombatManager.Instance.InitiateFight(this, enemy);
+    }
+    //TODO: add dealing damage functionality for building(city,improvament etc) as well
+
+    //for additional effects that increase atk power
+    public int getTotalDamage(Unit enemy)
+    {
+        int totalDamage = stats.atk;
+
+        return totalDamage;
     }
     public virtual void takeDamage(int totalDamage){
         if (armour != null)
         {
-            float damage = totalDamage - armour.armour;
+            float damage = totalDamage - (stats.def +armour.armour);
             armour.armour -= totalDamage;
             if (armour.armour < 0)
             {
@@ -205,7 +345,7 @@ public class Unit : MonoBehaviour
             }
         }
         else
-            currentHealth-=totalDamage;
+            currentHealth-=totalDamage -  stats.def;
 
         //TODO: chnage later, have to remove from lists, hex and city
         if (currentHealth <= 0)

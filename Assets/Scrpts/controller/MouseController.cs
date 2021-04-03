@@ -106,7 +106,7 @@ public class MouseController : MonoBehaviour
                 //check if the unit previously selected should move or not
                 if (selectedObject != null && selectedObject.tag == "Unit" && (newSelectedObject.tag == "enemy" || newSelectedObject.tag == "Hex")) {
                     unit = selectedObject.GetComponent<Unit>();
-                    if (!unit.exhausted && !unit.paralysed && !positionSelectingMode)
+                    if (!positionSelectingMode)
                         moveUnit = true;
                 }
 
@@ -114,7 +114,7 @@ public class MouseController : MonoBehaviour
                 if (selectedObject != null && selectedObject.tag == "Army" && (newSelectedObject.tag == "enemy" || newSelectedObject.tag == "Hex"))
                 {
                     army = selectedObject.GetComponent<Unit>().getArmy();
-                    if (!army.exhausted && !positionSelectingMode)
+                    if (!positionSelectingMode)
                         moveArmy = true;
                 }
 
@@ -157,7 +157,28 @@ public class MouseController : MonoBehaviour
 
                 //testing A* pathfinde
                 if ((newSelectedObject.tag != "Unit") && (moveUnit||moveArmy)){
-                    moving=true;
+                    moving = true;
+                    if (moveUnit)
+                    {
+                        Task t = new Task(unit.startUnitMove(newSelectedObject));
+                        t.Finished += delegate (bool manual)
+                        {
+                            moving = false;
+
+                        };
+                        return;
+                    }
+                    else if (moveArmy)
+                    {
+                        Task t = new Task(army.startArmyMove(newSelectedObject));
+                        t.Finished += delegate (bool manual)
+                        {
+                            moving = false;
+
+                        };
+                        return;
+                    }
+                    /*moving=true;
                     HexComponent source= null;
                     if(moveUnit)
                         source = HexMap.Instance.getHexComponent(unit.location);
@@ -177,7 +198,7 @@ public class MouseController : MonoBehaviour
                     //add more in case of playerclicks on cities and buildings and stuff
                     
                     
-                    travelPath = pathFinder.shortesPath(source,dest);
+                   travelPath = pathFinder.shortesPath(source,dest);*/
 
                     //if it contains enemies
                     /* if(dest.containEnemies()){
@@ -198,7 +219,7 @@ public class MouseController : MonoBehaviour
                      }*/
 
                     //in case the dest is out of range
-                    if (moveUnit)
+                    /*if (moveUnit)
                     {
                         if (travelPath.Count > unit.movement)
                         {
@@ -209,8 +230,8 @@ public class MouseController : MonoBehaviour
                                 travelPath.RemoveAt(unit.movement);
                             }
                         }
-                    }
-                    else if (moveArmy)
+                    }*/
+                    /*if (moveArmy)
                     {
                         if (travelPath.Count > army.movement)
                         {
@@ -221,10 +242,10 @@ public class MouseController : MonoBehaviour
                                 travelPath.RemoveAt(army.movement);
                             }
                         }
-                    }
+                    }*/
 
                     //moving the unit
-                    if (moveUnit)
+                    /*if (moveUnit)
                     {
                         Task t = new Task(unit.moveUnit(travelPath));
                         t.Finished += delegate (bool manual)
@@ -235,9 +256,9 @@ public class MouseController : MonoBehaviour
                             travelPath.Clear();
                             moving = false;
                         };
-                    }
+                    }*/
                     //moving arm,y
-                    else if (moveArmy)
+                    /*if (moveArmy)
                     {
                         Task t = new Task(army.moveArmy(travelPath));
                         t.Finished += delegate (bool manual)
@@ -248,8 +269,8 @@ public class MouseController : MonoBehaviour
                             travelPath.Clear();
                             moving = false;
                         };
-                    }
-                    
+                    }*/
+
                 }
                 
             }

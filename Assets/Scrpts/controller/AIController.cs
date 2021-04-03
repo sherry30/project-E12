@@ -140,8 +140,14 @@ public class AIController : MonoBehaviour
                 }
 
 
-                travelPath = pathFinder.shortesPath(HexMap.Instance.getHexComponent(u.location), dest);
-                u.moveUnitFast(travelPath);
+                //travelPath = pathFinder.shortesPath(HexMap.Instance.getHexComponent(u.location), dest);
+                //u.moveUnitFast(dest.gameObject);
+                Task t = new Task(u.startUnitMove(dest.gameObject, true));
+                t.Finished += delegate (bool manual)
+                {
+                    //moving = false;
+
+                };
 
             }
         }

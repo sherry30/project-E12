@@ -17,7 +17,7 @@ public class DisplayItems : MonoBehaviour
             if(city==null)
                 return;
             for(int i=0;i<city.itemInventory.Count;i++){
-
+                Debug.Log("Displayting Item");
                 GameObject obj = (GameObject) Instantiate(itemSlot);
                 obj.transform.SetParent(this.transform, false);
                 obj.transform.localScale = new Vector3(1, 1, 1);

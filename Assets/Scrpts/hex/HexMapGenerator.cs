@@ -306,7 +306,7 @@ public class HexMapGenerator : MonoBehaviour
         HexComponent startingPoint = hexes[(mapWidth-1)/2,0];
         HexComponent startingPoint2 = hexes[(mapWidth-1),mapHeight-1];
         //startingPoint.setBiomAndTerrain(biome.polar, terrain.polar_snow);
-        Debug.Log(string.Format("loc: {0}",startingPoint.location));
+        //Debug.Log(string.Format("loc: {0}",startingPoint.location));
         for(int i=0;i<mapWidth;i+=strength){
             HexComponent[] neighbours = HexOperations.Instance.getNeighbors(hexes[i,0].location,strength);
             foreach(HexComponent n in neighbours){

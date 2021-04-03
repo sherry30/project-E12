@@ -79,13 +79,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Civilian
   attack: 5
-  defense: 0
+  stats:
+    atk: 5
+    def: 5
+    agi: 1
+    spe: 0
+    res: 0
   id: 0
   description: Civiviv
   maxHealth: 100
   currentHealth: 0
   typeOfUnit: 0
   classOfUnit: 3
+  subClassOfUnit: 0
   cost:
     resources:
       m_keys: 
@@ -120,7 +126,9 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   icon: {fileID: -300791231007646692, guid: 6cf4afaff9702b99d84cd927bedc9f09, type: 3}
   source: 
+  armour: {fileID: 0}
   city: {fileID: 0}
+  armyID: -1
   inProduction: {fileID: 0}
   improvementIndex: -1
   building: 0

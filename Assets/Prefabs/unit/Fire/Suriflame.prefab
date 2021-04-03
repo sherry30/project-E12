@@ -50,13 +50,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Suriflame
   attack: 15
-  defense: 10
+  stats:
+    atk: 10
+    def: 5
+    agi: 2
+    spe: 0
+    res: 0
   id: 0
   description: ranger
   maxHealth: 100
   currentHealth: 0
   typeOfUnit: 0
-  classOfUnit: 14
+  classOfUnit: 15
+  subClassOfUnit: 0
   cost:
     resources:
       m_keys: 
@@ -91,7 +97,9 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   icon: {fileID: -300791231007646692, guid: 6cf4afaff9702b99d84cd927bedc9f09, type: 3}
   source: 
+  armour: {fileID: 0}
   city: {fileID: 0}
+  armyID: -1
 --- !u!114 &6124383985050148330
 MonoBehaviour:
   m_ObjectHideFlags: 0

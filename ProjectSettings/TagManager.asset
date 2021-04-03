@@ -9,6 +9,9 @@ TagManager:
   - Hex
   - enemy
   - enemyCity
+  - Building
+  - District
+  - Army
   layers:
   - Default
   - TransparentFX

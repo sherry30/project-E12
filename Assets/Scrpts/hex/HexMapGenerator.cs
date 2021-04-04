@@ -119,6 +119,7 @@ public class HexMapGenerator : MonoBehaviour
             for(int j=0;j<chunkSize;j++){
                 currentHex = nextHex;
                 HexComponent[] neighbours = HexOperations.Instance.getNeighbors(currentHex,chunkiness);
+
                 List<Vector2> unVisited = new List<Vector2>();
                 visited.Add(currentHex);
                 foreach(HexComponent n in neighbours){

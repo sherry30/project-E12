@@ -103,8 +103,8 @@ public class HexMap : MonoBehaviour
                 hexGoComp.setBiomAndTerrain(biome.water,terrain.water_deep_ocean);
 
                 //changing text on the hex to coordinates
-                //hexGoComp.text = hexGoComp.GetComponentInChildren<TextMesh>();
-                //hexGoComp.text.text = string.Format("{0},{1}",x,y);
+                hexGoComp.text = hexGoComp.GetComponentInChildren<TextMesh>();
+                hexGoComp.text.text = string.Format("{0},{1}",x,y);
 
                 //filling hexes array in this class
                 hexes[x,y] = hexGoComp;

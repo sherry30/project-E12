@@ -139,9 +139,15 @@ public class AIController : MonoBehaviour
                     dest = temp[Random.Range(0, temp.Length - 1)];
                 }
 
+                //debugging
+                Debug.Log(u.Name + " moving to: "+ dest.location);
+                Debug.Log("Neighbors");
+                temp = HexOperations.Instance.getNeighbors(u.location, u.movement);
+                foreach(HexComponent h in temp)
+                {
+                    Debug.Log(h.location);
+                }
 
-                //travelPath = pathFinder.shortesPath(HexMap.Instance.getHexComponent(u.location), dest);
-                //u.moveUnitFast(dest.gameObject);
                 Task t = new Task(u.startUnitMove(dest.gameObject, true));
                 t.Finished += delegate (bool manual)
                 {

@@ -244,49 +244,119 @@ public class HexOperations : MonoBehaviour
         }
     }*/
     //for getting all in range ofvariable distance
-    public HexComponent[] getNeighbors(Vector2 location, int distance){
-        HexComponent hex = hexes[(int)location.x,(int)location.y];
+    /*public HexComponent[] getNeighbors(Vector2 location, int distance)
+    {
+        HexComponent hex = hexes[(int)location.x, (int)location.y];
         int q = hex.hex.Q;
-        int r =hex.hex.R;
+        int r = hex.hex.R;
         int size = 0;
-        for(int i=1;i<=distance;i++){
-            size+=i*6;
+        for (int i = 1; i <= distance; i++)
+        {
+            size += i * 6;
         }
         size++;
         HexComponent[] temp = new HexComponent[size];
-        int x,z;
-        int t=0;
-        for(int i =0-distance;i<mapWidth+distance;i++){
-            x = q-i;
-            if(x>=-distance &&x<=distance){
-                for(int j=0-distance;j<mapHeight+distance;j++){
-                    z = r-j;
-                    if((-x-z)>=Mathf.Max(-distance,-x-distance) 
-                    && (-x-z)<=Mathf.Min(distance,-x+distance)){
-                        int y=-(x+z);
-                        if(x+y+z==0){
-                            if(q>mapWidth ||q<0 || r>mapHeight || r<0){
+        int x, z;
+        int t = 0;
+        for (int i = 0 - distance; i < mapWidth + distance; i++)
+        {
+            x = q - i;
+            if (x >= -distance && x <= distance)
+            {
+                for (int j = 0 - distance; j < mapHeight + distance; j++)
+                {
+                    z = r - j;
+                    if ((-x - z) >= Mathf.Max(-distance, -x - distance)
+                    && (-x - z) <= Mathf.Min(distance, -x + distance))
+                    {
+                        int y = -(x + z);
+                        if (x + y + z == 0)
+                        {
+                            if (q > mapWidth || q < 0 || r > mapHeight || r < 0)
+                            {
                                 Debug.LogError("GteNeighbor function, out ofbound");
                                 return temp;
                             }
 
-                            temp[t] = hexes[mod(q+x,mapWidth),modY(r+z,mapHeight)];
+                            temp[t] = hexes[mod(q + x, mapWidth), modY(r + z, mapHeight)];
                             t++;
-                            if(t>=size){
+                            if (t >= size)
+                            {
                                 return temp;
-                                
+
                             }
-                            
+
                         }
 
                     }
-                    
+
                 }
             }
         }
         return temp;
+    }*/
+
+    public HexComponent[] getNeighbors(Vector2 location, int distance)
+    {
+        HexComponent hex = hexes[(int)location.x, (int)location.y];
+        int q = hex.hex.Q;
+        int r = hex.hex.R;
+        int size = 0;
+        for (int i = 1; i <= distance; i++)
+        {
+            size += i * 6;
+        }
+        size++;
+        HexComponent[] temp = new HexComponent[size];
+        int x = q, z = r;
+        int y = z - x;
+        int t = 0;
+        int Z = 0;
+        List<int> xRange = new List<int>();
+        for (int i = -distance; i <= distance; i++)
+        {
+            xRange.Add(i);
+        }
+
+        foreach (int X in xRange)
+        {
+
+            //setting yRange
+            List<int> yRange = new List<int>();
+            int startingYRange = 0;
+            int endingYRange = 0;
+
+            //startingYRange and ending range
+            if (-X - distance >= -distance)
+                startingYRange = -X - distance;
+            else
+                startingYRange = -distance;
+
+            if (distance >= -X + distance)
+                endingYRange = -X + distance;
+            else
+                endingYRange = distance;
+
+            for (int i = startingYRange; i <= endingYRange; i++)
+            {
+                yRange.Add(i);
+            }
+
+            //2nd foreach loop
+            foreach(int Y in yRange)
+            {
+                
+                Z = -X - Y;
+
+                temp[t] = hexes[mod(X+x, mapWidth), modY(z+Z, mapHeight)];
+                t++;
+            }
+
+
+        }
+        return temp;
     }
-    
+
     private int mod(int x, int m) {
         int r = x%m;
         return r<0 ? r+m : r;

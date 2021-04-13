@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using UnityEngine.UI;
 
 public enum Raw_Material{
@@ -357,7 +358,7 @@ public class Cost :Resources
 
         }*/
         Debug.Log(string.Format("turns it will take {0}", (int)days));
-        return (int)days;
+        return (int)Math.Ceiling(days);
         
     }
     public int spendScience(int player =-1){

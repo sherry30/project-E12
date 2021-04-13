@@ -227,6 +227,9 @@ public class Player
     public void StartTurn(){
         getYield();
         onStartTurn();
+
+        //refreshing UI after setting all the new variabkles
+        UIController.Instance.refreshUI();
         //populationGrowth();
         
     }

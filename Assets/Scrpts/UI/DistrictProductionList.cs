@@ -86,8 +86,9 @@ public class DistrictProductionList : MonoBehaviour
             
             //selectwhere it will be built first
             StartCoroutine(positionCheckSeq(index, dis,objj));
-            
-            
+
+            //refreshin UI
+            UIController.Instance.refreshUI();
         }
 
     }
@@ -140,6 +141,9 @@ public class DistrictProductionList : MonoBehaviour
         obj.transform.SetParent(current, false);
         obj.transform.localScale = new Vector3(1, 1, 1);
         Transform unitDesc = obj.transform.GetChild(0).GetChild(1);
+
+        //refreshin UI
+        UIController.Instance.refreshUI();
 
     }
     private Player getPlayer(int player = -1){

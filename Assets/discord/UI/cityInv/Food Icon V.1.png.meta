@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 938c551b5c0ca9e4787a9496e888f857
+guid: 676471b616f620741b0f1a78b3d7f7fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 782924729949343252
-    second: Growth Indicator_0
+      213: 3232656736365086472
+    second: Food Icon V.1_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -50,7 +50,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 10, y: 1, z: 11, w: 1}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -94,22 +94,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Growth Indicator_0
+      name: Food Icon V.1_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 67
-        height: 26
+        x: 53
+        y: 50
+        width: 395
+        height: 396
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 7, y: 1, z: 7, w: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41ecf7ec4e18dda00800000000000000
-      internalID: 782924729949343252
+      spriteID: 80780d3ac24bcdc20800000000000000
+      internalID: 3232656736365086472
       vertices: []
       indices: 
       edges: []
@@ -117,7 +117,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 50198d375d4638846abc3e0d0dffea50
     internalID: 0
     vertices: []
     indices: 

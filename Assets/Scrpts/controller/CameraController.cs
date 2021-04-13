@@ -17,11 +17,16 @@ public class CameraController : MonoBehaviour
     public delegate void cameraMoveDelegate();
     public static cameraMoveDelegate onCameraMove;
 
+    public bool noCameraMove = false;
+
     // Update is called once per frame
     void Update()
     {
 
-        
+        if (noCameraMove)
+        {
+            return;
+        }
         //move camera with mouse
         Vector3 pos= transform.position;
         bool changed = false;
@@ -52,6 +57,8 @@ public class CameraController : MonoBehaviour
             pos.y -= scroll* 100f * scrollSpeed *Time.deltaTime;
         }
 
+        //return if mvong camera is turned off for testing
+        
 
         //updating everything
         if(adjusted){
@@ -61,5 +68,10 @@ public class CameraController : MonoBehaviour
         }
 
 
+    }
+
+    public void StopCameraMove()
+    {
+        noCameraMove = !noCameraMove;
     }
 }

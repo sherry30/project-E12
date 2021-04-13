@@ -102,6 +102,9 @@ public class UnitProductionList : MonoBehaviour
             GameObject obj = (GameObject) Instantiate(objj);
             obj.transform.SetParent(current,false);
             obj.transform.localScale = new Vector3(1, 1, 1);
+
+            //refreshinUI
+            UIController.Instance.refreshUI();
             //Transform unitDesc = obj.transform.GetChild(0).GetChild(1);
 
             //changing text on the UI

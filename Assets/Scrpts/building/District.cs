@@ -59,7 +59,11 @@ public class District : Building
         resourcesYield.OtherResources = new DictionaryOtherResFloat();
         resourcesYield.OtherResources.Add(OtherResource.alchemy,0.5f);*/
 
-        //maxPopulation = 7;
+        city.maxPopulation = 7;
+        city.typeOfCity = City.Type.camp;
+        city.boarderLength = 1;
+        city.setTeritory();
+
 
         //type
         type = Type.camp;
@@ -79,9 +83,15 @@ public class District : Building
         resourcesYield.OtherResources = new DictionaryOtherResFloat();
         resourcesYield.OtherResources.Add(OtherResource.approval,2);
         resourcesYield.OtherResources.Add(OtherResource.alchemy,1);*/
+        //setting city variable
+        city.maxPopulation = 10;
+        city.typeOfCity = City.Type.village;
+        city.boarderLength = 2;
+        //setting territory
+        city.setTeritory();
 
-        //maxPopulation = 10;
 
+        //setting district variables
         type = Type.chiefs_hut;
         resourcesYield = villageResources;
         setYield();

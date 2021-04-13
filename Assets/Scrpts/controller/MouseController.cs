@@ -13,6 +13,10 @@ public class MouseController : MonoBehaviour
     private PathFinding pathFinder; //testing A* pathfinding
     private Unit unit;//testing A*pathfinding
     private Army army;
+    private Color startColor;
+    private GameObject previousHoveringObject;
+
+    public Color highlightColor = Color.yellow;
     
 
 
@@ -63,12 +67,59 @@ public class MouseController : MonoBehaviour
         
         //finding which object mouse is hovering on
         if(Physics.Raycast(Camera.main.transform.position,hitPos,out theObject,Mathf.Infinity)){
-                mouseOverObject = theObject.transform.gameObject;
-                GameState.Instance.mouseOverObject=mouseOverObject.transform.parent.gameObject;
+             mouseOverObject = theObject.transform.gameObject;
+            //checking if hovering object has been changed o not
+            
+            GameState.Instance.mouseOverObject=mouseOverObject.transform.parent.gameObject;
         }
-        
+
+        //Highlighting the Object mouse is hovering on
+       /* if (mouseOverObject != null)
+        {
+            if (mouseOverObject != previousHoveringObject)
+            {
+                startColor = mouseOverObject.GetComponent<Renderer>().material.color;
+                mouseOverObject.GetComponent<Renderer>().material.color = Color.yellow;
+            }
+            previousHoveringObject = mouseOverObject;
+            Debug.Log("Start color: "+startColor.ToString());
+            Debug.Log("Changing to: " + Color.yellow.ToString());
+        }*/
+
+
+        if (previousHoveringObject != null)
+        {
+            if (mouseOverObject == null)
+            {
+                previousHoveringObject.GetComponent<Renderer>().material.color = startColor;
+                startColor = mouseOverObject.GetComponent<Renderer>().material.color;
+            }
+            else
+            {
+                if (mouseOverObject != previousHoveringObject)
+                {
+                    previousHoveringObject.GetComponent<Renderer>().material.color = startColor;
+                    startColor = mouseOverObject.GetComponent<Renderer>().material.color;
+                    mouseOverObject.GetComponent<Renderer>().material.color = highlightColor;
+                }
+
+            }
+
+
+        }
+        else
+        {
+            if (mouseOverObject != null)
+            {
+                startColor = mouseOverObject.GetComponent<Renderer>().material.color;
+                mouseOverObject.GetComponent<Renderer>().material.color = highlightColor;
+            }
+        }
+
+        previousHoveringObject = mouseOverObject;
+
         //deslecitng and closing hub if right mouse button is pressed
-        if(Input.GetMouseButtonDown(1) && GameState.Instance.checkPlayerTurn()){
+        if (Input.GetMouseButtonDown(1) && GameState.Instance.checkPlayerTurn()){
             GameState.Instance.deSelectObject();
         }
 
@@ -139,7 +190,7 @@ public class MouseController : MonoBehaviour
                         UIController.Instance.openUnitHub();
                     }
                     else if (obj.CompareTag("City")) {
-                        UIController.Instance.openBuildingHub();
+                        UIController.Instance.openCityHub();
                     }
                     else if (obj.CompareTag("District")) {
                         UIController.Instance.openDistrictHub();

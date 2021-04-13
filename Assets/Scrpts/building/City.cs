@@ -44,7 +44,7 @@ public class City : Building
     public bool capital=false;
     public int approvalThreshold;
     public int population;
-    public int maxPopulation=4;
+    public int maxPopulation=7;
     
     public Type typeOfCity;
     //the things it can produce, their indexes in kingdom
@@ -97,8 +97,7 @@ public class City : Building
 
         populationGrowthHelp=0f;
         unitProductionHelp = 0f;
-        
-        setTeritory();
+       
 
         //setting up available stuff in this city
 
@@ -132,7 +131,7 @@ public class City : Building
         }
         //add town later as well
         thisDistrict = dis;
-        upgradeToVillage(getPlayer());
+        //upgradeToVillage(getPlayer());
     }
     public void Campers(){
         if(typeOfCity==Type.camp){
@@ -164,7 +163,7 @@ public class City : Building
                     unitProduction=-1;
                     daysTillProduced = -1;
                     if(GameState.Instance.selectedObject==this.gameObject){
-                        UIController.Instance.openBuildingHub();
+                        UIController.Instance.openCityHub();
                     }
                 }
 
@@ -177,7 +176,7 @@ public class City : Building
                     itemProduction=-1;
                     daysTillProduced = -1;
                     if(GameState.Instance.selectedObject==this.gameObject){
-                        UIController.Instance.openBuildingHub();
+                        UIController.Instance.openCityHub();
                     }
                 }
 
@@ -194,7 +193,7 @@ public class City : Building
                     daysTillProduced = -1;
                     districtLocation=Vector2.zero;
                     if(GameState.Instance.selectedObject==this.gameObject){
-                        UIController.Instance.openBuildingHub();
+                        UIController.Instance.openCityHub();
                     }
                 }
             }
@@ -243,6 +242,7 @@ public class City : Building
     
     public void upgradeToVillage(Player tempPlayer){
         if(typeOfCity==Type.camp){
+            //unlocking stuff
 
             //adding Farm
             tempPlayer.unlockImprovement(improvement.Farm);
@@ -255,15 +255,15 @@ public class City : Building
                 tempPlayer.unlockDistrict((getPlayer().kingdom.districts[i].type));
             }
             thisDistrict.setVillage();
-            typeOfCity = Type.village;
-            boarderLength=2;
-            maxPopulation=10;
-            setTeritory();
+
+            UIController.Instance.refreshUI();
+            
+            
 
         }
     }
     
-    private void setTeritory(){        
+    public void setTeritory(){        
         teritory = HexOperations.Instance.getNeighbors(location,boarderLength).ToList();
     }
     //to add all the yield at the strat of the turn

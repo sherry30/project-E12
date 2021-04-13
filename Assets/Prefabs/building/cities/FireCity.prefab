@@ -71,6 +71,9 @@ MonoBehaviour:
     Crystals:
       m_keys: 
       m_values: []
+    cityResources:
+      m_keys: 
+      m_values: []
   location: {x: 0, y: 0}
   itemInventory: []
   ItemInventoryLimit: 6
@@ -92,10 +95,13 @@ MonoBehaviour:
     Crystals:
       m_keys: 
       m_values: []
+    cityResources:
+      m_keys: 
+      m_values: []
   city: {fileID: 0}
-  boarderLength: 1
-  teritory: []
-  ownResources:
+  populationGrowthHelp: 0
+  unitProductionHelp: 0
+  percentageExtraResources:
     resources:
       m_keys: 
       m_values: []
@@ -111,10 +117,18 @@ MonoBehaviour:
     Crystals:
       m_keys: 
       m_values: []
+    cityResources:
+      m_keys: 
+      m_values: []
+  cityResources:
+    m_keys: 
+    m_values: []
+  boarderLength: 1
+  teritory: []
   capital: 0
   approvalThreshold: -10
   population: 3
-  maxPopulation: 4
+  maxPopulation: 7
   typeOfCity: 1
   unitStartIndex: 1
   numOfUnits: 5
@@ -125,11 +139,16 @@ MonoBehaviour:
   unitProduction: -1
   itemProduction: -1
   districtProduction: -1
+  productionConsumption: 0
+  ProductionLeftAtEnd: 0
   positionSelectingMode: 0
   daysTillProduced: -1
   districts: []
   thisDistrict: {fileID: 0}
   camped: 0
+  availableImprovements: 
+  availableUnits: 
+  availableDistricts: 
 --- !u!114 &-7891849302198015970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +184,9 @@ MonoBehaviour:
     Crystals:
       m_keys: 
       m_values: []
+    cityResources:
+      m_keys: 
+      m_values: []
   location: {x: 0, y: 0}
   itemInventory: []
   ItemInventoryLimit: 6
@@ -186,7 +208,31 @@ MonoBehaviour:
     Crystals:
       m_keys: 
       m_values: []
+    cityResources:
+      m_keys: 
+      m_values: []
   city: {fileID: 0}
+  populationGrowthHelp: 0
+  unitProductionHelp: 0
+  percentageExtraResources:
+    resources:
+      m_keys: 
+      m_values: []
+    RawMaterials:
+      m_keys: 
+      m_values: []
+    Energies:
+      m_keys: 
+      m_values: []
+    OtherResources:
+      m_keys: 
+      m_values: []
+    Crystals:
+      m_keys: 
+      m_values: []
+    cityResources:
+      m_keys: 
+      m_values: []
   buildingStartingIndex: 0
   numOfBuildings: 0
   buildingProduction: -1
@@ -199,6 +245,45 @@ MonoBehaviour:
   buildingLocation: {x: 0, y: 0}
   positionSelectingMode: 0
   buildings: []
+  campResources:
+    resources:
+      m_keys: 
+      m_values: []
+    RawMaterials:
+      m_keys: 
+      m_values: []
+    Energies:
+      m_keys: 
+      m_values: []
+    OtherResources:
+      m_keys: 
+      m_values: []
+    Crystals:
+      m_keys: 
+      m_values: []
+    cityResources:
+      m_keys: 
+      m_values: []
+  villageResources:
+    resources:
+      m_keys: 
+      m_values: []
+    RawMaterials:
+      m_keys: 
+      m_values: []
+    Energies:
+      m_keys: 
+      m_values: []
+    OtherResources:
+      m_keys: 
+      m_values: []
+    Crystals:
+      m_keys: 
+      m_values: []
+    cityResources:
+      m_keys: 
+      m_values: []
+  availableBuildings: []
 --- !u!114 &3706403764918985536
 MonoBehaviour:
   m_ObjectHideFlags: 0

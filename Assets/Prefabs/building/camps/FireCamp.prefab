@@ -128,7 +128,7 @@ MonoBehaviour:
   capital: 1
   approvalThreshold: -3
   population: 3
-  maxPopulation: 4
+  maxPopulation: 7
   typeOfCity: 0
   unitStartIndex: 1
   numOfUnits: 7

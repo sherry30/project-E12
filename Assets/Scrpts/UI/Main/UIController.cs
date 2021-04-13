@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
+
+    public enum Inventories
+    {
+        unit,
+        city,
+        district,
+        army
+    }
     public GameObject currentlyOpened = null;
+    public Inventories opened;
     public static UIController  Instance{get;private set;}
     private HealthBar healthBar;
     public int unitInv,cityInv,districtInv, armyInv;
@@ -19,7 +28,8 @@ public class UIController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void openBuildingHub(){
+    public void openCityHub(){
+        opened = Inventories.city;
         if(currentlyOpened!=null)
             hideUI();   
         else if(currentlyOpened==gameObject.transform.GetChild(0).transform.GetChild(cityInv).gameObject){
@@ -31,7 +41,8 @@ public class UIController : MonoBehaviour
         displayUI();
     }
     public void openDistrictHub(){
-        if(currentlyOpened!=null)
+        opened = Inventories.district;
+        if (currentlyOpened!=null)
             hideUI();   
         else if(currentlyOpened==gameObject.transform.GetChild(0).transform.GetChild(districtInv).gameObject){
             hideUI();   
@@ -43,7 +54,8 @@ public class UIController : MonoBehaviour
     }
 
     public void openUnitHub(){
-        if(currentlyOpened!=null){
+        opened = Inventories.unit;
+        if (currentlyOpened!=null){
             hideUI();   
         }
         else if(currentlyOpened==gameObject.transform.GetChild(0).transform.GetChild(unitInv).gameObject){
@@ -57,7 +69,7 @@ public class UIController : MonoBehaviour
 
     public void openArmyHub()
     {
-
+        opened = Inventories.army;
         //hiding whatever is already open
         if (currentlyOpened != null)
         {
@@ -136,4 +148,15 @@ public class UIController : MonoBehaviour
         hideUI();
     }
 
+    public void refreshUI()
+    {
+        if (opened == Inventories.unit)
+            openUnitHub();
+        if (opened == Inventories.army)
+            openArmyHub();
+        if (opened == Inventories.city)
+            openCityHub();
+        if (opened == Inventories.district)
+            openDistrictHub();
+    }
 }

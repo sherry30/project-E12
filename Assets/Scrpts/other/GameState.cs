@@ -117,14 +117,17 @@ public class GameState : MonoBehaviour
         currentPlayerTurn = turnOrder[turn];
 
         //executing onStartMethod of the current TurnPlayer an onEndTurn for Npc and AIs to instantly skip turn
-        if(currentPlayerTurn==Turn.Player)
+        if (currentPlayerTurn == Turn.Player)
+        {
             //onStartTurn();
             PlayerController.Instance.StartTurn();
-        else if(currentPlayerTurn == Turn.NPC){
+        }
+        else if (currentPlayerTurn == Turn.NPC)
+        {
             NPCController.Instance.StartTurn();
             onEndTurn();
         }
-        else if(currentPlayerTurn == Turn.AI)
+        else if (currentPlayerTurn == Turn.AI)
         {
             AIController.Instance.StartTurn();
             onEndTurn();

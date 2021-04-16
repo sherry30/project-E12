@@ -7779,7 +7779,7 @@ MonoBehaviour:
     type: 3}
   mapHeight: 60
   mapWidth: 60
-  cameraOffset: 300
+  cameraOffset: 20
 --- !u!4 &825228301
 Transform:
   m_ObjectHideFlags: 0

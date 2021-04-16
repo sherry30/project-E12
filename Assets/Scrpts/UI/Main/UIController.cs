@@ -7,13 +7,14 @@ public class UIController : MonoBehaviour
 
     public enum Inventories
     {
+        none,
         unit,
         city,
         district,
         army
     }
     public GameObject currentlyOpened = null;
-    public Inventories opened;
+    public Inventories opened=Inventories.none;
     public static UIController  Instance{get;private set;}
     private HealthBar healthBar;
     public int unitInv,cityInv,districtInv, armyInv;
@@ -112,6 +113,7 @@ public class UIController : MonoBehaviour
         }
     }
     private void hideUI(){
+        opened = Inventories.none;
         if(currentlyOpened==null)
             return;
         currentlyOpened.SetActive(false);

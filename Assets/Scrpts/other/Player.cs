@@ -231,6 +231,6 @@ public class Player
         //refreshing UI after setting all the new variabkles
         UIController.Instance.refreshUI();
         //populationGrowth();
-        
+
     }
 }

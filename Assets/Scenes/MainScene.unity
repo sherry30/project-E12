@@ -7777,8 +7777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HexPrefab: {fileID: 4491068990926585414, guid: f0dfd61b941a14866978bac041563223,
     type: 3}
-  mapHeight: 60
-  mapWidth: 60
+  mapHeight: 50
+  mapWidth: 50
   cameraOffset: 20
 --- !u!4 &825228301
 Transform:
@@ -7819,10 +7819,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21aa30f8cc9c6b99caf9bf7958be3d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunks: 8
-  chunkSize: 7
-  chunkiness: 4
-  mutateProbability: 0.9
+  chunks: 7
+  chunkSize: 9
+  chunkiness: 2
+  mutateProbability: 0.7
   mats:
   - variations:
     - {fileID: 2100000, guid: ec19d8c00d5593a0ba80072c9e811c66, type: 2}

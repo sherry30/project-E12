@@ -22,6 +22,9 @@ public class UnitUI : MonoBehaviour
         }
         //creating army in the player object
         PlayerController.Instance.player.createArmy(hexComp.units);
+        UIController.Instance.deSelectObject();
+        UIController.Instance.openArmyHub();
+        
 
     }
 

@@ -150,6 +150,7 @@ public class UIController : MonoBehaviour
         hideUI();
     }
 
+
     public void refreshUI()
     {
         if (opened == Inventories.unit)
